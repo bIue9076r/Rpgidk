@@ -53,7 +53,8 @@
 		"lowerRep",
 		"raiseRep",
 		"arrest",
-		"lowerCash"
+		"lowerCash",
+		"__CityEntryNote"
 	],
 	"Lua.diagnostics.disable": [
 		"lowercase-global",
