@@ -1,0 +1,188 @@
+Dialoge trees for the smarter npcs:
+
+location: libary
+npc: libarian
+hp: 1 --will die forever if you kill it
+
+Start:
+	player +Rep:
+		"Hello and welcome to the libary"
+		>'what is this place'
+			"The great libary of Frosted spkies"
+		>'can i have a libary card'
+			"sign here and there real quick"
+			# Receive Card
+		>'who are you'
+			"im Danny Tracey local libarian"
+		>(fight)(+10 Atk)'Say Hello to my Fist'
+			"Dont eat the dirt on the way down"
+		>(steal)(+15 Atk)'Look Behind you'
+			"What is it"
+			# Receive Card
+		>(leave)'ill be back later'
+			"thank you come again"
+	player -Rep:
+		"You want books right"
+		>(steal)(+17 Atk)'you're right i dont'
+			"you son of a bitch"
+		>'Yeah of course i do'
+			"come back later im busy"
+		>'can i have a libary card'
+			"no you can not"
+		>'who are you'
+			"like i want you to know"
+		>(leave)''
+			"thank you dont come again"
+	player stole:
+		"you cant trick me this time"
+		>(fight)(+15 Atk)'you sure about that'
+			"yeah when i smash your face into the ground"
+		>(leave)'ill be on my way'
+			"dont come back"
+	player attempts to steal:
+		"you thought you could steal from me"
+		>(fight)(+15 Atk)'yeah'
+			"bring it on"
+		>(leave)''
+			"Stay out"
+	player with libary card:
+		"What do you want?"
+		>'suprise me'
+		# Receive Ran City Book
+		>(fight)(+10 Atk)''
+		>(steal)(+15 Atk)''
+		# Receive Ran City Book
+		>(leave)''
+			"see you later"
+	player attempts murder:
+		"People you make me want to die"
+		>(fight)'i can help you with that'
+			"Shut the fuck up"
+		>(leave)''
+			"i hope you get run over"
+
+location: capital hall
+npc: security guard
+hp: 10 -- there are ten guards in the capital hall
+
+Start:
+	player +Rep:
+		"Stay Out of trouble"
+		>(leave)'...'
+	player -Rep:
+		"where do you think you're going"
+		>(leave)(lvl +5)'Just making my way to the musesum'
+			"Carry on"
+		>(fight)(lvl <5)'Uhh... no where'
+			"Stay Right there"
+		>(leave)'the exit'
+		# player leaves capital hall
+	player attempt on president:
+		"Freeze Tratior"
+	player stole:
+		"Freeze Theif"
+		>(fight)'no'
+			"???"
+		>(leave)(lvl +15)'got to go'
+			"ill get you next time"
+		>(fight)(lvl <15)'uhh... i need to leave'
+			"Get over here"
+	player attempts to steal:
+		"Freeze Criminal"
+		>(fight)'How about... no."
+			"???"
+		>(leave)(lvl +7)'behind you... the president'
+		# player leaves capital hall
+		>(fight)(lvl <7)'over there look'
+			"Get over here"
+	player killed teammates:
+		"Freeze Murderer"
+		>(leave)(lvl +15)'nah he went that way'
+			"Carry on then"
+		>(fight)(lvl <15)'pssh... could'nt have been me'
+			"Lier"
+		>(fight)'Want to be next'
+			"Lets boogie"
+
+location: capital hall
+npc: President Harley
+hp: 1 -- will die forever if you kill it
+
+Start:
+	player +Rep:
+		"Hello, how can i help you?"
+		>(fight lvl +17)'The grave called for you'
+			"Guards"
+			# grants the traitor flag
+			# you pretty much get hated by everyone inside this building
+			# and Ashley
+		>(steal lvl +20)'look behind you'
+			"What is it"
+		>(leave)
+	player -Rep:
+		""
+	player attempts murder:
+		""
+	player stole:
+		""
+	player attempts to steal:
+		""
+	player hurt Ashley:
+		""
+	player killed Ashley:
+		""
+
+location: City Buying Store
+npc: Ashley Jackson
+hp: 100 -- funcionaly 1 and will die forever if you kill it
+
+Start:
+	player -+Rep:
+		""
+	player stole:
+		""
+	player attempts to steal:
+		""
+	player attempts murder:
+		""
+	player kills Ashley:
+		""
+	
+
+location: captital hall
+npc: Janet Drew
+hp: 1 -- will die forever if you kill it
+
+Start:
+	player +Rep:
+		""
+		>(fight)
+		>(steal)
+		>(leave)
+	player -Rep:
+		""
+	player stole:
+		""
+	player attempts to steal:
+		""
+	player attempts murder:
+		""
+	player kills president:
+		""
+
+location: underground market
+npc: Suspisious trader
+hp: 15 -- fifteen traders in the market
+
+Start:
+	player -+Rep:
+		""
+		>(fight)
+		>(steal)
+		>(leave)
+	player stole:
+		""
+	player attempts to steal:
+		""
+	player attempts murder:
+		""

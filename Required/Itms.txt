@@ -1,0 +1,79 @@
+#Item Uses Look up table
+#--Raise Stats:--
+3:+n Hp
+4:fullheal
+5:+n Rep
+7:+n Atk
+9:+n Def
+11:+n Cash
+#--Lower Stats:--
+1:instant kill
+2:-n Hp
+6:-n Rep
+8:-n Atk
+10:-n Def
+12:-n Cash
+#--Consumables:--
+13:health-vile
+14:poison stew
+15:UpAtk
+16:UpDef
+56:Cool rock (moyai)
+#--Loot:--
+17:medkit
+18:potion
+19:Atk boost
+20:Def boost
+#--Food:--
+21,22: Steak + Super form
+23,24: Soda + Super form
+25,26: Salad + Super form
+27,28: Tea + Super form
+29,30: Cod + Super form
+31,32: Hot coco + Super form
+33,34: Roasted Scorpion + Super form
+35,36: Toxic Waste + Super form
+37,38: Salmon + Super form
+39,40: Coconut Juice + Super form
+41,42: Coconut + Super form
+43: Swamp Water (no super form)
+44,45: Wild Meat + Toxic form
+46,47: Cactus + Super form
+48,49: Sand Cake + Super form
+50,51: Slips O potatoes + Super form
+52,53: Slips O coconuts + Super form
+54,55: Fish Sticks + Super form
+57,58: Peanut Butter + Super form
+59,60: Mayonaise + Super form
+61,62: Hot Sauce + Super form
+63: Ice Block
+64,65: Mustard + Super form
+#--Food by region--
+##--City
+21,22: Steak + Super form
+23,24: Soda + Super form
+25,26: Salad + Super form
+50,51: Slips O potatoes + Super form
+57,58: Peanut Butter + Super form
+59,60: Mayonaise + Super form
+##--Desert
+27,28: Tea + Super form
+33,34: Roasted Scorpion + Super form
+46,47: Cactus + Super form
+48,49: Sand Cake + Super form
+61,62: Hot Sauce + Super form
+##--Ice
+29,30: Cod + Super form
+31,32: Hot coco + Super form
+37,38: Salmon + Super form
+54,55: Fish Sticks + Super form
+63: Ice Block
+##--Swamp
+39,40: Coconut Juice + Super form
+41,42: Coconut + Super form
+43: Swamp Water (no super form)
+52,53: Slips O coconuts + Super form
+64,65: Mustard + Super form
+#--Waste
+35,36: Toxic Waste + Super form
+44,45: Wild Meat + Toxic form
