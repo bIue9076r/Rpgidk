@@ -36,8 +36,8 @@ function ds4.keypressed(key)
 				if Rep < 0 then
 					LowerRep(10)
 				end
-				RaiseAtk(2)
-				RaiseCash(20)
+				raiseAtk(2)
+				raiseCash(20)
 				CrimeUpdate(3)
 				Exp:add(90)
 				Alert:new('Beat The Tourist','stat')
@@ -57,18 +57,18 @@ function ds4.keypressed(key)
 		end
 	else
 		if key == 'p' then
-			RaiseRep(25)
+			raiseRep(25)
 			Exp:add(100)
 			if Rep < 0 then
-				RaiseRep(20)
+				raiseRep(20)
 			end
 			Alert:new('Pointed at a\nlandmark','stat')
 			gamestate = 'alert'
 		elseif key == 't' then
-			RaiseRep(25)
+			raiseRep(25)
 			Exp:add(100)
 			if Rep < 0 then
-				RaiseRep(20)
+				raiseRep(20)
 			end
 			Alert:new('Gave directions to\n a landmark','stat')
 			gamestate = 'alert'

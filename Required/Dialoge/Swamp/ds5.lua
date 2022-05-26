@@ -33,9 +33,9 @@ function ds5.keypressed(key)
 				gamestate = 'alert'
 			elseif key == 'f' then
 				if Atk > 150 then
-					LowerRep(150)
-					RaiseAtk(4)
-					RaiseCash(50)
+					lowerRep(150)
+					raiseAtk(4)
+					raiseCash(50)
 					CrimeUpdate(3)
 					Exp:add(170)
 					Alert:new('Beat The Sailor','stat')
@@ -115,7 +115,7 @@ function ds5.keypressed(key)
 						end
 					end
 				elseif key == "l" then
-					dc5.option = false
+					ds5.option = false
 				end
 			end
 		end

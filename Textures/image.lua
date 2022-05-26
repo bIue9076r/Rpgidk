@@ -1,8 +1,9 @@
 image = {}
+settings = {mipmaps=false,linear=false,dpiscale=0}
 love.filesystem.newFile('MissingTextures.log')
 
 function image:newImage(n,p)
-	Image = love.graphics.newImage(p)
+	Image = love.graphics.newImage(p,settings)
 	image[n] = Image
 end
 
@@ -12,8 +13,8 @@ function image:getImage(n)
 			image:newImage(n,'/Textures/background/'..n..'.png')
 			return image[n]
 		end
-		love.filesystem.append('MissingTextures.log',tostring(os.time())..": "..n..'\n') ; 
-		return image['blankImage'] 
+		love.filesystem.append('MissingTextures.log',tostring(os.time())..": "..n..'\n') ;
+		return image['blankImage']
 	end
 	return image[n]
 end
