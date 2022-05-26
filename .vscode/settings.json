@@ -51,7 +51,9 @@
 		"Hurt",
 		"CrimeUpdate",
 		"lowerRep",
-		"raiseRep"
+		"raiseRep",
+		"arrest",
+		"lowerCash"
 	],
 	"Lua.diagnostics.disable": [
 		"lowercase-global",
