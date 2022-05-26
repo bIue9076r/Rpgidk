@@ -47,7 +47,7 @@ function ds5.keypressed(key)
 					gamestate = 'alert'
 				end
 			elseif key == 's' then
-				--rob()
+				rob(170,75,"The Sailor",20,170,false)
 			end
 		else
 			if not ds5.option then

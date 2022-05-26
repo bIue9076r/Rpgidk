@@ -50,9 +50,9 @@ function ds4.keypressed(key)
 			end
 		elseif key == 's' then
 			if Rep <= 0 then
-				--rob()
+				rob(20,25,"The Tourist",20,90,true)
 			else
-				--rob()
+				rob(25,30,"The Tourist",20,90,true)
 			end
 		end
 	else
