@@ -6,5 +6,10 @@
 	"Lua.workspace.checkThirdParty": false,
 	"Lua.diagnostics.globals": [
 		"sound"
+	],
+	"Lua.diagnostics.disable": [
+		"lowercase-global",
+		"deprecated",
+		"undefined-global"
 	]
 }
