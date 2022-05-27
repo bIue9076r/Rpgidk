@@ -32,9 +32,9 @@ function ds4.keypressed(key)
 			gamestate = 'alert'
 		elseif key == 'f' then
 			if Atk > 20 then
-				LowerRep(50)
+				lowerRep(50)
 				if Rep < 0 then
-					LowerRep(10)
+					lowerRep(10)
 				end
 				raiseAtk(2)
 				raiseCash(20)

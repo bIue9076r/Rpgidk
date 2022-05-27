@@ -149,12 +149,28 @@ function ds5.keypressed(key)
 				if key == 'y' then
 					ds5.option = true
 				elseif key == 'r' then
-
+					if Atk >= 170 or math.random(1,25) == 4 then
+						lowerRep(195)
+						CrimeUpdate(2)
+						Item:new("Mystery Food","Mystery",0,0)
+						Alert:new('Stole the Sailor\'s item','stat')
+						Exp:add(250)
+						gamestate = 'alert'
+						ds5.inDialoge = false
+					else
+						Hurt(175)
+						lowerRep(30)
+						CrimeUpdate(1)
+						Alert:new('Failed to rob the Sailor','stat')
+						gamestate = 'alert'
+						ds5.inDialoge = false
+					end
 				elseif key == 'l' then
 					ds5.inDialoge = false
 				end
 			else
-
+				ds5.m = '"Well i aint selling"'
+				ds5.option = false
 			end
 		end
 	end
