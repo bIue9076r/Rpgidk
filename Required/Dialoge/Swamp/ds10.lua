@@ -27,7 +27,7 @@ function ds10.keypressed(key)
 		if not ds10.inDialoge then
 			
 		else
-			if not ds10.inDialoge then
+			if not ds10.option then
 				
 			else
 
@@ -37,7 +37,7 @@ function ds10.keypressed(key)
 		if not ds10.inDialoge then
 			
 		else
-			if not ds10.inDialoge then
+			if not ds10.option then
 				
 			else
 				

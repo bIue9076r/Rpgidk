@@ -27,7 +27,7 @@ function ds8.keypressed(key)
 		if not ds8.inDialoge then
 			
 		else
-			if not ds8.inDialoge then
+			if not ds8.option then
 				
 			else
 
@@ -37,7 +37,7 @@ function ds8.keypressed(key)
 		if not ds8.inDialoge then
 			
 		else
-			if not ds8.inDialoge then
+			if not ds8.option then
 				
 			else
 				

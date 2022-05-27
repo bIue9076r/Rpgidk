@@ -54,7 +54,18 @@
 		"raiseRep",
 		"arrest",
 		"lowerCash",
-		"__CityEntryNote"
+		"__CityEntryNote",
+		"drawOptions",
+		"Rep",
+		"Atk",
+		"Def",
+		"item",
+		"Nitem",
+		"inv_draw_stuff_select",
+		"Inv_page",
+		"food_menu_draw",
+		"TimeSinceLastCrime",
+		"lowerAtk"
 	],
 	"Lua.diagnostics.disable": [
 		"lowercase-global",

@@ -40,7 +40,7 @@ function dd5.keypressed(key)
 	else
 		if key == 'f' then
 			if Atk >= 120 then
-				dd1.Hp = dd1.Hp - 5
+				dd5.Hp = dd5.Hp - 5
 				raiseAtk(15)
 				raiseDef(4)
 				raiseRep(-175)
