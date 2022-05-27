@@ -88,5 +88,6 @@
 		"lowercase-global",
 		"deprecated",
 		"missing-parameter"
-	]
+	],
+	"pixelbyte.love2d.debug": true
 }
