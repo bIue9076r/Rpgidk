@@ -16,13 +16,13 @@ function ds6.draw()
 		ds6.m = '"?"'
 		ds6.o = {'t:talk','r:run','f:fight','s:steal'}
 	end
-	love.graphics.draw(ds5.i,60,40)
+	love.graphics.draw(ds6.i,60,40)
 	love.graphics.print({{0,0,0},ds6.n},60,260)
 	love.graphics.print({{0,0,0},ds6.m},60,280)
 	love.graphics.print({{0,0,0},ds6.m2},60,300)
 	drawOptions(ds6.o)
 end
-function ds6.keypressed()
+function ds6.keypressed(key)
 	if Rep >= 0 then
 		if not ds6.inDialoge then
 			
