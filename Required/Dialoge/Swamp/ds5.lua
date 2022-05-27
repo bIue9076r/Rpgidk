@@ -120,7 +120,43 @@ function ds5.keypressed(key)
 			end
 		end
 	else
-		
+		if not ds5.inDialoge then
+			if key == 't' then
+				ds5.inDialoge = true
+			elseif key == 'r' then
+				Alert:new('Ran Away','stat')
+				gamestate = 'alert'
+			elseif key == 'f' then
+				if Atk > 170 then
+					lowerRep(200)
+					raiseAtk(5)
+					raiseCash(55)
+					CrimeUpdate(3)
+					Exp:add(175)
+					Alert:new('Beat The Sailor','stat')
+					gamestate = 'alert'
+				else
+					Hurt(180)
+					CrimeUpdate(1)
+					Alert:new('Failed to beat\nThe Sailor','stat')
+					gamestate = 'alert'
+				end
+			elseif key == 's' then
+				rob(175,80,"The Sailor",20,170,false)
+			end
+		else
+			if not ds5.option then
+				if key == 'y' then
+					ds5.option = true
+				elseif key == 'r' then
+
+				elseif key == 'l' then
+					ds5.inDialoge = false
+				end
+			else
+
+			end
+		end
 	end
 end
 D['swamp'][5] = ds5
