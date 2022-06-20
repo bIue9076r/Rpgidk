@@ -1,5 +1,5 @@
 image = {}
-settings = {mipmaps=false,linear=false,dpiscale=0}
+settings = {mipmaps=false,linear=false,dpiscale=1}
 love.filesystem.newFile('MissingTextures.log')
 
 function image:newImage(n,p)

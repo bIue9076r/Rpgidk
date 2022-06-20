@@ -23,7 +23,7 @@ Max_Hp=100
 Atk=0
 Def=0
 Cash=0
-Lck=1
+Lck=1 -- moderatly unused
 
 RepColor={love.math.colorFromBytes(138,138,136,255)}
 -- white (0-40) #EEEEEC 
@@ -39,7 +39,7 @@ Atk_color={love.math.colorFromBytes(242,0,203,255)}-- pink #F200CB - constant
 Def_color={love.math.colorFromBytes(0,181,189,255)}-- cyan #00B5BD - constant
 Cash_color={love.math.colorFromBytes(0,186,19,255)}-- green #00BA13 - constant
 
-death_cause="what the hell \ndid you even die from"
+death_cause="something went\nhorribly wrong"
 
 --Trading variables
 item={}
@@ -833,6 +833,7 @@ function test() end
 
 for i = 1,20 do
 	--Item:new("moyai","",56,10,false,10)]]
+	print(i)
 	Note:new("lib note"..i,i)
 end
 

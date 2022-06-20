@@ -129,8 +129,9 @@ function D.GetSubWorld(int)
 	local subloc = {
 		[1]='Libary',[2]='Capital Hall',[3]='Underground Market',
 		[4]='Desert Town',[5]='Desert Mine',[6]='Desert Temple',
-		[7]='Sea Dock',[8]='Big Green Lake',[9]='Ice Cave',[10]='Igloo Town',
-		[11]='Reactor',[12]='Destroyed Town',[13]='Criminal Base',
+		[7]='Sea Dock',[8]='Big Green Lake',[9]='Ice Cave',
+		[10]='Igloo Town',[11]='Research Base',[12]='Reactor',
+		[13]='Destroyed Town',[14]='Criminal Base',
 		}
 	return subloc[int]
 end

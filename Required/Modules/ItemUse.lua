@@ -510,6 +510,24 @@ function ItemUses.SuperMustard()
 end
 ItemUse[65] = ItemUses.SuperMustard
 
+function ItemUses.StarCandy()
+	Max_Hp = Max_Hp + 10
+	Hp = Hp + 50
+	Atk = Atk + 20
+	Alert:new("Ate Some Star Candy",'inv_stuff_select')
+	gamestate = 'alert'
+end
+ItemUse[66] = ItemUses.StarCandy
+
+function ItemUses.SuperStarCandy()
+	Max_Hp = Max_Hp + 35
+	Hp = Max_Hp
+	Atk = Atk + 30
+	Alert:new("Ate Some Super Star Candy",'inv_stuff_select')
+	gamestate = 'alert'
+end
+ItemUse[67] = ItemUses.SuperStarCandy
+
 --Item Selection Functions
 
 function ItemUseRad() -- select a random Use

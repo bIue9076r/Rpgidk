@@ -48,6 +48,7 @@
 61,62: Hot Sauce + Super form
 63: Ice Block
 64,65: Mustard + Super form
+66,67: Star Candy + Super form
 #--Food by region--
 ##--City
 21,22: Steak + Super form
