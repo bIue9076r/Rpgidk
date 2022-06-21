@@ -1,21 +1,16 @@
 ds8 = {}
-ds8.n = ''
-ds8.m = '"?"'
+ds8.n = 'Swamp Bear'
+ds8.m = 'A Swamp Bear Apporoches'
 ds8.m2 = ''
-ds8.o = {'y:yes','r:run','f:fight','s:steal'}
+ds8.o = {'f:fight','r:run'}
 ds8.f = ds8.o
 ds8.i = image:getImage()
 ds8.inDialoge = false
 ds8.option = false
-ds8.Hp = 100
+ds8.Hp = 25
 function ds8.draw()
-	if Rep >= 0 and ds8.inDialoge == false then
-		ds8.m = '"?"'
-		ds8.o = {'t:talk','r:run','f:fight','s:steal'}
-	elseif Rep < 0 and ds8.inDialoge == false then
-		ds8.m = '"?"'
-		ds8.o = {'t:talk','r:run','f:fight','s:steal'}
-	end
+	ds8.m = 'A Swamp Bear Apporoches'
+	ds8.o = {'f:fight','r:run'}
 	love.graphics.draw(ds8.i,60,40)
 	love.graphics.print({{0,0,0},ds8.n},60,260)
 	love.graphics.print({{0,0,0},ds8.m},60,280)
@@ -23,25 +18,30 @@ function ds8.draw()
 	drawOptions(ds8.o)
 end
 function ds8.keypressed(key)
-	if Rep >= 0 then
-		if not ds8.inDialoge then
-			
+	if key == 'f' then
+		if Atk >= 180 or math.random(1,20) then
+			ds8.Hp = ds8.Hp - 1
+			raiseAtk(20)
+			raiseDef(7)
+			raiseRep(75)
+			raiseCash(80)
+			Alert:new('Fought The Bear','stat')
+			gamestate = 'alert'
+			Exp:add(355)
 		else
-			if not ds8.option then
-				
-			else
-
-			end
+			Hurt(205)
+			Alert:new('Attacked by a Bear','stat')
+			gamestate = 'alert'
 		end
-	else
-		if not ds8.inDialoge then
-			
+	elseif key == 'r' then
+		if Def >= 35 or math.random(1,20) == 5 then
+			Alert:new('Ran Away','stat')
+			Exp:add(275)
+			gamestate = 'alert'
 		else
-			if not ds8.option then
-				
-			else
-				
-			end
+			Hurt(175)
+			Alert:new('Attacked by a Bear \nWhile Running Away','stat')
+			gamestate = 'alert'
 		end
 	end
 end

@@ -7,7 +7,7 @@ ds1.f = ds1.o
 ds1.i = image:getImage('')
 ds1.inDialoge = false
 ds1.option = false
-ds1.Hp = 100
+ds1.Hp = 50
 function ds1.draw()
 	ds1.m = 'A Wild Goose Aproaches you'
 	ds1.o = {'f:fight','r:run'}

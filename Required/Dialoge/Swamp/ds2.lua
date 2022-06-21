@@ -7,7 +7,7 @@ ds2.f = ds2.o
 ds2.i = image:getImage('')
 ds2.inDialoge = false
 ds2.option = false
-ds2.Hp = 100
+ds2.Hp = 70
 function ds2.draw()
 	ds2.m = 'A Giant Frog Aproaches you'
 	ds2.o = {'f:fight','r:run'}

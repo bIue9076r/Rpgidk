@@ -7,7 +7,7 @@ ds6.f = ds6.o
 ds6.i = image:getImage()
 ds6.inDialoge = false
 ds6.option = false
-ds6.Hp = 100
+ds6.Hp = 30
 function ds6.draw()
 	ds6.m = '"An Alligator Aproches"'
 	ds6.o = {'f:fight','r:run'}

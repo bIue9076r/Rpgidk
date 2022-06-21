@@ -7,7 +7,7 @@ ds7.f = ds7.o
 ds7.i = image:getImage()
 ds7.inDialoge = false
 ds7.option = false
-ds7.Hp = 100
+ds7.Hp = 10
 function ds7.draw()
 	if Rep >= -50 and ds7.inDialoge == false then
 		ds7.m = '"What are you doing this far south?"'
@@ -70,8 +70,13 @@ function ds7.keypressed(key)
 				Alert:new('Arrested by the \nSwamp Ranger','arrest')
 				gamestate = 'alert'
 			elseif key == 'r' then
-				Alert:new('Ran away from the \nSwamp Ranger','stat')
-				gamestate = 'alert'
+				if Def >= 30 then
+					Alert:new('Ran away from the \nSwamp Ranger','stat')
+					gamestate = 'alert'
+				else
+					Alert:new('Failed to escape','arrest')
+					gamestate = 'alert'
+				end
 			elseif key == 't' then
 				ds7.m = '"..."'
 				ds7.inDialoge = true
