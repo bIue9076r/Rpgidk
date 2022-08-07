@@ -43,6 +43,7 @@ function dd4.keypressed(key)
 				raiseDef(1)
 				lowerRep(100)
 				raiseCash(25)
+				Item:new("Tooth","Tooth",6,25)
 				Alert:new('Fought The Wanderer','stat')
 				gamestate = 'alert'
 				Exp:add(140)

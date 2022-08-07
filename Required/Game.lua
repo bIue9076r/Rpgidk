@@ -75,6 +75,11 @@ Subselected = false
 TimeSinceLastCrime = 0
 Kills = 0
 
+--Dialoge variables
+yellowSnowEater = false
+iceBaseFound = false
+helpedResearcher = false
+
 --Quests
 Quest:new('ashley')
 
@@ -166,6 +171,9 @@ function save()
 		..Sally_Hp..'\nGeorge_Hp='..George_Hp
 		..'\nWillson_Hp='..Willson_Hp..'\nPenelope_Hp='..Penelope_Hp
 		..'\nshopimg="'..shopimg..'"\ndebugmode='..tostring(debugmode)
+		..'"\nyellowSnowEater='..tostring(yellowSnowEater)
+		..'"\niceBaseFound='..tostring(iceBaseFound)
+		..'"\nhelpedResearcher='..tostring(helpedResearcher)
 		..'\nExp:HardOverride('..Exp:exportCount()..','
 		..Exp:exportLevel()..')\n'..items..'\n'
 		..notes..'\n'..d..'\nreturn 0')

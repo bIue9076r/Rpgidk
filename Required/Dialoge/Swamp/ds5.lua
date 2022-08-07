@@ -38,6 +38,7 @@ function ds5.keypressed(key)
 					raiseCash(50)
 					CrimeUpdate(3)
 					Exp:add(170)
+					Item:new("Tooth","Tooth",6,35)
 					Alert:new('Beat The Sailor','stat')
 					gamestate = 'alert'
 				else
@@ -133,6 +134,7 @@ function ds5.keypressed(key)
 					raiseCash(55)
 					CrimeUpdate(3)
 					Exp:add(175)
+					Item:new("Tooth","Tooth",6,45)
 					Alert:new('Beat The Sailor','stat')
 					gamestate = 'alert'
 				else

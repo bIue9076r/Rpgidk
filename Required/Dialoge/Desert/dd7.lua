@@ -43,6 +43,7 @@ function dd7.keypressed(key)
 					raiseCash(200)
 					CrimeUpdate(2)
 					Item:new("Bounty Hat","BountyHat",6,45)
+					Item:new("Tooth","Tooth",6,45)
 					----------1234567890 fits the 13 char limit
 					Alert:new('Fought a Bounty Hunter','stat')
 					Exp:add(550)

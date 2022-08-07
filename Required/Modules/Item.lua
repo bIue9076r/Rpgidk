@@ -42,6 +42,7 @@ function Item:use(page,count) -- uses an item
 		Item:Remove(index)
 		-- removes the item
 	else
+		Item.items[index].used = true
 		Item.items[index].uses = Item.items[index].uses - 1
 	end
 end

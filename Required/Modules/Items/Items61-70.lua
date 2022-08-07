@@ -65,3 +65,21 @@ function ItemUses.Moss()
 	gamestate = 'alert'
 end
 ItemUse[68] = ItemUses.Moss
+
+function ItemUses._item()
+	Max_Hp = Max_Hp + 500
+	Hp = Hp + 500
+	Atk = Atk + 500
+	Alert:new("Ate Some [place holder item]",'inv_stuff_select')
+	gamestate = 'alert'
+end
+ItemUse[69] = ItemUses._item
+
+
+function ItemUses.Carrot()
+	Hp = Hp + 15
+	Atk = Atk + 1
+	Alert:new("Ate A Carrot",'inv_stuff_select')
+	gamestate = 'alert'
+end
+ItemUse[70] = ItemUses.Carrot

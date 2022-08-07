@@ -41,6 +41,7 @@ function ds7.keypressed(key)
 					raiseCash(65)
 					CrimeUpdate(3)
 					Exp:add(180)
+					Item:new("Tooth","Tooth",6,55)
 					Alert:new('Beat The \nSwamp Ranger','stat')
 					gamestate = 'alert'
 				else

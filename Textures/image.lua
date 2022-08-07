@@ -8,6 +8,7 @@ function image:newImage(n,p)
 end
 
 function image:getImage(n)
+	n = n or ""
 	if image[n] == nil then
 		if love.filesystem.getInfo('/Textures/background/'..n..'.png') then
 			image:newImage(n,'/Textures/background/'..n..'.png')

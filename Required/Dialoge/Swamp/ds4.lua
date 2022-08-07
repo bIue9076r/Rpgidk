@@ -40,6 +40,7 @@ function ds4.keypressed(key)
 				raiseCash(20)
 				CrimeUpdate(3)
 				Exp:add(90)
+				Item:new("Tooth","Tooth",6,25)
 				Alert:new('Beat The Tourist','stat')
 				gamestate = 'alert'
 			else

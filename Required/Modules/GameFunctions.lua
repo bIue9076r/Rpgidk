@@ -177,7 +177,7 @@ function displayFoodMenu(loc)
 		love.graphics.print({{0,0,0},"Soda $5"},95,290+(20*2))
 		love.graphics.draw(image:getImage("placeholderIcon"),60,290+(20*2))
 	elseif loc == 'desert' then
-		love.graphics.print({{0,0,0},"Cactus $15"},95,290)
+		love.graphics.print({{0,0,0},"Cactus $25"},95,290)
 		love.graphics.draw(image:getImage("placeholderIcon"),60,290)
 		love.graphics.print({{0,0,0},"Sand Cakes $20"},95,290+20)
 		love.graphics.draw(image:getImage("placeholderIcon"),60,290+20)

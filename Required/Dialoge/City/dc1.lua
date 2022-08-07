@@ -38,7 +38,7 @@ function dc1.keypressed(key)
 					gamestate = 'alert'
 				else
 					Hurt(10)
-					Alert:new('Beat up','stat')
+					Alert:new('You got beat up','stat')
 					gamestate = 'alert'
 				end
 			elseif key == 'r' then
@@ -50,11 +50,11 @@ function dc1.keypressed(key)
 					if Cash >= 10 then
 						Hurt(10)
 						lowerCash(10)
-						Alert:new('Beat up','stat')
+						Alert:new('You got beat up','stat')
 						gamestate = 'alert'
 					else
 						Hurt(10)
-						Alert:new('lol poor','stat')
+						Alert:new('You got beat up','stat')
 						gamestate = 'alert'
 					end
 				end
@@ -72,11 +72,11 @@ function dc1.keypressed(key)
 					if Cash >= 10 then
 						Hurt(10)
 						lowerCash(10)
-						Alert:new('Beat up','stat')
+						Alert:new('You got beat up','stat')
 						gamestate = 'alert'
 					else
 						Hurt(10)
-						Alert:new('lol poor','stat')
+						Alert:new('You got beat up','stat')
 						gamestate = 'alert'
 					end
 				end
@@ -124,11 +124,11 @@ function dc1.keypressed(key)
 					if Cash >= 10 then
 						Hurt(10)
 						lowerCash(10)
-						Alert:new('Got beat nerd','stat')
+						Alert:new('You got beat up','stat')
 						gamestate = 'alert'
 					else
 						Hurt(10)
-						Alert:new('Your poor ass got beat up','stat')
+						Alert:new('You got beat up','stat')
 						gamestate = 'alert'
 					end
 				end

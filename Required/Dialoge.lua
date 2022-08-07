@@ -1,5 +1,5 @@
 D = {}
-D.location = 'desert'
+D.location = 'city'
 
 --Entry Notes Values
 __CityEntryNote = 1
@@ -39,7 +39,7 @@ function AdvDrawOptions(options,selectNum)
 	love.graphics.draw(image:getImage("Selected"),60,300+(selectNum*20))
 end
 
---[[
+--[[ -- make sure to remove i guess
 --Guide--
 
 function draw()
