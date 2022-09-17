@@ -39,25 +39,25 @@ function dd5.keypressed(key)
 		end
 	else
 		if key == 'f' then
-			if Atk >= 120 then
+			if Atk >= 320 then
 				dd5.Hp = dd5.Hp - 5
-				raiseAtk(15)
-				raiseDef(4)
-				raiseRep(-175)
-				raiseCash(50)
+				raiseAtk(49)
+				raiseDef(25)
+				raiseRep(-200)
+				raiseCash(75)
 				CrimeUpdate(2)
 				Alert:new('Fought The Sand Statue','stat')
 				gamestate = 'alert'
-				Exp:add(140)
+				Exp:add(350)
 			else
-				Hurt(95)
+				Hurt(290)
 				Alert:new('Beat by a Sand Statue','stat')
 				gamestate = 'alert'
 			end
 		elseif key == 'r' then
 			if Def >= 25 then
 				Alert:new('Ran Away','stat')
-				Exp:add(70)
+				Exp:add(320)
 				gamestate = 'alert'
 			else
 				Hurt(75)

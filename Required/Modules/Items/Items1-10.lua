@@ -1,3 +1,10 @@
+--0
+function ItemUses.null()
+	Alert:new("That did nothing",'inv_stuff_select')
+	gamestate = 'alert'
+end
+ItemUse[0] = ItemUses.null
+
 --1 to 10
 function ItemUses.Intakill()
 	death_cause = "you have died after\n consuming that item"

@@ -16,10 +16,11 @@ effect = sound:getSound('effect')
 effect2 = sound:getSound('BuyinStore')
 
 --Base stats
-loaded = false
+loaded=false
 Rep=0
 Hp=100
 Max_Hp=100
+Infected=false
 Atk=0
 Def=0
 Cash=0
@@ -83,102 +84,8 @@ helpedResearcher = false
 --Quests
 Quest:new('ashley')
 
-function save()
-	--pcall(function()
-	local itemTable = Item:get()
-	local items = ""
-	local noteTable = Note:get()
-	local notes = ""
-	local d = ""
-	for _,i in ipairs(itemTable) do
-		items= items.."Item:new('"..i.name..
-		"','"..i.icon.."',"..i.int..","..i.arg..") ; "
-	end
-	for _,i in ipairs(noteTable) do
-		notes= notes.."Note:new('"..i.name.."',"..i.int..") ; "
-	end
-	for _,i in ipairs(D.city) do
-		d = d.."D.city[".._.."].Hp="..i.Hp.."; "
-	end
-	for _,i in ipairs(D.desert) do
-		d = d.."D.desert[".._.."].Hp="..i.Hp.."; "
-	end
-	for _,i in ipairs(D.icespikes) do
-		d = d.."D.icespikes[".._.."].Hp="..i.Hp.."; "
-	end
-	for _,i in ipairs(D.swamp) do
-		d = d.."D.swamp[".._.."].Hp="..i.Hp.."; "
-	end
-	for _,i in ipairs(D.wasteland) do
-		d = d.."D.wasteland[".._.."].Hp="..i.Hp.."; "
-	end
-	--Sub
-	for _,i in ipairs(D.capitalHall) do
-		d = d.."D.capitalHall[".._.."].Hp="..i.Hp.."; "
-	end
-	for _,i in ipairs(D.libary) do
-		d = d.."D.libary[".._.."].Hp="..i.Hp.."; "
-	end
-	for _,i in ipairs(D.desertTown) do
-		d = d.."D.desertTown[".._.."].Hp="..i.Hp.."; "
-	end
-	for _,i in ipairs(D.undergroundMarket) do
-		d = d.."D.undergroundMarket[".._.."].Hp="..i.Hp.."; "
-	end
-	for _,i in ipairs(D.seaDock) do
-		d = d.."D.seaDock[".._.."].Hp="..i.Hp.."; "
-	end
-	for _,i in ipairs(D.desertTemple) do
-		d = d.."D.desertTemple[".._.."].Hp="..i.Hp.."; "
-	end
-	for _,i in ipairs(D.desertMine) do
-		d = d.."D.desertMine[".._.."].Hp="..i.Hp.."; "
-	end
-	for _,i in ipairs(D.bigGreenLake) do
-		d = d.."D.bigGreenLake[".._.."].Hp="..i.Hp.."; "
-	end
-	for _,i in ipairs(D.iceCave) do
-		d = d.."D.iceCave[".._.."].Hp="..i.Hp.."; "
-	end
-	for _,i in ipairs(D.iglooTown) do
-		d = d.."D.iglooTown[".._.."].Hp="..i.Hp.."; "
-	end
-	for _,i in ipairs(D.reactor) do
-		d = d.."D.reactor[".._.."].Hp="..i.Hp.."; "
-	end
-	for _,i in ipairs(D.destroyedTown) do
-		d = d.."D.destroyedTown[".._.."].Hp="..i.Hp.."; "
-	end
-	for _,i in ipairs(D.criminalBase) do
-		d = d.."D.criminalBase[".._.."].Hp="..i.Hp.."; "
-	end
-	love.filesystem.createDirectory("/Save/")
-	love.filesystem.write("/Save/.SaveFile",'item={}\nHp='..Hp..'\nRep='..Rep..'\nAtk='
-		..Atk..'\nDef='..Def..'\nCash='..Cash..'\nLck='..Lck.."\nitem[0]="..item[0].."\nitem[1]="
-		..item[1].."\nitem[2]="..item[2].."\nitem[3]="..item[3].."\n__CityEntryNote="..__CityEntryNote
-		.."\n__DesertEntryNote="..__DesertEntryNote.."\n__IceEntryNote="..__IceEntryNote
-		.."\n__SwampEntryNote="..__SwampEntryNote.."\n__WasteEntryNote="..__WasteEntryNote
-		.."\n__CapitalHallEntryNote="..__CapitalHallEntryNote.."\n__LibaryEntryNote="..__LibaryEntryNote
-		.."\n__UndergroundMarketEntryNote="..__UndergroundMarketEntryNote
-		.."\n__DesertTownEntryNote="..__DesertTownEntryNote.."\n__DesertMineEntryNote="..__DesertMineEntryNote
-		.."\n__DesertTempleEntryNote="..__DesertTempleEntryNote.."\n__SeaDockEntryNote="..__SeaDockEntryNote
-		.."\n__BigGreenLakeEntryNote="..__BigGreenLakeEntryNote.."\n__IceCaveEntryNote="..__IceCaveEntryNote
-		.."\n__IglooTownEntryNote="..__IglooTownEntryNote.."\n__ReactorEntryNote="..__ReactorEntryNote
-		.."\n__DestroyedTownEntryNote="..__DestroyedTownEntryNote.."\n__CriminalBaseEntryNote="..__CriminalBaseEntryNote
-		..'\nTimeSinceLastCrime='..TimeSinceLastCrime..'\nKills='..Kills..'\nname="'
-		..name..'"\nQuest:set("ashley",'..Quest:Return("ashley")..')'
-		..'\nD.location="'..D.location..'"\nAshley_Hp='..Ashley_Hp..'\nSally_Hp='
-		..Sally_Hp..'\nGeorge_Hp='..George_Hp
-		..'\nWillson_Hp='..Willson_Hp..'\nPenelope_Hp='..Penelope_Hp
-		..'\nshopimg="'..shopimg..'"\ndebugmode='..tostring(debugmode)
-		..'"\nyellowSnowEater='..tostring(yellowSnowEater)
-		..'"\niceBaseFound='..tostring(iceBaseFound)
-		..'"\nhelpedResearcher='..tostring(helpedResearcher)
-		..'\nExp:HardOverride('..Exp:exportCount()..','
-		..Exp:exportLevel()..')\n'..items..'\n'
-		..notes..'\n'..d..'\nreturn 0')
-	--end)
-end
+require("/Required/save")
+
 
 --love system functions
 function menu_draw()
@@ -353,7 +260,9 @@ end
 
 function gameover_draw()
 	--pcall(function()
-	love.audio.play(sound:getSound('GameEnd'))
+	local aud = 'GameEnd'
+	if Rep >= 500 then aud = 'GameEnd+rep' end
+	love.audio.play(sound:getSound(aud))
 	love.graphics.draw(image:getImage('gameover'),0,0)
 	--end)
 end

@@ -19,12 +19,12 @@ function di4.draw()
 end
 function di4.keypressed(key)
 	if key == "f" then
-		if Atk >= 350 then
+		if Atk >= 550 then
 			di4.Hp = di4.Hp - 1
-			raiseAtk(37)
-			raiseDef(13)
-			raiseRep(150)
-			raiseCash(150)
+			raiseAtk(57)
+			raiseDef(30)
+			raiseRep(350)
+			raiseCash(200)
 			Alert:new('Fought The Snow demon','stat')
 			Exp:add(500)
 			gamestate = 'alert'
@@ -39,7 +39,7 @@ function di4.keypressed(key)
 			Exp:add(75)
 			gamestate = 'alert'
 		else
-			Hurt(320)
+			Hurt(400)
 			Alert:new('Attacked by a Snow demon \nWhile Running Away','stat')
 			gamestate = 'alert'
 		end

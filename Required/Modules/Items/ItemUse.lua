@@ -22,12 +22,12 @@ require("/Required/Modules/Items/Items61-70")
 --Item Selection Functions
 
 function ItemUseRad() -- select a random Use
-	n = math.random(1,#ItemUse)
+	n = math.random(0,(#ItemUse - 1))
 	return ItemUse[n]
 end
 
 function ItemUseRadFood() -- select a random Use
-	t = math.random(20,#ItemUse)
+	t = math.random(20,(#ItemUse - 1))
 	if t == 20 then t = 15 end
 	return ItemUse[t]
 end

@@ -19,12 +19,12 @@ function di5.draw()
 end
 function di5.keypressed(key)
 	if key == "f" then
-		if Atk >= 320 or math.random(1,20) == 5 then
+		if Atk >= 500 or math.random(1,20) == 5 then
 			di5.Hp = di5.Hp - 1
-			raiseAtk(35)
-			raiseDef(12)
-			raiseRep(100)
-			raiseCash(100)
+			raiseAtk(46)
+			raiseDef(23)
+			raiseRep(200)
+			raiseCash(150)
 			Alert:new('Fought The Yeti','stat')
 			Exp:add(460)
 			gamestate = 'alert'

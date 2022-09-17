@@ -30,4 +30,4 @@ function ds12.keypressed(key)
 		gamestate = 'alert'
 	end
 end
-D['swamp'][10] = ds12
+D['swamp'][12] = ds12

@@ -295,6 +295,8 @@ function Restock(dt)
 end
 
 function CrimeUpdate(lvl)
+	--10: 300 = 5min
+	--5: 150 = 2min + min/half 
 	--3: 90 = min + min/half
 	--2: 60 = min
 	--1: 30 = min/half
