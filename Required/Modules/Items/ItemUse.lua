@@ -2,7 +2,7 @@
 ItemUse={} -- Item use table /* Selection Table */
 ItemUses = {} -- Item function  /* Function Table */
 
-
+require("/Required/Modules/Range")
 --Item Functions
 --1 to 10
 require("/Required/Modules/Items/Items1-10")
@@ -18,18 +18,25 @@ require("/Required/Modules/Items/Items41-50")
 require("/Required/Modules/Items/Items51-60")
 --61 to 70
 require("/Required/Modules/Items/Items61-70")
+--71 to 80
+require("/Required/Modules/Items/Items71-80")
+--81 to 90
+require("/Required/Modules/Items/Items81-90")
 
 --Item Selection Functions
 
 function ItemUseRad() -- select a random Use
-	n = math.random(0,(#ItemUse - 1))
-	return ItemUse[n]
+	range = "0~21,23~41/2,43~46,48~56/2,57~63/2,64~68/2,70~87"
+	itblu = Range.parse(range)
+	n = math.random(1,#itblu)
+	return ItemUse[itblu[n]]
 end
 
 function ItemUseRadFood() -- select a random Use
-	t = math.random(20,(#ItemUse - 1))
-	if t == 20 then t = 15 end
-	return ItemUse[t]
+	rangef = "21~43/2,44~48/2,52,54,55~63/2,64~70/2,71~73,87"
+	itbluf = Range.parse(range)
+	t = math.random(1,#itbluf)
+	return ItemUse[itbluf[t]]
 end
 
 function ItemUseGet(n) -- select a use in the ItemUse table

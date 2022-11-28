@@ -8,6 +8,9 @@ dw5.i = image:getImage('')
 dw5.inDialoge = false
 dw5.option = false
 dw5.Hp = 75
+dw5.Atk = 350
+dw5.Def = 50
+dw5.friendly = "Enemy"
 function dw5.draw()
 	dw5.m = 'A Toxic Scorpian approaches you'
 	dw5.o = {'f:fight','r:run'}
@@ -16,6 +19,7 @@ function dw5.draw()
 	love.graphics.print({{0,0,0},dw5.m},60,280)
 	love.graphics.print({{0,0,0},dw5.m2},60,300)
 	drawOptions(dw5.o)
+	drawstats(dw5)
 end
 function dw5.keypressed(key)
 	if key == 'f' then
@@ -40,7 +44,7 @@ function dw5.keypressed(key)
 			gamestate = 'alert'
 		else
 			Hurt(320)
-			Alert:new('Attacked by a Toxic Scorpian \nWhile Running Away','stat')
+			Alert:new('Attacked by a Toxic Scorpian\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

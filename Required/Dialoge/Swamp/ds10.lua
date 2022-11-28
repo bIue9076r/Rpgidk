@@ -8,6 +8,9 @@ ds10.i = image:getImage('')
 ds10.inDialoge = false
 ds10.option = false
 ds10.Hp = 50
+ds10.Atk = 130
+ds10.Def = 24
+ds10.friendly = "Enemy"
 function ds10.draw()
 	ds10.m = 'A Wild Turtle Aproaches you'
 	ds10.o = {'f:fight','r:run'}
@@ -16,6 +19,7 @@ function ds10.draw()
 	love.graphics.print({{0,0,0},ds10.m},60,280)
 	love.graphics.print({{0,0,0},ds10.m2},60,300)
 	drawOptions(ds10.o)
+	drawstats(ds10)
 end
 function ds10.keypressed(key)
 	if key == 'f' then
@@ -40,7 +44,7 @@ function ds10.keypressed(key)
 			gamestate = 'alert'
 		else
 			Hurt(120)
-			Alert:new('Biten by a Turtle \nWhile Running Away','stat')
+			Alert:new('Biten by a Turtle\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

@@ -8,6 +8,9 @@ di10.i = image:getImage('')
 di10.inDialoge = false
 di10.option = false
 di10.Hp = 10
+di10.Atk = 210
+di10.Def = 39
+di10.friendly = "Enemy"
 function di10.draw()
 	di10.m = 'An Artic Fox aproaches you'
 	di10.o = {'f:fight','r:run'}
@@ -16,6 +19,7 @@ function di10.draw()
 	love.graphics.print({{0,0,0},di10.m},60,280)
 	love.graphics.print({{0,0,0},di10.m2},60,300)
 	drawOptions(di10.o)
+	drawstats(di10)
 end
 function di10.keypressed(key)
 	if key == "f" then
@@ -30,7 +34,7 @@ function di10.keypressed(key)
 			Exp:add(385)
 		else
 			Hurt(225)
-			Alert:new('Attacked by a Artic Fox','stat')
+			Alert:new('Attacked by an Artic Fox','stat')
 			gamestate = 'alert'
 		end
 	elseif key == "r" then
@@ -40,7 +44,7 @@ function di10.keypressed(key)
 			gamestate = 'alert'
 		else
 			Hurt(200)
-			Alert:new('Attacked by a Artic Fox \nWhile Running Away','stat')
+			Alert:new('Attacked by an Artic Fox\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

@@ -8,6 +8,9 @@ dc4.i = image:getImage('TaxiDriver')
 dc4.inDialoge = false
 dc4.option = false
 dc4.Hp = 10
+dc4.Atk = 20
+dc4.Def = 5
+dc4.friendly = "Neutral"
 dc4.soundOpts = {}
 function dc4.draw()
 	if Rep >= 0 and dc4.inDialoge == false then
@@ -24,6 +27,7 @@ function dc4.draw()
 	love.graphics.print({{0,0,0},dc4.m},60,280)
 	love.graphics.print({{0,0,0},dc4.m2},60,300)
 	drawOptions(dc4.o)
+	drawstats(dc4)
 end
 function dc4.keypressed(key)
 	if Rep >= 0 then

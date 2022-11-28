@@ -8,6 +8,9 @@ dw4.i = image:getImage('')
 dw4.inDialoge = false
 dw4.option = false
 dw4.Hp = 25
+dw4.Atk = 200
+dw4.Def = 57
+dw4.friendly = "Neutral"
 function dw4.draw()
 	if dw4.inDialoge == false then
 		dw4.m = '"Want some food?"'
@@ -18,13 +21,14 @@ function dw4.draw()
 	love.graphics.print({{0,0,0},dw4.m},60,280)
 	love.graphics.print({{0,0,0},dw4.m2},60,300)
 	drawOptions(dw4.o)
+	drawstats(dw4)
 	if dw4.option then
 		food_menu_draw()
 	end
 end
 function dw4.keypressed(key)
 	if not dw4.inDialoge then
-		if key == 't' then
+		if key == 'y' then
 			dw4.m = '"Want to take a look"'
 			dw4.o = {'b:buy','s:steal','l:leave'}
 			dw4.inDialoge = true
@@ -47,7 +51,7 @@ function dw4.keypressed(key)
 				lowerRep(210)
 				Hurt(250)
 				CrimeUpdate(1)
-				Alert:new('Failed to beat \nthe Hunter','stat')
+				Alert:new('Failed to beat\n\nthe Hunter','stat')
 				gamestate = 'alert'
 			end
 		end
@@ -87,30 +91,30 @@ function dw4.keypressed(key)
 				end
 			elseif key == "return" then
 				if Food_select == 1 then
-					if Cash >= 25 then
-						Cash = Cash - 25
-						Item:new('Cactus','placeholderIcon',46)
-						Alert:new('Bought Cactus','world')
+					if Cash >= 20 then
+						Cash = Cash - 20
+						Item:new('Rosted Scorpion','placeholderIcon',46)
+						Alert:new('Bought Rosted Scorpion','world')
 						gamestate = 'alert'
 					else
 						Alert:new('Not enough cash','world')
 						gamestate = 'alert'
 					end
 				elseif Food_select == 2 then
-					if Cash >= 30 then
-						Cash = Cash - 30
-						Item:new('SandCake','placeholderIcon',48)
-						Alert:new('Bought a Sandcake','world')
+					if Cash >= 5 then
+						Cash = Cash - 5
+						Item:new('Wild Game','placeholderIcon',48)
+						Alert:new('Bought Wild Game','world')
 						gamestate = 'alert'
 					else
 						Alert:new('Not enough cash','world')
 						gamestate = 'alert'
 					end
 				elseif Food_select == 3 then
-					if Cash >= 8 then
-						Cash = Cash - 8
-						Item:new('Tea','placeholderIcon',27)
-						Alert:new('Bought some Tea','world')
+					if Cash >= 30 then
+						Cash = Cash - 30
+						Item:new('Toxic Waste','placeholderIcon',27)
+						Alert:new('Bought some Toxic Waste','world')
 						gamestate = 'alert'
 					else
 						Alert:new('Not enough cash','world')

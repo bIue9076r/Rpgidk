@@ -9,9 +9,9 @@ Note.count = 0
 
 function Note:new(name,funint) -- creates a new Note
 	theTable = {}
-	theTable.name = name -- the name of the Note
+	theTable.name = name or 'null' -- the name of the Note
 	theTable.icon = 'placeholderIcon'--'Mystery' -- the icon image
-	theTable.int = funint -- the function integer
+	theTable.int = funint or -1 -- the function integer
 	theTable.use = NoteUseGet(theTable.int) -- Note use function
 	table.insert(Note.Notes,theTable)
 end
@@ -53,7 +53,7 @@ end
 
 function Note:Remove(n) -- removes the selected Note
 	Note.Notes[n] = nil
-	for i = n+1,#Note.Notes do
+	for i = n+1,#Note.Notes+2 do
 		Note.Notes[i-1]=Note.Notes[i]
 		Note.Notes[i] = nil
 	end

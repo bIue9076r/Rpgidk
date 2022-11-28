@@ -1,5 +1,5 @@
 --big green lake dialoge
-D['bigGreenLake'] = {}-- ???Atk to ???Atk
+D['Big Green Lake'] = {}-- ???Atk to ???Atk
 --[[
 
 Not Completed File
@@ -30,4 +30,4 @@ end
 function dbgl1.keypressed(key)
 	
 end
-D['bigGreenLake'][1] = dbgl1
+D['Big Green Lake'][1] = dbgl1

@@ -1,7 +1,7 @@
 Dialoge trees for the smarter npcs:
 
 location: libary
-npc: libarian
+npc: Tracey Lind
 hp: 1 --will die forever if you kill it
 
 Start:
@@ -13,7 +13,7 @@ Start:
 			"sign here and there real quick"
 			# Receive Card
 		>'who are you'
-			"im Danny Tracey local libarian"
+			"im Tracey Lind local libarian"
 		>(fight)(+10 Atk)'Say Hello to my Fist'
 			"Dont eat the dirt on the way down"
 		>(steal)(+15 Atk)'Look Behind you'
@@ -128,9 +128,15 @@ Start:
 	player attempts to steal:
 		""
 	player hurt Ashley:
-		""
+		"I hate you"
+		>(fight lvl +25)'crazy stuff'
+			"people like you..."
+		>(leave)
 	player killed Ashley:
-		""
+		"Get away from me"
+		>(fight lvl +20)'you can join her now'
+			"you're a sicko"
+		>(leave)
 
 location: City Buying Store
 npc: Ashley Jackson

@@ -8,6 +8,9 @@ ds6.i = image:getImage()
 ds6.inDialoge = false
 ds6.option = false
 ds6.Hp = 30
+ds6.Atk = 155
+ds6.Def = 27
+ds6.friendly = "Enemy"
 function ds6.draw()
 	ds6.m = '"An Alligator Aproches"'
 	ds6.o = {'f:fight','r:run'}
@@ -16,6 +19,7 @@ function ds6.draw()
 	love.graphics.print({{0,0,0},ds6.m},60,280)
 	love.graphics.print({{0,0,0},ds6.m2},60,300)
 	drawOptions(ds6.o)
+	drawstats(ds6)
 end
 function ds6.keypressed(key)
 	if key == 'f' then
@@ -40,7 +44,7 @@ function ds6.keypressed(key)
 			gamestate = 'alert'
 		else
 			Hurt(165)
-			Alert:new('Attacked by an Alligator \nWhile Running Away','stat')
+			Alert:new('Attacked by an Alligator\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

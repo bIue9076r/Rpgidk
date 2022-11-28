@@ -8,6 +8,9 @@ dc6.i = image:getImage('GarbageCollector')
 dc6.inDialoge = false
 dc6.option = false
 dc6.Hp = 7
+dc6.Atk = 10
+dc6.Def = 2
+dc6.friendly = "Neutral"
 dc6.soundOpts = {}
 function dc6.draw()
 	if Rep >= 0 and dc6.inDialoge == false then
@@ -24,6 +27,7 @@ function dc6.draw()
 	love.graphics.print({{0,0,0},dc6.m},60,280)
 	love.graphics.print({{0,0,0},dc6.m2},60,300)
 	drawOptions(dc6.o)
+	drawstats(dc6)
 	if dc6.option then
 		inv_draw_stuff_select()
 	end
@@ -67,19 +71,24 @@ function dc6.keypressed(key)
 					dc6.o = {'t:talk','r:run','f:fight','s:steal'}
 				end
 			else
-				if key == "w" or "up" then
+				if key == "w" or key == "up" then
 					if (Inv_select - 1) > 0 then
-					Inv_select = Inv_select - 1
+						Inv_select = Inv_select - 1
 					end
-				elseif key == "s" or "down" then
+				elseif key == "s" or key == "down" then
 					if (Inv_select + 1) < 9 then
-					Inv_select = Inv_select + 1
+						Inv_select = Inv_select + 1
 					end
 				elseif key == "return" then
-					Item:Remove(Inv_select+((Inv_page-1)*8))
-					raiseCash(20)
-					Alert:new('Removed Item','world')
-					gamestate = 'alert'
+					if(Item:isReal(Inv_select+((Inv_page-1)*8))) then
+						Item:Remove(Inv_select+((Inv_page-1)*8))
+						raiseCash(20)
+						Alert:new('Removed Item','world')
+						gamestate = 'alert'
+					else
+						Alert:new('No Item removed','world')
+						gamestate = 'alert'
+					end
 				elseif key == "l" then
 					dc6.option = false
 				end
@@ -132,10 +141,15 @@ function dc6.keypressed(key)
 					Inv_select = Inv_select + 1
 					end
 				elseif key == "return" then
-					Item:Remove(Inv_select+((Inv_page-1)*8))
-					raiseCash(20)
-					Alert:new('Removed Item','world')
-					gamestate = 'alert'
+					if(Item:isReal(Inv_select+((Inv_page-1)*8))) then
+						Item:Remove(Inv_select+((Inv_page-1)*8))
+						raiseCash(20)
+						Alert:new('Removed Item','world')
+						gamestate = 'alert'
+					else
+						Alert:new('No Item removed','world')
+						gamestate = 'alert'
+					end
 				elseif key == "l" then
 					dc6.option = false
 				end

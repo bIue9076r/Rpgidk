@@ -8,6 +8,9 @@ ds4.i = image:getImage('')
 ds4.inDialoge = false
 ds4.option = false
 ds4.Hp = 15
+ds4.Atk = 20
+ds4.Def = 4
+ds4.friendly = "Neutral"
 function ds4.draw()
 	if Rep >= 0 and ds4.inDialoge == false then
 		ds4.m = '"Any traveling tips?"'
@@ -21,6 +24,7 @@ function ds4.draw()
 	love.graphics.print({{0,0,0},ds4.m},60,280)
 	love.graphics.print({{0,0,0},ds4.m2},60,300)
 	drawOptions(ds4.o)
+	drawstats(ds4)
 end
 function ds4.keypressed(key)
 	if not ds4.inDialoge then
@@ -32,6 +36,7 @@ function ds4.keypressed(key)
 			gamestate = 'alert'
 		elseif key == 'f' then
 			if Atk > 20 then
+				ds4.Hp = ds4.Hp - 1
 				lowerRep(50)
 				if Rep < 0 then
 					lowerRep(10)
@@ -46,7 +51,7 @@ function ds4.keypressed(key)
 			else
 				Hurt(30)
 				CrimeUpdate(1)
-				Alert:new('Failed to beat\nThe Tourist','stat')
+				Alert:new('Failed to beat\n\nThe Tourist','stat')
 				gamestate = 'alert'
 			end
 		elseif key == 's' then
@@ -63,7 +68,9 @@ function ds4.keypressed(key)
 			if Rep < 0 then
 				raiseRep(20)
 			end
-			Alert:new('Pointed at a\nlandmark','stat')
+			ds4.Hp = ds4.Hp - 1
+			ds4.inDialoge = false
+			Alert:new('Pointed at a\n\nlandmark','stat')
 			gamestate = 'alert'
 		elseif key == 't' then
 			raiseRep(25)
@@ -71,7 +78,9 @@ function ds4.keypressed(key)
 			if Rep < 0 then
 				raiseRep(20)
 			end
-			Alert:new('Gave directions to\n a landmark','stat')
+			ds4.Hp = ds4.Hp - 1
+			ds4.inDialoge = false
+			Alert:new('Gave directions to\n\na landmark','stat')
 			gamestate = 'alert'
 		elseif key == 'l' then
 			ds4.inDialoge = false

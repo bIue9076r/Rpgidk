@@ -1,5 +1,5 @@
 --capital hall dialoge
-D['capitalHall'] = {}-- -40Atk to 60Atk
+D['Capital Hall'] = {}-- -40Atk to 60Atk
 
 require('/Required/Dialoge/City/SubZones/Capital/dch1')
 require('/Required/Dialoge/City/SubZones/Capital/dch2')

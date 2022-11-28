@@ -11,8 +11,8 @@ dc13.Hp = 100
 dc13.soundOpts = {}
 function dc13.draw()
 	if dc13.inDialoge == false then
-		dc13.m = 'you come across the Underground Market'
-		dc13.m2 = 'go inside:'
+		dc13.m = 'you come across the Underground\n\nMarket go inside:'
+		dc13.m2 = ''
 		dc13.o = {'y:yes','n:no'}
 	end
 	love.graphics.draw(dc13.i,60,40)

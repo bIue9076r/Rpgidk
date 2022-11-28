@@ -1,5 +1,5 @@
 --igloo town dialoge
-D['iglooTown'] = {}-- ???Atk to ???Atk
+D['Igloo Town'] = {}-- ???Atk to ???Atk
 --[[
 
 Not Completed File
@@ -30,4 +30,4 @@ end
 function dit1.keypressed(key)
 	
 end
-D['iglooTown'][1] = dit1
+D['Igloo Town'][1] = dit1

@@ -10,7 +10,7 @@ di12.option = false
 di12.Hp = 100
 function di12.draw()
 	if di12.inDialoge == false then
-		di12.m = 'you come across the Igloo Town Gate'
+		di12.m = 'you come across the Igloo Town'
 		di12.m2 = 'go inside:'
 		di12.o = {'y:yes','n:no'}
 	end

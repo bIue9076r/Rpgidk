@@ -29,4 +29,4 @@ function dch4.keypressed(key)
 		gamestate = 'alert'
 	end
 end
-D['capitalHall'][1] = dch4
+D['Capital Hall'][4] = dch4

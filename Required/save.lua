@@ -59,49 +59,49 @@ function save()
 		d = d.."D.wasteland[".._.."].Hp="..i.Hp.."; "
 	end
 	--Sub
-	for _,i in ipairs(D.capitalHall) do
-		d = d.."D.capitalHall[".._.."].Hp="..i.Hp.."; "
+	for _,i in ipairs(D['Capital Hall']) do
+		d = d.."D['Capital Hall'][".._.."].Hp="..i.Hp.."; "
 	end
-	for _,i in ipairs(D.libary) do
-		d = d.."D.libary[".._.."].Hp="..i.Hp.."; "
+	for _,i in ipairs(D['Libary']) do
+		d = d.."D['Libary'][".._.."].Hp="..i.Hp.."; "
 	end
-	for _,i in ipairs(D.desertTown) do
-		d = d.."D.desertTown[".._.."].Hp="..i.Hp.."; "
+	for _,i in ipairs(D['Desert Town']) do
+		d = d.."D['Desert Town'][".._.."].Hp="..i.Hp.."; "
 	end
-	for _,i in ipairs(D.undergroundMarket) do
-		d = d.."D.undergroundMarket[".._.."].Hp="..i.Hp.."; "
+	for _,i in ipairs(D['Underground Market']) do
+		d = d.."D['Underground Market'][".._.."].Hp="..i.Hp.."; "
 	end
-	for _,i in ipairs(D.seaDock) do
-		d = d.."D.seaDock[".._.."].Hp="..i.Hp.."; "
+	for _,i in ipairs(D['Sea Dock']) do
+		d = d.."D['Sea Dock'][".._.."].Hp="..i.Hp.."; "
 	end
-	for _,i in ipairs(D.desertTemple) do
-		d = d.."D.desertTemple[".._.."].Hp="..i.Hp.."; "
+	for _,i in ipairs(D['Desert Temple']) do
+		d = d.."D['Desert Temple'][".._.."].Hp="..i.Hp.."; "
 	end
-	for _,i in ipairs(D.desertMine) do
-		d = d.."D.desertMine[".._.."].Hp="..i.Hp.."; "
+	for _,i in ipairs(D['Desert Mine']) do
+		d = d.."D['Desert Mine'][".._.."].Hp="..i.Hp.."; "
 	end
-	for _,i in ipairs(D.bigGreenLake) do
-		d = d.."D.bigGreenLake[".._.."].Hp="..i.Hp.."; "
+	for _,i in ipairs(D['Big Green Lake']) do
+		d = d.."D['Big Green Lake'][".._.."].Hp="..i.Hp.."; "
 	end
-	for _,i in ipairs(D.iceCave) do
-		d = d.."D.iceCave[".._.."].Hp="..i.Hp.."; "
+	for _,i in ipairs(D['Ice Cave']) do
+		d = d.."D['Ice Cave'][".._.."].Hp="..i.Hp.."; "
 	end
-	for _,i in ipairs(D.iglooTown) do
-		d = d.."D.iglooTown[".._.."].Hp="..i.Hp.."; "
+	for _,i in ipairs(D['Igloo Town']) do
+		d = d.."D['Igloo Town'][".._.."].Hp="..i.Hp.."; "
 	end
-	for _,i in ipairs(D.reactor) do
-		d = d.."D.reactor[".._.."].Hp="..i.Hp.."; "
+	for _,i in ipairs(D['Reactor']) do
+		d = d.."D['Reactor'][".._.."].Hp="..i.Hp.."; "
 	end
-	for _,i in ipairs(D.destroyedTown) do
-		d = d.."D.destroyedTown[".._.."].Hp="..i.Hp.."; "
+	for _,i in ipairs(D['Destroyed Town']) do
+		d = d.."D['Destroyed Town'][".._.."].Hp="..i.Hp.."; "
 	end
-	for _,i in ipairs(D.criminalBase) do
-		d = d.."D.criminalBase[".._.."].Hp="..i.Hp.."; "
+	for _,i in ipairs(D['Criminal Base']) do
+		d = d.."D['Criminal Base'][".._.."].Hp="..i.Hp.."; "
 	end
 	
 	-- Player Stats 
 	local save1 = "loaded="..tostring(loaded)..";"..
-	"D.SetLoc("..(D.location)..");"..
+	"D.SetLoc('"..(D.location).."');"..
 	"Rep="..(Rep)..";"..
 	"Hp="..(Hp)..";"..
 	"Max_Hp="..(Max_Hp)..";"..
@@ -112,15 +112,41 @@ function save()
 	"Lck="..(Lck)..";\n"
 	
 	-- Player Items
-	local save2 = "item={};"..
-	"item[0]="..(item[0])..";"..
-	"item[1]="..(item[1])..";"..
-	"item[2]="..(item[2])..";"..
-	"item[3]="..(item[3])..";"..
-	"store_stock_med="..(store_stock_med)..";"..
-	"store_stock_Posion="..(store_stock_Posion)..";"..
-	"store_stock_Atk="..(store_stock_Atk)..";"..
-	"store_stock_Def="..(store_stock_Def)..";"..
+	local save2 = "item={};sitem={};"..
+	"sitem[0]={[0]="..(sitem[0][0])..",[1]="..(sitem[0][1])..",[2]="..
+	(sitem[0][2])..",[3]="..(sitem[0][3]).."};"..
+	"sitem[1]={[0]="..(sitem[1][0])..",[1]="..(sitem[1][1])..",[2]="..
+	(sitem[1][2])..",[3]="..(sitem[1][3]).."};"..
+	"sitem[2]={[0]="..(sitem[2][0])..",[1]="..(sitem[2][1])..",[2]="..
+	(sitem[2][2])..",[3]="..(sitem[2][3]).."};"..
+	"sitem[3]={[0]="..(sitem[3][0])..",[1]="..(sitem[3][1])..",[2]="..
+	(sitem[3][2])..",[3]="..(sitem[3][3]).."};"..
+	"r_store_stock_med={[0]="..r_store_stock_med[0]..
+	",[1]="..r_store_stock_med[1]..
+	",[2]="..r_store_stock_med[2]..
+	",[3]="..r_store_stock_med[3].."};"..
+	"r_store_stock_Posion={[0]="..r_store_stock_Posion[0]..
+	",[1]="..r_store_stock_Posion[1]..
+	",[2]="..r_store_stock_Posion[2]..
+	",[3]="..r_store_stock_Posion[3].."};"..
+	"r_store_stock_Atk={[0]="..r_store_stock_Atk[0]..
+	",[1]="..r_store_stock_Atk[1]..
+	",[2]="..r_store_stock_Atk[2]..
+	",[3]="..r_store_stock_Atk[3].."};"..
+	"r_store_stock_Def={[0]="..r_store_stock_Def[0]..
+	",[1]="..r_store_stock_Def[1]..
+	",[2]="..r_store_stock_Def[2]..
+	",[3]="..r_store_stock_Def[3].."};"..
+	--[[
+	"item[0]="..(sitem[0][0])..";"..
+	"item[1]="..(sitem[1][0])..";"..
+	"item[2]="..(sitem[2][0])..";"..
+	"item[3]="..(sitem[3][0])..";"..
+	"store_stock_med="..(store_stock_med[0])..";"..
+	"store_stock_Posion="..(store_stock_Posion[0])..";"..
+	"store_stock_Atk="..(store_stock_Atk[0])..";"..
+	"store_stock_Def="..(store_stock_Def[0])..";"..
+	]]
 	"restock="..(restock)..";\n"
 	
 	
@@ -147,7 +173,8 @@ function save()
 	
 	local save4 = "TimeSinceLastCrime="..(TimeSinceLastCrime)..";"..
 	"Kills="..(Kills)..";"..
-	"name="..(name)..";"..
+	"Arrests="..(Arrests)..";"..
+	"name='"..(name).."';"..
 	"debugmode="..tostring(debugmode)..";"..
 	"snitch="..tostring(snitch)..";"..
 	"Quest:set('ashley',"..Quest:Return('ashley')..");"..
@@ -156,7 +183,7 @@ function save()
 	"George_Hp="..(George_Hp)..";"..
 	"Willson_Hp="..(Willson_Hp)..";"..
 	"Penelope_Hp="..(Penelope_Hp)..";"..
-	"shopimg="..(shopimg)..";\n"
+	"shopimg='"..(shopimg).."';\n"
 	
 	local save5 = "yellowSnowEater="..tostring(yellowSnowEater)..";"..
 	"iceBaseFound="..tostring(iceBaseFound)..";"..

@@ -8,6 +8,9 @@ dc7.i = image:getImage('Waiter')
 dc7.inDialoge = false
 dc7.option = false
 dc7.Hp = 5
+dc7.Atk = 5
+dc7.Def = 0
+dc7.friendly = "Neutral"
 dc7.soundOpts = {}
 function dc7.draw()
 	if Rep >= 0 and dc7.inDialoge == false then
@@ -24,6 +27,7 @@ function dc7.draw()
 	love.graphics.print({{0,0,0},dc7.m},60,280)
 	love.graphics.print({{0,0,0},dc7.m2},60,300)
 	drawOptions(dc7.o)
+	drawstats(dc7)
 	if dc7.option then
 		food_menu_draw()
 	end
@@ -84,13 +88,17 @@ function dc7.keypressed(key)
 					dc7.inDialoge = false
 				end
 			else
-				if key == "w" or "up" then
+				if key == "w" or key == "up" then
 					if (Food_select - 1) > 0 then
 						Food_select = Food_select - 1
+					else
+						Food_select = 3
 					end
-				elseif key == "s" or "down" then
+				elseif key == "s" or key == "down" then
 					if (Food_select + 1) < 4 then
 						Food_select = Food_select + 1
+					else
+						Food_select = 1
 					end
 				elseif key == "return" then
 					if Food_select == 1 then
@@ -187,10 +195,14 @@ function dc7.keypressed(key)
 				if key == "w" or key == "up" then
 					if (Food_select - 1) > 0 then
 						Food_select = Food_select - 1
+					else
+						Food_select = 3
 					end
 				elseif key == "s" or key == "down" then
 					if (Food_select + 1) < 4 then
 						Food_select = Food_select + 1
+					else
+						Food_select = 1
 					end
 				elseif key == "return" then
 					if Food_select == 1 then

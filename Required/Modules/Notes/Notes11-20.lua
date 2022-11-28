@@ -1,4 +1,5 @@
 --11 to 20
+-- conditions: speak to jannet
 function NoteUses.CapitalHall_FastFacts4()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('note'),0,0)
@@ -18,6 +19,7 @@ function NoteUses.CapitalHall_FastFacts4()
 end
 NoteUse[11] = NoteUses.CapitalHall_FastFacts4
 
+-- conditions: get libary papers
 function NoteUses.CapitalHall_PresidentGuide1()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('note'),0,0)
@@ -41,6 +43,7 @@ function NoteUses.CapitalHall_PresidentGuide1()
 end
 NoteUse[12] = NoteUses.CapitalHall_PresidentGuide1
 
+-- conditions: get libary papers
 function NoteUses.CapitalHall_PresidentGuide2()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('note'),0,0)
@@ -64,6 +67,7 @@ function NoteUses.CapitalHall_PresidentGuide2()
 end
 NoteUse[13] = NoteUses.CapitalHall_PresidentGuide2
 
+-- conditions: get libary papers
 function NoteUses.CapitalHall_PresidentGuide3()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('note'),0,0)
@@ -77,6 +81,7 @@ function NoteUses.CapitalHall_PresidentGuide3()
 end
 NoteUse[14] = NoteUses.CapitalHall_PresidentGuide3
 
+-- conditions: reprint libary papers
 function NoteUses.CapitalHall_PresidentGuide3_Reprinted()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('note'),0,0)
@@ -89,9 +94,10 @@ function NoteUses.CapitalHall_PresidentGuide3_Reprinted()
 	love.graphics.print({{0,0,0},"36."..name.." 2003-"},60,220)
 	------------------------------12345678901234567890123456789012
 end
---NoteUse[15] = NoteUses.CapitalHall_PresidentGuide3_Reprinted
+--NoteUse[14] = NoteUses.CapitalHall_PresidentGuide3_Reprinted
 --/* use when President Harly Dies */
 
+-- conditions: get libary papers
 function NoteUses.CapitalHall_PresidentFacts1()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('note'),0,0)
@@ -107,6 +113,7 @@ function NoteUses.CapitalHall_PresidentFacts1()
 end
 NoteUse[15] = NoteUses.CapitalHall_PresidentFacts1
 
+-- conditions: get libary papers
 function NoteUses.CapitalHall_FastFacts5()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('note'),0,0)
@@ -126,6 +133,7 @@ function NoteUses.CapitalHall_FastFacts5()
 end
 NoteUse[16] = NoteUses.CapitalHall_FastFacts5
 
+-- conditions: get libary papers
 function NoteUses.CapitalHall_ValaryHist1()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('note'),0,0)
@@ -147,6 +155,7 @@ function NoteUses.CapitalHall_ValaryHist1()
 end
 NoteUse[17] = NoteUses.CapitalHall_ValaryHist1
 
+-- conditions: get libary papers
 function NoteUses.CapitalHall_ValaryHist2()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('note'),0,0)
@@ -167,6 +176,7 @@ function NoteUses.CapitalHall_ValaryHist2()
 end
 NoteUse[18] = NoteUses.CapitalHall_ValaryHist2
 
+-- conditions: get libary papers
 function NoteUses.CapitalHall_ValaryHist3()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('note'),0,0)
@@ -188,6 +198,7 @@ function NoteUses.CapitalHall_ValaryHist3()
 end
 NoteUse[19] = NoteUses.CapitalHall_ValaryHist3
 
+-- conditions: get libary papers
 function NoteUses.CapitalHall_ValaryHist4()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('note'),0,0)
@@ -198,13 +209,13 @@ function NoteUses.CapitalHall_ValaryHist4()
 	love.graphics.print({{0,0,0},"Valary was giving about safety"},60,180)
 	love.graphics.print({{0,0,0},"and trust. due to Valary's high"},60,200)
 	love.graphics.print({{0,0,0},"confidence about her laws only"},60,220)
-	love.graphics.print({{0,0,0},"she was allowed to request"},60,260)
+	love.graphics.print({{0,0,0},"she was allowed to request the"},60,260)
 	love.graphics.print({{0,0,0},"death penalty and so Kimberly"},60,280)
-	love.graphics.print({{0,0,0},"was not executed after the death"},60,300)
-	love.graphics.print({{0,0,0},"of Valary. She remained in jail"},60,320)
-	love.graphics.print({{0,0,0},"until Valary's Second in"},60,340)
-	love.graphics.print({{0,0,0},"command basicaly reversed all"},60,360)
-	love.graphics.print({{0,0,0},"her changes"},60,400)
+	love.graphics.print({{0,0,0},"was not executed after her death"},60,300)
+	love.graphics.print({{0,0,0},"She remained in jail until"},60,320)
+	love.graphics.print({{0,0,0},"Valary's Second in command"},60,340)
+	love.graphics.print({{0,0,0},"basicaly reversed all her"},60,360)
+	love.graphics.print({{0,0,0},"changes"},60,400)
 	------------------------------12345678901234567890123456789012
 end
 NoteUse[20] = NoteUses.CapitalHall_ValaryHist4

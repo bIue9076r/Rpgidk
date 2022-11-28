@@ -11,6 +11,11 @@ function Quest:SetF(n)
 	self.quests[n] = false
 end
 
+function Quest:SetFL(n)
+	-- sets Quest.quests[n] -1 marking the quest has been failed
+	self.quests[n] = -1
+end
+
 function Quest:SetT(n)
 	-- sets Quest.quests[n] true marking the quest has been finished
 	-- but no reward has been given

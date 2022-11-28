@@ -8,6 +8,9 @@ di5.i = image:getImage('')
 di5.inDialoge = false
 di5.option = false
 di5.Hp = 3
+di5.Atk = 500
+di5.Def = 55
+di5.friendly = "Enemy"
 function di5.draw()
 	di5.m = 'A Yeti Approaches You'
 	di5.o = {'f:fight','r:run'}
@@ -16,6 +19,7 @@ function di5.draw()
 	love.graphics.print({{0,0,0},di5.m},60,280)
 	love.graphics.print({{0,0,0},di5.m2},60,300)
 	drawOptions(di5.o)
+	drawstats(di5)
 end
 function di5.keypressed(key)
 	if key == "f" then
@@ -40,7 +44,7 @@ function di5.keypressed(key)
 			gamestate = 'alert'
 		else
 			Hurt(250)
-			Alert:new('Attacked by a Yeti \nWhile Running Away','stat')
+			Alert:new('Attacked by a Yeti\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

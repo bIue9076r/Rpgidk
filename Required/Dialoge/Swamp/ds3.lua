@@ -8,6 +8,9 @@ ds3.i = image:getImage('')
 ds3.inDialoge = false
 ds3.option = false
 ds3.Hp = 110
+ds3.Atk = 140
+ds3.Def = 38
+ds3.friendly = "Enemy"
 function ds3.draw()
 	ds3.m = 'A Giant Fly Aproaches you'
 	ds3.o = {'f:fight','r:run'}
@@ -16,6 +19,7 @@ function ds3.draw()
 	love.graphics.print({{0,0,0},ds3.m},60,280)
 	love.graphics.print({{0,0,0},ds3.m2},60,300)
 	drawOptions(ds3.o)
+	drawstats(ds3)
 end
 function ds3.keypressed(key)
 	if key == 'f' then
@@ -40,7 +44,7 @@ function ds3.keypressed(key)
 			gamestate = 'alert'
 		else
 			Hurt(165)
-			Alert:new('Stung by a Fly \nWhile Running Away','stat')
+			Alert:new('Stung by a Fly\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

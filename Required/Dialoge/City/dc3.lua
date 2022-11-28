@@ -1,32 +1,40 @@
 dc3 = {}
 dc3.n = 'Trader'
-dc3.m = '"Do you have the falbeld'
-dc3.m2 = 'Potion of Poison?"'
+dc3.m = '"Do you want to trade'
+dc3.m2 = ' for '
+dc3.m3 = '?"'
 dc3.o = {'t:talk','r:run','f:fight','s:steal'}
 dc3.f = dc3.o
 dc3.i = image:getImage('Merchant')
 dc3.inDialoge = false
 dc3.option = false
 dc3.Hp = 25
+dc3.Atk = 30
+dc3.Def = 15
+dc3.friendly = "Neutral"
 dc3.soundOpts = {}
 function dc3.draw()
 	dc3.n2 = dc3.n2 or math.random(0,3)
 	dc3.b = dc3.b or math.random(0,3)
 	if dc3.b == dc3.n2 then repeat dc3.b = math.random(0,3) until dc3.b ~= dc3.n2 end
 	if Rep >= 0 and dc3.inDialoge == false then
-		dc3.m = '"Do you want to trade\n'..Nitem[dc3.n2]..' for \n'..Nitem[dc3.b]..'?"'
-		dc3.m2 = ''
+		dc3.m = '"Do you want to trade'
+		dc3.m2 = sNitem[0]..Nitem[dc3.n2]..' for '
+		dc3.m3 = sNitem[0]..Nitem[dc3.b]..'?"'
 		dc3.o = {'t:talk','r:run','f:fight','s:steal'}
 	elseif Rep < 0 and dc3.inDialoge == false then
-		dc3.m = '"Do you want to trade\n'..Nitem[dc3.n2]..' for \n'..Nitem[dc3.b]..'?"'
-		dc3.m2 = ''
+		dc3.m = '"Do you want to trade'
+		dc3.m2 = sNitem[0]..Nitem[dc3.n2]..' for '
+		dc3.m3 = sNitem[0]..Nitem[dc3.b]..'?"'
 		dc3.o = {'t:talk','r:run','f:fight','s:steal'}
 	end
 	love.graphics.draw(dc3.i,60,40)
 	love.graphics.print({{0,0,0},dc3.n},60,260)
 	love.graphics.print({{0,0,0},dc3.m},60,280)
-	love.graphics.print({{0,0,0},dc3.m2},60,300)
+	love.graphics.print({{0,0,0},dc3.m2},60,295)
+	love.graphics.print({{0,0,0},dc3.m3},60,310)
 	drawOptions(dc3.o)
+	drawstats(dc3)
 end
 function dc3.keypressed(key)
 	if Rep >= 0 then
@@ -62,18 +70,18 @@ function dc3.keypressed(key)
 			end
 		else
 			if key == 'y' then
-				if item[dc3.n2] > 0 then
-					item[dc3.n2] = item[dc3.n2] - 1
-					item[dc3.b] = item[dc3.b] + 1
+				if sitem[dc3.n2][0] > 0 then
+					sitem[dc3.n2][0] = sitem[dc3.n2][0] - 1
+					sitem[dc3.b][0] = sitem[dc3.b][0] + 1
 					dc3.inDialoge = false
-					Alert:new('Gave a '..Nitem[dc3.n2],'stat')
+					Alert:new('Gave a '..sNitem[0]..Nitem[dc3.n2],'stat')
 					Exp:add(20)
 					gamestate = 'alert'
 					dc3.n2 = nil
 					dc3.b = nil
 				else
-					dc3.m = '"You dont have any \n'..Nitem[dc3.n2]..'..."'
-					dc3.m2 = '...'
+					dc3.m = '"You dont have any \n\n'..sNitem[0]..Nitem[dc3.n2]..'..."'
+					dc3.m2,dc3.m3 = '',''
 				end
 			elseif key == 'l' then
 				dc3.inDialoge = false
@@ -111,18 +119,18 @@ function dc3.keypressed(key)
 			end
 		else
 			if key == 'y' then
-				if item[dc3.n2] > 0 then
-					item[dc3.n2] = item[dc3.n2] - 1
-					item[dc3.b] = item[dc3.b] + 1
+				if sitem[dc3.n2][0] > 0 then
+					sitem[dc3.n2][0] = sitem[dc3.n2][0] - 1
+					sitem[dc3.b][0] = sitem[dc3.b][0] + 1
 					dc3.inDialoge = false
-					Alert:new('Gave a '..Nitem[dc3.n2],'stat')
+					Alert:new('Gave a '..sNitem[0]..Nitem[dc3.n2],'stat')
 					Exp:add(20)
 					gamestate = 'alert'
 					dc3.n2 = nil
 					dc3.b = nil
 				else
-					dc3.m = '"You dont have any \n'..Nitem[dc3.n2]..'..."'
-					dc3.m2 = '...'
+					dc3.m = '"You dont have any \n\n'..sNitem[0]..Nitem[dc3.n2]..'..."'
+					dc3.m2,dc3.m3 = '',''
 				end
 			elseif key == 'l' then
 				dc3.inDialoge = false

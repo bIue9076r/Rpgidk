@@ -1,0 +1,12 @@
+TODO:
+
+Important TODO'S:
+	1 - Start Developing Advanced Npc Ai
+		1.a - Create Advanced Npc Guide
+		1.b - Create More Characters and Story
+		1.c - Develop quests
+		1.d - Balance Game
+	2 - Create Missing Assets (textures)
+
+Others:
+	1 - Area Music

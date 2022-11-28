@@ -22,4 +22,4 @@ end
 function dch3.keypressed(key)
 	
 end
-D['capitalHall'][1] = dch3
+D['Capital Hall'][3] = dch3

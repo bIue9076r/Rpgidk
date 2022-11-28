@@ -7,13 +7,13 @@ Item.items = {} -- sets up the item inventory
 
 function Item:new(name,icon,funint,arg,reuse,uses) -- creates a new Item
 	theTable = {}
-	theTable.name = name -- the name of the item
-	theTable.icon = 'placeholdericon'--icon -- the name of the icon image
+	theTable.name = name or 'null' -- the name of the item
+	theTable.icon = 'placeholderIcon'--icon -- the name of the icon image
 	theTable.reusable = reuse or false -- the item reuseable bool
 	theTable.used = false -- the item used bool 
 	theTable.uses = uses or 0 -- the amount of times the item can be used
-	theTable.int = funint -- the function integer
-	theTable.arg = arg -- function arguments
+	theTable.int = funint or -1 -- the function integer
+	theTable.arg = arg or math.random(1,50) -- function arguments
 	theTable.use = ItemUseGet(theTable.int) -- item use function
 	table.insert(Item.items,theTable)
 end
@@ -34,7 +34,7 @@ end
 
 function Item:use(page,count) -- uses an item
 	index = count+((page-1)*8)
-	if Item.items[index] == nil then return end
+	if Item.items[index] == nil and Item.items[index].use == nil then return end
 	Item.items[index].use(Item.items[index].arg)
 	-- calls the selected items use function
 	if not Item.items[index].reusable 
@@ -57,16 +57,20 @@ function Item:display(page) -- returns a list of items from the selected page
 	return returntable;
 end
 
+function Item:isReal(n)
+	return (Item.items[n] ~= nil)
+end
+
 function Item:Remove(n) -- removes the selected item
 	Item.items[n] = nil
-	for i = n+1,#Item.items do
+	for i = n+1,#Item.items+2 do
 		Item.items[i-1]=Item.items[i]
 		Item.items[i] = nil
 	end
 end
 
 function Item:reload(itemTable) -- /* depreciated */
-	-- you cant save the function, which makes the item useless
+	-- you cant save the item function, which makes the item useless
 	Item.items = itemTable;
 end
 

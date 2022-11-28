@@ -9,26 +9,38 @@ dw8.inDialoge = false
 dw8.option = false
 dw8.Hp = 50
 dw8.mode = 1
+dw8.Atk = (150 * 5)
+dw8.Def = 100
+dw8.friendly = "Neutral"
 function dw8.draw()
 	if dw8.Hp < 25 then
 		dw8.mode = 2
 	end
 	if dw8.mode == 1 then
+		dw8.n = 'Police'
 		if dw8.inDialoge == false then
 			if Rep >= 0 then
+				dw8.Atk = (150 * 5)
 				dw8.m = '"What are you doing out here"'
 				dw8.o = {'t:talk','r:run','f:fight'}
 			else
+				dw8.Atk = (150 * 5)
+				dw8.friendly = "Enemy"
 				dw8.m = '"Surrender Now Criminal"'
 				dw8.o = {'t:talk','r:run','f:fight'}
 			end
 		end
 	elseif dw8.mode == 2 then
+		dw8.n = 'Military'
 		if dw8.inDialoge == false then
 			if Rep >= 0 then
+				dw8.Atk = (175 * 5)
+				dw8.friendly = "Enemy"
 				dw8.m = '"Surrender Now Citizen"'
 				dw8.o = {'t:talk','r:run','f:fight'}
 			else
+				dw8.Atk = (175 * 5)
+				dw8.friendly = "Enemy"
 				dw8.m = '"Surrender Now Criminal"'
 				dw8.o = {'t:talk','r:run','f:fight'}
 			end
@@ -39,6 +51,7 @@ function dw8.draw()
 	love.graphics.print({{0,0,0},dw8.m},60,280)
 	love.graphics.print({{0,0,0},dw8.m2},60,300)
 	drawOptions(dw8.o)
+	drawstats(dw8)
 end
 function dw8.keypressed(key)
 	if dw8.mode == 1 then
@@ -67,6 +80,7 @@ function dw8.keypressed(key)
 						gamestate = 'alert'
 					else
 						Hurt(500)
+						D.location = 'city'
 						Alert:new('Failed to beat the Police Squad','arrest')
 						gamestate = 'alert'
 					end
@@ -87,6 +101,7 @@ function dw8.keypressed(key)
 			end
 		else
 			if key == 't' then
+				D.location = 'city'
 				Alert:new('Arrested by the Police Squad','arrest')
 				gamestate = 'alert'
 			elseif key == 'r' then
@@ -96,6 +111,7 @@ function dw8.keypressed(key)
 					gamestate = 'alert'
 				else
 					Hurt(450)
+					D.location = 'city'
 					Alert:new('Failed to evade the Police Squad','arrest')
 					gamestate = 'alert'
 				end
@@ -115,6 +131,7 @@ function dw8.keypressed(key)
 					gamestate = 'alert'
 				else
 					Hurt(500)
+					D.location = 'city'
 					Alert:new('Failed to beat the Police Squad','arrest')
 					gamestate = 'alert'
 				end
@@ -146,6 +163,7 @@ function dw8.keypressed(key)
 						gamestate = 'alert'
 					else
 						Hurt(600)
+						D.location = 'city'
 						Alert:new('Failed to beat the Squad','arrest')
 						gamestate = 'alert'
 					end
@@ -166,6 +184,7 @@ function dw8.keypressed(key)
 			end
 		else
 			if key == 't' then
+				D.location = 'city'
 				Alert:new('Arrested by the Squad','arrest')
 				gamestate = 'alert'
 			elseif key == 'r' then
@@ -175,6 +194,7 @@ function dw8.keypressed(key)
 					gamestate = 'alert'
 				else
 					Hurt(550)
+					D.location = 'city'
 					Alert:new('Failed to evade the Squad','arrest')
 					gamestate = 'alert'
 				end
@@ -194,6 +214,7 @@ function dw8.keypressed(key)
 					gamestate = 'alert'
 				else
 					Hurt(600)
+					D.location = 'city'
 					Alert:new('Failed to beat the Squad','arrest')
 					gamestate = 'alert'
 				end

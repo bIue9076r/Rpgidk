@@ -6,7 +6,7 @@ Penelope_Hp=100
 shopimg = 'shop'
 
 function shop_draw()
-	pcall(function()
+	--pcall(function()
 		Store = sound:getSound('BuyinStore')
 		Store:play()
 		if D.location == 'city' then
@@ -15,7 +15,7 @@ function shop_draw()
 			elseif Ashley_Hp < 80 then
 				shopimg = 'shophurtemp'
 			end
-			if Quest:Return('ashley') == 1 or Quest:Return('ashley') == true or Quest:Return('ashley') == 0 then
+			if Quest:Return('ashley') --[[== 1 or Quest:Return('ashley') == true or Quest:Return('ashley') == 0 ]]then
 				love.graphics.draw(image:getImage(shopimg.."_"..D.location),0,0)
 				love.graphics.draw(image:getImage('Alert'),0,0)
 				if Ashley_Hp <= 10 then
@@ -27,18 +27,20 @@ function shop_draw()
 					love.graphics.print({{0,0,0},"Welcome to the Buyin' store"},60,75)
 					love.graphics.print({{0,0,0},"what want buy?"},60,95)
 				end
-				love.graphics.print({{0,0,0},"M = Medkits"},50,400)
-				love.graphics.print({{0,0,0},"P = Posion Potion"},50,420)
-				love.graphics.print({{0,0,0},"A = Attack boost"},50,440)
-				love.graphics.print({{0,0,0},"D = Defence boost"},50,460)
+				love.graphics.print({{1,1,1},"M = Medkits, Stock:"..r_store_stock_med[0]},50,400)
+				love.graphics.print({{1,1,1},"P = Posion Potion, Stock:"..r_store_stock_Posion[0]},50,420)
+				love.graphics.print({{1,1,1},"A = Attack boost, Stock:"..r_store_stock_Atk[0]},50,440)
+				love.graphics.print({{1,1,1},"D = Defence boost, Stock:"..r_store_stock_Def[0]},50,460)
 				--testing stat [[love.graphics.print({{0,0,0},"Ashley's health: "..Ashley_Hp},50,480)]]
 			elseif Quest:Return('ashley') == false then
 				love.graphics.draw(image:getImage(shopimg.."_"..D.location),0,0)
 				love.graphics.draw(image:getImage('Alert'),0,0)
 				love.graphics.print({{0,0,0},"I know why you're here"},60,75)
 				love.graphics.print({{0,0,0},"just get it over with."},60,95)
-				love.graphics.print({{0,0,0},"F = Fight"},50,400)
-				--testing stat [[love.graphics.print({{0,0,0},"Ashley's health: "..Ashley_Hp},50,480)]]
+				love.graphics.print({{1,1,1},"F = Fight"},50,400)
+				love.graphics.print({{1,1,1},"B = Bribe"},50,420)
+				love.graphics.print({{1,1,1},"Q = Quit Quest"},50,440)
+				--testing stat [[love.graphics.print({{1,1,1},"Ashley's health: "..Ashley_Hp},50,480)]]
 			end
 		elseif D.location == 'desert' then
 			if Sally_Hp <= 0 then
@@ -57,11 +59,11 @@ function shop_draw()
 				love.graphics.print({{0,0,0},"Welcome to the Buyin' store"},60,75)
 				love.graphics.print({{0,0,0},"How may i assist you?"},60,95)
 			end
-			love.graphics.print({{0,0,0},"M = Medkits"},50,400)
-			love.graphics.print({{0,0,0},"P = Posion Potion"},50,420)
-			love.graphics.print({{0,0,0},"A = Attack boost"},50,440)
-			love.graphics.print({{0,0,0},"D = Defence boost"},50,460)
-			--testing stat [[love.graphics.print({{0,0,0},"Sally's health: "..Sally_Hp},50,480)]]
+			love.graphics.print({{1,1,1},"M = Medkits, Stock:"..r_store_stock_med[1]},50,400)
+			love.graphics.print({{1,1,1},"P = Posion Potion, Stock:"..r_store_stock_Posion[0]},50,420)
+			love.graphics.print({{1,1,1},"A = Attack boost, Stock:"..r_store_stock_Atk[0]},50,440)
+			love.graphics.print({{1,1,1},"D = Defence boost, Stock:"..r_store_stock_Def[0]},50,460)
+			--testing stat [[love.graphics.print({{1,1,1},"Sally's health: "..Sally_Hp},50,480)]]
 		elseif D.location == 'swamp' then
 			if George_Hp <= 0 then
 				shopimg = 'shopnoemp'
@@ -79,12 +81,12 @@ function shop_draw()
 				love.graphics.print({{0,0,0},"Welcome to the Buyin' store"},60,75)
 				love.graphics.print({{0,0,0},"need anything?"},60,95)
 			end
-			love.graphics.print({{0,0,0},"M = Medkits"},50,400)
-			love.graphics.print({{0,0,0},"P = Posion Potion"},50,420)
-			love.graphics.print({{0,0,0},"A = Attack boost"},50,440)
-			love.graphics.print({{0,0,0},"D = Defence boost"},50,460)
-			--testing stat [[love.graphics.print({{0,0,0},"George's health: "..George_Hp},50,480)]]
-		elseif D.location == 'ice' then
+			love.graphics.print({{1,1,1},"M = Medkits, Stock:"..r_store_stock_med[1]},50,400)
+			love.graphics.print({{1,1,1},"P = Posion Potion, Stock:"..r_store_stock_Posion[0]},50,420)
+			love.graphics.print({{1,1,1},"A = Attack boost, Stock:"..r_store_stock_Atk[0]},50,440)
+			love.graphics.print({{1,1,1},"D = Defence boost, Stock:"..r_store_stock_Def[0]},50,460)
+			--testing stat [[love.graphics.print({{1,1,1},"George's health: "..George_Hp},50,480)]]
+		elseif D.location == 'icespikes' then
 			if Willson_Hp <= 0 then
 				shopimg = 'shopnoemp'
 			elseif Willson_Hp < 80 then
@@ -101,12 +103,12 @@ function shop_draw()
 				love.graphics.print({{0,0,0},"Welcome to the Buyin' store"},60,75)
 				love.graphics.print({{0,0,0},"Lovely Weather today?"},60,95)
 			end
-			love.graphics.print({{0,0,0},"M = Medkits"},50,400)
-			love.graphics.print({{0,0,0},"P = Posion Potion"},50,420)
-			love.graphics.print({{0,0,0},"A = Attack boost"},50,440)
-			love.graphics.print({{0,0,0},"D = Defence boost"},50,460)
-			--testing stat [[love.graphics.print({{0,0,0},"Willson's health: "..Willson_Hp},50,480)]]
-		elseif D.location == 'waste' then
+			love.graphics.print({{1,1,1},"M = Medkits, Stock:"..r_store_stock_med[0]},50,400)
+			love.graphics.print({{1,1,1},"P = Posion Potion, Stock:"..r_store_stock_Posion[0]},50,420)
+			love.graphics.print({{1,1,1},"A = Attack boost, Stock:"..r_store_stock_Atk[0]},50,440)
+			love.graphics.print({{1,1,1},"D = Defence boost, Stock:"..r_store_stock_Def[0]},50,460)
+			--testing stat [[love.graphics.print({{1,1,1},"Willson's health: "..Willson_Hp},50,480)]]
+		elseif D.location == 'wasteland' then
 			if Penelope_Hp <= 0 then
 				shopimg = 'shopnoemp'
 			elseif Penelope_Hp < 80 then
@@ -123,43 +125,52 @@ function shop_draw()
 				love.graphics.print({{0,0,0},"Welcome to the Buyin' store"},60,75)
 				love.graphics.print({{0,0,0},"Take a long look for what you \nwant"},60,95)
 			end
-			love.graphics.print({{0,0,0},"M = Medkits"},50,400)
-			love.graphics.print({{0,0,0},"P = Posion Potion"},50,420)
-			love.graphics.print({{0,0,0},"A = Attack boost"},50,440)
-			love.graphics.print({{0,0,0},"D = Defence boost"},50,460)
-			--testing stat [[love.graphics.print({{0,0,0},"Penelope's health: "..Penelope_Hp},50,480)]]
+			love.graphics.print({{1,1,1},"M = Medkits, Stock:"..r_store_stock_med[1]},50,400)
+			love.graphics.print({{1,1,1},"P = Posion Potion, Stock:"..r_store_stock_Posion[1]},50,420)
+			love.graphics.print({{1,1,1},"A = Attack boost, Stock:"..r_store_stock_Atk[1]},50,440)
+			love.graphics.print({{1,1,1},"D = Defence boost, Stock:"..r_store_stock_Def[1]},50,460)
+			--testing stat [[love.graphics.print({{1,1,1},"Penelope's health: "..Penelope_Hp},50,480)]]
 		end
-	end)
+	--end)
 end
 function shop_keypressed(key)
-	pcall(function()
+	--pcall(function()
 	if D.location == 'city' then
-		if Quest:Return('ashley') == 1 
+		if Quest:Return('ashley') --[[Quest:Return('ashley') == 1 
 		or Quest:Return('ashley') == true 
-		or Quest:Return('ashley') == 0 then
+		or Quest:Return('ashley') == 0 ]]then
 			if key == 'l' then
 				Store:seek(0)
 				love.audio.pause(Store)
 				gamestate = 'stat'
 				if math.random(1,5) == 4 then 
-					Ashley_Hp = Ashley_Hp + 10 
+					Ashley_Hp = Ashley_Hp + 10
+					if Ashley_Hp > 100 then
+						Ashley_Hp = 100
+					end
 				end
 			elseif key == 'r' then
 				Store:seek(0)
 				love.audio.pause(Store)
 				rob(10,25,"Ashley")
 			elseif key == 'm' then
-				buyMed()
+				--buyMed()
+				buyItem(Nitem[0],0)
 			elseif key == 'p' then
-				buyPotion()
+				--buyPotion()
+				buyItem(Nitem[1],0)
 			elseif key == "a" then
-				buyAb()
+				--buyAb()
+				buyItem(Nitem[2],0)
 			elseif key == "d" then
-				buyDb()
+				--buyDb()
+				buyItem(Nitem[3],0)
+			elseif key == 't' then
+				
 			end
 		elseif Quest:Return('ashley') == false then
 			if key == 'f' then
-				if Atk > 10 then
+				if Atk >= 10 then
 					Store:seek(0)
 					love.audio.pause(Store)
 					Ashley_Hp = Ashley_Hp - 60
@@ -168,9 +179,32 @@ function shop_keypressed(key)
 					Exp:add(60)
 					gamestate = 'alert'
 				else
+					Store:seek(0)
+					love.audio.pause(Store)
 					Hurt(40)
 					Alert:new('Ashley beat you up','stat')
 					gamestate = 'alert'
+				end
+			elseif key == 'b' then
+				if Cash >= 150 then
+					Store:seek(0)
+					love.audio.pause(Store)
+					Cash = Cash - 150
+					Quest:SetT('ashley')
+					Alert:new('Bribed Ashley','stat')
+					Exp:add(90)
+					gamestate = 'alert'
+				else
+					Alert:new('Ashley Declined','shop')
+					gamestate = 'alert'
+				end
+			elseif key == 'q' then
+				Quest:SetFL('ashley')
+				Store:seek(0)
+				love.audio.pause(Store)
+				gamestate = 'stat'
+				if math.random(1,5) == 4 then 
+					Ashley_Hp = Ashley_Hp + 10 
 				end
 			elseif key == 'l' then
 				Store:seek(0)
@@ -187,20 +221,27 @@ function shop_keypressed(key)
 			love.audio.pause(Store)
 			gamestate = 'stat'
 			if math.random(1,5) == 4 then 
-				Sally_Hp = Sally_Hp + 10 
+				Sally_Hp = Sally_Hp + 10
+				if Sally_Hp > 100 then
+					Sally_Hp = 100
+				end
 			end
 		elseif key == 'r' then
 			Store:seek(0)
 			love.audio.pause(Store)
 			rob(70,225,"Sally",50,300)
 		elseif key == 'm' then
-			buyMed('shop',30)
+			--buyMed('shop',30)
+			buyItem(Nitem[0],1,'shop',45)
 		elseif key == 'p' then
-			buyPotion('shop',65)
+			--buyPotion('shop',65)
+			buyItem(Nitem[1],0,'shop',95)
 		elseif key == "a" then
-			buyAb('shop',25)
+			--buyAb('shop',25)
+			buyItem(Nitem[2],0,'shop',70)
 		elseif key == "d" then
-			buyDb('shop',25)
+			--buyDb('shop',25)
+			buyItem(Nitem[3],0,'shop',105)
 		end
 	elseif D.location == 'swamp' then
 		if key == 'l' then
@@ -208,63 +249,84 @@ function shop_keypressed(key)
 			love.audio.pause(Store)
 			gamestate = 'stat'
 			if math.random(1,5) == 4 then 
-				George_Hp = George_Hp + 10 
+				George_Hp = George_Hp + 10
+				if Sally_Hp > 100 then
+					Sally_Hp = 100
+				end
 			end
 		elseif key == 'r' then
 			Store:seek(0)
 			love.audio.pause(Store)
 			rob(70,225,"George",50,300)
 		elseif key == 'm' then
-			buyMed('shop',30)
+			--buyMed('shop',30)
+			buyItem(Nitem[0],1,'shop',40)
 		elseif key == 'p' then
-			buyPotion('shop',55)
+			--buyPotion('shop',55)
+			buyItem(Nitem[1],0,'shop',75)
 		elseif key == "a" then
-			buyAb()
+			--buyAb()
+			buyItem(Nitem[2],0,'shop',55)
 		elseif key == "d" then
-			buyDb()
+			--buyDb()
+			buyItem(Nitem[3],0,'shop',115)
 		end
-	elseif D.location == 'ice' then
+	elseif D.location == 'icespikes' then
 		if key == 'l' then
 			Store:seek(0)
 			love.audio.pause(Store)
 			gamestate = 'stat'
 			if math.random(1,5) == 4 then 
-				Willson_Hp = Willson_Hp + 10 
+				Willson_Hp = Willson_Hp + 10
+				if Willson_Hp > 100 then
+					Willson_Hp = 100
+				end
 			end
 		elseif key == 'r' then
 			Store:seek(0)
 			love.audio.pause(Store)
 			rob(70,225,"Willson",50,300)
 		elseif key == 'm' then
-			buyMed()
+			--buyMed()
+			buyItem(Nitem[0],1,'shop',40)
 		elseif key == 'p' then
-			buyPotion('shop',55)
+			--buyPotion('shop',55)
+			buyItem(Nitem[1],1,'shop',95)
 		elseif key == "a" then
-			buyAb()
+			--buyAb()
+			buyItem(Nitem[2],1,'shop',85)
 		elseif key == "d" then
-			buyDb('shop',30)
+			--buyDb('shop',30)
+			buyItem(Nitem[3],0,'shop',125)
 		end
-	elseif D.location == 'waste' then
+	elseif D.location == 'wasteland' then
 		if key == 'l' then
 			Store:seek(0)
 			love.audio.pause(Store)
 			gamestate = 'stat'
 			if math.random(1,5) == 4 then 
-				Penelope_Hp = Penelope_Hp + 10 
+				Penelope_Hp = Penelope_Hp + 10
+				if Penelope_Hp > 100 then
+					Penelope_Hp = 100
+				end
 			end
 		elseif key == 'r' then
 			Store:seek(0)
 			love.audio.pause(Store)
 			rob(70,225,"Penelope",50,300)
 		elseif key == 'm' then
-			buyMed('shop',40)
+			--buyMed('shop',100)
+			buyItem(Nitem[0],2,'shop',100)
 		elseif key == 'p' then
-			buyPotion()
+			--buyPotion()
+			buyItem(Nitem[1],1,'shop',175)
 		elseif key == "a" then
-			buyAb('shop',30)
+			--buyAb('shop',130)
+			buyItem(Nitem[2],2,'shop',150)
 		elseif key == "d" then
-			buyDb('shop',30)
+			--buyDb('shop',130)
+			buyItem(Nitem[3],1,'shop',200)
 		end
 	end
-	end)
+	--end)
 end

@@ -1,4 +1,5 @@
 function love.conf(t)
+	t.version = "11.3"
 	t.identity = "TestGame"
 	t.window.title = "TestGame"
 	t.window.width = 500

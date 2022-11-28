@@ -8,6 +8,9 @@ dc5.i = image:getImage('BuisnessMan')
 dc5.inDialoge = false
 dc5.option = false
 dc5.Hp = 15
+dc5.Atk = 40
+dc5.Def = 18
+dc5.friendly = "Neutral"
 dc5.soundOpts = {}
 function dc5.draw()
 	if Rep >= 0 and dc5.inDialoge == false then
@@ -24,6 +27,7 @@ function dc5.draw()
 	love.graphics.print({{0,0,0},dc5.m},60,280)
 	love.graphics.print({{0,0,0},dc5.m2},60,300)
 	drawOptions(dc5.o)
+	drawstats(dc5)
 end
 function dc5.keypressed(key)
 	if Rep >= 0 then

@@ -39,6 +39,13 @@ function AdvDrawOptions(options,selectNum)
 	love.graphics.draw(image:getImage("Selected"),60,300+(selectNum*20))
 end
 
+--Draw Stats
+function drawstats(npc)
+	love.graphics.print({{0,0,0},"Atk:"..npc.Atk},340,320+(1*20))
+	love.graphics.print({{0,0,0},"Def:"..npc.Def},340,320+(2*20))
+	love.graphics.print({{0,0,0},npc.friendly},340,320+(3*20))
+end
+
 --[[ -- make sure to remove i guess
 --Guide--
 
@@ -95,6 +102,39 @@ function keypressed(key)
 	end
 end
 
+]]--
+
+--[[
+
+function advkeypressed()
+	if mode1 then
+		if not dch1.FirstOption then
+		
+		else
+			if not dch1.SecondOption then
+			
+			else
+				if not dch1.ThirdOption then
+					
+				else
+					
+				end
+			end
+		end
+	elseif mode2 then
+		...
+	elseif mode3 then
+		...
+	elseif mode4 then
+		...
+	elseif Rep >= 0 then
+		...
+	elseif Rep < 0 then
+		...
+	else
+		...
+	end
+end
 ]]--
 
 require("/Required/Dialoge/City/CityDialoge")
@@ -156,6 +196,7 @@ function D.SetN()
 	else
 		return -1
 	end
+	
 	return n
 end
 
@@ -182,12 +223,12 @@ function D.ChooseDialoge(int)
 			Note:new("City Brochure",2)
 			__SwampEntryNote = __SwampEntryNote + 10
 		end
-	elseif D.location == 'ice' then
+	elseif D.location == 'icespikes' then
 		if __IceEntryNote < 2 then
 			Note:new("City Brochure",2)
 			__IceEntryNote = __IceEntryNote + 10
 		end
-	elseif D.location == 'waste' then
+	elseif D.location == 'wasteland' then
 		if __WasteEntryNote < 2 then
 			Note:new("City Brochure",2)
 			__WasteEntryNote = __WasteEntryNote + 10

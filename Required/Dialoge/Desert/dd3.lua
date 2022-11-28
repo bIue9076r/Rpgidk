@@ -1,4 +1,4 @@
-dd3 = {} --100% done
+dd3 = {}
 dd3.n = 'Wild Boar'
 dd3.m = 'A Wild Boar Aproaches you'
 dd3.m2 = ''
@@ -8,6 +8,9 @@ dd3.i = image:getImage('')
 dd3.inDialoge = false
 dd3.option = false
 dd3.Hp = 80
+dd3.Atk = 65
+dd3.Def = 7
+dd3.friendly = "Enemy"
 function dd3.draw()
 	dd3.m = 'A Wild Boar Aproaches you'
 	dd3.o = {'f:fight','r:run'}
@@ -16,6 +19,7 @@ function dd3.draw()
 	love.graphics.print({{0,0,0},dd3.m},60,280)
 	love.graphics.print({{0,0,0},dd3.m2},60,300)
 	drawOptions(dd3.o)
+	drawstats(dd3)
 end
 function dd3.keypressed(key)
 	if key == 'f' then
@@ -40,7 +44,7 @@ function dd3.keypressed(key)
 			gamestate = 'alert'
 		else
 			Hurt(30)
-			Alert:new('Bitten by a Boar \nWhile Running Away','stat')
+			Alert:new('Bitten by a Boar\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

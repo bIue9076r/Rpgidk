@@ -1,5 +1,5 @@
 --ice cave dialoge
-D['iceCave'] = {}-- ???Atk to ???Atk
+D['Ice Cave'] = {}-- ???Atk to ???Atk
 --[[
 
 Not Completed File
@@ -30,4 +30,4 @@ end
 function dic1.keypressed(key)
 	
 end
-D['iceCave'][1] = dic1
+D['Ice Cave'][1] = dic1

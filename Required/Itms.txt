@@ -49,6 +49,17 @@
 63: Ice Block
 64,65: Mustard + Super form
 66,67: Star Candy + Super form
+68: Moss
+69: [currently a place holder]
+70: Carrot
+71: Goo
+72: Yellow snow
+73: Snow
+74,75,76,77: uncommon items
+78,79,80,81: rare items
+82,83,84,85: legendary items
+86: Sheet metal
+87,88: cake + super form
 #--Food by region--
 ##--City
 21,22: Steak + Super form

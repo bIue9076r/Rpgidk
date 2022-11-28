@@ -1,0 +1,60 @@
+city store (base price) -- starter area
+cmed - 30
+cpot - 65
+catk - 45
+cdef - 105
+
+street lamp (secret shop)
+-- should be hard to find
+cmed - 20
+cpot - 50
+catk - 30
+cdef - 70
+
+desert store (base price) -- desert store
+-- everything slightly more expensive
+umed - 45
+cpot - 95
+catk - 70
+cdef - 105
+
+wanderer (desert)
+-- sells slightly cheaper than store
+umed - 40
+cpot - 85
+uatk - 55
+cdef - 80
+
+cactus (secret shop)
+-- should be hard to find
+cmed - 20
+cpot - 50
+catk - 30
+cdef - 70
+
+swamp store (base price)
+-- monopoly
+umed - 40
+cpot - 75
+catk - 55
+cdef - 115
+
+ice store (base price)
+-- scarce items
+umed - 40
+upot - 95
+uatk - 85
+cdef - 125
+
+waste store (base price)
+-- very dangerous to reach
+rmed - 100
+upot - 175
+ratk - 150
+udef - 200
+
+wanderer (waste)
+umed - 60
+upot - 120
+uatk - 70
+udef - 170

@@ -8,6 +8,9 @@ dw10.i = image:getImage('')
 dw10.inDialoge = false
 dw10.option = false
 dw10.Hp = 100
+dw10.Atk = 365
+dw10.Def = 58
+dw10.friendly = "Enemy"
 function dw10.draw()
 	dw10.m = 'A Toxic Lizard approaches you'
 	dw10.o = {'f:fight','r:run'}
@@ -16,6 +19,7 @@ function dw10.draw()
 	love.graphics.print({{0,0,0},dw10.m},60,280)
 	love.graphics.print({{0,0,0},dw10.m2},60,300)
 	drawOptions(dw10.o)
+	drawstats(dw10)
 end
 function dw10.keypressed(key)
 	if key == 'f' then
@@ -40,7 +44,7 @@ function dw10.keypressed(key)
 			gamestate = 'alert'
 		else
 			Hurt(370)
-			Alert:new('Attacked by a Toxic Lizard \nWhile Running Away','stat')
+			Alert:new('Attacked by a Toxic Lizard\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

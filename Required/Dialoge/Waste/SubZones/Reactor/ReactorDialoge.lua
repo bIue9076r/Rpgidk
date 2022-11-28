@@ -1,5 +1,5 @@
 --reactor dialoge
-D['reactor'] = {}-- ???Atk to ???Atk
+D['Reactor'] = {}-- ???Atk to ???Atk
 --[[
 
 Not Completed File
@@ -30,4 +30,4 @@ end
 function dr1.keypressed(key)
 	
 end
-D['reactor'][1] = dr1
+D['Reactor'][1] = dr1

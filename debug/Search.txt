@@ -1,0 +1,21 @@
+RegEx - 'arrest' : Dir - /mnt/chromeos/MyFiles/Downloads/gamefiles
+
+/mnt/chromeos/MyFiles/Downloads/gamefiles/Required/Game.lua:916:		elseif gamestate == 'arrest' then
+/mnt/chromeos/MyFiles/Downloads/gamefiles/Required/Game.lua:981:	elseif gamestate == 'arrest' then
+/mnt/chromeos/MyFiles/Downloads/gamefiles/Required/Dialoge/Swamp/ds7.lua:78:				Alert:new('Arrested by the\n\nSwamp Ranger','arrest')
+/mnt/chromeos/MyFiles/Downloads/gamefiles/Required/Dialoge/Swamp/ds7.lua:85:					Alert:new('Failed to escape','arrest')
+/mnt/chromeos/MyFiles/Downloads/gamefiles/Required/Dialoge/Swamp/ds7.lua:105:					Alert:new('Failed to beat\n\nThe Swamp Ranger','arrest')
+/mnt/chromeos/MyFiles/Downloads/gamefiles/Required/Dialoge/Swamp/ds7.lua:121:					Alert:new('Arrested by the\n\nSwamp Ranger','arrest')
+/mnt/chromeos/MyFiles/Downloads/gamefiles/Required/Dialoge/Waste/dw8.lua:84:						Alert:new('Failed to beat the Police Squad','arrest')
+/mnt/chromeos/MyFiles/Downloads/gamefiles/Required/Dialoge/Waste/dw8.lua:105:				Alert:new('Arrested by the Police Squad','arrest')
+/mnt/chromeos/MyFiles/Downloads/gamefiles/Required/Dialoge/Waste/dw8.lua:115:					Alert:new('Failed to evade the Police Squad','arrest')
+/mnt/chromeos/MyFiles/Downloads/gamefiles/Required/Dialoge/Waste/dw8.lua:135:					Alert:new('Failed to beat the Police Squad','arrest')
+/mnt/chromeos/MyFiles/Downloads/gamefiles/Required/Dialoge/Waste/dw8.lua:167:						Alert:new('Failed to beat the Squad','arrest')
+/mnt/chromeos/MyFiles/Downloads/gamefiles/Required/Dialoge/Waste/dw8.lua:188:				Alert:new('Arrested by the Squad','arrest')
+/mnt/chromeos/MyFiles/Downloads/gamefiles/Required/Dialoge/Waste/dw8.lua:198:					Alert:new('Failed to evade the Squad','arrest')
+/mnt/chromeos/MyFiles/Downloads/gamefiles/Required/Dialoge/Waste/dw8.lua:218:					Alert:new('Failed to beat the Squad','arrest')
+/mnt/chromeos/MyFiles/Downloads/gamefiles/Required/Dialoge/Desert/dd7.lua:137:							Alert:new('Failed to bribe \n\nThe Bounty Hunter','arrest')
+/mnt/chromeos/MyFiles/Downloads/gamefiles/Required/Dialoge/Desert/dd7.lua:142:						Alert:new('Failed to bribe \n\nThe Bounty Hunter','arrest')
+/mnt/chromeos/MyFiles/Downloads/gamefiles/Required/Dialoge/City/dc10.lua:120:						Alert:new('Failed to bribe an Officer','arrest')
+/mnt/chromeos/MyFiles/Downloads/gamefiles/Required/Dialoge/City/dc10.lua:125:					Alert:new('Failed to bribe an Officer','arrest')
+/mnt/chromeos/MyFiles/Downloads/gamefiles/Required/Modules/GameFunctions.lua:403:	Alert:new("You have been arrested",'arrest')

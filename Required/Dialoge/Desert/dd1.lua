@@ -1,6 +1,6 @@
-dd1 = {} --100% done
+dd1 = {}
 dd1.n = 'Raider'
-dd1.m = '"Give me Your Items"'
+dd1.m = '"Give me Your money"'
 dd1.m2 = ''
 dd1.o = {'y:yes','r:run','f:fight','t:talk'}
 dd1.f = dd1.o
@@ -8,16 +8,21 @@ dd1.i = image:getImage('Raider')
 dd1.inDialoge = false
 dd1.option = false
 dd1.Hp = 20
+dd1.Atk = 75
+dd1.Def = 20
+dd1.friendly = "Enemy"
 dd1.soundOpts = {}
 function dd1.draw()
 	dd1.n2 = dd1.n2 or math.random(0,3)
 	dd1.b = dd1.b or math.random(0,3)
 	if dd1.b == dd1.n2 then repeat dd1.b = math.random(0,3) until dd1.b ~= dd1.n2 end
-	if Rep >= 0 and dd1.inDialoge == false then
-		dd1.m = '"Give me Your Items"'
+	if Rep >= -50 and dd1.inDialoge == false then
+		dd1.friendly = "Enemy"
+		dd1.m = '"Give me Your money"'
 		dd1.m2 = ''
 		dd1.o = {'y:yes','r:run','f:fight','t:talk'}
-	elseif Rep <= 0 and dd1.inDialoge == false then
+	elseif Rep < -50 and dd1.inDialoge == false then
+		dd1.friendly = "Friend"
 		dd1.m = '"Do you want to trade"'
 		dd1.m2 = ''
 		dd1.o = {'y:yes','r:run','f:fight'}
@@ -27,6 +32,7 @@ function dd1.draw()
 	love.graphics.print({{0,0,0},dd1.m},60,280)
 	love.graphics.print({{0,0,0},dd1.m2},60,300)
 	drawOptions(dd1.o)
+	drawstats(dd1)
 end
 function dd1.keypressed(key)
 	if Rep >= -50 then
@@ -34,14 +40,13 @@ function dd1.keypressed(key)
 			if key == 't' then
 				dd1.inDialoge = true
 				dd1.m = 'Are you out your mind'
-				dd1.m2 = 'Give me your items'
+				dd1.m2 = 'Give me your money'
 				dd1.o = {'h:help','l:leave'}
 			elseif key == 'y' then
-				Item:Remove(math.random(1,#Item.items))
 				if Cash >= 30 then
 					lowerCash(30)
 				end
-				Alert:new('Failed to Run Away','stat')
+				Alert:new('Gave your money','stat')
 				gamestate = 'alert'
 			elseif key == 'r' then
 				if Def >= 20 or math.random(1,20) == 5 then
@@ -93,7 +98,7 @@ function dd1.keypressed(key)
 			if key == 'y' then
 				dd1.inDialoge = true
 				dd1.o = {'t:trade','l:leave'}
-				dd1.m = '"'..Nitem[dd1.n2]..' for '..Nitem[dd1.b]..'"'
+				dd1.m = '"'..sNitem[1]..Nitem[dd1.n2]..' for \n\n'..sNitem[1]..Nitem[dd1.b]..'"'
 			elseif key == 'r' then
 				Alert:new('Ran Away','stat')
 				Exp:add(50)
@@ -121,9 +126,9 @@ function dd1.keypressed(key)
 		else
 			if not dd1.option then
 				if key == 't' then
-					if item[dd1.n2] > 0 then
-						item[dd1.n2] = item[dd1.n2] - 1
-						item[dd1.b] = item[dd1.b] + 1
+					if sitem[1][dd1.n2] > 0 then
+						sitem[1][dd1.n2] = sitem[1][dd1.n2] - 1
+						sitem[1][dd1.b] = sitem[1][dd1.b] + 1
 						Alert:new('Successful Trade','stat')
 						Exp:add(20)
 						gamestate = 'alert'
@@ -131,7 +136,7 @@ function dd1.keypressed(key)
 						dd1.b = nil
 						dd1.inDialoge = false
 					else
-						dd1.m = "you dont have any "..Nitem[dd1.n2]
+						dd1.m = "you dont have any\n\n"..sNitem[1]..Nitem[dd1.n2]
 					end
 				elseif key == 'l' then
 					dd1.inDialoge = false

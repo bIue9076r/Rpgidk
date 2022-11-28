@@ -1,0 +1,19 @@
+implament these basic commands
+
+(done)	/give	[class]	(id#) (amount) {name}
+(done)	/stat	[stat]	[action]	(amount)
+(done)	/cash	[action]	(amount)
+(done)	/rep	[action]	(amount)
+(done)	/maxhp	[action]	(amount)
+(done)	/hp		[action]	(amount)
+(done)	/atk	[action]	(amount)
+(done)	/def	[action]	(amount)
+(done)	/item	[iclass]	(amount)	{rarity}
+(done)	/bitem	(item id#)	(amount)	{name}
+(done)	/note	(note id#)	{name}
+(done)	/npc	[action]	[id#]	(amount)
+(done)	/kill	[id#]
+(done)	/heal	[id#]
+(done)	/revive	[id#]
+(done)	/killall
+(done)	/healall

@@ -1,0 +1,175 @@
+Expected play styles:
+
+	First play:
+		Good play:
+			low human npc kill count
+			medium non human kill count
+			very dialoge focused
+			see Good Ending or True
+		
+		Neutral play:
+			low human npc kill count
+			high non human kill count
+			dialoge focused
+			see Neutral Ending
+		
+		Evil play:
+			medium human npc kill count
+			high non human kill count
+			attacking foucused
+			see Evil Ending
+	
+	Styles:	
+		Grind:
+			Sweaty Grinder:
+			// close to GENOCIDE but without the evil
+				high human kill count
+				high non human kill count
+				very high general stats
+				see Dark Ending
+				
+			Neutral Grinder:
+				medium human kill count
+				high non human kill count
+				high general stats
+				see Gray Ending
+			
+			Lazy Grinder:
+				medium human kill count
+				medium non human kill count
+				medium high general stats
+				see Gray Ending
+			
+		Trader:
+			Experienced Trader:
+				low human kill count
+				low non human kill count
+				exploting advanced monetary systems
+				very high cash stat
+				see Gray Ending
+				
+			New Trader:
+				low human kill count
+				low non human kill count
+				exploting monetary systems
+				high cash stat
+				see Neutral Ending
+			
+		MASS GENOCIDE:
+			this mf killed everyone there
+			just a wee bit of trolling
+			"Area Clear"
+			see Evil Ending
+			
+	Endings:
+		True Ending:
+			// City requirments:
+				// Make Ashley and Harley makeup
+				// Pair up Tracey and Janet
+				// Recycle once
+			// Desert requirments:
+				// Fix the Desert Well
+				// Hug a catcus
+			// Swamp requirments:
+				// Slay the creature of the lakes
+			// Icespikes requirments:
+				// Help the Lost Researcher
+			// Wasteland requirments:
+				// kill all zombies in the wasteland
+				// Fix the reactor
+			// Misc requirments:
+				// 0 arrests
+				// +1000 Rep
+		
+		Good Ending:
+			// City requirments:
+				optional [ // Make Ashley and Harley makeup
+				optional [ // Pair up Tracey and Janet
+				// Recycle once
+				// No more than 15 kills
+				// Buy and Sell things
+			// Desert requirments:
+				// Fix the Desert Well
+				// Hug a catcus
+			// Swamp requirments:
+				// none
+			// Icespikes requirments:
+				// Help the Lost Researcher
+			// Wasteland requirments:
+				// Fix the reactor
+			// Misc requirments:
+				// < 5 arrests
+				// +500 Rep
+		
+		Neutral Ending:
+			// City requirments:
+				// No more than 20 kills
+				// Buy and Sell things
+			// Desert requirments:
+				// Hug a catcus
+			// Swamp requirments:
+				// none
+			// Icespikes requirments:
+				// none
+			// Wasteland requirments:
+				// none
+			// Misc requirments:
+				// < 20 arrests
+				// +250 Rep
+		
+		Gray Ending:
+			// City requirments:
+				// More than 20 kills
+				// Buy and Sell things + Stealing
+				optional [ // Resurect Valary
+			// Desert requirments:
+				optional [ // Steal baked goods
+			// Swamp requirments:
+				optional [ // Help the creature of the lakes
+			// Icespikes requirments:
+				// ignore the Lost Researcher
+			// Wasteland requirments:
+				optional [ // Create more zombies
+			// Misc requirments:
+				// +100 Rep
+		
+		Dark Ending:
+			// City requirments:
+				// More than 30 kills
+				// Steal and Sell things
+				optional [ // Resurect Valary
+				optional [ // Reinstate the Spikes Empire
+			// Desert requirments:
+				// Steal baked goods
+				optional [ // Break the Broken Well
+			// Swamp requirments:
+				optional [ // Help the creature of the lakes
+			// Icespikes requirments:
+				// ignore the Lost Researcher
+				optional [ // destroy the Research base
+			// Wasteland requirments:
+				// Create more zombies
+				optional [ // destroy the survivor town
+			// Misc requirments:
+				// any Rep
+		
+		Evil Ending:
+			// City requirments:
+				// Kill everything
+				// Become a Trator to the government
+				// Resurect Valary
+				// Reinstate the Spikes Empire
+				// Steal and Sell things
+			// Desert requirments:
+				// Steal baked goods
+				// Break the Broken Well
+			// Swamp requirments:
+				// Help the creature of the lakes
+			// Icespikes requirments:
+				// ignore the Lost Researcher
+				// destroy the Research base
+			// Wasteland requirments:
+				// Create more zombies
+				// destroy the survivor town
+			// Misc requirments:
+				// -0 Rep

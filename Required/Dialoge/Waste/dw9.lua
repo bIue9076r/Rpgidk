@@ -8,6 +8,9 @@ dw9.i = image:getImage('')
 dw9.inDialoge = false
 dw9.option = false
 dw9.Hp = 10
+dw9.Atk = 800
+dw9.Def = 80
+dw9.friendly = "Enemy"
 function dw9.draw()
 	dw9.m = 'A Sand Monster approaches you'
 	dw9.o = {'f:fight','r:run'}
@@ -16,6 +19,7 @@ function dw9.draw()
 	love.graphics.print({{0,0,0},dw9.m},60,280)
 	love.graphics.print({{0,0,0},dw9.m2},60,300)
 	drawOptions(dw9.o)
+	drawstats(dw9)
 end
 function dw9.keypressed(key)
 	if key == 'f' then
@@ -40,7 +44,7 @@ function dw9.keypressed(key)
 			gamestate = 'alert'
 		else
 			Hurt(450)
-			Alert:new('Attacked by a Sand Monster \nWhile Running Away','stat')
+			Alert:new('Attacked by a Sand Monster\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

@@ -1,5 +1,5 @@
 --desert mine dialoge
-D.desertMine = {}-- ???Atk to ???Atk
+D['Desert Mine'] = {}-- ???Atk to ???Atk
 --[[
 
 Not Completed File
@@ -30,4 +30,4 @@ end
 function ddm1.keypressed(key)
 	
 end
-D.desertMine[1] = ddm1
+D['Desert Mine'][1] = ddm1

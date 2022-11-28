@@ -1,5 +1,5 @@
 --sea dock dialoge
-D['seaDock'] = {}-- ???Atk to ???Atk
+D['Sea Dock'] = {}-- ???Atk to ???Atk
 --[[
 
 Not Completed File
@@ -30,4 +30,4 @@ end
 function dsd1.keypressed(key)
 	
 end
-D['seaDock'][1] = dsd1
+D['Sea Dock'][1] = dsd1

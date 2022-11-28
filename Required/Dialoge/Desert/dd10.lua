@@ -1,4 +1,4 @@
-dd10 = {} --100% done
+dd10 = {}
 dd10.n = 'Recycling man'
 dd10.m = '"Keep our Deserts Clean"'
 dd10.m2 = ''
@@ -8,6 +8,9 @@ dd10.i = image:getImage('')
 dd10.inDialoge = false
 dd10.option = false
 dd10.Hp = 5
+dd10.Atk = 60
+dd10.Def = 24
+dd10.friendly = "Neutral"
 function dd10.draw()
 	if Rep >= 0 and dd10.inDialoge == false then
 		dd10.m = '"Keep our Deserts Clean"'
@@ -21,6 +24,7 @@ function dd10.draw()
 	love.graphics.print({{0,0,0},dd10.m},60,280)
 	love.graphics.print({{0,0,0},dd10.m2},60,300)
 	drawOptions(dd10.o)
+	drawstats(dd10)
 	if dd10.option then
 		inv_draw_stuff_select()
 	end
@@ -49,7 +53,7 @@ function dd10.keypressed(key)
 					lowerRep(120)
 					Hurt(45)
 					CrimeUpdate(1)
-					Alert:new('Failed to beat \nthe Recycling man','stat')
+					Alert:new('Failed to beat \n\nthe Recycling man','stat')
 					gamestate = 'alert'
 				end
 			elseif key == 's' then
@@ -73,10 +77,15 @@ function dd10.keypressed(key)
 					Inv_select = Inv_select + 1
 					end
 				elseif key == "return" then
-					Item:Remove(Inv_select+((Inv_page-1)*8))
-					raiseCash(20)
-					Alert:new('Removed Item','world')
-					gamestate = 'alert'
+					if(Item:isReal(Inv_select+((Inv_page-1)*8))) then
+						Item:Remove(Inv_select+((Inv_page-1)*8))
+						raiseCash(20)
+						Alert:new('Removed Item','world')
+						gamestate = 'alert'
+					else
+						Alert:new('No Item removed','world')
+						gamestate = 'alert'
+					end
 				elseif key == "l" then
 					dd10.option = false
 				end
@@ -105,7 +114,7 @@ function dd10.keypressed(key)
 					lowerRep(120)
 					Hurt(45)
 					CrimeUpdate(1)
-					Alert:new('Failed to beat \nthe Recycling man','stat')
+					Alert:new('Failed to beat \n\nthe Recycling man','stat')
 					gamestate = 'alert'
 				end
 			elseif key == 's' then
@@ -129,10 +138,15 @@ function dd10.keypressed(key)
 					Inv_select = Inv_select + 1
 					end
 				elseif key == "return" then
-					Item:Remove(Inv_select+((Inv_page-1)*8))
-					raiseCash(20)
-					Alert:new('Removed Item','world')
-					gamestate = 'alert'
+					if(Item:isReal(Inv_select+((Inv_page-1)*8))) then
+						Item:Remove(Inv_select+((Inv_page-1)*8))
+						raiseCash(20)
+						Alert:new('Removed Item','world')
+						gamestate = 'alert'
+					else
+						Alert:new('No Item removed','world')
+						gamestate = 'alert'
+					end
 				elseif key == "l" then
 					dd10.option = false
 				end

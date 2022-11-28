@@ -8,6 +8,9 @@ di1.i = image:getImage('')
 di1.inDialoge = false
 di1.option = false
 di1.Hp = 8
+di1.Atk = 180
+di1.Def = 37
+di1.friendly = "Enemy"
 function di1.draw()
 	di1.m = 'A Wild Penguin approches you'
 	di1.o = {'f:fight','r:run'}
@@ -16,6 +19,7 @@ function di1.draw()
 	love.graphics.print({{0,0,0},di1.m},60,280)
 	love.graphics.print({{0,0,0},di1.m2},60,300)
 	drawOptions(di1.o)
+	drawstats(di1)
 end
 function di1.keypressed(key)
 	if key == 'f' then
@@ -40,7 +44,7 @@ function di1.keypressed(key)
 			gamestate = 'alert'
 		else
 			Hurt(185)
-			Alert:new('Attacked by a Penguin \nWhile Running Away','stat')
+			Alert:new('Attacked by a Penguin\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

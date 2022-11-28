@@ -8,6 +8,9 @@ di8.i = image:getImage('')
 di8.inDialoge = false
 di8.option = false
 di8.Hp = 3
+di8.Atk = 260
+di8.Def = 50
+di8.friendly = "Neutral"
 function di8.draw()
 	if di8.inDialoge == false then
 		di8.m = '"Want to buy some Ice"'
@@ -18,6 +21,7 @@ function di8.draw()
 	love.graphics.print({{0,0,0},di8.m},60,280)
 	love.graphics.print({{0,0,0},di8.m2},60,300)
 	drawOptions(di8.o)
+	drawstats(di8)
 end
 function di8.keypressed(key)
 	if not di8.inDialoge then
@@ -32,7 +36,7 @@ function di8.keypressed(key)
 				raiseDef(7)
 				raiseRep(80)
 				raiseCash(80)
-				Alert:new('Fought The Artic Fox','stat')
+				Alert:new('Fought The Fisherman','stat')
 				gamestate = 'alert'
 				Exp:add(345)
 			else
@@ -51,7 +55,7 @@ function di8.keypressed(key)
 		if key == 'b' then
 			if Cash >= 25 then
 				Cash = Cash - 25
-				Alert:new('Bought Ice','stat')
+				Alert:new('Bought Ice','stat') --why is there no ice block yet
 				gamestate = 'alert'
 				di8.inDialoge = false
 			else

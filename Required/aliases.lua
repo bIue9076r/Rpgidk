@@ -11,6 +11,12 @@ sub = string.sub
 tmove = table.move
 tpack = table.pack
 tunpack = table.unpack
+clog = function(b,x)
+	return math.log(x)/math.log(b)
+end
+log2 = function(x)
+	return clog(2,x)
+end
 --[[
 --Unimportant Functions
 sin = math.sin

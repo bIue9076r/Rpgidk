@@ -8,6 +8,9 @@ dc9.i = image:getImage('')
 dc9.inDialoge = false
 dc9.option = false
 dc9.Hp = 3
+dc9.Atk = 30
+dc9.Def = 12
+dc9.friendly = "Neutral"
 dc9.soundOpts = {}
 function dc9.draw()
 	if Rep >= 0 and dc9.inDialoge == false then
@@ -24,6 +27,7 @@ function dc9.draw()
 	love.graphics.print({{0,0,0},dc9.m},60,280)
 	love.graphics.print({{0,0,0},dc9.m2},60,300)
 	drawOptions(dc9.o)
+	drawstats(dc9)
 end
 function dc9.keypressed(key)
 	if Rep >= 0 then

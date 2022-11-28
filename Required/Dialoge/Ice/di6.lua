@@ -8,6 +8,9 @@ di6.i = image:getImage('')
 di6.inDialoge = false
 di6.option = false
 di6.Hp = 1
+di6.Atk = 45
+di6.Def = 12
+di6.friendly = "Neutral"
 function di6.draw()
 	if di6.inDialoge == false then
 		di6.m = '"Have you seen a base nearby"'
@@ -18,6 +21,7 @@ function di6.draw()
 	love.graphics.print({{0,0,0},di6.m},60,280)
 	love.graphics.print({{0,0,0},di6.m2},60,300)
 	drawOptions(di6.o)
+	drawstats(di6)
 end
 function di6.keypressed(key)
 	if key == 't' then

@@ -1,5 +1,5 @@
 --undeground market dialoge
-D['undergroundMarket'] = {}-- ???Atk to ???Atk
+D['Underground Market'] = {}-- ???Atk to ???Atk
 --[[
 
 Not Completed File
@@ -30,4 +30,4 @@ end
 function dum1.keypressed(key)
 	
 end
-D['undergroundMarket'][1] = dum1
+D['Underground Market'][1] = dum1

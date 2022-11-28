@@ -1,5 +1,5 @@
 --desert town dialoge
-D.desertTown = {}-- ???Atk to ???Atk
+D['Desert Town'] = {}-- ???Atk to ???Atk
 --[[
 
 Not Completed File
@@ -30,4 +30,4 @@ end
 function ddt1.keypressed(key)
 	
 end
-D.desertTown[1] = ddt1
+D['Desert Town'][1] = ddt1

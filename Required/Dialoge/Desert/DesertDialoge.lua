@@ -1,5 +1,5 @@
 --Desert dialoge
-D['desert'] = {}-- 60Atk to 120Atk
+D['desert'] = {}
 require('/Required/Dialoge/Desert/dd1') -- Raider
 require('/Required/Dialoge/Desert/dd2') -- Scorpian
 require('/Required/Dialoge/Desert/dd3') -- Boar

@@ -1,5 +1,5 @@
 --criminal base dialoge
-D['criminalBase'] = {}-- ???Atk to ???Atk
+D['Criminal Base'] = {}-- ???Atk to ???Atk
 --[[
 
 Not Completed File
@@ -30,4 +30,4 @@ end
 function dcb1.keypressed(key)
 	
 end
-D['criminalBase'][1] = dcb1
+D['Criminal Base'][1] = dcb1

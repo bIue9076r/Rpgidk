@@ -10,7 +10,7 @@ ds12.option = false
 ds12.Hp = 100
 function ds12.draw()
 	if ds12.inDialoge == false then
-		ds12.m = 'you come across the Big Green Lake Fence'
+		ds12.m = 'you come across the Lake Fence'
 		ds12.m2 = 'go inside:'
 		ds12.o = {'y:yes','n:no'}
 	end

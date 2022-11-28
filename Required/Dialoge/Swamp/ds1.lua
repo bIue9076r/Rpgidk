@@ -8,6 +8,9 @@ ds1.i = image:getImage('')
 ds1.inDialoge = false
 ds1.option = false
 ds1.Hp = 50
+ds1.Atk = 120
+ds1.Def = 21
+ds1.friendly = "Enemy"
 function ds1.draw()
 	ds1.m = 'A Wild Goose Aproaches you'
 	ds1.o = {'f:fight','r:run'}
@@ -16,6 +19,7 @@ function ds1.draw()
 	love.graphics.print({{0,0,0},ds1.m},60,280)
 	love.graphics.print({{0,0,0},ds1.m2},60,300)
 	drawOptions(ds1.o)
+	drawstats(ds1)
 end
 function ds1.keypressed(key)
 	if key == 'f' then
@@ -40,7 +44,7 @@ function ds1.keypressed(key)
 			gamestate = 'alert'
 		else
 			Hurt(110)
-			Alert:new('Pecked by a Goose \nWhile Running Away','stat')
+			Alert:new('Pecked by a Goose\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

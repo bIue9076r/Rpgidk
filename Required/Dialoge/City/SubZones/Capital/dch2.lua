@@ -22,4 +22,4 @@ end
 function dch2.keypressed(key)
 	
 end
-D['capitalHall'][2] = dch2
+D['Capital Hall'][2] = dch2

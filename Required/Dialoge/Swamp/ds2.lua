@@ -8,6 +8,9 @@ ds2.i = image:getImage('')
 ds2.inDialoge = false
 ds2.option = false
 ds2.Hp = 70
+ds2.Atk = 30
+ds2.Def = 12
+ds2.friendly = "Enemy"
 function ds2.draw()
 	ds2.m = 'A Giant Frog Aproaches you'
 	ds2.o = {'f:fight','r:run'}
@@ -16,6 +19,7 @@ function ds2.draw()
 	love.graphics.print({{0,0,0},ds2.m},60,280)
 	love.graphics.print({{0,0,0},ds2.m2},60,300)
 	drawOptions(ds2.o)
+	drawstats(ds2)
 end
 function ds2.keypressed(key)
 	if key == 'f' then
@@ -40,7 +44,7 @@ function ds2.keypressed(key)
 			gamestate = 'alert'
 		else
 			Hurt(120)
-			Alert:new('Slaped by a Frog \nWhile Running Away','stat')
+			Alert:new('Slaped by a Frog\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

@@ -1,4 +1,4 @@
-dd2 = {} --100% done
+dd2 = {}
 dd2.n = 'Scorpian'
 dd2.m = 'A Wild Scorpian Aproaches you'
 dd2.m2 = ''
@@ -8,6 +8,9 @@ dd2.i = image:getImage('')
 dd2.inDialoge = false
 dd2.option = false
 dd2.Hp = 70
+dd2.Atk = 85
+dd2.Def = 10
+dd2.friendly = "Enemy"
 function dd2.draw()
 	dd2.m = 'A Wild Scorpian Aproaches you'
 	dd2.o = {'f:fight','r:run'}
@@ -16,6 +19,7 @@ function dd2.draw()
 	love.graphics.print({{0,0,0},dd2.m},60,280)
 	love.graphics.print({{0,0,0},dd2.m2},60,300)
 	drawOptions(dd2.o)
+	drawstats(dd2)
 end
 function dd2.keypressed(key)
 	if key == 'f' then
@@ -40,7 +44,7 @@ function dd2.keypressed(key)
 			gamestate = 'alert'
 		else
 			Hurt(40)
-			Alert:new('Stung by Scorpian \nWhile Running Away','stat')
+			Alert:new('Stung by Scorpian\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

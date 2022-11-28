@@ -8,6 +8,9 @@ di9.i = image:getImage('')
 di9.inDialoge = false
 di9.option = false
 di9.Hp = 25
+di9.Atk = 160
+di9.Def = 0
+di9.friendly = "Neutral"
 function di9.draw()
 	if di9.inDialoge == false then
 		di9.m = 'A Reindeer Aproaches You'
@@ -18,6 +21,7 @@ function di9.draw()
 	love.graphics.print({{0,0,0},di9.m},60,280)
 	love.graphics.print({{0,0,0},di9.m2},60,300)
 	drawOptions(di9.o)
+	drawstats(di9)
 end
 function di9.keypressed(key)
 	if key == 'f' then
@@ -32,7 +36,7 @@ function di9.keypressed(key)
 			gamestate = 'alert'
 		else
 			Hurt(95)
-			Alert:new('Failed to Beat \nThe Reindeer','stat')
+			Alert:new('Failed to Beat\n\nThe Reindeer','stat')
 			gamestate = 'alert'
 		end
 	elseif key == 'r' then

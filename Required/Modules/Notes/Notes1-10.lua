@@ -1,4 +1,5 @@
 --1 to 10
+-- conditions: start the game
 function NoteUses.BeginnersNote()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('note'),0,0)
@@ -12,6 +13,7 @@ function NoteUses.BeginnersNote()
 end
 NoteUse[1] = NoteUses.BeginnersNote
 
+-- conditions: enter the city (start the game)
 function NoteUses.WelcomeToTheCity()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('note'),0,0)
@@ -25,6 +27,7 @@ function NoteUses.WelcomeToTheCity()
 end
 NoteUse[2] = NoteUses.WelcomeToTheCity
 
+-- conditions: enter the libary
 function NoteUses.WelcomeToTheLibary()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('note'),0,0)
@@ -46,6 +49,7 @@ function NoteUses.WelcomeToTheLibary()
 end
 NoteUse[3] = NoteUses.WelcomeToTheLibary
 
+-- conditions: enter the capital building
 function NoteUses.WelcomeToCapitalHall()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('note'),0,0)
@@ -63,6 +67,7 @@ function NoteUses.WelcomeToCapitalHall()
 end
 NoteUse[4] = NoteUses.WelcomeToCapitalHall
 
+-- conditions: get the libary papers 1
 function NoteUses.CapitalHall_Hist1()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('note'),0,0)
@@ -87,6 +92,7 @@ function NoteUses.CapitalHall_Hist1()
 end
 NoteUse[5] = NoteUses.CapitalHall_Hist1
 
+-- conditions: get the libary papers 2
 function NoteUses.CapitalHall_Hist2()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('note'),0,0)
@@ -111,6 +117,7 @@ function NoteUses.CapitalHall_Hist2()
 end
 NoteUse[6] = NoteUses.CapitalHall_Hist2
 
+-- conditions: get the libary papers 3
 function NoteUses.CapitalHall_Hist3()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('note'),0,0)
@@ -130,6 +137,7 @@ function NoteUses.CapitalHall_Hist3()
 end
 NoteUse[7] = NoteUses.CapitalHall_Hist3
 
+-- conditions: speak to janet
 function NoteUses.CapitalHall_FastFacts1()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('note'),0,0)
@@ -148,6 +156,7 @@ function NoteUses.CapitalHall_FastFacts1()
 end
 NoteUse[8] = NoteUses.CapitalHall_FastFacts1
 
+-- conditions: speak to janet
 function NoteUses.CapitalHall_FastFacts2()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('note'),0,0)
@@ -166,7 +175,7 @@ function NoteUses.CapitalHall_FastFacts2()
 end
 NoteUse[9] = NoteUses.CapitalHall_FastFacts2
 
-
+-- conditions: speak to janet
 function NoteUses.CapitalHall_FastFacts3()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('note'),0,0)

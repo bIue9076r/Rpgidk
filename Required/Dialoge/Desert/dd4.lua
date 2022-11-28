@@ -1,4 +1,4 @@
-dd4 = {} --100% done
+dd4 = {}
 dd4.n = 'Wanderer'
 dd4.m = '"Need something?"'
 dd4.m2 = ''
@@ -8,11 +8,11 @@ dd4.i = image:getImage('')
 dd4.inDialoge = false
 dd4.option = false
 dd4.Hp = 40
+dd4.Atk = 90
+dd4.Def = 40
+dd4.friendly = "Neutral"
 function dd4.draw()
-	if Rep >= 0 and dd4.inDialoge == false then
-		dd4.m = '"Need something?"'
-		dd4.o = {'y:yes','r:run','f:fight'}
-	elseif Rep <= 0 and dd4.inDialoge == false then
+	if dd4.inDialoge == false then
 		dd4.m = '"Need something?"'
 		dd4.o = {'y:yes','r:run','f:fight'}
 	end
@@ -21,15 +21,16 @@ function dd4.draw()
 	love.graphics.print({{0,0,0},dd4.m},60,280)
 	love.graphics.print({{0,0,0},dd4.m2},60,300)
 	drawOptions(dd4.o)
+	drawstats(dd4)
 end
 function dd4.keypressed(key)
 	if not dd4.inDialoge then
 		if key == 'y' then
 			dd4.o = {
-				'm:medkit',
-				'p:poison',
-				'a:atk bst',
-				'd:def bst',
+				'm:medkit $40',
+				'p:poison $85',
+				'a:atk bst $55',
+				'd:def bst $95',
 				'l:leave'
 			}
 			dd4.inDialoge = true
@@ -56,13 +57,13 @@ function dd4.keypressed(key)
 	else
 		if not dd4.option then
 			if key == 'm' then
-				buyMed('world',20)
+				buyItem(Nitem[0],1,'world',40)
 			elseif key == 'p' then
-				buyPotion('world',25)
+				buyItem(Nitem[1],0,'world',85)
 			elseif key == 'a' then
-				buyAb('world',35)
+				buyItem(Nitem[2],1,'world',55)
 			elseif key == 'd' then
-				buyDb('world',25)
+				buyItem(Nitem[3],0,'world',95)
 			elseif key == 'l' then
 				dd4.o = dd4.f
 				dd4.inDialoge = false

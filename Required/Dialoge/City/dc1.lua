@@ -8,17 +8,25 @@ dc1.i = image:getImage('robber')
 dc1.inDialoge = false
 dc1.option = false
 dc1.Hp = 20
+dc1.Atk = 5
+dc1.Def = 2
+dc1.friendly = "Enemy"
 dc1.soundOpts = {}
 function dc1.draw()
 	if Rep >= 0 and dc1.inDialoge == false then
+		dc1.friendly = "Enemy"
 		dc1.m = '"Give me your wallet"'
 		dc1.o = {'y:yes','r:run','f:fight','t:talk'}
+		if Quest:Return('ashley') == false then
+			Quest:SetFL('ashley') -- failed quest
+		end
 		dc1.soundOpts[1] = dc1.soundOpts[1] or false
 		if not dc1.soundOpts[1] then
 			sound:loadSound(effect2,1)
 			dc1.soundOpts[1] = true
 		end
 	elseif Rep < 0 and dc1.inDialoge == false then
+		dc1.friendly = "Friend"
 		dc1.m = '"need anything kiddo"'
 		dc1.o = {'y:yes','n:no','f:fight','t:talk'}
 	end
@@ -27,6 +35,7 @@ function dc1.draw()
 	love.graphics.print({{0,0,0},dc1.m},60,280)
 	love.graphics.print({{0,0,0},dc1.m2},60,300)
 	drawOptions(dc1.o)
+	drawstats(dc1)
 end
 function dc1.keypressed(key)
 	if Rep >= 0 then
@@ -42,7 +51,7 @@ function dc1.keypressed(key)
 					gamestate = 'alert'
 				end
 			elseif key == 'r' then
-				if Def >= 5 or math.random(1,10) == 5 then
+				if Def >= 2 or math.random(1,5) == 2 then
 					Alert:new('You got away','stat')
 					Exp:add(10)
 					gamestate = 'alert'
@@ -104,8 +113,8 @@ function dc1.keypressed(key)
 		if not dc1.inDialoge then
 			if key == 'y' then
 				n = math.random(0,3)
-				item[n] = item[n] + 1
-				Alert:new('Got a '..Nitem[n],'stat')
+				sitem[n][0] = sitem[n][0] + 1
+				Alert:new('Got a '..sNitem[0]..Nitem[n],'stat')
 				gamestate = 'alert'
 			elseif key == 'n' then
 				Alert:new('Left location','stat')
@@ -136,13 +145,17 @@ function dc1.keypressed(key)
 				dc1.m = '"Want to help out more"'
 				dc1.o = {"l:leave","y:yes"}
 				if Quest:Return('ashley') == true then
-					dc1.m = '"Wow take this for your effort"'
+					dc1.m = '"Take this for your effort"'
 					dc1.o = {"press return"}
+				end
+				if Quest:Return('ashley') == 0 then
+					dc1.m = '"You\'re very helpful want to\n\nspread the word"'
+					dc1.o = {"l:leave","y:yes"}
 				end
 				dc1.inDialoge = true
 			end
 		else
-			if Quest:Return('ashley') == true then
+			if Quest:Return('ashley') == true then -- if quest was completed but no reward
 				if key == 'return' then
 					dc1.m = '"need anything kiddo"'
 					dc1.o = dc1.f
@@ -156,23 +169,27 @@ function dc1.keypressed(key)
 				end
 			else
 				if key == 'l' then
-					dc1.m = '"need anything kiddo"'
+					dc1.m = '"need anything buddy"'
 					dc1.o = dc1.f
 					dc1.inDialoge = false
 				elseif key == 'y' then
-					dc1.m = '"need anything kiddo"'
-					dc1.o = dc1.f
-					dc1.inDialoge = false
-					if Quest:Return('ashley') == 1 then
+					dc1.m = '"i dont need your help right now"'
+					--dc1.o = dc1.f
+					--dc1.inDialoge = false
+					if Quest:Return('ashley') == 1 then -- if quest is not started or it failed
 						CrimeUpdate(1)
 						Quest:SetF('ashley')
-						Alert:new('New Quest: Beat up Ashley','stat')
+						Alert:new('New Quest: Check notes','stat')
+						Note:new('Hit Details',23)
+						--Alert:new('New Quest: Beat up Ashley','stat')
 						gamestate = 'alert'
-					elseif Quest:Return('ashley') == 0 then
+						dc1.inDialoge = false
+					elseif Quest:Return('ashley') == 0 then -- if quest reward was claimed
 						Rep = Rep - 100
 						CrimeUpdate(3)
-						Alert:new('Quest completed','stat')
+						Alert:new('Word Spread','stat')
 						gamestate = 'alert'
+						dc1.inDialoge = false
 					end
 				end
 			end

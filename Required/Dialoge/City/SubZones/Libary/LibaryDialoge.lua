@@ -1,5 +1,5 @@
 --libary dialoge
-D['libary'] = {}-- -10Atk to 30Atk
+D['Libary'] = {}-- -10Atk to 30Atk
 --[[
 
 Not Completed File
@@ -30,4 +30,4 @@ end
 function dl1.keypressed(key)
 	
 end
-D['libary'][1] = dl1
+D['Libary'][1] = dl1

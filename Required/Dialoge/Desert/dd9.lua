@@ -1,6 +1,6 @@
-dd9 = {} --100% done
+dd9 = {}
 dd9.n = 'Baker'
-dd9.m = '"Would you like to buy some goods"'
+dd9.m = '"Would you like to \n\nbuy some goods"'
 dd9.m2 = ''
 dd9.o = {'t:talk','r:run','f:fight','s:steal'}
 dd9.f = dd9.o
@@ -8,12 +8,15 @@ dd9.i = image:getImage('')
 dd9.inDialoge = false
 dd9.option = false
 dd9.Hp = 10
+dd9.Atk = 75
+dd9.Def = 28
+dd9.friendly = "Neutral"
 function dd9.draw()
 	if Rep >= 0 and dd9.inDialoge == false then
-		dd9.m = '"Would you like to \nbuy some goods"'
+		dd9.m = '"Would you like to \n\nbuy some goods"'
 		dd9.o = {'t:talk','r:run','f:fight','s:steal'}
 	elseif Rep <= 0 and dd9.inDialoge == false then
-		dd9.m = '"Would you like to \nbuy some goods"'
+		dd9.m = '"Would you like to \n\nbuy some goods"'
 		dd9.o = {'t:talk','r:run','f:fight','s:steal'}
 	end
 	love.graphics.draw(dd9.i,60,40)
@@ -21,6 +24,7 @@ function dd9.draw()
 	love.graphics.print({{0,0,0},dd9.m},60,280)
 	love.graphics.print({{0,0,0},dd9.m2},60,300)
 	drawOptions(dd9.o)
+	drawstats(dd9)
 	if dd9.option then
 		food_menu_draw()
 	end
@@ -50,7 +54,7 @@ function dd9.keypressed(key)
 					lowerRep(50)
 					Hurt(20)
 					CrimeUpdate(1)
-					Alert:new('Failed to beat \nthe baker','stat')
+					Alert:new('Failed to beat \n\nthe baker','stat')
 					gamestate = 'alert'
 				end
 			elseif key == 's' then
@@ -85,10 +89,14 @@ function dd9.keypressed(key)
 				if key == "w" or key == "up" then
 					if (Food_select - 1) > 0 then
 						Food_select = Food_select - 1
+					else
+						Food_select = 3
 					end
 				elseif key == "s" or key == "down" then
 					if (Food_select + 1) < 4 then
 						Food_select = Food_select + 1
+					else
+						Food_select = 1
 					end
 				elseif key == "return" then
 					if Food_select == 1 then
@@ -151,7 +159,7 @@ function dd9.keypressed(key)
 					lowerRep(20)
 					Hurt(10)
 					CrimeUpdate(1)
-					Alert:new('Failed to beat \nthe baker','stat')
+					Alert:new('Failed to beat \n\nthe baker','stat')
 					gamestate = 'alert'
 				end
 			elseif key == 's' then
@@ -186,10 +194,14 @@ function dd9.keypressed(key)
 				if key == "w" then
 					if (Food_select - 1) > 0 then
 						Food_select = Food_select - 1
+					else
+						Food_select = 3
 					end
 				elseif key == "s" then
 					if (Food_select + 1) < 4 then
 						Food_select = Food_select + 1
+					else
+						Food_select = 1
 					end
 				elseif key == "return" then
 					if Food_select == 1 then

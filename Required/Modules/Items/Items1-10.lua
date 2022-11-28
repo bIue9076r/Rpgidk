@@ -23,6 +23,7 @@ ItemUse[2] = ItemUses.Hurt
 
 function ItemUses.Heal(n)
 	Hp = Hp + n 
+	Infected=false
 	Alert:new("healed",'inv_stuff_select')
 	gamestate = 'alert'
 end
@@ -32,6 +33,7 @@ function ItemUses.fullHeal()
 	Alert:new("healed",'inv_stuff_select')
 	gamestate = 'alert'
 	Hp = Max_Hp
+	Infected=false
 end
 ItemUse[4] = ItemUses.fullHeal
 

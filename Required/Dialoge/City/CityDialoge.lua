@@ -1,5 +1,5 @@
 --city dialoge
-D['city'] = {}-- -1Atk to 60Atk
+D['city'] = {}
 require('/Required/Dialoge/City/dc1') -- Robber
 require('/Required/Dialoge/City/dc2') -- Citizen
 require('/Required/Dialoge/City/dc3') -- Trader

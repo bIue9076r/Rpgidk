@@ -1,4 +1,4 @@
-dd8 = {} --100% done
+dd8 = {}
 dd8.n = 'Vulture'
 dd8.m = 'A Vulture Aproaches you'
 dd8.m2 = ''
@@ -8,14 +8,18 @@ dd8.i = image:getImage('')
 dd8.inDialoge = false
 dd8.option = false
 dd8.Hp = 50
+dd8.Atk = 72
+dd8.Def = 28
+dd8.friendly = "Enemy"
 function dd8.draw()
-	dd8.m = 'Pecked by The Vulture'
+	dd8.m = 'A Vulture Aproaches you'
 	dd8.o = {'f:fight','r:run'}
 	love.graphics.draw(dd8.i,60,40)
 	love.graphics.print({{0,0,0},dd8.n},60,260)
 	love.graphics.print({{0,0,0},dd8.m},60,280)
 	love.graphics.print({{0,0,0},dd8.m2},60,300)
 	drawOptions(dd8.o)
+	drawstats(dd8)
 end
 function dd8.keypressed(key)
 	if key == 'f' then
@@ -40,7 +44,7 @@ function dd8.keypressed(key)
 			gamestate = 'alert'
 		else
 			Hurt(45)
-			Alert:new('Pecked by The Vulture \nWhile Running Away','stat')
+			Alert:new('Pecked by The Vulture\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

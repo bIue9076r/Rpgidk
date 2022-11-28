@@ -10,7 +10,7 @@ ds11.option = false
 ds11.Hp = 100
 function ds11.draw()
 	if ds11.inDialoge == false then
-		ds11.m = 'you come across the Sea Dock Gate'
+		ds11.m = 'you come across the Dock Gate'
 		ds11.m2 = 'go inside:'
 		ds11.o = {'y:yes','n:no'}
 	end

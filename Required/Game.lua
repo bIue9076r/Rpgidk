@@ -1,11 +1,14 @@
 math.randomseed(os.time())
+require("/Required/aliases")
 require("/Required/Modules/GameFunctions")
 require("/Textures/LoadTexutres")
 require("/Textures/LoadFonts")
 require("/Audio/LoadAudio")
-require("/Required/LoadModules")
 require("/Required/Dialoge")
+require("/Required/debug")
+require("/Required/LoadModules")
 --system things
+volume = 1/10
 gamestate = 'start'
 pev_gamestate = 'start'
 gamesound = 'nil'
@@ -14,6 +17,7 @@ sfxSource = sound:getSound(gamesfx)
 soundSource = sound:getSound(gamesound)
 effect = sound:getSound('effect')
 effect2 = sound:getSound('BuyinStore')
+trash = {}
 
 --Base stats
 loaded=false
@@ -44,19 +48,40 @@ death_cause="something went\nhorribly wrong"
 
 --Trading variables
 item={}
+sitem={}
 Nitem={}
+sNitem={}
+tsNitem={}
 item[0]=0
+sitem[0]={[0]=(0),[1]=(0),[2]=(0),[3]=(0)}
 Nitem[0]="Medkits"
+sNitem[0]="Common "
+tsNitem[0]="Cmn "
 item[1]=0
+sitem[1]={[0]=(0),[1]=(0),[2]=(0),[3]=(0)}
 Nitem[1]="Poison potions"
+sNitem[1]="Uncommon "
+tsNitem[1]="Uncm "
 item[2]=0
+sitem[2]={[0]=(0),[1]=(0),[2]=(0),[3]=(0)}
 Nitem[2]="Attack boost"
+sNitem[2]="Rare "
+tsNitem[2]="Rare "
 item[3]=0
+sitem[3]={[0]=(0),[1]=(0),[2]=(0),[3]=(0)}
 Nitem[3]="Defence boost"
+sNitem[3]="Legendary "
+tsNitem[3]="Lgnd "
+itemNm = ""
+Rarity = 0
 store_stock_med=math.random(1,100)
 store_stock_Posion=math.random(1,100)
 store_stock_Atk=math.random(1,100)
 store_stock_Def=math.random(1,100)
+r_store_stock_med={[0]=math.random(1,100),[1]=math.random(1,100),[2]=math.random(1,100),[3]=math.random(1,100)}
+r_store_stock_Posion={[0]=math.random(1,100),[1]=math.random(1,100),[2]=math.random(1,100),[3]=math.random(1,100)}
+r_store_stock_Atk={[0]=math.random(1,100),[1]=math.random(1,100),[2]=math.random(1,100),[3]=math.random(1,100)}
+r_store_stock_Def={[0]=math.random(1,100),[1]=math.random(1,100),[2]=math.random(1,100),[3]=math.random(1,100)}
 restock = 1000
 
 _Medkits=0
@@ -66,7 +91,7 @@ _Defboost=0
 
 --Game variables
 name=""
-debugmode=false
+debugmode= not false
 snitch=false
 worldN = D.SetN()
 worldCmd = nil
@@ -75,6 +100,7 @@ selected = false
 Subselected = false
 TimeSinceLastCrime = 0
 Kills = 0
+Arrests = 0
 
 --Dialoge variables
 yellowSnowEater = false
@@ -83,6 +109,38 @@ helpedResearcher = false
 
 --Quests
 Quest:new('ashley')
+
+--Keys
+legalChars = {
+	['a']='a',['b']='b',['c']='c',['d']='d',['e']='e',
+	['f']='f',['g']='g',['h']='h',['i']='i',['j']='j',
+	['k']='k',['l']='l',['m']='m',['n']='n',['o']='o',
+	['p']='p',['q']='q',['r']='r',['s']='s',['t']='t',
+	['u']='u',['v']='v',['w']='w',['x']='x',['y']='y',
+	['z']='z',['1']='1',['2']='2',['3']='3',['4']='4',
+	['5']='5',['6']='6',['7']='7',['8']='8',['9']='9',
+	['0']='0',[';']=';',["'"]="'",[',']=',',['.']='.',
+	['/']='/',['`']='`',['[']='[',[']']=']',['\\']='\\',
+	['-']='-',['=']='=',
+	['space']=' ',['tab']='\t',['return']='return',
+	['lshift']='not nil',['rshift']='not nil',
+	['backspace']='not nil'
+}
+shiftLegalChars = {
+	['a']='A',['b']='B',['c']='C',['d']='D',['e']='E',
+	['f']='F',['g']='G',['h']='H',['i']='I',['j']='J',
+	['k']='K',['l']='L',['m']='M',['n']='N',['o']='O',
+	['p']='P',['q']='Q',['r']='R',['s']='S',['t']='T',
+	['u']='U',['v']='V',['w']='W',['x']='X',['y']='Y',
+	['z']='Z',['1']='!',['2']='@',['3']='#',['4']='$',
+	['5']='%',['6']='^',['7']='&',['8']='*',['9']='(',
+	['0']=')',[';']=':',["'"]='"',[',']='<',['.']='>',
+	['/']='?',['`']='~',['[']='{',[']']='}',['\\']='|',
+	['-']='_',['=']='+',
+	['space']=' ',['tab']='\t',['return']='return',
+	['lshift']='not nil',['rshift']='not nil',
+	['backspace']='not nil'
+}
 
 require("/Required/save")
 
@@ -117,9 +175,18 @@ function stat_draw()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('Stats'),0,0)
 	displayPlayerStats()
-	love.graphics.print({{0,0,0},"O = Options"},200,410)
-	love.graphics.print({{0,0,0},"L = Leave"},200,430)
+	love.graphics.print({{0,0,0},"O = Options"},240,410)
+	love.graphics.print({{0,0,0},"L = Leave"},240,430)
 	--end)
+end
+
+function void_draw()
+	local message = "welcome to the void\n\n".. 
+					"enjoy your stay"
+	love.graphics.print({{1,1,1},message},200,380)
+	if debugmode == true then
+		love.graphics.print({{1,1,1},"press '/' to go the debug menu"},90,460)
+	end
 end
 
 function options_draw()
@@ -143,7 +210,50 @@ function config_draw()
 	--pcall(function()
 	love.graphics.draw(image:getImage('config'),0,0)
 	love.graphics.print({{0,0,0},"Debugmode:"..tostring(debugmode)},60,290)
+	love.graphics.print({{0,0,0},"v: Voulme:"..tostring(volume)},60,310)
 	love.graphics.print({{0,0,0},"esc = leave"},280,430)
+	--end)
+end
+
+_ddx = 200
+function debug_draw()
+	--pcall(function()
+	out = console.getoutput()
+	love.graphics.draw(image:getImage('console'),0,0)
+	local index = 0
+	for i = console.up,console.down do
+		if out[i] then
+			love.graphics.print({{0,1,0},out[i]},47,90 + ((index - 1) * 40))
+			index = index + 1
+		end
+	end
+	--_ddx = _ddx or 50
+	love.graphics.setFont(love.graphics.newFont(14))
+	cintextlen = #console.intext
+	maxlen = 42
+	if(_ddx > 100)then
+		if(cintextlen < 30)then
+			love.graphics.print({{0,1,0},"~$:"..console.intext.."_"},47,445)
+		else
+			love.graphics.print({{0,1,0},"~$:"..console.intext:sub(-maxlen, -1).."_"},47,445)
+		end
+		_ddx = _ddx - 5
+	elseif(_ddx > 0)then
+		--:sub(cintextlen-30,cintextlen)
+		if(cintextlen < maxlen)then
+			love.graphics.print({{0,1,0},"~$:"..console.intext},47,445)
+		else
+			love.graphics.print({{0,1,0},"~$:"..console.intext:sub(-maxlen, -1).."_"},47,445)
+		end
+		_ddx = _ddx - 5
+	else
+		if(cintextlen < maxlen)then
+			love.graphics.print({{0,1,0},"~$:"..console.intext},47,445)
+		else
+			love.graphics.print({{0,1,0},"~$:"..console.intext:sub(-maxlen, -1).."_"},47,445)
+		end
+		_ddx = 200
+	end
 	--end)
 end
 
@@ -152,12 +262,25 @@ function inv_draw()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('Inv'),0,0)
 	displayPlayerInv()
-	love.graphics.print({{0,0,0},"Options:"},200,330)
-	love.graphics.print({{0,0,0},"M = Medkits"},200,350)
-	love.graphics.print({{0,0,0},"P = Posion Potion"},200,370)
-	love.graphics.print({{0,0,0},"A = Attack boost"},200,390)
-	love.graphics.print({{0,0,0},"D = Defence boost"},200,410)
+	love.graphics.print({{0,0,0},"Options:"},240,330)
+	love.graphics.print({{0,0,0},"M = Medkits"},240,350)
+	love.graphics.print({{0,0,0},"P = Posion Potion"},240,370)
+	love.graphics.print({{0,0,0},"A = Attack boost"},240,390)
+	love.graphics.print({{0,0,0},"D = Defence boost"},240,410)
 	love.graphics.print({{0,0,0},"I = Collectors Inventory"},160,430)
+	--end)
+end
+
+function inv_item_draw()
+	--pcall(function()
+	love.graphics.draw(image:getImage(D.location),0,0)
+	love.graphics.draw(image:getImage('Inv'),0,0)
+	displayPlayerInv()
+	love.graphics.print({{0,0,0},"Options:"},240,330)
+	love.graphics.print({{0,0,0},"C = Common"},240,350)
+	love.graphics.print({{0,0,0},"U = Uncommon"},240,370)
+	love.graphics.print({{0,0,0},"R = Rare"},240,390)
+	love.graphics.print({{0,0,0},"M = Legendary"},240,410)
 	--end)
 end
 
@@ -281,6 +404,7 @@ end
 
 function arrest_draw()
 	--pcall(function()
+	TimeSinceLastCrime = 0
 	love.graphics.draw(image:getImage('Jail'),0,0)
 	love.graphics.draw(image:getImage('Alert'),0,0)
 	love.graphics.print({{0,0,0},"you have been arrested"},60,75)
@@ -298,34 +422,6 @@ end
 function name_keypressed(key)
 	--pcall(function()
 	shiftkey = shiftkey or false
-	legalChars = {
-		['a']='a',['b']='b',['c']='c',['d']='d',['e']='e',
-		['f']='f',['g']='g',['h']='h',['i']='i',['j']='j',
-		['k']='k',['l']='l',['m']='m',['n']='n',['o']='o',
-		['p']='p',['q']='q',['r']='r',['s']='s',['t']='t',
-		['u']='u',['v']='v',['w']='w',['x']='x',['y']='y',
-		['z']='z',['1']='1',['2']='2',['3']='3',['4']='4',
-		['5']='5',['6']='6',['7']='7',['8']='8',['9']='9',
-		['0']='0',[';']=';',["'"]="'",[',']=',',['.']='.',
-		['/']='/',['`']='`',['[']='[',[']']=']',['\\']='\\',
-		['space']=' ',['tab']='\t',['return']='return',
-		['lshift']='not nil',['rshift']='not nil',
-		['backspace']='not nil'
-	}
-	shiftLegalChars = {
-		['a']='A',['b']='B',['c']='C',['d']='D',['e']='E',
-		['f']='F',['g']='G',['h']='H',['i']='I',['j']='J',
-		['k']='K',['l']='L',['m']='M',['n']='N',['o']='O',
-		['p']='P',['q']='Q',['r']='R',['s']='S',['t']='T',
-		['u']='U',['v']='V',['w']='W',['x']='X',['y']='Y',
-		['z']='Z',['1']='!',['2']='@',['3']='#',['4']='$',
-		['5']='%',['6']='^',['7']='&',['8']='*',['9']='(',
-		['0']=')',[';']=':',["'"]='"',[',']='<',['.']='>',
-		['/']='?',['`']='~',['[']='{',[']']='}',['\\']='|',
-		['space']=' ',['tab']='\t',['return']='return',
-		['lshift']='not nil',['rshift']='not nil',
-		['backspace']='not nil'
-	}
 	if not shiftkey then
 		if legalChars[key] ~= nil then
 			if key == "backspace" then
@@ -358,8 +454,14 @@ end
 function world_keypressed(key)
 	--pcall(function()
 	worldCmd.keypressed(key)
-	if key == 'escape' then
-		gamestate = 'stat'
+	if debugmode == true then
+		if key == 'escape' then
+			gamestate = 'stat'
+		elseif key == shiftLegalChars['='] then
+			
+		elseif key == shiftLegalChars['-'] then
+			
+		end
 	end
 	--end)
 end
@@ -370,6 +472,16 @@ function stat_keypressed(key)
 		gamestate = 'cmd'
 	elseif key == "o" then
 		gamestate = 'option'
+	end
+	--end)
+end
+
+function void_keypressed(key)
+	--pcall(function()
+	-- incase the failsafe fails go to the stat menu
+	pev_gamestate = pev_gamestate or 'stat'
+	if key == "q" then -- secret exit code
+		gamestate = pev_gamestate
 	end
 	--end)
 end
@@ -407,6 +519,63 @@ function config_keypressed(key)
 	--pcall(function()
 	if key == 'escape' then
 		gamestate = 'option'
+	elseif key == 'v' then
+		volume = volume + (1/10);
+		if volume > 1 then
+			volume = 1/10
+		end
+		love.audio.setVolume(volume)
+	end
+	--end)
+end
+
+function debug_keypressed(key)
+	--pcall(function()
+	shiftkey = shiftkey or false
+	if(key == "escape")then
+		gamestate = 'stat'
+	elseif(key == "up") or (key == "lctrl")then
+		console.historyoffset = console.historyoffset + 1
+		if(console.historyoffset > (#console.history - 1))then
+			console.historyoffset = #console.history - 1
+		end
+		console.intext = console.history[1 + console.historyoffset]
+	elseif(key == "down") or (key == "rctrl")then
+		console.historyoffset = console.historyoffset - 1
+		if(console.historyoffset < 0)then
+			console.historyoffset = 0
+		end
+		console.intext = console.history[1 + console.historyoffset]
+	end
+	if not shiftkey then
+		if legalChars[key] ~= nil then
+			if key == "backspace" then
+				console.intext = console.intext:sub(1,-2)
+			elseif key == 'lshift' or key == 'rshift' then
+				shiftkey = true
+			elseif key == "return" then
+				console.run(console.intext)
+				console.intext = ''
+				console.historyoffset = 0
+			else
+				console.intext = console.intext..legalChars[key]
+			end
+		end
+	else
+		if shiftLegalChars[key] then
+			if key == 'backspace' then
+				console.intext = console.intext:sub(1,-2)
+			elseif key == 'lshift' or key == 'rshift' then
+				shiftkey = false
+			elseif key == 'return' then
+				console.run(console.intext)
+				console.intext = ''
+				console.historyoffset = 0
+			else
+				console.intext = console.intext..shiftLegalChars[key]
+			end
+			shiftkey = false
+		end	
 	end
 	--end)
 end
@@ -418,13 +587,41 @@ function inv_keypressed(key)
 	elseif key == 'i' then
 		gamestate = 'inv_stuff'
 	elseif key == "m" then
-		useMed()
+		--useMed()
+		itemNm = Nitem[0]
+		gamestate = 'inv_item'
 	elseif key == "p" then
-		usePotion()
+		--usePotion()
+		itemNm = Nitem[1]
+		gamestate = 'inv_item'
 	elseif key == "a" then
-		useAtkBoost()
+		--useAtkBoost()
+		itemNm = Nitem[2]
+		gamestate = 'inv_item'
 	elseif key == "d" then
-		useDefBoost()
+		--useDefBoost()
+		itemNm = Nitem[3]
+		gamestate = 'inv_item'
+	end
+	--end)
+end
+
+function inv_item_keypressed(key)
+	--pcall(function()
+	if key == "l" then
+		gamestate = 'inv'
+	elseif key == 'c' then
+		Rarity = 0
+		useItem(itemNm,Rarity)
+	elseif key == "u" then
+		Rarity = 1
+		useItem(itemNm,Rarity)
+	elseif key == "r" then
+		Rarity = 2
+		useItem(itemNm,Rarity)
+	elseif key == "m" then
+		Rarity = 3
+		useItem(itemNm,Rarity)
 	end
 	--end)
 end
@@ -450,14 +647,18 @@ function inv_stuff_select_keypressed(key)
 	if key == "w" or key == "up" then
 		if (Inv_select - 1) > 0 then
 			Inv_select = Inv_select - 1
+		else
+			Inv_select = 8
 		end
 	elseif key == "s" or key == "down" then
 		if (Inv_select + 1) < 9 then
 			Inv_select = Inv_select + 1
+		else
+			Inv_select = 1
 		end
 	elseif key == "return" then
-		Inv_select = 1
 		Item:use(Inv_page,Inv_select)
+		Inv_select = 1
 	elseif key == "l" then
 		gamestate = 'inv_stuff'
 	end
@@ -492,8 +693,8 @@ function note_stuff_select_keypressed(key)
 			Note_Inv_select = Note_Inv_select + 1
 		end
 	elseif key == "return" then
-		Note_Inv_select = 1
 		Note:use(Note_Inv_page,Note_Inv_select)
+		Note_Inv_select = 1
 	elseif key == "l" then
 		gamestate = 'note_stuff'
 	end
@@ -532,7 +733,7 @@ function map_keypressed(key)
 		elseif key == '3' then
 			mapimg = 'MapSelect_Ice'
 			selected = true
-			worldLoc = 'ice'
+			worldLoc = 'icespikes'
 		elseif key == '4' then
 			mapimg = 'MapSelect_Swamp'
 			selected = true
@@ -540,7 +741,7 @@ function map_keypressed(key)
 		elseif key == '5' then
 			mapimg = 'MapSelect_Waste'
 			selected = true
-			worldLoc = 'waste'
+			worldLoc = 'wasteland'
 		elseif key == 'l' then
 			gamestate = 'stat'
 		end
@@ -587,6 +788,7 @@ function arrest_keypressed()
 	--pcall(function()
 	love.timer.sleep(5)
 	Rep = 0
+	Arrests = Arrests + 1
 	gamestate = 'stat'
 	--end)
 end
@@ -656,10 +858,10 @@ function Game.load()
 					file()
 					loaded = true
 					gamestate = 'cmd'
-				else
-					raiseCash(100)
-					gamestate = 'menu'
-					Note:new("Welcome",1)
+				--else
+					--raiseCash(100)
+					--gamestate = 'menu'
+					--Note:new("Welcome",1)
 				end
 			else
 				if key == 'n' then
@@ -671,16 +873,19 @@ function Game.load()
 					love.filesystem.remove("/Save/.SaveFile")
 					gamestate = 'menu'
 					Note:new("Welcome",1)
-				else
-					raiseCash(100)
-					gamestate = 'menu'
-					Note:new("Welcome",1)
+				--else
+					--raiseCash(100)
+					--gamestate = 'menu'
+					--Note:new("Welcome",1)
 				end
 			end
 		end
 	end
 	
+	--font:newFont('main','/Textures/Fonts/Quinq.ttf',10)
 	love.graphics.setFont(font:getFont('main'))
+	--love.audio.setVolume(1)
+	love.audio.setVolume(volume)
 	--end)
 end
 
@@ -692,12 +897,17 @@ function Game.update(dt)
 	check_Rep()
 	Restock(dt)
 	LowerCrime(dt)
+	
+	--check_maxdef()
 	if gamestate == 'cmd' then
 		worldN = D.SetN()
 		Updatecommand(worldN)
 		gamestate = 'world'
 	end
 	function love.keypressed(key, scan_code, is_repeat)
+		if(debugmode == true and key == '/') then
+			gamestate = 'debug'
+		end
 		if gamestate == 'start' then
 			start_keypressed(key)
 		elseif gamestate == 'menu' then
@@ -712,6 +922,8 @@ function Game.update(dt)
 			stat_keypressed(key)
 		elseif gamestate == 'config' then
 			config_keypressed(key)
+		elseif gamestate == 'debug' then
+			debug_keypressed(key)
 		elseif gamestate == 'option' then
 			option_keypressed(key)
 		elseif gamestate == 'alert' then
@@ -720,6 +932,8 @@ function Game.update(dt)
 			quit_keypressed(key)
 		elseif gamestate == 'inv' then
 			inv_keypressed(key)
+		elseif gamestate == 'inv_item' then
+			inv_item_keypressed(key)
 		elseif gamestate == 'inv_stuff' then
 			inv_stuff_keypressed(key)
 		elseif gamestate == 'inv_stuff_select' then
@@ -736,11 +950,14 @@ function Game.update(dt)
 			gameover_keypressed(key)
 		elseif gamestate == 'map' then
 			map_keypressed(key)
+		else
+			void_keypressed(key)
 		end
 		effect:seek(0)
 		effect:play()
 	end
 	--sound:loadSound(effect,1)
+	love.graphics.setFont(font:getFont('main'))
 	sound:update(dt)
 	--end)
 end
@@ -748,11 +965,11 @@ end
 --[[ testing only ]]--
 function test() end
 
-for i = 1,20 do
-	--Item:new("moyai","",56,10,false,10)]]
-	print(i)
-	Note:new("lib note"..i,i)
-end
+--for i = 1,21 do
+--	Note:new("lib note"..i,i);
+--end
+--gamestate = 'void'
+Item:new("item",-1)
 
 function Game.draw()
 	--pcall(function()
@@ -774,10 +991,14 @@ function Game.draw()
 		options_draw()
 	elseif gamestate == 'config' then
 		config_draw()
+	elseif gamestate == 'debug' then
+		debug_draw()
 	elseif gamestate == 'alert' then
 		alert_draw()
 	elseif gamestate == 'inv' then
 		inv_draw()
+	elseif gamestate == 'inv_item' then
+		inv_item_draw()
 	elseif gamestate == 'inv_stuff' then
 		inv_draw_stuff()
 	elseif gamestate == 'inv_stuff_select' then
@@ -796,6 +1017,12 @@ function Game.draw()
 		gameover_draw()
 	elseif gamestate == 'test' then
 		test()
+	else
+		void_draw()
+	end
+	if debugmode == true then
+		love.graphics.print({{1,1,1},"Debug Mode"},9,9)
+		love.graphics.print({{0,0,0},"Debug Mode"},10,10)
 	end
 	--end)
 end

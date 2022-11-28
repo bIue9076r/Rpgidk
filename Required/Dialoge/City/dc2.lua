@@ -7,7 +7,10 @@ dc2.f = dc2.o
 dc2.i = image:getImage('Citizen')
 dc2.inDialoge = false
 dc2.option = false
-dc2.Hp = 0
+dc2.Hp = 100
+dc2.Atk = 0
+dc2.Def = 0
+dc2.friendly = "Neutral"
 dc2.soundOpts = {}
 function dc2.draw()
 	if Rep >= 0 and dc2.inDialoge == false then
@@ -23,6 +26,7 @@ function dc2.draw()
 	love.graphics.print({{0,0,0},dc2.m},60,280)
 	love.graphics.print({{0,0,0},dc2.m2},60,300)
 	drawOptions(dc2.o)
+	drawstats(dc2)
 end
 function dc2.keypressed(key)
 	if Rep >= 0 then
@@ -54,8 +58,8 @@ function dc2.keypressed(key)
 				dc2.inDialoge = false
 			elseif key == 'y' then
 				dc2.m = '"..."'
-				if item[0] > 0 then
-					item[0] = item[0] - 1
+				if sitem[0][0] > 0 then
+					sitem[0][0] = sitem[0][0] - 1
 					raiseCash(15)
 					dc2.inDialoge = false
 					Alert:new('Gave a Medkit','stat')
@@ -100,10 +104,10 @@ function dc2.keypressed(key)
 				dc2.o = dc2.f
 				dc2.inDialoge = false
 			elseif key == 'y' then
-				item[1] = item[1] + 1
+				sitem[1][0] = sitem[1][0] + 1
 				dc2.inDialoge = false
 				dc2.o = dc2.f
-				Alert:new('Got a Potion of Poison','stat')
+				Alert:new('Got a '..sNitem[0]..'Potion of Poison','stat')
 				gamestate = 'alert'
 			end
 		end
