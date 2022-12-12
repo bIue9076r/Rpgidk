@@ -1,16 +1,16 @@
 dw12 = {}
 dw12.n = 'Destroyed Town Gate'
-dw12.m = 'you come across the Destroyed Town Gate'
+dw12.m = 'you come across the Destroyed Gate'
 dw12.m2 = ''
 dw12.o = {'y:yes','n:no'}
 dw12.f = dw12.o
 dw12.i = image:getImage('')
 dw12.inDialoge = false
 dw12.option = false
-dw12.Hp = 100
+dw12.Hp = 0--100
 function dw12.draw()
 	if dw12.inDialoge == false then
-		dw12.m = 'you come across the Destroyed Town Gate'
+		dw12.m = 'you come across the Destroyed Gate'
 		dw12.m2 = 'go inside:'
 		dw12.o = {'y:yes','n:no'}
 	end

@@ -3,12 +3,7 @@ dch1.n = 'Security Guard'
 dch1.m = '"Stay out of Trouble pal"'
 dch1.m2 = ''
 dch1.o = {
-	'123456789012345678901234567890',--30
-	'123456789012345678901234567890',
-	'123456789012345678901234567890',
-	'123456789012345678901234567890',
-	'123456789012345678901234567890',
-	'123456789012345678901234567890',
+	'(leave) ...',--30
 -----123456789012345678901234567890
 }
 dch1.f = dch1.o
@@ -17,33 +12,63 @@ dch1.i = image:getImage('')
 dch1.FirstOption = false
 dch1.SecondOption = false
 dch1.ThirdOption = false
-dch1.Hp = 0--10
+dch1.Hp = 10
 dch1.select = 1
 function dch1.draw()
 	if not(dch1.FirstOption)then
 		if Traitor or AttemptedTraitor then
-			dch1.m = "Freeze Tratior"
+			dch1.m = '"Freeze Tratior"'
+			dch1.o = { -- TODO: Fix when Done With Harley
+				'(leave) ...',
+			-----123456789012345678901234567890
+			}
+			dch1.ol = #dch1.o
 		elseif dch1_kill then
-			dch1.m = "Freeze Murderer"
-		elseif dch1_stole then
-			dch1.m = "Freeze Theif"
-		elseif dch1_astole then
-			dch1.m = "Freeze Criminal"
+			dch1.m = '"Freeze Murderer"'
+			if Exp:exportLevel() >= 15 then
+				dch1.o = {
+					"(leave)(+15) he went that way",
+					"(fight) Want to be next",
+					"(surrender) ...",
+				-----123456789012345678901234567890
+				}
+			else
+				dch1.o = {
+					"("..Exp:exportLevel().."/15) pssh... could'nt be me",
+				----"(13/15) that could'nt be me",
+					"(fight) Want to be next",
+					"(surrender) ...",
+				-----123456789012345678901234567890
+				}
+			end
+			dch1.ol = #dch1.o
 		elseif Rep >= 0 then
 			dch1.m = '"Stay out of Trouble pal"'
 			dch1.o = {
-				'(leave) ...',--30
+				'(leave) ...',
 			-----123456789012345678901234567890
 			}
 			dch1.ol = #dch1.o
 		elseif Rep < 0 then
-			dch1.m = "where do you think you're going"
-			dch1.o = {
-				'the museum',--30
-				'(fight) no where',
-				'(leave) the exit',
-			-----123456789012345678901234567890
-			}
+			dch1.m = '"where do you think you\'re going"'
+			if Exp:exportLevel() >= 3 then
+				dch1.o = {
+					'(+3) the museum',
+					'(fight) no where',
+					'(leave) the exit',
+					"(surrender) ...",
+				-----123456789012345678901234567890
+				}
+			else
+				dch1.o = {
+					'('..Exp:exportLevel()..'/3) uhh i uhh...',
+				----'(1/3) uhh i uhh...',
+					'(fight) no where',
+					'(leave) the exit',
+					"(surrender) ...",
+				-----123456789012345678901234567890
+				}
+			end
 			dch1.ol = #dch1.o
 		end
 	end
@@ -68,12 +93,16 @@ function dch1.keypressed(key)
 		end
 	elseif key == 'return' then
 		dch1.AdvKeyPress()
+		dch1.select = 1
 	end
 end
 function dch1.AdvKeyPress()
 	if Traitor or AttemptedTraitor then
 		if not dch1.FirstOption then
-		
+			if dch1.select == 1 then
+				Alert:new('Left','stat')
+				gamestate = 'alert'
+			end
 		else
 			if not dch1.SecondOption then
 			
@@ -87,38 +116,72 @@ function dch1.AdvKeyPress()
 		end
 	elseif dch1_kill then
 		if not dch1.FirstOption then
-		
-		else
-			if not dch1.SecondOption then
-			
-			else
-				if not dch1.ThirdOption then
-					
+			if dch1.select == 1 then
+				if Exp:exportLevel() >= 15 then
+					dch1.FirstOption = true
+					dch1.m = "Keep on going"
+					dch1.o = {
+						'continue'
+					}
+					dch1.ol = #dch1.o
+					dch1_flag = 'lie_s'
 				else
-					
+					dch1.FirstOption = true
+					dch1.m = "Hands in the air"
+					dch1.o = {
+						'continue'
+					}
+					dch1.ol = #dch1.o
+					dch1_flag = 'lie_f'
 				end
+			elseif dch1.select == 2 then
+				dch1.FirstOption = true
+				dch1.m = "Lets Boogie"
+				dch1.o = {
+					'continue'
+				}
+				dch1.ol = #dch1.o
+				dch1_flag = 'fight'
+			elseif dch1.select == 3 then
+				dch1.FirstOption = true
+				dch1.m = "Stay Right there"
+				dch1.o = {
+					'continue'
+				}
+				dch1.ol = #dch1.o
+				dch1_flag = 'surrend'
 			end
-		end
-	elseif dch1_stole then
-		if not dch1.FirstOption then
-		
 		else
 			if not dch1.SecondOption then
-			
-			else
-				if not dch1.ThirdOption then
-					
-				else
-					
+				if dch1_flag == 'lie_s' then
+					dch1.FirstOption = false
+					Exp:add(15)
+					Alert:new('Left','stat')
+					gamestate = 'alert'
+				elseif dch1_flag == 'lie_f' then
+					dch1.FirstOption = false
+					D.location = 'city'
+					arrest()
+				elseif dch1_flag == 'fight' then
+					if Atk >= 20 then
+						dch1_kill = true
+						dch1.Hp = dch1.Hp - 1
+						dch1.FirstOption = false
+						CrimeUpdate(3)
+						Exp:add(20)
+						Alert:new('Left','stat')
+						gamestate = 'alert'
+					else
+						Hurt(20)
+						dch1.FirstOption = false
+						D.location = 'city'
+						arrest()
+					end
+				elseif dch1_flag == 'surrend' then
+					dch1.FirstOption = false
+					D.location = 'city'
+					arrest()
 				end
-			end
-		end
-	elseif dch1_astole then
-		if not dch1.FirstOption then
-		
-		else
-			if not dch1.SecondOption then
-			
 			else
 				if not dch1.ThirdOption then
 					
@@ -164,6 +227,14 @@ function dch1.AdvKeyPress()
 				D.location = 'city'
 				Alert:new('Left','stat')
 				gamestate = 'alert'
+			elseif dch1.select == 4 then
+				dch1.FirstOption = true
+				dch1.m = "Stay Right there"
+				dch1.o = {
+					'continue'
+				}
+				dch1.ol = #dch1.o
+				dch1_flag = 'surrend'
 			end
 		else
 			if not dch1.SecondOption then
@@ -174,24 +245,27 @@ function dch1.AdvKeyPress()
 					gamestate = 'alert'
 				elseif dch1_flag == 'lie_f' then
 					dch1.FirstOption = false
+					D.location = 'city'
 					arrest()
 				elseif dch1_flag == 'fight' then
 					if Atk >= 10 then
+						dch1_kill = true
+						dch1.Hp = dch1.Hp - 1
 						dch1.FirstOption = false
 						CrimeUpdate(3)
 						Exp:add(15)
 						Alert:new('Left','stat')
 						gamestate = 'alert'
 					else
+						Hurt(15)
 						dch1.FirstOption = false
+						D.location = 'city'
 						arrest()
 					end
-				end
-			else
-				if not dch1.ThirdOption then
-					
-				else
-					
+				elseif dch1_flag == 'surrend' then
+					dch1.FirstOption = false
+					D.location = 'city'
+					arrest()
 				end
 			end
 		end

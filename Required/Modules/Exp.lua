@@ -23,7 +23,8 @@ function Exp:add(n) -- Adds n amount of Exp to Exp.count
 		raiseAtk(5)
 		raiseDef(5)
 		fullHeal()
-		Alert:new('You Leveled up','stat')
+		Exp:add(0)
+		Alert:new('You Leveled up','stat',nil,'level')
 		gamestate = 'alert'
 	end
 end

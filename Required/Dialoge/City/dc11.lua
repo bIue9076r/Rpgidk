@@ -7,7 +7,7 @@ dc11.f = dc11.o
 dc11.i = image:getImage('door')
 dc11.inDialoge = false
 dc11.option = false
-dc11.Hp = 100
+dc11.Hp = 0--100
 dc11.soundOpts = {}
 function dc11.draw()
 	if dc11.inDialoge == false then

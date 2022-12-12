@@ -7,7 +7,7 @@ dw11.f = dw11.o
 dw11.i = image:getImage('')
 dw11.inDialoge = false
 dw11.option = false
-dw11.Hp = 100
+dw11.Hp = 0--100
 function dw11.draw()
 	if dw11.inDialoge == false then
 		dw11.m = 'you come across the Reactor Entrance'

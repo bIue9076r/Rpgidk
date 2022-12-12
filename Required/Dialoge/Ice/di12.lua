@@ -7,7 +7,7 @@ di12.f = di12.o
 di12.i = image:getImage('')
 di12.inDialoge = false
 di12.option = false
-di12.Hp = 100
+di12.Hp = 0--100
 function di12.draw()
 	if di12.inDialoge == false then
 		di12.m = 'you come across the Igloo Town'

@@ -7,7 +7,7 @@ dd11.f = dd11.o
 dd11.i = image:getImage('gate')
 dd11.inDialoge = false
 dd11.option = false
-dd11.Hp = 100
+dd11.Hp = 0--100
 function dd11.draw()
 	if dd11.inDialoge == false then
 		dd11.m = 'you come across the Desert Town'

@@ -7,7 +7,7 @@ ds11.f = ds11.o
 ds11.i = image:getImage()
 ds11.inDialoge = false
 ds11.option = false
-ds11.Hp = 100
+ds11.Hp = 0--100
 function ds11.draw()
 	if ds11.inDialoge == false then
 		ds11.m = 'you come across the Dock Gate'

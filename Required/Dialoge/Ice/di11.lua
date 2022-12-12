@@ -7,7 +7,7 @@ di11.f = di11.o
 di11.i = image:getImage('')
 di11.inDialoge = false
 di11.option = false
-di11.Hp = 100
+di11.Hp = 0--100
 function di11.draw()
 	if di11.inDialoge == false then
 		di11.m = 'you come across the Ice Cave'

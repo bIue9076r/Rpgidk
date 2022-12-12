@@ -1,6 +1,6 @@
 dd13 = {}
 dd13.n = 'Desert Temple Gate'
-dd13.m = 'you come across the Desert Temple'
+dd13.m = 'you come across a Temple Gate'
 dd13.m2 = ''
 dd13.o = {'y:yes','n:no'}
 dd13.f = dd13.o
@@ -10,7 +10,7 @@ dd13.option = false
 dd13.Hp = 100
 function dd13.draw()
 	if dd13.inDialoge == false then
-		dd13.m = 'you come across the Desert Temple'
+		dd13.m = 'you come across a Temple Gate'
 		dd13.m2 = 'go inside:'
 		dd13.o = {'y:yes','n:no'}
 	end

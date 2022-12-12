@@ -7,7 +7,7 @@ ds12.f = ds12.o
 ds12.i = image:getImage()
 ds12.inDialoge = false
 ds12.option = false
-ds12.Hp = 100
+ds12.Hp = 0--100
 function ds12.draw()
 	if ds12.inDialoge == false then
 		ds12.m = 'you come across the Lake Fence'

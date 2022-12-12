@@ -1,7 +1,7 @@
 function love.conf(t)
 	t.version = "11.3"
-	t.identity = "TestGame"
-	t.window.title = "TestGame"
+	t.identity = "RPGidk"
+	t.window.title = "RPGidk"
 	t.window.width = 500
 	t.window.height = 500
 	t.window.fullscreen = false

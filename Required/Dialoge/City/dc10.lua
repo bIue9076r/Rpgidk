@@ -62,7 +62,13 @@ function dc10.keypressed(key)
 			end
 		else
 			if key == 'y' then
-				raiseRep(200)
+				if not snitch then
+					raiseCash(25)
+					raiseRep(200)
+				else
+					raiseCash(15)
+					raiseRep(100)
+				end
 				Alert:new('Spilled Information','stat')
 				gamestate = 'alert'
 				dc10.inDialoge = false

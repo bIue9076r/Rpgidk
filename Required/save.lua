@@ -188,6 +188,7 @@ function save()
 	local save5 = "yellowSnowEater="..tostring(yellowSnowEater)..";"..
 	"iceBaseFound="..tostring(iceBaseFound)..";"..
 	"helpedResearcher="..tostring(helpedResearcher)..";"..
+	"dch1_kill="..tostring(dch1_kill == true or false)..";"..
 	"Exp:HardOverride("..Exp:exportCount()..","..Exp:exportLevel()..");"..
 	items..
 	notes..

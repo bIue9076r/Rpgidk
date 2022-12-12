@@ -11,12 +11,7 @@ require("/Required/LoadModules")
 volume = 1/10
 gamestate = 'start'
 pev_gamestate = 'start'
-gamesound = 'nil'
-gamesfx = 'Alert'
-sfxSource = sound:getSound(gamesfx)
-soundSource = sound:getSound(gamesound)
 effect = sound:getSound('effect')
-effect2 = sound:getSound('BuyinStore')
 trash = {}
 
 --Base stats
@@ -358,9 +353,9 @@ end
 
 function alert_draw()
 	--pcall(function()
+	msg,img,aud = Alert:Return()
 	love.audio.pause(effect)
-	love.audio.play(sfxSource)
-	msg,img = Alert:Return()
+	love.audio.play(aud)
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('Alert'),0,0)
 	love.graphics.draw(img,400,20)
@@ -712,8 +707,8 @@ end
 function alert_keypressed(key)
 	--pcall(function()
 	if key == 'return' then
-		sfxSource:seek(0)
-		love.audio.pause(sfxSource)
+		aud:seek(0)
+		love.audio.pause(aud)
 		gamestate = Alert:ReturnNex()
 	end
 	--end)
@@ -891,8 +886,6 @@ end
 
 function Game.update(dt)
 	--pcall(function()
-	sfxSource = sound:getSound(gamesfx)
-	soundSource = sound:getSound(gamesound)
 	check_hp()
 	check_Rep()
 	Restock(dt)

@@ -7,7 +7,7 @@ di13.f = di13.o
 di13.i = image:getImage('')
 di13.inDialoge = false
 di13.option = false
-di13.Hp = 100
+di13.Hp = 0--100
 function di13.draw()
 	iceBaseFound = true
 	if di13.inDialoge == false then
