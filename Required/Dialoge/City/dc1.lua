@@ -11,7 +11,6 @@ dc1.Hp = 20
 dc1.Atk = 5
 dc1.Def = 2
 dc1.friendly = "Enemy"
-dc1.soundOpts = {}
 function dc1.draw()
 	if Rep >= 0 and dc1.inDialoge == false then
 		dc1.friendly = "Enemy"
@@ -19,11 +18,6 @@ function dc1.draw()
 		dc1.o = {'y:yes','r:run','f:fight','t:talk'}
 		if Quest:Return('ashley') == false then
 			Quest:SetFL('ashley') -- failed quest
-		end
-		dc1.soundOpts[1] = dc1.soundOpts[1] or false
-		if not dc1.soundOpts[1] then
-			sound:loadSound(effect2,1)
-			dc1.soundOpts[1] = true
 		end
 	elseif Rep < 0 and dc1.inDialoge == false then
 		dc1.friendly = "Friend"

@@ -34,7 +34,7 @@ end
 
 function Item:use(page,count) -- uses an item
 	index = count+((page-1)*8)
-	if Item.items[index] == nil and Item.items[index].use == nil then return end
+	if Item.items[index] == nil or Item.items[index].use == nil then return end
 	Item.items[index].use(Item.items[index].arg)
 	-- calls the selected items use function
 	if not Item.items[index].reusable 

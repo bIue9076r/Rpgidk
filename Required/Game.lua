@@ -949,7 +949,6 @@ function Game.update(dt)
 		effect:seek(0)
 		effect:play()
 	end
-	--sound:loadSound(effect,1)
 	love.graphics.setFont(font:getFont('main'))
 	sound:update(dt)
 	--end)
