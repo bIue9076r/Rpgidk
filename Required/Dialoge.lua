@@ -33,10 +33,34 @@ end
 --Advanced Dialoge Options
 -- Dialoge Trees:
 function AdvDrawOptions(options,selectNum)
-	for i,v in ipairs(options) do
+	local MAX = 6
+	local s,e,displayNum
+	if #options > MAX then
+		s = selectNum - (MAX - 1)
+		e = selectNum
+		
+		-- handles start being less than 1 (selectNum < 5)
+		if s <= 1 then s = 1 end
+		
+		-- handles select being less than 5
+		if e <= (MAX - 1) then e = MAX end
+	else
+		s = 1
+		e = #options
+	end
+	
+	displayNum = selectNum
+	if displayNum > MAX then displayNum = MAX end
+	
+	local opt = {}
+	for i = s,e do
+		table.insert(opt,options[i])
+	end
+	
+	for i,v in pairs(opt) do
 		love.graphics.print({{0,0,0},v},85,300+(i*20))
 	end
-	love.graphics.draw(image:getImage("Selected"),60,300+(selectNum*20))
+	love.graphics.draw(image:getImage("Selected"),60,300+(displayNum*20))
 end
 
 --Draw Stats

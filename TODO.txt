@@ -1,12 +1,12 @@
 TODO:
 
 Important TODO'S:
-	A - First Beta Release for 1 year anniversary
 	1 - Start Developing Advanced Npc Ai
 		1.a - Create More Characters and Story
-			1.a.1 - Harley
-			1.a.2 - Janet
-			1.a.3 - Guard (traitor flag)
+			1.a.1 (city hall)
+				1.a.1.a - Harley
+				1.a.1.b - Janet
+				1.a.1.c - Guard (traitor flag)
 		1.b - Develop quests
 		1.c - Balance Game
 	2 - Create Missing Assets (textures)

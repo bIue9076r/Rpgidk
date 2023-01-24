@@ -63,8 +63,8 @@ end
 
 function Item:Remove(n) -- removes the selected item
 	Item.items[n] = nil
-	for i = n+1,#Item.items+2 do
-		Item.items[i-1]=Item.items[i]
+	for i = n+1,#Item.items do
+		Item.items[i-1] = Item.items[i]
 		Item.items[i] = nil
 	end
 end

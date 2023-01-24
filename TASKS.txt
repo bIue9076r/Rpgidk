@@ -1,0 +1,70 @@
+TASKS:
+
+x - uncomplete
+# - completed
+? - mabye
+~ - inprogress
+
+Current Tasks:
+	x - City subzones
+		~ - dch[n]
+			? - dch1 (Guard)
+			~ - dch2 (Janet)
+			? - dch3 (Harley)
+			# - dch4 (Exit)
+			x - dch5 (Robot Secretary)
+		x - dl[n]
+			x - dl1 (Tracy)
+			x - dl2 (Patron)
+			x - dl3 (Exit)
+		x - dum[n]
+		x - dah1
+	x - Desert subzones
+		x - 
+		x - 
+		x - 
+	x - Swamp subzones
+		x - 
+		x - 
+	x - Ice Spikes subzones
+		x - 
+		x - 
+		x -
+	x - Waste subzones
+		x - 
+		x - 
+		x - 
+
+
+Backbuner Tasks:
+	x - Optimization
+		x - removing unnessesary oop
+			x - Alert
+			x - Notes
+			x - Items
+			x - Exp
+			x - Quests
+			x - Images function handler
+			x - Audio function handler
+			x - font function handler
+		x - add nessesary oop
+			x - dialoge
+				x - npcs
+				x - story npcs (important)
+		x - Chronological Alerts
+	~ - Mix Music Tracks
+		x - City
+		x - Desert
+		x - Waste
+		# - Ice Spikes
+		? - Swamp
+			x - convert to .mp3
+		? - buyin' store
+			x - convert to .mp3
+		? - gameover
+			x - convert to .mp3
+		? - level up
+			x - convert to .mp3
+		# - Alert
+	
+	x - item 69

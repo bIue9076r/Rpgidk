@@ -51,6 +51,7 @@
 66,67: Star Candy + Super form
 68: Moss
 69: [currently a place holder]
+-- contender: blue candy
 70: Carrot
 71: Goo
 72: Yellow snow

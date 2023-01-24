@@ -19,7 +19,9 @@ function dch1.draw()
 		if Traitor or AttemptedTraitor then
 			dch1.m = '"Freeze Tratior"'
 			dch1.o = { -- TODO: Fix when Done With Harley
-				'(leave) ...',
+				"wait lets talk this out",
+				"(fight) never",
+				"(surrender) ...",
 			-----123456789012345678901234567890
 			}
 			dch1.ol = #dch1.o
@@ -100,18 +102,54 @@ function dch1.AdvKeyPress()
 	if Traitor or AttemptedTraitor then
 		if not dch1.FirstOption then
 			if dch1.select == 1 then
-				Alert:new('Left','stat')
-				gamestate = 'alert'
+				dch1.m = "Hands in the air"
+				dch1.o = {
+					'continue'
+				}
+				dch1.ol = #dch1.o
+				dch1.FirstOption = true
+				dch1_flag = 'talk'
+			elseif dch1.select == 2 then
+				dch1.m = '"Good luck with that"'
+				dch1.o = {
+					"continue",
+				}
+				dch1.ol = #dch1.o
+				dch1.FirstOption = true
+				dch1_flag = 'fight'
+			elseif dch1.select == 3 then
+				dch1.m = "Hands in the air"
+				dch1.o = {
+					'continue'
+				}
+				dch1.ol = #dch1.o
+				dch1.FirstOption = true
+				dch1_flag = 'surrend'
 			end
 		else
-			if not dch1.SecondOption then
-			
-			else
-				if not dch1.ThirdOption then
-					
+			if dch1_flag == 'talk' then
+				dch1.FirstOption = false
+				D.location = 'city'
+				arrest()
+			elseif dch1_flag == 'fight' then
+				if Atk >= 20 then
+					dch1_kill = true
+					dch1.Hp = dch1.Hp - 1
+					dch1.FirstOption = false
+					CrimeUpdate(3)
+					Exp:add(20)
+					Alert:new('Left','stat')
+					gamestate = 'alert'
 				else
-					
+					Hurt(20)
+					dch1.FirstOption = false
+					D.location = 'city'
+					arrest()
 				end
+			elseif dch1_flag == 'surrend' then
+				dch1.FirstOption = false
+				D.location = 'city'
+				arrest()
 			end
 		end
 	elseif dch1_kill then

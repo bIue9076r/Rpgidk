@@ -25,6 +25,23 @@ function dch3.draw()
 			-----123456789012345678901234567890
 			}
 			dch3.ol = #dch3.o
+		elseif dch3_scum then
+			dch3.m = '"I dont talk to scum"'
+			dch3.o = {
+				'(fight) You dont have to',
+				'(leave) ...',
+			-----123456789012345678901234567890
+			}
+			dch3.ol = #dch3.o
+		elseif Harley_dislike then
+			dch3.m = '"What do you want"'
+			dch3.o = {
+				'Your Friendship',
+				'(fight) Your death',
+				'(leave) ...',
+			-----123456789012345678901234567890
+			}
+			dch3.ol = #dch3.o
 		elseif dch3_stole then
 			dch3.m = '"Pockets not full enough"'
 			dch3.o = {
@@ -40,6 +57,19 @@ function dch3.draw()
 				'no',
 				'(steal) yes',
 				'(leave) ...',
+			}
+			dch3.ol = #dch3.o
+		elseif Janet_Inform and (Rep >= 0) then
+			dch3.m = '"im so sorry about my secretary"'
+			dch3.o = {
+				'why did you even hire her',
+				'No need to be sorry',
+				'She deserved it anyway',
+				'Put her in Jail',
+				'(Cash) I\'m only ok at a price',
+				'(fight) You\'re clearly not',
+				'...',
+			-----123456789012345678901234567890
 			}
 			dch3.ol = #dch3.o
 		elseif Rep >= 0 then
@@ -91,18 +121,105 @@ function dch3.AdvKeyPress()
 	if AttemptedTraitor then
 		if not dch3.FirstOption then
 			if dch3.select == 1 then
+				dch3.m = '"What?"'
+				dch3.o = {
+					"(leave) ???",
+				}
+				dch3.ol = #dch3.o
+				dch3.FirstOption = true
+			elseif dch3.select == 2 then
+				if Atk >= 30 then
+					Traitor = true
+					dch3.Hp = dch3.Hp - 1 -- she's dead lol
+					CrimeUpdate(10)
+					Exp:add(20)
+					Alert:new('Beat Harley','stat')
+					gamestate = 'alert'
+				else
+					AttemptedTraitor = true
+					-- you're gonna have a bad time
+					Hurt(50)
+					Alert:new('Failed to Beat Harley','stat')
+					gamestate = 'alert'
+				end
+			elseif dch3.select == 3 then
 				Alert:new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
-			if not dch3.SecondOption then
-			
+			Alert:new('Left?','stat')
+			gamestate = 'alert'
+		end
+	elseif dch3_scum then
+		if dch3.select == 1 then
+			if Atk >= 25 then
+				Traitor = true
+				dch3.Hp = dch3.Hp - 1 -- she's dead lol
+				CrimeUpdate(10)
+				Exp:add(20)
+				Alert:new('Beat Harley','stat')
+				gamestate = 'alert'
 			else
-				if not dch3.ThirdOption then
-					
+				AttemptedTraitor = true
+				-- you're gonna have a bad time
+				Hurt(50)
+				Alert:new('Failed to Beat Harley','stat')
+				gamestate = 'alert'
+			end
+		elseif dch3.select == 2 then
+			Alert:new('Left','stat')
+			gamestate = 'alert'
+		end
+	elseif Harley_dislike then
+		if not dch3.FirstOption then
+			if dch3.select == 1 then
+				dch3.FirstOption = true
+				dch3.m = '"Go fuck yourself"'
+				dch3.o = {
+					"(fight) fuck you too",
+					"(leave) ...",
+				}
+				dch3.ol = #dch3.o
+			elseif dch3.select == 2 then
+				if Atk >= 25 then
+					Traitor = true
+					dch3.Hp = dch3.Hp - 1 -- she's dead lol
+					CrimeUpdate(10)
+					Exp:add(20)
+					Alert:new('Beat Harley','stat')
+					gamestate = 'alert'
 				else
-					
+					AttemptedTraitor = true
+					-- you're gonna have a bad time
+					Hurt(50)
+					Alert:new('Failed to Beat Harley','stat')
+					gamestate = 'alert'
 				end
+			elseif dch3.select == 3 then
+				Alert:new('Left','stat')
+				gamestate = 'alert'
+			end
+		else
+			if dch3.select == 1 then
+				if Atk >= 25 then
+					Traitor = true
+					dch3.Hp = dch3.Hp - 1 -- she's dead lol
+					dch3.FirstOption = false
+					CrimeUpdate(10)
+					Exp:add(20)
+					Alert:new('Beat Harley','stat')
+					gamestate = 'alert'
+				else
+					AttemptedTraitor = true
+					-- you're gonna have a bad time
+					Hurt(50)
+					dch3.FirstOption = false
+					Alert:new('Failed to Beat Harley','stat')
+					gamestate = 'alert'
+				end
+			elseif dch3.select == 2 then
+				Alert:new('Left','stat')
+				gamestate = 'alert'
 			end
 		end
 	elseif dch3_stole then
@@ -114,7 +231,6 @@ function dch3.AdvKeyPress()
 					'continue'
 				}
 				dch3.ol = #dch3.o
-				dch3_flag = 'ignore'
 			elseif dch3.select == 2 then
 				Alert:new('Left','stat')
 				gamestate = 'alert'
@@ -123,19 +239,9 @@ function dch3.AdvKeyPress()
 				gamestate = 'alert'
 			end
 		else
-			if not dch3.SecondOption then
-				if dch3_flag == 'ignore' then
-					dch3.FirstOption = false
-					Alert:new('Harley leaves','stat')
-					gamestate = 'alert'
-				end
-			else
-				if not dch3.ThirdOption then
-					
-				else
-					
-				end
-			end
+			dch3.FirstOption = false
+			Alert:new('Harley leaves','stat')
+			gamestate = 'alert'
 		end
 	elseif dch3_astole then
 		if not dch3.FirstOption then
@@ -166,7 +272,7 @@ function dch3.AdvKeyPress()
 					Alert:new('Harley leaves','stat')
 					gamestate = 'alert'
 				elseif dch3_flag == 'talk' then
-					dch3.m = '"do you want to talk about why"'
+					dch3.m = '"i\'d like to know more"'
 					dch3.o = {
 						'sure',
 						'(leave) no',
@@ -177,14 +283,25 @@ function dch3.AdvKeyPress()
 			else
 				if not dch3.ThirdOption then
 					if dch3.select == 1 then
-						dch3.m = '"to each their own i guess"'
+						dch3.m = '"Whats up with all the stealing"'
 						dch3.o = {
-							'continue',
+							'I need the money',
+							'I like stealing',
+							'Why do you care',
+							'I dont like you',
+							'(fight) I changed my mind',
+							'(steal) What do you mean',
+							'(leave) ...',
 						}
 						dch3.ol = #dch3.o
 						dch3.ThirdOption = true
-						Alert:new('Spoke with Harley','world')
-						gamestate = 'alert'
+						
+						-- you dont get out that easy
+						--Alert:new('Spoke with Harley','world')
+						--gamestate = 'alert'
+						--dch3_astole = false
+						--Alert:new('Left','stat')
+						--gamestate = 'alert'
 					elseif dch3.select == 2 then
 						dch3.FirstOption = false
 						dch3.SecondOption = false
@@ -192,12 +309,267 @@ function dch3.AdvKeyPress()
 						gamestate = 'alert'
 					end
 				else
+					if not dch3.FourthOption then
+						if dch3.select == 1 then
+							if not dch3_first then
+								dch3.m = '"Here have this"'
+								dch3.o = {
+									'continue',
+								}
+								dch3.ol = #dch3.o
+								dch3.FourthOption = true
+								dch3_first = true
+								dch3_flag = 'donate'
+							else
+								dch3.m = '"No what you need is prison time"'
+								dch3.o = {
+									'continue',
+								}
+								dch3.ol = #dch3.o
+								dch3.FourthOption = true
+								dch3_flag = 'arrest'
+							end
+						elseif dch3.select == 2 then
+							dch3.m = '"But stealing hurts people"'
+							dch3.o = {
+								'continue',
+							}
+							dch3.ol = #dch3.o
+							dch3.FourthOption = true
+							dch3_flag = 'talk'
+						elseif dch3.select == 3 then
+							dch3.m = '"I guess you\'ll love prison then"'
+							dch3.o = {
+								'continue',
+							}
+							dch3.ol = #dch3.o
+							dch3.FourthOption = true
+							dch3_flag = 'arrest'
+						elseif dch3.select == 4 then
+							dch3.m = '"Well at least we agree"'
+							dch3.o = {
+								'continue',
+							}
+							dch3.ol = #dch3.o
+							dch3.FourthOption = true
+							dch3_flag = 'nopd'
+						elseif dch3.select == 5 then
+							if Atk >= 25 then
+								Traitor = true
+								dch3.Hp = dch3.Hp - 1 -- she's dead lol
+								dch3.FirstOption = false
+								CrimeUpdate(10)
+								Exp:add(20)
+								Alert:new('Beat Harley','stat')
+								gamestate = 'alert'
+							else
+								AttemptedTraitor = true
+								-- you're gonna have a bad time
+								Hurt(50)
+								dch3.FirstOption = false
+								Alert:new('Failed to Beat Harley','stat')
+								gamestate = 'alert'
+							end
+						elseif dch3.select == 6 then
+							dch3.m = '"You\'re complete scum theif"'
+							dch3.o = {
+								'continue',
+							}
+							dch3.ol = #dch3.o
+							dch3.FourthOption = true
+							dch3_flag = 'nops'
+						elseif dch3.select == 7 then
+							dch3.FirstOption = false
+							dch3.SecondOption = false
+							dch3.ThirdOption = false
+							Alert:new('Left','stat')
+							gamestate = 'alert'
+						end
+					else
+						if not dch3.FifthOption then
+							if dch3_flag == 'arrest' then
+								Harley_dislike = true
+								dch3.FirstOption = false
+								dch3.SecondOption = false
+								dch3.ThirdOption = false
+								dch3.FourthOption = false
+								D.location = 'city'
+								arrest()
+							elseif dch3_flag == 'nops' then
+								dch3_scum = true
+								dch3.FirstOption = false
+								dch3.SecondOption = false
+								dch3.ThirdOption = false
+								dch3.FourthOption = false
+								Alert:new('Harley walks away','stat')
+								gamestate = 'alert'
+							elseif dch3_flag == 'nopd' then
+								Harley_dislike = true
+								dch3.FirstOption = false
+								dch3.SecondOption = false
+								dch3.ThirdOption = false
+								dch3.FourthOption = false
+								Alert:new('Harley walks away','stat')
+								gamestate = 'alert'
+							elseif dch3_flag == 'donate' then
+								dch3.FirstOption = false
+								dch3.SecondOption = false
+								dch3.ThirdOption = false
+								dch3.FourthOption = false
+								raiseCash(250) -- quite generous of her.
+								Alert:new('Harley Donated to you','stat')
+								gamestate = 'alert'
+							elseif dch3_flag == 'talk' then
+								dch3.m = '"People lose their possesions"'
+								dch3.FifthOption = true
+							end
+						else
+							if not dch3.SixthOption then
+								dch3.m = '"Dont steal again buddy"'
+								dch3.SixthOption = true
+							else
+								dch3.FirstOption = false
+								dch3.SecondOption = false
+								dch3.ThirdOption = false
+								dch3.FourthOption = false
+								dch3.FifthOption = false
+								dch3.SixthOption = false
+								Alert:new('Harley walks away','stat')
+								gamestate = 'alert'
+							end
+						end
+					end
+				end
+			end
+		end
+	elseif Janet_Inform and (Rep >= 0) then
+		if not dch3.FirstOption then
+			if dch3.select == 1 then
+				dch3.FirstOption = true
+				dch3.m = '"Not to be specific but"'
+				dch3.o = {
+					"continue"
+				}
+				dch3.ol = #dch3.o
+				dch3_flag = "Why_Rant"
+			elseif dch3.select == 2 then
+				dch3.FirstOption = true
+				dch3.m = '"Ok thanks for cooperating"'
+				dch3.o = {
+					"continue"
+				}
+				dch3.ol = #dch3.o
+				dch3_flag = "No_Rant"
+			elseif dch3.select == 3 then
+				dch3.FirstOption = true
+				dch3.m = '"Go ahead and press charges"'
+				dch3.o = {
+					"continue"
+				}
+				dch3.ol = #dch3.o
+				dch3_flag = "No_Rant"
+			elseif dch3.select == 4 then
+				dch3.FirstOption = true
+				dch3.m = '"She\'s already there"'
+				dch3.o = {
+					"continue"
+				}
+				dch3.ol = #dch3.o
+				dch3_flag = "No_Rant"
+			elseif dch3.select == 5 then
+				dch3.FirstOption = true
+				dch3.m = '"Ok fine i\'ll it give to you"'
+				dch3.o = {
+					"continue"
+				}
+				dch3.ol = #dch3.o
+				dch3_flag = "Ext_Cash"
+			elseif dch3.select == 6 then
+				dch3.FirstOption = true
+				dch3.m = '"Not happy?"'
+				dch3.o = {
+					"continue"
+				}
+				dch3.ol = #dch3.o
+				dch3_flag = "fight"
+			elseif dch3.select == 7 then
+				dch3.FirstOption = true
+				dch3.m = '"Ok... have your money i guess"'
+				dch3.o = {
+					"continue"
+				}
+				dch3.ol = #dch3.o
+				dch3_flag = "No_Rant"
+			end
+		else
+			if not dch3.SecondOption then
+				if dch3_flag == "No_Rant" then
 					dch3.FirstOption = false
-					dch3.SecondOption = false
-					dch3.ThirdOption = false
-					dch3_astole = false
-					Alert:new('Left','stat')
+					Janet_Inform = false
+					raiseCash(450)
+					Alert:new('Given Money','stat')
 					gamestate = 'alert'
+				elseif dch3_flag == "Ext_Cash" then
+					dch3.FirstOption = false
+					Janet_Inform = false
+					raiseCash(650)
+					Alert:new('Given More Money','stat')
+					gamestate = 'alert'
+				elseif dch3_flag == "Why_Rant" then
+					dch3.SecondOption = true
+					dch3.m = '"She had some issues"'
+					dch3.o = {
+						"continue"
+					}
+					dch3.ol = #dch3.o
+				end
+			else
+				if not dch3.ThirdOption then
+					dch3.ThirdOption = true
+					dch3.m = '"She was just loney i guess"'
+					dch3.o = {
+						"continue"
+					}
+					dch3.ol = #dch3.o
+				else
+					if not dch3.FourthOption then
+						dch3.FourthOption = true
+						dch3.m = '"She only really liked Tracy"'
+						----------12345678901234567890123456789012
+						dch3.o = {
+							"continue"
+						}
+						dch3.ol = #dch3.o
+					else
+						if not dch3.FifthOption then
+							dch3.FifthOption = true
+							dch3.m = '"I dont know why im saying this"'
+							dch3.o = {
+								"continue"
+							}
+							dch3.ol = #dch3.o
+						else
+							if not dch3.SixthOption then
+								dch3.SixthOption = true
+								dch3.m = '"Here just take your money"'
+								dch3.o = {
+									"continue"
+								}
+								dch3.ol = #dch3.o
+							else
+								dch3.FirstOption = false
+								dch3.SecondOption = false
+								dch3.ThirdOption = false
+								dch3.FourthOption = false
+								dch3.FifthOption = false
+								dch3.SixthOption = false
+								Janet_Inform = false
+								raiseCash(450)
+								Alert:new('Given Money','stat')
+								gamestate = 'alert'
+							end
+						end
+					end
 				end
 			end
 		end
@@ -294,32 +666,30 @@ function dch3.AdvKeyPress()
 				gamestate = 'alert'
 			end
 		else
-			if not dch3.SecondOption then
-				if dch3_flag == 'thanks' then
-					raiseRep(15)
-					Alert:new('Left','stat')
+			if dch3_flag == 'thanks' then
+				raiseRep(15)
+				Alert:new('Left','stat')
+				gamestate = 'alert'
+			elseif dch3_flag == 'pardon' then
+				Rep = 1
+				Alert:new('Pardoned','stat')
+				gamestate = 'alert'
+			elseif dch3_flag == 'fight' then
+				if Atk >= 25 then
+					Traitor = true
+					dch3.Hp = dch3.Hp - 1 -- she's dead lol
+					dch3.FirstOption = false
+					CrimeUpdate(10)
+					Exp:add(20)
+					Alert:new('Beat Harley','stat')
 					gamestate = 'alert'
-				elseif dch3_flag == 'pardon' then
-					Rep = 1
-					Alert:new('Pardoned','stat')
+				else
+					AttemptedTraitor = true
+					-- you're gonna have a bad time
+					Hurt(50)
+					dch3.FirstOption = false
+					Alert:new('Failed to Beat Harley','stat')
 					gamestate = 'alert'
-				elseif dch3_flag == 'fight' then
-					if Atk >= 25 then
-						Traitor = true
-						dch3.Hp = dch3.Hp - 1 -- she's dead lol
-						dch3.FirstOption = false
-						CrimeUpdate(10)
-						Exp:add(20)
-						Alert:new('Beat Harley','stat')
-						gamestate = 'alert'
-					else
-						AttemptedTraitor = true
-						-- you're gonna have a bad time
-						Hurt(50)
-						dch3.FirstOption = false
-						Alert:new('Failed to Beat Harley','stat')
-						gamestate = 'alert'
-					end
 				end
 			end
 		end

@@ -137,16 +137,6 @@ function save()
 	",[1]="..r_store_stock_Def[1]..
 	",[2]="..r_store_stock_Def[2]..
 	",[3]="..r_store_stock_Def[3].."};"..
-	--[[
-	"item[0]="..(sitem[0][0])..";"..
-	"item[1]="..(sitem[1][0])..";"..
-	"item[2]="..(sitem[2][0])..";"..
-	"item[3]="..(sitem[3][0])..";"..
-	"store_stock_med="..(store_stock_med[0])..";"..
-	"store_stock_Posion="..(store_stock_Posion[0])..";"..
-	"store_stock_Atk="..(store_stock_Atk[0])..";"..
-	"store_stock_Def="..(store_stock_Def[0])..";"..
-	]]
 	"restock="..(restock)..";\n"
 	
 	
@@ -188,8 +178,10 @@ function save()
 	local save5 = "yellowSnowEater="..tostring(yellowSnowEater)..";"..
 	"iceBaseFound="..tostring(iceBaseFound)..";"..
 	"helpedResearcher="..tostring(helpedResearcher)..";"..
-	"dch1_kill="..tostring(dch1_kill == true or false)..";"..
-	"Exp:HardOverride("..Exp:exportCount()..","..Exp:exportLevel()..");"..
+	"dch1_kill="..tostring(dch1_kill == true or false)..";"
+	
+	local save6 = "Exp:HardOverride("..
+	Exp:exportCount()..","..Exp:exportLevel()..");"..
 	items..
 	notes..
 	d..
@@ -200,6 +192,7 @@ function save()
 		save2..
 		save3..
 		save4..
-		save5)
+		save5..
+		save6)
 	--end)
 end
