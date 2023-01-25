@@ -1,6 +1,9 @@
 math.randomseed(os.time())
 require("/Required/aliases")
 require("/Required/Modules/GameFunctions")
+require("/Required/Modules/Fight")
+require("/Required/Bosses/Boss")
+require("/Required/Bosses/MoL")
 require("/Textures/LoadTexutres")
 require("/Textures/LoadFonts")
 require("/Audio/LoadAudio")
@@ -163,6 +166,13 @@ function world_draw()
 	love.graphics.draw(image:getImage('message'),0,0)
 	worldCmd.draw()
 	--end)
+end
+
+function boss_draw()
+	love.graphics.draw(image:getImage(D.location),0,0)
+	love.graphics.draw(image:getImage('message'),0,0)
+	--f = fight.get()
+	CBoss:draw()
 end
 
 function stat_draw()
@@ -459,6 +469,10 @@ function world_keypressed(key)
 		end
 	end
 	--end)
+end
+
+function boss_keypressed(key)
+	CBoss:update(key)
 end
 
 function stat_keypressed(key)
@@ -911,6 +925,8 @@ function Game.update(dt)
 			arrest_keypressed()
 		elseif gamestate == 'world' then
 			world_keypressed(key)
+		elseif gamestate == 'fight' then
+			boss_keypressed(key)
 		elseif gamestate == 'stat' then
 			stat_keypressed(key)
 		elseif gamestate == 'config' then
@@ -960,7 +976,9 @@ function test() end
 --for i = 1,21 do
 --	Note:new("lib note"..i,i);
 --end
---gamestate = 'void'
+B:Load()
+B:Global()
+gamestate = 'fight'
 Item:new("item",-1)
 
 function Game.draw()
@@ -975,6 +993,8 @@ function Game.draw()
 		arrest_draw()
 	elseif gamestate == 'world' then
 		world_draw()
+	elseif gamestate == 'fight' then
+		boss_draw()
 	elseif gamestate == 'map' then
 		map_draw()
 	elseif gamestate == 'stat' then
