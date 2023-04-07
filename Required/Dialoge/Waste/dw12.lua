@@ -23,6 +23,7 @@ end
 function dw12.keypressed(key)
 	if key == "y" then
 		D.location = D.GetSubWorld(13)
+		Subselected = true
 		Alert:new('entering the Destroyed Town','stat')
 		gamestate = 'alert'
 	elseif key == "n" then

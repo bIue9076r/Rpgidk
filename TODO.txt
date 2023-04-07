@@ -7,6 +7,10 @@ Important TODO'S:
 				1.a.1.a - Harley
 				1.a.1.b - Janet
 				1.a.1.c - Guard (traitor flag)
+			1.a.2 (Libary/Ashleys House)
+				1.a.2.a - Patron
+				1.a.2.b - Tracey
+				1.a.2.c - Ashley
 		1.b - Develop quests
 		1.c - Balance Game
 	2 - Create Missing Assets (textures)

@@ -54,6 +54,7 @@ Backbuner Tasks:
 		x - Chronological Alerts
 	~ - Mix Music Tracks
 		x - City
+			x - "waltz in b" is a contender
 		x - Desert
 		x - Waste
 		# - Ice Spikes
@@ -66,5 +67,10 @@ Backbuner Tasks:
 		? - level up
 			x - convert to .mp3
 		# - Alert
+		x - Boss
+			x - All Boss Specific Music
+				x - generaly ("bgrove" is a contender)
+				x - Harley
+				x - Lake Monster
 	
 	x - item 69

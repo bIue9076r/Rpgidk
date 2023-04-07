@@ -23,6 +23,7 @@ end
 function dch4.keypressed(key)
 	if key == 'y' then
 		D.SetLoc('city')
+		Subselected = false
 		Alert:new('Left the Capital Hall','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then

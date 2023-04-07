@@ -28,6 +28,7 @@ end
 function dw13.keypressed(key)
 	if key == "y" then
 		D.location = D.GetSubWorld(14)
+		Subselected = true
 		Alert:new('entering the '..dw13.n,'stat')
 		gamestate = 'alert'
 	elseif key == "n" then

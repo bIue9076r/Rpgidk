@@ -10,7 +10,7 @@ function shop_draw()
 		Store = sound:getSound('BuyinStore')
 		Store:play()
 		if D.location == 'city' then
-			if Ashley_Hp <= 0 then
+			if Ashley_Hp <= 0 or dah1.Hp > 0 then
 				shopimg = 'shopnoemp'
 			elseif Ashley_Hp < 80 then
 				shopimg = 'shophurtemp'
@@ -18,7 +18,7 @@ function shop_draw()
 			if Quest:Return('ashley') --[[== 1 or Quest:Return('ashley') == true or Quest:Return('ashley') == 0 ]]then
 				love.graphics.draw(image:getImage(shopimg.."_"..D.location),0,0)
 				love.graphics.draw(image:getImage('Alert'),0,0)
-				if Ashley_Hp <= 10 then
+				if Ashley_Hp <= 10 or dah1.Hp > 0 then
 					love.graphics.print({{0,0,0},"..."},60,75)
 				elseif Ashley_Hp < 80 then
 					love.graphics.print({{0,0,0},"Please Dont Hurt Me, I cant"},60,75)
@@ -166,25 +166,21 @@ function shop_keypressed(key)
 				--buyDb()
 				buyItem(Nitem[3],0)
 			elseif key == 't' then
-				
+				if Ashley_Hp == 100 then
+					dah1.Hp = 1
+					SubSelected = true
+					D.location = 'Ashleys House'
+					Alert:new("Went to Ashleys House","stat")
+					gamestate = 'alert'
+				end
 			end
 		elseif Quest:Return('ashley') == false then
 			if key == 'f' then
-				if Atk >= 10 then
-					Store:seek(0)
-					love.audio.pause(Store)
-					Ashley_Hp = Ashley_Hp - 60
-					Quest:SetT('ashley')
-					Alert:new('Beat up Ashley','stat')
-					Exp:add(60)
-					gamestate = 'alert'
-				else
-					Store:seek(0)
-					love.audio.pause(Store)
-					Hurt(40)
-					Alert:new('Ashley beat you up','stat')
-					gamestate = 'alert'
-				end
+				Store:seek(0)
+				love.audio.pause(Store)
+				B_Ashley:Load()
+				B_Ashley:Global()
+				gamestate = 'fight'
 			elseif key == 'b' then
 				if Cash >= 150 then
 					Store:seek(0)

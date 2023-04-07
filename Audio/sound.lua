@@ -35,3 +35,42 @@ function sound:update(dt)
 		end
 	end
 end
+
+-- Removed Unececary oop
+__sound = {}
+__sound.LoadedSounds = {}
+
+function __sound.new(n,p,at)
+	if at == "static" then
+		Sound = love.audio.newSource(p,'static')
+	else
+		Sound = love.audio.newSource(p,'stream')
+	end
+	__sound[n] = Sound
+end
+
+function __sound.getSound(n)
+	return __sound[n]
+end
+
+function __sound.loadSound(n,del)
+	if type(n) == 'string' then
+		table.insert(__sound.LoadedSounds,{sound = __sound[n], delay = del, played = false})
+	else
+		table.insert(__sound.LoadedSounds,{sound = n, delay = del, played = false})
+	end
+end
+
+function __sound.update(dt)
+	for i,v in pairs(__sound.LoadedSounds) do
+		v.delay = v.delay - dt
+		if v.delay < 0 and v.played == false then
+			v.sound:seek(0)
+			v.sound:play()
+			v.played = true
+		end
+		if v.delay < -(v.sound:getDuration("seconds")) then -- trash collection
+			__sound.LoadedSounds[i] = nil
+		end
+	end
+end

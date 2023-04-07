@@ -1,7 +1,8 @@
+-- Boss Module
 Boss = {}
 CBoss = {}
 
-function Boss.new(name,image,lvl,typ,actOn,actTo)
+function Boss.new(name,image,lvl,typ)
 	local tbl = {
 		name = name or "",
 		img = image or "",
@@ -43,6 +44,10 @@ function Boss:Load()
 		self.actOn,
 		self.actTo
 	)
+	
+	FAtk = Atk
+	FDef = Def
+	FHp = Hp
 end
 
 function Boss:Global()

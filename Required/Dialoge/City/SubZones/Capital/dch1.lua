@@ -18,7 +18,7 @@ function dch1.draw()
 	if not(dch1.FirstOption)then
 		if Traitor or AttemptedTraitor then
 			dch1.m = '"Freeze Tratior"'
-			dch1.o = { -- TODO: Fix when Done With Harley
+			dch1.o = {
 				"wait lets talk this out",
 				"(fight) never",
 				"(surrender) ...",

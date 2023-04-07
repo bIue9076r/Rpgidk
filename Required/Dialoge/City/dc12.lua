@@ -24,6 +24,7 @@ end
 function dc12.keypressed(key)
 	if key == 'y' then
 		D.location = D.GetSubWorld(2)
+		Subselected = true
 		Alert:new('entering the Capital Hall','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then

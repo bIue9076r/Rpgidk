@@ -24,6 +24,7 @@ end
 function dc13.keypressed(key)
 	if key == 'y' then
 		D.location = D.GetSubWorld(3)
+		Subselected = true
 		Alert:new('entering the Underground Market','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then

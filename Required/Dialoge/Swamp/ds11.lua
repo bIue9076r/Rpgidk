@@ -23,6 +23,7 @@ end
 function ds11.keypressed(key)
 	if key == 'y' then
 		D.location = D.GetSubWorld(7)
+		Subselected = true
 		Alert:new('entering the Sea Dock','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then

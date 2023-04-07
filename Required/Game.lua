@@ -1,9 +1,7 @@
 math.randomseed(os.time())
 require("/Required/aliases")
 require("/Required/Modules/GameFunctions")
-require("/Required/Modules/Fight")
-require("/Required/Bosses/Boss")
-require("/Required/Bosses/MoL")
+require("/Required/Bosses/LoadBosses")
 require("/Textures/LoadTexutres")
 require("/Textures/LoadFonts")
 require("/Audio/LoadAudio")
@@ -70,6 +68,8 @@ sitem[3]={[0]=(0),[1]=(0),[2]=(0),[3]=(0)}
 Nitem[3]="Defence boost"
 sNitem[3]="Legendary "
 tsNitem[3]="Lgnd "
+sitem[4]={[0]=(0),[1]=(0),[2]=(0),[3]=(0)}
+Nitem[4]="Revive Elixir"
 itemNm = ""
 Rarity = 0
 store_stock_med=math.random(1,100)
@@ -171,7 +171,6 @@ end
 function boss_draw()
 	love.graphics.draw(image:getImage(D.location),0,0)
 	love.graphics.draw(image:getImage('message'),0,0)
-	--f = fight.get()
 	CBoss:draw()
 end
 
@@ -976,10 +975,10 @@ function test() end
 --for i = 1,21 do
 --	Note:new("lib note"..i,i);
 --end
-B:Load()
-B:Global()
-gamestate = 'fight'
+
 Item:new("item",-1)
+Note:new("Rodo History",24)
+Note:new("Please Read",25)
 
 function Game.draw()
 	--pcall(function()

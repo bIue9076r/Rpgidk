@@ -23,6 +23,7 @@ end
 function ds12.keypressed(key)
 	if key == 'y' then
 		D.location = D.GetSubWorld(8)
+		Subselected = true
 		Alert:new('entering the Big Green Lake','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then

@@ -132,79 +132,99 @@ function dch2.AdvKeyPress()
 	if Traitor then
 		if not dch2.FirstOption then
 			if dch2.select == 1 then
-				dch2.m = "message"
+				dch2.m = '"Please leave me alone"'
 				dch2.o = {
 					"continue"
 				}
 				dch2.ol = #dch2.o
 				dch2.FirstOption = true
-				dch2_flag = "flag"
+				dch2_flag = "print"
 			elseif dch2.select == 2 then
-				dch2.m = "message"
+				dch2.m = '"Please leave me alone"'
 				dch2.o = {
 					"continue"
 				}
 				dch2.ol = #dch2.o
 				dch2.FirstOption = true
-				dch2_flag = "flag"
+				dch2_flag = "beg"
 			elseif dch2.select == 3 then
-				dch2.m = "message"
+				dch2.m = '"Please i want to live"'
 				dch2.o = {
 					"continue"
 				}
 				dch2.ol = #dch2.o
 				dch2.FirstOption = true
-				dch2_flag = "flag"
+				dch2_flag = "beg"
 			elseif dch2.select == 4 then
 				Alert:new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
-			dch2.FirstOption = false
-			Alert:new('Left','stat')
-			gamestate = 'alert'
+			if dch2_flag == "beg" then
+				dch2.FirstOption = false
+				Alert:new('She begs for her life','stat')
+				gamestate = 'alert'
+			elseif dch2_flag == "print" then
+				if Valary then
+					-- Note 14 = Valary edition
+					dch2.FirstOption = false
+					Alert:new('Guide Reprinted','stat')
+					gamestate = 'alert'
+				else
+					-- Note 14 = Non Valary edition
+					dch2.FirstOption = false
+					Alert:new('Guide Reprinted','stat')
+					gamestate = 'alert'
+				end
+			end
 		end
 	elseif AttemptedTraitor then
 		if not dch2.FirstOption then
 			if dch2.select == 1 then
-				dch2.m = "message"
+				dch2.m = '"Sure an accident"'
 				dch2.o = {
 					"continue"
 				}
 				dch2.ol = #dch2.o
 				dch2.FirstOption = true
-				dch2_flag = "flag"
 			elseif dch2.select == 2 then
-				dch2.m = "message"
+				dch2.m = '"Well i like my job"'
 				dch2.o = {
 					"continue"
 				}
 				dch2.ol = #dch2.o
 				dch2.FirstOption = true
-				dch2_flag = "flag"
 			elseif dch2.select == 3 then
-				dch2.m = "message"
+				dch2.m = '"Sure let me do something for a sec"'
 				dch2.o = {
 					"continue"
 				}
 				dch2.ol = #dch2.o
 				dch2.FirstOption = true
-				dch2_flag = "flag"
 			elseif dch2.select == 4 then
-				dch2.m = "message"
-				dch2.o = {
-					"continue"
-				}
-				dch2.ol = #dch2.o
-				dch2.FirstOption = true
-				dch2_flag = "flag"
+				if Atk >= 25 then
+					dch2.FirstOption = false
+					dch2.Hp = dch2.Hp - 1
+					CrimeUpdate(3)
+					lowerRep(50)
+					Exp:add(20)
+					Alert:new('Beat Janet','stat')
+					gamestate = 'alert'
+				else
+					dch2.FirstOption = false
+					Hurt(45)
+					lowerRep(50)
+					CrimeUpdate(2)
+					Alert:new('Failed To Beat Janet','stat')
+					gamestate = 'alert'
+				end
 			elseif dch2.select == 5 then
 				Alert:new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
 			dch2.FirstOption = false
-			Alert:new('Left','stat')
+			Alert:new('Janet ignores you','stat')
 			gamestate = 'alert'
 		end
 	elseif dch2_stole then
@@ -216,7 +236,7 @@ function dch2.AdvKeyPress()
 				}
 				dch2.ol = #dch2.o
 				dch2.FirstOption = true
-				dch2_flag = "flag"
+				dch2_flag = "ignore"
 			elseif dch2.select == 2 then
 				dch2.m = '"Ok give it back then"'
 				dch2.o = {
@@ -227,7 +247,7 @@ function dch2.AdvKeyPress()
 				}
 				dch2.ol = #dch2.o
 				dch2.FirstOption = true
-				dch2_flag = "flag"
+				dch2_flag = "giveit"
 			elseif dch2.select == 3 then
 				dch2.m = "Fuck you"
 				dch2.o = {
@@ -235,15 +255,60 @@ function dch2.AdvKeyPress()
 				}
 				dch2.ol = #dch2.o
 				dch2.FirstOption = true
-				dch2_flag = "flag"
+				dch2_flag = "ignore"
 			elseif dch2.select == 4 then
 				Alert:new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
-			dch2.FirstOption = false
-			Alert:new('Left','stat')
-			gamestate = 'alert'
+			if not dch2.SecondOption then
+				if dch2_flag == 'ignore' then
+					dch2.FirstOption = false
+					Alert:new('Janet ignores you','stat')
+					gamestate = 'alert'
+				elseif dch2_flag == 'giveit' then
+					if dch2.select == 1 then
+						dch2.m = '"Couldn\'t expect anything else"'
+						dch2.o = {
+							"continue"
+						}
+						dch2.ol = #dch2.o
+						dch2.SecondOption = true
+						dch2_flag = "cont"
+					elseif dch2.select == 2 then
+						dch2.m = '"Well thats unexpected"'
+						dch2.o = {
+							"continue"
+						}
+						dch2.ol = #dch2.o
+						dch2.SecondOption = true
+						dch2_flag = "give"
+					elseif dch2.select == 3 then
+						dch2.FirstOption = false
+						Alert:new('Left','stat')
+						gamestate = 'alert'
+					end
+				end
+			else
+				if dch2_flag == 'cont' then
+					dch2.FirstOption = false
+					dch2.SecondOption = false
+					Alert:new('Janet ignores you','stat')
+					gamestate = 'alert'
+				elseif dch2_flag == 'give' then
+					dch2.FirstOption = false
+					dch2.SecondOption = false
+					if Cash >= 25 then
+						Cash = Cash - 25
+					else
+						Cash = 0
+					end
+					dch2_stole = false
+					dch2_astole = false
+					Alert:new('Gave The Money back','stat')
+					gamestate = 'alert'
+				end
+			end
 		end
 	elseif dch2_astole then
 		if not dch2.FirstOption then
@@ -403,9 +468,10 @@ function dch2.AdvKeyPress()
 					dch2.FirstOption = false
 					dch2.SecondOption = false
 					Janet_Inform = true
-					Hurt(55)
-					Alert:new('Janet hits you','stat')
-					gamestate = 'alert'
+					-- boss fight
+					B_Janet:Load()
+					B_Janet:Global()
+					gamestate = 'fight'
 				end
 			end
 		end
@@ -527,7 +593,7 @@ function dch2.AdvKeyPress()
 				end
 			elseif dch2_flag == "print" then
 				dch2.FirstOption = false
-				dch2_range = "8~10,11"
+				dch2_range = "8~11"
 				dch2_itblu = Range.parse(dch2_range)
 				dch2_n = math.random(1,#dch2_itblu)
 				Note:new("A Guide",dch2_itblu[dch2_n])

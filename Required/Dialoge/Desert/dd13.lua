@@ -23,6 +23,7 @@ end
 function dd13.keypressed(key)
 	if key == 'y' then
 		D.location = D.GetSubWorld(6)
+		Subselected = true
 		Alert:new('entering the Desert Temple','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then

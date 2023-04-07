@@ -24,7 +24,7 @@ function fight.new(name,image,lvl,typ,actOn,actTo)
 		Hp = 100 + math.ceil(25 * (lvl - 1)),
 		Def = 2 + math.ceil(0.75 * (lvl - 1)),
 		Atk = 5 + math.ceil(3 * (lvl - 1)),
-		MaxHp = Hp,
+		MaxHp = 100 + math.ceil(25 * (lvl - 1)),
 		prev = nil,
 		curr = MOVES.NOP,
 		next = MOVES.NOP,
@@ -51,16 +51,6 @@ function fight.process(input)
 	fight.nextmove()
 	fight.npc.prev = fight.npc.curr
 	fight.npc.curr = fight.npc.next
-	
-	if fight.npc.curr == MOVES.ATK then
-		print("IM GONNA ATTACK")
-	elseif fight.npc.curr == MOVES.BLK then
-		print("IM GONNA BLOCK")
-	elseif fight.npc.curr == MOVES.RST then
-		print("IM GONNA REST")
-	else
-		print("WHAT AM I DOING?!")
-	end
 end
 
 function fight.nextmove()

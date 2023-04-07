@@ -23,6 +23,7 @@ end
 function di12.keypressed(key)
 	if key == 'y' then
 		D.location = D.GetSubWorld(10)
+		Subselected = true
 		Alert:new('entering the Igloo Town','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then

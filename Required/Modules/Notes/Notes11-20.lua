@@ -91,11 +91,30 @@ function NoteUses.CapitalHall_PresidentGuide3_Reprinted()
 	love.graphics.print({{0,0,0},"33.Davey Paterson 1990-1995"},60,160)
 	love.graphics.print({{0,0,0},"34.Shae Howard 1995-2000"},60,180)
 	love.graphics.print({{0,0,0},"35.Harly Jackson 2000-2003"},60,200)--5
-	love.graphics.print({{0,0,0},"36."..name.." 2003-"},60,220)
+	love.graphics.print({{0,0,0},"36.Valary Hopson 2003-"},60,220)
+	love.graphics.print({{0,0,0},"   Tracey Lind"},60,240)
+	love.graphics.print({{0,0,0},"   "..name},60,260)
 	------------------------------12345678901234567890123456789012
 end
 --NoteUse[14] = NoteUses.CapitalHall_PresidentGuide3_Reprinted
 --/* use when President Harly Dies */
+
+-- conditions: reprint libary papers after killing Valary
+function NoteUses.CapitalHall_PresidentGuide3_Reprinted_val()
+	love.graphics.draw(image:getImage(D.location),0,0)
+	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.print({{0,0,0},"Frosted Spikes Presidents #3"},60,80)
+	love.graphics.print({{0,0,0},"31.Blaire Arlington 1980-1985"},60,120)
+	love.graphics.print({{0,0,0},"32.Jaxton Hewitt 1985-1990"},60,140)
+	love.graphics.print({{0,0,0},"33.Davey Paterson 1990-1995"},60,160)
+	love.graphics.print({{0,0,0},"34.Shae Howard 1995-2000"},60,180)
+	love.graphics.print({{0,0,0},"35.Harly Jackson 2000-2003"},60,200)--5
+	love.graphics.print({{0,0,0},"36.Valary Hopson 2003-2003"},60,220)
+	love.graphics.print({{0,0,0},"37."..name.." 2003-"},60,240)
+	------------------------------12345678901234567890123456789012
+end
+--NoteUse[14] = NoteUses.CapitalHall_PresidentGuide3_Reprinted_val
+--/* use when Empress Valary Dies */
 
 -- conditions: get libary papers
 function NoteUses.CapitalHall_PresidentFacts1()

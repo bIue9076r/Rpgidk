@@ -24,6 +24,7 @@ end
 function dc11.keypressed(key)
 	if key == 'y' then
 		D.location = D.GetSubWorld(1)
+		Subselected = true
 		Alert:new('entering the libary','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then

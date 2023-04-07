@@ -162,6 +162,7 @@ end
 ]]--
 
 require("/Required/Dialoge/City/CityDialoge")
+require("/Required/Dialoge/City/SubZones/Ashleys House/Ashleys_HouseDialoge") --Ashleys House
 require("/Required/Dialoge/City/SubZones/Capital/Capital_HallDialoge") --Capital Hall
 require("/Required/Dialoge/City/SubZones/Libary/LibaryDialoge") --Libary
 require("/Required/Dialoge/City/SubZones/Market/Underground_MarketDialoge") --Underground Market

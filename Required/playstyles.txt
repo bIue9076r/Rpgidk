@@ -105,6 +105,7 @@ Expected play styles:
 			// City requirments:
 				// No more than 20 kills
 				// Buy and Sell things
+				optional [ // Get Janet Fired/Arrested
 			// Desert requirments:
 				// Hug a catcus
 			// Swamp requirments:
@@ -122,6 +123,7 @@ Expected play styles:
 				// More than 20 kills
 				// Buy and Sell things + Stealing
 				optional [ // Resurect Valary
+				// Get Janet Fired/Arrested
 			// Desert requirments:
 				optional [ // Steal baked goods
 			// Swamp requirments:

@@ -23,6 +23,7 @@ end
 function dd12.keypressed(key)
 	if key == 'y' then
 		D.location = D.GetSubWorld(5)
+		Subselected = true
 		Alert:new('entering the Desert Mine','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then

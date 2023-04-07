@@ -24,6 +24,7 @@ end
 function di13.keypressed(key)
 	if key == 'y' then
 		D.location = D.GetSubWorld(11)
+		Subselected = true
 		Alert:new('entering the Research Base','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then

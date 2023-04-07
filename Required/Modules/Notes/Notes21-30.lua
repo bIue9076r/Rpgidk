@@ -65,3 +65,53 @@ function NoteUses.LooseEnds()
 	------------------------------12345678901234567890123456789012
 end
 NoteUse[23] = NoteUses.LooseEnds
+
+-- conditions: Repeating History Quest
+function NoteUses.RepeatingHistory()
+	love.graphics.draw(image:getImage(D.location),0,0)
+	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.print({{0,0,0},"Repeating History:"},60,80)
+	love.graphics.print({{0,0,0},"Tracey Lind here. I need you to"},60,100)
+	love.graphics.print({{0,0,0},"take that Revival Elixir i gave"},60,120)
+	love.graphics.print({{0,0,0},"you and revive the Empress."},60,140)
+	love.graphics.print({{0,0,0},""},60,160)
+	love.graphics.print({{0,0,0},"To keep it simple. Valary is my"},60,180)
+	love.graphics.print({{0,0,0},"fourth removed cousin. My family"},60,200)
+	love.graphics.print({{0,0,0},"is not evil just because of some"},60,220)
+	love.graphics.print({{0,0,0},"random relative i dont know."},60,240)
+	love.graphics.print({{0,0,0},"My family had to change their"},60,260)
+	love.graphics.print({{0,0,0},"names and history just to avoid"},60,280)
+	love.graphics.print({{0,0,0},"this. I am going to show this"},60,300)
+	love.graphics.print({{0,0,0},"fucking world what true evil"},60,320)
+	love.graphics.print({{0,0,0},"looks like."},60,340)
+	love.graphics.print({{0,0,0},""},60,360)
+	love.graphics.print({{0,0,0},"$1000 if you do it properly"},60,380)
+	love.graphics.print({{0,0,0},""},60,400)
+	------------------------------12345678901234567890123456789012
+end
+NoteUse[24] = NoteUses.RepeatingHistory
+
+-- conditions: remove Janet from her job
+function NoteUses.JanetsNote()
+	love.graphics.draw(image:getImage(D.location),0,0)
+	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.print({{0,0,0},"Dear Tracey,"},60,80)
+	love.graphics.print({{0,0,0},""},60,100)
+	love.graphics.print({{0,0,0},"I dont know why im writing this"},60,120)
+	love.graphics.print({{0,0,0},"to be honest. I just want to get"},60,140)
+	love.graphics.print({{0,0,0},"this off my chest."},60,160)
+	love.graphics.print({{0,0,0},""},60,180)
+	love.graphics.print({{0,0,0},"I like you."},60,200)
+	love.graphics.print({{0,0,0},"I like the way your blonde hair"},60,220)
+	love.graphics.print({{0,0,0},"flows in the wind, the way you"},60,240)
+	love.graphics.print({{0,0,0},"love your job, the way you care"},60,260)
+	love.graphics.print({{0,0,0},"about people in general."},60,280)
+	love.graphics.print({{0,0,0},""},60,300)
+	love.graphics.print({{0,0,0},"I'll be ok if you dont like me"},60,320)
+	love.graphics.print({{0,0,0},"back. its no big deal i just"},60,340)
+	love.graphics.print({{0,0,0},"needed to vent somethings on my"},60,360)
+	love.graphics.print({{0,0,0},"mind."},60,380)
+	love.graphics.print({{0,0,0},""},60,400)
+	------------------------------12345678901234567890123456789012
+end
+NoteUse[25] = NoteUses.JanetsNote

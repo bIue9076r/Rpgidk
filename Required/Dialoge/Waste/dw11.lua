@@ -23,6 +23,7 @@ end
 function dw11.keypressed(key)
 	if key == "y" then
 		D.location = D.GetSubWorld(12)
+		Subselected = true
 		Alert:new('entering the Reactor','stat')
 		gamestate = 'alert'
 	elseif key == "n" then

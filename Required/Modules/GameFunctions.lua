@@ -326,10 +326,16 @@ end
 function check_hp()
 	if Hp <= 0 then
 		dead = dead or false
-		if dead == false then
-			Alert:new(death_cause,'gameover')
-			gamestate = 'alert'
-			dead = true
+		if not dead then
+			if sitem[4][3] > 0 then
+				dead = false
+				Hp = Max_Hp
+				sitem[4][3] = sitem[4][3] - 1
+			else
+				dead = true
+				Alert:new(death_cause,'gameover')
+				gamestate = 'alert'
+			end
 		end
 	elseif Hp > Max_Hp then
 		Hp = Max_Hp
@@ -843,6 +849,18 @@ function buyItem(name,rarity,loc,price)
 				end
 			else
 				Alert:new(sNitem[rarity].."def boost are out of stock",loc)
+				gamestate = 'alert'
+			end
+		elseif name == Nitem[4] then
+			loc = loc or 'shop'
+			price = price or 10000
+			if Cash > (price - 1) then
+				lowerCash(price)
+				sitem[4][rarity] = sitem[4][rarity] + 1
+				Alert:new("Bought a "..sNitem[rarity].."revive elixir",loc)
+				gamestate = 'alert'
+			else
+				Alert:new("Not enough cash",loc)
 				gamestate = 'alert'
 			end
 		end

@@ -1,3 +1,4 @@
+require("/Required/Modules/Fight")
 require("/Required/Modules/Item")
 require("/Required/Modules/Items/ItemUse")
 require("/Required/Modules/Note")

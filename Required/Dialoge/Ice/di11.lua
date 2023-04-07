@@ -23,6 +23,7 @@ end
 function di11.keypressed(key)
 	if key == 'y' then
 		D.location = D.GetSubWorld(9)
+		Subselected = true
 		Alert:new('entering the Ice Cave','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then
