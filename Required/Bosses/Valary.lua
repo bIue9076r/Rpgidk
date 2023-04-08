@@ -28,6 +28,7 @@ function B_Valary.actOn(c)
 		fight.npc.Hp = fight.npc.MaxHp
 	end
 	if fight.npc.Hp <= 0 then
+		B_Valary:sstop()
 		Alert:new("Beat\n\n"..fight.npc.name,'stat')
 		gamestate = 'alert'
 	end
@@ -41,7 +42,7 @@ function B_Valary.actTo(c)
 		fight.npc.Atk = fight.npc.Atk + math.random(1,5)
 	elseif c == MOVES.ATK then
 		Dam = fight.npc.Atk-math.ceil((log2(FDef+(1*(fight.npc.Atk^2)))*(FDef))/(20))
-		if (Dam > Hp) then Dam = FHp end
+		if (Dam > FHp) then Dam = FHp end
 		FHp = FHp - Dam
 	end
 	
@@ -50,6 +51,7 @@ function B_Valary.actTo(c)
 	end
 	if FHp <= 0 then
 		-- she kills you
+		B_Valary:sstop()
 		Hp = 0
 		Alert:new("You fainted",'stat')
 		gamestate = 'alert'
@@ -81,6 +83,7 @@ function B_Valary:update(key)
 end
 
 function B_Valary:draw()
+	B_Valary:splay()
 	love.graphics.draw(image:getImage(B_Valary.img),60,40)
 	love.graphics.print({{0,0,0},"Hp:"..fight.npc.Hp},340,300+(0*20))
 	love.graphics.print({Atk_color,"Atk:"..fight.npc.Atk},340,300+(1*20))

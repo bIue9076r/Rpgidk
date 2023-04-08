@@ -104,6 +104,7 @@ Arrests = 0
 yellowSnowEater = false
 iceBaseFound = false
 helpedResearcher = false
+Valary = false
 
 --Quests
 Quest:new('ashley')

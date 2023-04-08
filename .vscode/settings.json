@@ -91,7 +91,8 @@
 	"Lua.diagnostics.disable": [
 		"lowercase-global",
 		"deprecated",
-		"missing-parameter"
+		"missing-parameter",
+		"duplicate-set-field"
 	],
 	"pixelbyte.love2d.debug": true
 }

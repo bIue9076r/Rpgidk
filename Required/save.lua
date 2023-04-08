@@ -178,6 +178,8 @@ function save()
 	local save5 = "yellowSnowEater="..tostring(yellowSnowEater)..";"..
 	"iceBaseFound="..tostring(iceBaseFound)..";"..
 	"helpedResearcher="..tostring(helpedResearcher)..";"..
+	"Traitor="..tostring(Traitor == true or false)..";"..
+	"Valary="..tostring(Valary == true or false)..";"..
 	"dch1_kill="..tostring(dch1_kill == true or false)..";"
 	
 	local save6 = "Exp:HardOverride("..

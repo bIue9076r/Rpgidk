@@ -2,12 +2,13 @@
 Boss = {}
 CBoss = {}
 
-function Boss.new(name,image,lvl,typ)
+function Boss.new(name,image,lvl,typ,song)
 	local tbl = {
 		name = name or "",
 		img = image or "",
 		lvl = lvl or 1,
 		typ = typ or 0,
+		song = song or sound:getSound("bgroov"),
 		vars = {},
 	}
 	
@@ -33,6 +34,16 @@ end
 
 function Boss:update(key)
 	fight.process(MOVES.NOP)
+end
+
+function Boss:splay()
+	self.song:seek(0)
+	self.song:play()
+end
+
+function Boss:sstop()
+	self.song:seek(0)
+	self.song:stop()
 end
 
 function Boss:Load()

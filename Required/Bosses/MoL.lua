@@ -1,9 +1,9 @@
-B_Test = Boss.new("Monster of The Lake","",1,0)
-B_Test.vars.select = 1
-B_Test.vars.opt = {"Rest","Block","Attack"}
-B_Test.vars.did = "The Creature Appears"
+B_Mol = Boss.new("Monster of The Lake","",1,0)
+B_Mol.vars.select = 1
+B_Mol.vars.opt = {"Rest","Block","Attack"}
+B_Mol.vars.did = "The Creature Appears"
 
-function B_Test.actOn(c)
+function B_Mol.actOn(c)
 	if c == MOVES.RST then
 		FHp = FHp + 10
 	elseif c == MOVES.BLK then
@@ -19,12 +19,13 @@ function B_Test.actOn(c)
 		fight.npc.Hp = fight.npc.MaxHp
 	end
 	if fight.npc.Hp <= 0 then
+		B_Mol:sstop()
 		Alert:new("Beat\n\n"..fight.npc.name,'stat')
 		gamestate = 'alert'
 	end
 end
 
-function B_Test.actTo(c)
+function B_Mol.actTo(c)
 	if c == MOVES.RST then
 		fight.npc.Hp = fight.npc.Hp +10
 	elseif c == MOVES.BLK then
@@ -40,12 +41,13 @@ function B_Test.actTo(c)
 		FHp = Max_Hp
 	end
 	if FHp <= 0 then
+		B_Mol:sstop()
 		Alert:new("You fainted",'stat')
 		gamestate = 'alert'
 	end
 end
 
-function B_Test:update(key)
+function B_Mol:update(key)
 	if key == "w" then
 		if self.vars.select - 1 > 0 then
 			self.vars.select = self.vars.select - 1
@@ -66,31 +68,32 @@ function B_Test:update(key)
 	end
 end
 
-function B_Test:draw()
-	love.graphics.draw(image:getImage(B_Test.img),60,40)
+function B_Mol:draw()
+	B_Mol:splay()
+	love.graphics.draw(image:getImage(B_Mol.img),60,40)
 	love.graphics.print({{0,0,0},"Hp:"..fight.npc.Hp},340,300+(0*20))
 	love.graphics.print({Atk_color,"Atk:"..fight.npc.Atk},340,300+(1*20))
 	love.graphics.print({Def_color,"Def:"..fight.npc.Def},340,300+(2*20))
 	love.graphics.print({Hp_color,"Hp:"..FHp},340,300+(4*20))
 	love.graphics.print({Atk_color,"Atk:"..FAtk},340,300+(5*20))
 	love.graphics.print({Def_color,"Def:"..FDef},340,300+(6*20))
-	love.graphics.print({{0,0,0},B_Test.name},60,260)
+	love.graphics.print({{0,0,0},B_Mol.name},60,260)
 	love.graphics.print({{0,0,0},'""'},60,280)
 	
 	local did = fight.getLast()
 	if did == MOVES.NOP then
-		B_Test.vars.did = "The Creature Waited"
+		B_Mol.vars.did = "The Creature Waited"
 	elseif did == MOVES.RST then
-		B_Test.vars.did = "The Creature Rested"
+		B_Mol.vars.did = "The Creature Rested"
 	elseif did == MOVES.BLK then
-		B_Test.vars.did = "The Creature Blocked"
+		B_Mol.vars.did = "The Creature Blocked"
 	elseif did == MOVES.ATK then
-		B_Test.vars.did = "The Creature Attacked"
+		B_Mol.vars.did = "The Creature Attacked"
 	end
-	love.graphics.print({{0,0,0},B_Test.vars.did},60,320)
+	love.graphics.print({{0,0,0},B_Mol.vars.did},60,320)
 	
-	for i,v in pairs(B_Test.vars.opt) do
+	for i,v in pairs(B_Mol.vars.opt) do
 		love.graphics.print({{0,0,0},v},85,330+(i*20))
 	end
-	love.graphics.draw(image:getImage("Selected"),60,330+(B_Test.vars.select*20))
+	love.graphics.draw(image:getImage("Selected"),60,330+(B_Mol.vars.select*20))
 end

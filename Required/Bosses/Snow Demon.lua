@@ -20,6 +20,7 @@ function B_Snow.actOn(c)
 		fight.npc.Hp = fight.npc.MaxHp
 	end
 	if fight.npc.Hp <= 0 then
+		B_Snow:sstop()
 		Alert:new("Beat\n\n"..fight.npc.name,'stat')
 		gamestate = 'alert'
 	end
@@ -33,7 +34,7 @@ function B_Snow.actTo(c)
 		fight.npc.Atk = fight.npc.Atk + math.random(1,5)
 	elseif c == MOVES.ATK then
 		Dam = fight.npc.Atk-math.ceil((log2(FDef+(1*(fight.npc.Atk^2)))*(FDef))/(20))
-		if (Dam > Hp) then Dam = FHp end
+		if (Dam > FHp) then Dam = FHp end
 		FHp = FHp - Dam
 	end
 	
@@ -41,6 +42,7 @@ function B_Snow.actTo(c)
 		FHp = Max_Hp
 	end
 	if FHp <= 0 then
+		B_Snow:sstop()
 		-- it kills you
 		Hp = 0
 		Alert:new("You fainted",'stat')
@@ -70,6 +72,7 @@ function B_Snow:update(key)
 end
 
 function B_Snow:draw()
+	B_Snow:splay()
 	love.graphics.draw(image:getImage(B_Snow.img),60,40)
 	love.graphics.print({{0,0,0},"Hp:"..fight.npc.Hp},340,300+(0*20))
 	love.graphics.print({Atk_color,"Atk:"..fight.npc.Atk},340,300+(1*20))
