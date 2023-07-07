@@ -8,7 +8,7 @@ WEIGHTS = {
 	[1] = {0.125,0.35,0.75},
 	[2] = {0.75,0.65,0.125},
 	[3] = {0.65,0.75,0.125},
-	[5] = {0.5,0.5,0.5}, -- these change
+	[4] = {0.5,0.5,0.5}, -- these change
 }
 
 function fight.new(name,image,lvl,typ,actOn,actTo)

@@ -1,4 +1,4 @@
-B_Valary = Boss.new("Valary","",100,1) -- Attacker / Final Boss-ish
+B_Valary = Boss.new("Valary","",100,1,sound:getSound("in")) -- Attacker / Final Boss-ish
 B_Valary.vars.select = 1
 B_Valary.vars.opt = {"Rest","Block","Attack"}
 B_Valary.vars.did = "Valary jumps at you"

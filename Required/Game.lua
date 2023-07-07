@@ -1,10 +1,11 @@
 math.randomseed(os.time())
 require("/Required/aliases")
-require("/Required/Modules/GameFunctions")
-require("/Required/Bosses/LoadBosses")
+require("/Required/Wraper")
 require("/Textures/LoadTexutres")
 require("/Textures/LoadFonts")
 require("/Audio/LoadAudio")
+require("/Required/Modules/GameFunctions")
+require("/Required/Bosses/LoadBosses")
 require("/Required/Dialoge")
 require("/Required/debug")
 require("/Required/LoadModules")
@@ -596,19 +597,15 @@ function inv_keypressed(key)
 	elseif key == 'i' then
 		gamestate = 'inv_stuff'
 	elseif key == "m" then
-		--useMed()
 		itemNm = Nitem[0]
 		gamestate = 'inv_item'
 	elseif key == "p" then
-		--usePotion()
 		itemNm = Nitem[1]
 		gamestate = 'inv_item'
 	elseif key == "a" then
-		--useAtkBoost()
 		itemNm = Nitem[2]
 		gamestate = 'inv_item'
 	elseif key == "d" then
-		--useDefBoost()
 		itemNm = Nitem[3]
 		gamestate = 'inv_item'
 	end
@@ -867,10 +864,6 @@ function Game.load()
 					file()
 					loaded = true
 					gamestate = 'cmd'
-				--else
-					--raiseCash(100)
-					--gamestate = 'menu'
-					--Note:new("Welcome",1)
 				end
 			else
 				if key == 'n' then
@@ -882,10 +875,6 @@ function Game.load()
 					love.filesystem.remove("/Save/.SaveFile")
 					gamestate = 'menu'
 					Note:new("Welcome",1)
-				--else
-					--raiseCash(100)
-					--gamestate = 'menu'
-					--Note:new("Welcome",1)
 				end
 			end
 		end
@@ -893,7 +882,6 @@ function Game.load()
 	
 	--font:newFont('main','/Textures/Fonts/Quinq.ttf',10)
 	love.graphics.setFont(font:getFont('main'))
-	--love.audio.setVolume(1)
 	love.audio.setVolume(volume)
 	--end)
 end
@@ -905,7 +893,6 @@ function Game.update(dt)
 	Restock(dt)
 	LowerCrime(dt)
 	
-	--check_maxdef()
 	if gamestate == 'cmd' then
 		worldN = D.SetN()
 		Updatecommand(worldN)
@@ -980,6 +967,11 @@ function test() end
 Item:new("item",-1)
 Note:new("Rodo History",24)
 Note:new("Please Read",25)
+
+-- boss fight
+B_Janet:Load()
+B_Janet:Global()
+gamestate = 'fight'
 
 function Game.draw()
 	--pcall(function()

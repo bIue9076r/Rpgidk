@@ -1,4 +1,4 @@
-B_Snow = Boss.new("Snow Demon","",25,1) -- Attacker
+B_Snow = Boss.new("Snow Demon","",25,1,sound:getSound("oh")) -- Attacker
 B_Snow.vars.select = 1
 B_Snow.vars.opt = {"Rest","Block","Attack"}
 B_Snow.vars.did = "a Snow Demon appears"

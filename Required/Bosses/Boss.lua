@@ -1,6 +1,7 @@
 -- Boss Module
 Boss = {}
 CBoss = {}
+Boss.song = sound:getSound("bgroov")
 
 function Boss.new(name,image,lvl,typ,song)
 	local tbl = {
@@ -37,13 +38,16 @@ function Boss:update(key)
 end
 
 function Boss:splay()
-	self.song:seek(0)
-	self.song:play()
+	if self.song then
+		love.audio.play(self.song)
+	end
 end
 
 function Boss:sstop()
-	self.song:seek(0)
-	self.song:stop()
+	if self.song then
+		self.song:seek(0)
+		love.audio.pause(self.song)
+	end
 end
 
 function Boss:Load()

@@ -1,4 +1,4 @@
-B_Mol = Boss.new("Monster of The Lake","",1,0)
+B_Mol = Boss.new("Monster of The Lake","",1,3,sound:getSound("motd"))
 B_Mol.vars.select = 1
 B_Mol.vars.opt = {"Rest","Block","Attack"}
 B_Mol.vars.did = "The Creature Appears"

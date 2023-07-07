@@ -199,20 +199,44 @@ function dl1.AdvKeyPress()
 				gamestate = 'alert'
 			end
 		else
-			if dl1_flag == "help" then
-				Tracey_Helper = true
-				dl1.FirstOption = false
-				Note:new("What to do",-1)
-				Alert:new('Helping Tracey','stat')
-				gamestate = 'alert'
-			elseif dl1_flag == "paper" then
-				dl1.FirstOption = false
-				dl1_range = "8~11"
-				dl1_itblu = Range.parse(dl1_range)
-				dl1_n = math.random(1,#dl1_itblu)
-				Note:new("A Guide",dl1_itblu[dl1_n])
-				Alert:new('Got a Pamplet','stat')
-				gamestate = 'alert'
+			if not dl1.SecondOption then
+				if dl1_flag == "help" then
+					if dl1.select == 1 then
+						dl1.m = "we are going to resurect the dead"
+						dl1.o = {
+							'yes we are',
+							'on second thought nevermind',
+						-----123456789012345678901234567890
+						}
+						dl1.ol = #dl1.o
+						dl1.SecondOption = true
+					elseif dl1.select == 2 then
+						dl1.FirstOption = false
+						Alert:new('Denied Helping Tracey','stat')
+						gamestate = 'alert'
+					end
+				elseif dl1_flag == "paper" then
+					dl1.FirstOption = false
+					dl1_range = "8~11"
+					dl1_itblu = Range.parse(dl1_range)
+					dl1_n = math.random(1,#dl1_itblu)
+					Note:new("A Guide",dl1_itblu[dl1_n])
+					Alert:new('Got a Pamplet','stat')
+					gamestate = 'alert'
+				end
+			else
+				if dl1.select == 1 then
+					Tracey_Helper = true
+					dl1.SecondOption = false
+					Note:new("What to do",-1)
+					Alert:new('Helping Tracey','stat')
+					gamestate = 'alert'
+				elseif dl1.select == 2 then
+					Tracey_Unhelper = true
+					dl1.SecondOption = false
+					Alert:new('Denied Helping Tracey','stat')
+					gamestate = 'alert'
+				end
 			end
 		end
 	elseif Rep < 0 then

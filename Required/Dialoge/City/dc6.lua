@@ -126,10 +126,10 @@ function dc6.keypressed(key)
 		else
 			if not dc6.option then
 				if key == 'y' then
-				dc6.option = true
-			elseif key == 'l' then
-				dc6.inDialoge = false
-				dc6.o = {'t:talk','r:run','f:fight','s:steal'}
+					dc6.option = true
+				elseif key == 'l' then
+					dc6.inDialoge = false
+					dc6.o = {'t:talk','r:run','f:fight','s:steal'}
 				end
 			else
 				if key == "w" or "up" then
