@@ -1,6 +1,25 @@
 D = {}
 D.location = 'city'
 
+D.city = {}
+D.desert = {}
+D.icespikes = {}
+D.swamp = {}
+D.wasteland = {}
+D['Capital Hall'] = {}
+D['Libary'] = {}
+D['Desert Town'] = {}
+D['Underground Market'] = {}
+D['Sea Dock'] = {}
+D['Desert Temple'] = {}
+D['Desert Mine'] = {}
+D['Big Green Lake'] = {}
+D['Ice Cave'] = {}
+D['Igloo Town'] = {}
+D['Reactor'] = {}
+D['Destroyed Town'] = {}
+D['Criminal Base'] = {}
+
 --Entry Notes Values
 __CityEntryNote = 1
 __DesertEntryNote = 1
@@ -177,8 +196,8 @@ end
 
 image.getImage("\n\nCity Images: (Not an image)")
 require("/Required/Dialoge/City/CityDialoge")
---[[	Sub locations dont need to be loaded at the moment
 require("/Required/Dialoge/City/SubZones/Ashleys House/Ashleys_HouseDialoge") --Ashleys House
+--[[	Sub locations dont need to be loaded at the moment
 require("/Required/Dialoge/City/SubZones/Capital/Capital_HallDialoge") --Capital Hall
 require("/Required/Dialoge/City/SubZones/Libary/LibaryDialoge") --Libary
 require("/Required/Dialoge/City/SubZones/Market/Underground_MarketDialoge") --Underground Market
