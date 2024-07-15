@@ -4,7 +4,7 @@ dc13.m = 'you come across the Underground Market'
 dc13.m2 = ''
 dc13.o = {'y:yes','n:no'}
 dc13.f = dc13.o
-dc13.i = image:getImage('door')
+dc13.i = image.getImage('door')
 dc13.inDialoge = false
 dc13.option = false
 dc13.Hp = 0--100
@@ -25,10 +25,10 @@ function dc13.keypressed(key)
 	if key == 'y' then
 		D.location = D.GetSubWorld(3)
 		Subselected = true
-		Alert:new('entering the Underground Market','stat')
+		Alert.new('entering the Underground Market','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then
-		Alert:new('left the Underground Market','stat')
+		Alert.new('left the Underground Market','stat')
 		gamestate = 'alert'
 	end
 end

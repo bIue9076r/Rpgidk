@@ -4,7 +4,7 @@ ds5.m = '"Want to buy some stuff?"'
 ds5.m2 = ''
 ds5.o = {'y:yes','r:run','f:fight','t:talk'}
 ds5.f = ds5.o
-ds5.i = image:getImage('')
+ds5.i = image.getImage('Sailor')
 ds5.inDialoge = false
 ds5.option = false
 ds5.Hp = 15
@@ -37,7 +37,7 @@ function ds5.keypressed(key)
 				ds5.inDialoge = true
 				ds5.o = {'y:yes','r:rob','l:leave'}
 			elseif key == 'r' then
-				Alert:new('Ran Away','stat')
+				Alert.new('Ran Away','stat')
 				gamestate = 'alert'
 			elseif key == 'f' then
 				if Atk > 150 then
@@ -46,14 +46,14 @@ function ds5.keypressed(key)
 					raiseAtk(4)
 					raiseCash(50)
 					CrimeUpdate(3)
-					Exp:add(170)
-					Item:new("Tooth","Tooth",6,35)
-					Alert:new('Beat The Sailor','stat')
+					Exp.add(170)
+					Item.new("Tooth","Tooth",6,35)
+					Alert.new('Beat The Sailor','stat')
 					gamestate = 'alert'
 				else
 					Hurt(160)
 					CrimeUpdate(1)
-					Alert:new('Failed to beat\n\nThe Sailor','stat')
+					Alert.new('Failed to beat\n\nThe Sailor','stat')
 					gamestate = 'alert'
 				end
 			elseif key == 's' then
@@ -67,16 +67,16 @@ function ds5.keypressed(key)
 					if Atk >= 150 or math.random(1,25) == 4 then
 						lowerRep(175)
 						CrimeUpdate(2)
-						Item:new("Mystery Food","Mystery",0,0)
-						Alert:new('Stole the Sailor\'s item','stat')
-						Exp:add(200)
+						Item.new("Mystery Food","Mystery",0,0)
+						Alert.new('Stole the Sailor\'s item','stat')
+						Exp.add(200)
 						gamestate = 'alert'
 						ds5.inDialoge = false
 					else
 						Hurt(165)
 						lowerRep(20)
 						CrimeUpdate(1)
-						Alert:new('Failed to rob the Sailor','stat')
+						Alert.new('Failed to rob the Sailor','stat')
 						gamestate = 'alert'
 						ds5.inDialoge = false
 					end
@@ -100,31 +100,31 @@ function ds5.keypressed(key)
 					if Food_select == 1 then
 						if Cash >= 10 then
 							Cash = Cash - 10
-							Item:new('Coconut Slices','placeholderIcon',29)
-							Alert:new('Bought Coconut Slices','world')
+							Item.new('Coconut Slices','Coconut_slices',29)
+							Alert.new('Bought Coconut Slices','world')
 							gamestate = 'alert'
 						else
-							Alert:new('Not enough cash','world')
+							Alert.new('Not enough cash','world')
 							gamestate = 'alert'
 						end
 					elseif Food_select == 2 then
 						if Cash >= 10 then
 							Cash = Cash - 10
-							Item:new('Coconut Juice','placeholderIcon',37)
-							Alert:new('Bought Coconut Juice','world')
+							Item.new('Coconut Juice','Coconut_juice',37)
+							Alert.new('Bought Coconut Juice','world')
 							gamestate = 'alert'
 						else
-							Alert:new('Not enough cash','world')
+							Alert.new('Not enough cash','world')
 							gamestate = 'alert'
 						end
 					elseif Food_select == 3 then
 						if Cash >= 1 then
 							Cash = Cash - 1
-							Item:new('Swamp Water','placeholderIcon',43)
-							Alert:new('Bought Swamp Water','world')
+							Item.new('Swamp Water','Swamp_water',43)
+							Alert.new('Bought Swamp Water','world')
 							gamestate = 'alert'
 						else
-							Alert:new('Not enough cash','world')
+							Alert.new('Not enough cash','world')
 							gamestate = 'alert'
 						end
 					end
@@ -139,7 +139,7 @@ function ds5.keypressed(key)
 				ds5.inDialoge = true
 				ds5.o = {'y:yes','r:rob','l:leave'}
 			elseif key == 'r' then
-				Alert:new('Ran Away','stat')
+				Alert.new('Ran Away','stat')
 				gamestate = 'alert'
 			elseif key == 'f' then
 				if Atk > 170 then
@@ -148,14 +148,14 @@ function ds5.keypressed(key)
 					raiseAtk(5)
 					raiseCash(55)
 					CrimeUpdate(3)
-					Exp:add(175)
-					Item:new("Tooth","Tooth",6,45)
-					Alert:new('Beat The Sailor','stat')
+					Exp.add(175)
+					Item.new("Tooth","Tooth",6,45)
+					Alert.new('Beat The Sailor','stat')
 					gamestate = 'alert'
 				else
 					Hurt(180)
 					CrimeUpdate(1)
-					Alert:new('Failed to beat\n\nThe Sailor','stat')
+					Alert.new('Failed to beat\n\nThe Sailor','stat')
 					gamestate = 'alert'
 				end
 			elseif key == 's' then
@@ -164,22 +164,22 @@ function ds5.keypressed(key)
 		else
 			if not ds5.option then
 				if key == 'y' then
-					Alert:new('"Well i aint selling"','world')
+					Alert.new('"Well i aint selling"','world')
 					gamestate = 'alert'
 				elseif key == 'r' then
 					if Atk >= 170 or math.random(1,25) == 4 then
 						lowerRep(195)
 						CrimeUpdate(2)
-						Item:new("Mystery Food","Mystery",0,0)
-						Alert:new('Stole the Sailor\'s item','stat')
-						Exp:add(250)
+						Item.new("Mystery Food","Mystery",0,0)
+						Alert.new('Stole the Sailor\'s item','stat')
+						Exp.add(250)
 						gamestate = 'alert'
 						ds5.inDialoge = false
 					else
 						Hurt(175)
 						lowerRep(30)
 						CrimeUpdate(1)
-						Alert:new('Failed to rob the Sailor','stat')
+						Alert.new('Failed to rob the Sailor','stat')
 						gamestate = 'alert'
 						ds5.inDialoge = false
 					end

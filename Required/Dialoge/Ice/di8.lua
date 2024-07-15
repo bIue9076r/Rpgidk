@@ -4,7 +4,7 @@ di8.m = '"Want to buy some Ice"'
 di8.m2 = ''
 di8.o = {'t:talk','f:fight','s:steal','r:run'}
 di8.f = di8.o
-di8.i = image:getImage('')
+di8.i = image.getImage('Artic_fisherman')
 di8.inDialoge = false
 di8.option = false
 di8.Hp = 3
@@ -36,30 +36,30 @@ function di8.keypressed(key)
 				raiseDef(7)
 				raiseRep(80)
 				raiseCash(80)
-				Alert:new('Fought The Fisherman','stat')
+				Alert.new('Fought The Fisherman','stat')
 				gamestate = 'alert'
-				Exp:add(345)
+				Exp.add(345)
 			else
 				Hurt(270)
 				CrimeUpdate(1)
-				Alert:new('Attacked by The Fisherman','stat')
+				Alert.new('Attacked by The Fisherman','stat')
 				gamestate = 'alert'
 			end
 		elseif key == 's' then
 			rob(100,90,"The Fisherman",20,100)
 		elseif key == 'r' then
-			Alert:new('Ran Away','stat')
+			Alert.new('Ran Away','stat')
 			gamestate = 'alert'
 		end
 	else
 		if key == 'b' then
 			if Cash >= 25 then
 				Cash = Cash - 25
-				Alert:new('Bought Ice','stat') --why is there no ice block yet
+				Alert.new('Bought Ice','stat') --why is there no ice block yet
 				gamestate = 'alert'
 				di8.inDialoge = false
 			else
-				Alert:new('Not enough Money','world')
+				Alert.new('Not enough Money','world')
 				gamestate = 'alert'
 			end
 		elseif key == 'l' then

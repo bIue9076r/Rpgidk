@@ -4,7 +4,7 @@ di10.m = 'An Artic Fox aproaches you'
 di10.m2 = ''
 di10.o = {'f:fight','r:run'}
 di10.f = di10.o
-di10.i = image:getImage('')
+di10.i = image.getImage('Artic_fox')
 di10.inDialoge = false
 di10.option = false
 di10.Hp = 10
@@ -29,22 +29,22 @@ function di10.keypressed(key)
 			raiseDef(9)
 			raiseRep(95)
 			raiseCash(95)
-			Alert:new('Fought The Artic Fox','stat')
+			Alert.new('Fought The Artic Fox','stat')
 			gamestate = 'alert'
-			Exp:add(385)
+			Exp.add(385)
 		else
 			Hurt(225)
-			Alert:new('Attacked by an Artic Fox','stat')
+			Alert.new('Attacked by an Artic Fox','stat')
 			gamestate = 'alert'
 		end
 	elseif key == "r" then
 		if Def >= 39 or math.random(1,20) == 5 then
-			Alert:new('Ran Away','stat')
-			Exp:add(310)
+			Alert.new('Ran Away','stat')
+			Exp.add(310)
 			gamestate = 'alert'
 		else
 			Hurt(200)
-			Alert:new('Attacked by an Artic Fox\n\nWhile Running Away','stat')
+			Alert.new('Attacked by an Artic Fox\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

@@ -5,7 +5,7 @@ dch2.m2 = ''
 dch2.o = {'y:yes','r:run','f:fight','t:talk'}
 dch2.f = dch2.o
 dch2.ol = #dch2.o
-dch2.i = image:getImage('')
+dch2.i = image.getImage('Janet')
 dch2.FirstOption = false
 dch2.SecondOption = false
 dch2.option = false
@@ -156,24 +156,24 @@ function dch2.AdvKeyPress()
 				dch2.FirstOption = true
 				dch2_flag = "beg"
 			elseif dch2.select == 4 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
 			if dch2_flag == "beg" then
 				dch2.FirstOption = false
-				Alert:new('She begs for her life','stat')
+				Alert.new('She begs for her life','stat')
 				gamestate = 'alert'
 			elseif dch2_flag == "print" then
 				if Valary then
 					-- Note 14 = Valary edition
 					dch2.FirstOption = false
-					Alert:new('Guide Reprinted','stat')
+					Alert.new('Guide Reprinted','stat')
 					gamestate = 'alert'
 				else
 					-- Note 14 = Non Valary edition
 					dch2.FirstOption = false
-					Alert:new('Guide Reprinted','stat')
+					Alert.new('Guide Reprinted','stat')
 					gamestate = 'alert'
 				end
 			end
@@ -207,24 +207,24 @@ function dch2.AdvKeyPress()
 					dch2.Hp = dch2.Hp - 1
 					CrimeUpdate(3)
 					lowerRep(50)
-					Exp:add(20)
-					Alert:new('Beat Janet','stat')
+					Exp.add(20)
+					Alert.new('Beat Janet','stat')
 					gamestate = 'alert'
 				else
 					dch2.FirstOption = false
 					Hurt(45)
 					lowerRep(50)
 					CrimeUpdate(2)
-					Alert:new('Failed To Beat Janet','stat')
+					Alert.new('Failed To Beat Janet','stat')
 					gamestate = 'alert'
 				end
 			elseif dch2.select == 5 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
 			dch2.FirstOption = false
-			Alert:new('Janet ignores you','stat')
+			Alert.new('Janet ignores you','stat')
 			gamestate = 'alert'
 		end
 	elseif dch2_stole then
@@ -257,14 +257,14 @@ function dch2.AdvKeyPress()
 				dch2.FirstOption = true
 				dch2_flag = "ignore"
 			elseif dch2.select == 4 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
 			if not dch2.SecondOption then
 				if dch2_flag == 'ignore' then
 					dch2.FirstOption = false
-					Alert:new('Janet ignores you','stat')
+					Alert.new('Janet ignores you','stat')
 					gamestate = 'alert'
 				elseif dch2_flag == 'giveit' then
 					if dch2.select == 1 then
@@ -285,7 +285,7 @@ function dch2.AdvKeyPress()
 						dch2_flag = "give"
 					elseif dch2.select == 3 then
 						dch2.FirstOption = false
-						Alert:new('Left','stat')
+						Alert.new('Left','stat')
 						gamestate = 'alert'
 					end
 				end
@@ -293,7 +293,7 @@ function dch2.AdvKeyPress()
 				if dch2_flag == 'cont' then
 					dch2.FirstOption = false
 					dch2.SecondOption = false
-					Alert:new('Janet ignores you','stat')
+					Alert.new('Janet ignores you','stat')
 					gamestate = 'alert'
 				elseif dch2_flag == 'give' then
 					dch2.FirstOption = false
@@ -305,7 +305,7 @@ function dch2.AdvKeyPress()
 					end
 					dch2_stole = false
 					dch2_astole = false
-					Alert:new('Gave The Money back','stat')
+					Alert.new('Gave The Money back','stat')
 					gamestate = 'alert'
 				end
 			end
@@ -337,17 +337,17 @@ function dch2.AdvKeyPress()
 				dch2.FirstOption = true
 				dch2_flag = "leave"
 			elseif dch2.select == 4 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
 			if dch2_flag == "ignore" then
 				dch2.FirstOption = false
-				Alert:new('Janet ignores you','stat')
+				Alert.new('Janet ignores you','stat')
 				gamestate = 'alert'
 			elseif dch2_flag == "leave" then
 				dch2.FirstOption = false
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 			
@@ -380,19 +380,19 @@ function dch2.AdvKeyPress()
 					dch2.Hp = dch2.Hp - 1
 					CrimeUpdate(3)
 					lowerRep(50)
-					Exp:add(20)
-					Alert:new('Beat Janet','stat')
+					Exp.add(20)
+					Alert.new('Beat Janet','stat')
 					gamestate = 'alert'
 				else
 					dch2.FirstOption = false
 					Hurt(45)
 					lowerRep(50)
 					CrimeUpdate(2)
-					Alert:new('Failed To Beat Janet','stat')
+					Alert.new('Failed To Beat Janet','stat')
 					gamestate = 'alert'
 				end
 			elseif dch2.select == 4 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
@@ -410,7 +410,7 @@ function dch2.AdvKeyPress()
 							dch2_flag = "quit"
 						else
 							dch2.FirstOption = false
-							Alert:new('Janet ignores you','stat')
+							Alert.new('Janet ignores you','stat')
 							gamestate = 'alert'
 						end
 					elseif dch2.select == 2 then
@@ -419,11 +419,11 @@ function dch2.AdvKeyPress()
 							Janet_Annoyed = false
 						end
 						dch2.FirstOption = false
-						Alert:new('Janet ignores you','stat')
+						Alert.new('Janet ignores you','stat')
 						gamestate = 'alert'
 					elseif dch2.select == 3 then
 						dch2.FirstOption = false
-						Alert:new('Left','stat')
+						Alert.new('Left','stat')
 						gamestate = 'alert'
 					end
 				elseif dch2_flag == "troll" then
@@ -439,7 +439,7 @@ function dch2.AdvKeyPress()
 							dch2_flag = "fight"
 						else
 							dch2.FirstOption = false
-							Alert:new('Janet ignores you','stat')
+							Alert.new('Janet ignores you','stat')
 							gamestate = 'alert'
 						end
 					elseif dch2.select == 2 then
@@ -448,11 +448,11 @@ function dch2.AdvKeyPress()
 							Janet_Annoyed = false
 						end
 						dch2.FirstOption = false
-						Alert:new('Janet ignores you','stat')
+						Alert.new('Janet ignores you','stat')
 						gamestate = 'alert'
 					elseif dch2.select == 3 then
 						dch2.FirstOption = false
-						Alert:new('Left','stat')
+						Alert.new('Left','stat')
 						gamestate = 'alert'
 					end
 				end
@@ -461,7 +461,7 @@ function dch2.AdvKeyPress()
 					dch2.Hp = -3
 					dch2.FirstOption = false
 					dch2.SecondOption = false
-					Alert:new('Janet quit her job','stat')
+					Alert.new('Janet quit her job','stat')
 					gamestate = 'alert'
 				elseif dch2_flag == "fight" then
 					dch2.Hp = -4
@@ -501,25 +501,25 @@ function dch2.AdvKeyPress()
 					dch2.Hp = dch2.Hp - 1
 					CrimeUpdate(3)
 					lowerRep(50)
-					Exp:add(20)
-					Alert:new('Beat Janet','stat')
+					Exp.add(20)
+					Alert.new('Beat Janet','stat')
 					gamestate = 'alert'
 				else
 					dch2.FirstOption = false
 					Hurt(45)
 					lowerRep(50)
 					CrimeUpdate(2)
-					Alert:new('Failed To Beat Janet','stat')
+					Alert.new('Failed To Beat Janet','stat')
 					gamestate = 'alert'
 				end
 			elseif dch2.select == 4 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
 			if dch2_flag == "more" then
 				dch2.FirstOption = false
-				Alert:new('Janet ignores you','stat')
+				Alert.new('Janet ignores you','stat')
 				gamestate = 'alert'
 			elseif dch2_flag == "troll" then
 				if dch2.select == 1 then
@@ -528,7 +528,7 @@ function dch2.AdvKeyPress()
 						Janet_Mild_Annoyed = false
 					end
 					dch2.FirstOption = false
-					Alert:new('Janet ignores you','stat')
+					Alert.new('Janet ignores you','stat')
 					gamestate = 'alert'
 				elseif dch2.select == 2 then
 					dch2_historyCount = dch2_historyCount + 1
@@ -536,11 +536,11 @@ function dch2.AdvKeyPress()
 						Janet_Annoyed = true
 					end
 					dch2.FirstOption = false
-					Alert:new('Janet ignores you','stat')
+					Alert.new('Janet ignores you','stat')
 					gamestate = 'alert'
 				elseif dch2.select == 3 then
 					dch2.FirstOption = false
-					Alert:new('Left','stat')
+					Alert.new('Left','stat')
 					gamestate = 'alert'
 				end
 			end
@@ -580,7 +580,7 @@ function dch2.AdvKeyPress()
 				dch2.FirstOption = true
 				dch2_flag = "steal"
 			elseif dch2.select == 5 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
@@ -596,8 +596,8 @@ function dch2.AdvKeyPress()
 				dch2_range = "8~11"
 				dch2_itblu = Range.parse(dch2_range)
 				dch2_n = math.random(1,#dch2_itblu)
-				Note:new("A Guide",dch2_itblu[dch2_n])
-				Alert:new('Guide given','stat')
+				Note.new("A Guide",dch2_itblu[dch2_n])
+				Alert.new('Guide given','stat')
 				gamestate = 'alert'
 			elseif dch2_flag == "fight" then
 				if Atk >= 20 then
@@ -605,15 +605,15 @@ function dch2.AdvKeyPress()
 					dch2.Hp = dch2.Hp - 1
 					CrimeUpdate(3)
 					lowerRep(50)
-					Exp:add(20)
-					Alert:new('Beat Janet','stat')
+					Exp.add(20)
+					Alert.new('Beat Janet','stat')
 					gamestate = 'alert'
 				else
 					dch2.FirstOption = false
 					Hurt(45)
 					lowerRep(50)
 					CrimeUpdate(2)
-					Alert:new('Failed To Beat Janet','stat')
+					Alert.new('Failed To Beat Janet','stat')
 					gamestate = 'alert'
 				end
 			elseif dch2_flag == "steal" then
@@ -624,16 +624,16 @@ function dch2.AdvKeyPress()
 					end
 					raiseCash(25)
 					CrimeUpdate(2)
-					Exp:add(20)
-					Alert:new('Stole from Janet','stat')
+					Exp.add(20)
+					Alert.new('Stole from Janet','stat')
 					gamestate = 'alert'
 				else
 					dch2.FirstOption = false
 					CrimeUpdate(1)
 					lowerRep(50)
-					Exp:add(20)
+					Exp.add(20)
 					dch2_astole = true
-					Alert:new('Failed to Steal from\n\nJanet','stat')
+					Alert.new('Failed to Steal from\n\nJanet','stat')
 					gamestate = 'alert'
 				end
 			end
@@ -665,13 +665,13 @@ function dch2.AdvKeyPress()
 				dch2.FirstOption = true
 				dch2_flag = "fight"
 			elseif dch2.select == 4 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
 			if dch2_flag == "ignore" then
 				dch2.FirstOption = false
-				Alert:new('Janet ignores you','stat')
+				Alert.new('Janet ignores you','stat')
 				gamestate = 'alert'
 			elseif dch2_flag == "fight" then
 				if Atk >= 25 then
@@ -679,15 +679,15 @@ function dch2.AdvKeyPress()
 					dch2.Hp = dch2.Hp - 1
 					CrimeUpdate(3)
 					lowerRep(50)
-					Exp:add(25)
-					Alert:new('Beat Janet','stat')
+					Exp.add(25)
+					Alert.new('Beat Janet','stat')
 					gamestate = 'alert'
 				else
 					dch2.FirstOption = false
 					Hurt(55)
 					lowerRep(50)
 					CrimeUpdate(2)
-					Alert:new('Failed To Beat Janet','stat')
+					Alert.new('Failed To Beat Janet','stat')
 					gamestate = 'alert'
 				end
 			end

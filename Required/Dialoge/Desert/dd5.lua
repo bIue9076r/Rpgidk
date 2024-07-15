@@ -4,7 +4,7 @@ dd5.m = 'A Sand Statue Aproaches you'
 dd5.m2 = ''
 dd5.o = {'enter:continue'}
 dd5.f = dd5.o
-dd5.i = image:getImage('')
+dd5.i = image.getImage('Sand_statue')
 dd5.inDialoge = false
 dd5.option = false
 dd5.Hp = 5
@@ -35,14 +35,14 @@ function dd5.keypressed(key)
 				dd5.inDialoge = true
 				dd5.m = 'He pats you on the head'
 			elseif key == 'r' then
-				Alert:new('Ran Away','stat')
+				Alert.new('Ran Away','stat')
 				gamestate = 'alert'
 			end
 		else
 			if key == 'return' then
 				dd5.inDialoge = false
 				raiseRep(10)
-				Alert:new('Spared by a Sand Statue','stat')
+				Alert.new('Spared by a Sand Statue','stat')
 				gamestate = 'alert'
 			end
 		end
@@ -55,22 +55,22 @@ function dd5.keypressed(key)
 				raiseRep(-200)
 				raiseCash(75)
 				CrimeUpdate(2)
-				Alert:new('Fought The Sand Statue','stat')
+				Alert.new('Fought The Sand Statue','stat')
 				gamestate = 'alert'
-				Exp:add(350)
+				Exp.add(350)
 			else
 				Hurt(290)
-				Alert:new('Beat by a Sand Statue','stat')
+				Alert.new('Beat by a Sand Statue','stat')
 				gamestate = 'alert'
 			end
 		elseif key == 'r' then
 			if Def >= 25 then
-				Alert:new('Ran Away','stat')
-				Exp:add(320)
+				Alert.new('Ran Away','stat')
+				Exp.add(320)
 				gamestate = 'alert'
 			else
 				Hurt(75)
-				Alert:new('Beaten by Sand Statue \n\nWhile Running Away','stat')
+				Alert.new('Beaten by Sand Statue \n\nWhile Running Away','stat')
 				gamestate = 'alert'
 			end
 		end

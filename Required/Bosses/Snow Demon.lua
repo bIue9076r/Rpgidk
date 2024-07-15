@@ -1,4 +1,4 @@
-B_Snow = Boss.new("Snow Demon","",25,1,sound:getSound("oh")) -- Attacker
+B_Snow = Boss.new("Snow Demon","",25,1,sound.getSound("oh")) -- Attacker
 B_Snow.vars.select = 1
 B_Snow.vars.opt = {"Rest","Block","Attack"}
 B_Snow.vars.did = "a Snow Demon appears"
@@ -21,7 +21,7 @@ function B_Snow.actOn(c)
 	end
 	if fight.npc.Hp <= 0 then
 		B_Snow:sstop()
-		Alert:new("Beat\n\n"..fight.npc.name,'stat')
+		Alert.new("Beat\n\n"..fight.npc.name,'stat')
 		gamestate = 'alert'
 	end
 end
@@ -45,7 +45,7 @@ function B_Snow.actTo(c)
 		B_Snow:sstop()
 		-- it kills you
 		Hp = 0
-		Alert:new("You fainted",'stat')
+		Alert.new("You fainted",'stat')
 		gamestate = 'alert'
 	end
 end
@@ -73,7 +73,7 @@ end
 
 function B_Snow:draw()
 	B_Snow:splay()
-	love.graphics.draw(image:getImage(B_Snow.img),60,40)
+	love.graphics.draw(image.getImage(B_Snow.img),60,40)
 	love.graphics.print({{0,0,0},"Hp:"..fight.npc.Hp},340,300+(0*20))
 	love.graphics.print({Atk_color,"Atk:"..fight.npc.Atk},340,300+(1*20))
 	love.graphics.print({Def_color,"Def:"..fight.npc.Def},340,300+(2*20))
@@ -98,5 +98,5 @@ function B_Snow:draw()
 	for i,v in pairs(B_Snow.vars.opt) do
 		love.graphics.print({{0,0,0},v},85,330+(i*20))
 	end
-	love.graphics.draw(image:getImage("Selected"),60,330+(B_Snow.vars.select*20))
+	love.graphics.draw(image.getImage("Selected"),60,330+(B_Snow.vars.select*20))
 end

@@ -8,7 +8,7 @@ dl2.o = {
 }
 dl2.f = dl2.o
 dl2.ol = #dl2.o
-dl2.i = image:getImage('')
+dl2.i = image.getImage('Libary_patron')
 dl2.FirstOption = false
 dl2.SecondOption = false
 dl2.ThirdOption = false
@@ -60,7 +60,7 @@ function dl2.AdvKeyPress()
 	if Rep >= 0 then
 		if not dl2.FirstOption then
 			if dl2.select == 1 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
@@ -77,7 +77,7 @@ function dl2.AdvKeyPress()
 	elseif Rep < 0 then
 		if not dl2.FirstOption then
 			if dl2.select == 1 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else

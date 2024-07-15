@@ -4,7 +4,7 @@ di13.m = 'you come across a Research Base'
 di13.m2 = ''
 di13.o = {'key:desc'}
 di13.f = di13.o
-di13.i = image:getImage('')
+di13.i = image.getImage('door')--'Research_base_entrance')
 di13.inDialoge = false
 di13.option = false
 di13.Hp = 0--100
@@ -25,10 +25,10 @@ function di13.keypressed(key)
 	if key == 'y' then
 		D.location = D.GetSubWorld(11)
 		Subselected = true
-		Alert:new('entering the Research Base','stat')
+		Alert.new('entering the Research Base','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then
-		Alert:new('left the Research Base','stat')
+		Alert.new('left the Research Base','stat')
 		gamestate = 'alert'
 	end
 end

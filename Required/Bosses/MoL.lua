@@ -1,4 +1,4 @@
-B_Mol = Boss.new("Monster of The Lake","",1,3,sound:getSound("motd"))
+B_Mol = Boss.new("Monster of The Lake","",1,3,sound.getSound("motd"))
 B_Mol.vars.select = 1
 B_Mol.vars.opt = {"Rest","Block","Attack"}
 B_Mol.vars.did = "The Creature Appears"
@@ -20,7 +20,7 @@ function B_Mol.actOn(c)
 	end
 	if fight.npc.Hp <= 0 then
 		B_Mol:sstop()
-		Alert:new("Beat\n\n"..fight.npc.name,'stat')
+		Alert.new("Beat\n\n"..fight.npc.name,'stat')
 		gamestate = 'alert'
 	end
 end
@@ -42,7 +42,7 @@ function B_Mol.actTo(c)
 	end
 	if FHp <= 0 then
 		B_Mol:sstop()
-		Alert:new("You fainted",'stat')
+		Alert.new("You fainted",'stat')
 		gamestate = 'alert'
 	end
 end
@@ -70,7 +70,7 @@ end
 
 function B_Mol:draw()
 	B_Mol:splay()
-	love.graphics.draw(image:getImage(B_Mol.img),60,40)
+	love.graphics.draw(image.getImage(B_Mol.img),60,40)
 	love.graphics.print({{0,0,0},"Hp:"..fight.npc.Hp},340,300+(0*20))
 	love.graphics.print({Atk_color,"Atk:"..fight.npc.Atk},340,300+(1*20))
 	love.graphics.print({Def_color,"Def:"..fight.npc.Def},340,300+(2*20))
@@ -95,5 +95,5 @@ function B_Mol:draw()
 	for i,v in pairs(B_Mol.vars.opt) do
 		love.graphics.print({{0,0,0},v},85,330+(i*20))
 	end
-	love.graphics.draw(image:getImage("Selected"),60,330+(B_Mol.vars.select*20))
+	love.graphics.draw(image.getImage("Selected"),60,330+(B_Mol.vars.select*20))
 end

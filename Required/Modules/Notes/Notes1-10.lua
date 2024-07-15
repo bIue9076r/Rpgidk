@@ -1,8 +1,8 @@
 --1 to 10
 -- conditions: start the game
 function NoteUses.BeginnersNote()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
 	love.graphics.print({{0,0,0},"Hello Stranger"},60,80)
 	love.graphics.print({{0,0,0},"You seem pretty down on your"},60,120)
 	love.graphics.print({{0,0,0},"luck, so i have gifted you"},60,140)
@@ -15,8 +15,8 @@ NoteUse[1] = NoteUses.BeginnersNote
 
 -- conditions: enter the city (start the game)
 function NoteUses.WelcomeToTheCity()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
 	love.graphics.print({{0,0,0},"Hello Traveler,"},60,80)
 	love.graphics.print({{0,0,0},"Please Enjoy your stay in"},60,120)
 	love.graphics.print({{0,0,0},"Frosted spikes."},60,140)
@@ -29,8 +29,8 @@ NoteUse[2] = NoteUses.WelcomeToTheCity
 
 -- conditions: enter the libary
 function NoteUses.WelcomeToTheLibary()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
 	love.graphics.print({{0,0,0},"Attention Patrons,"},60,80)
 	love.graphics.print({{0,0,0},"Due to the recent increase in"},60,120)
 	love.graphics.print({{0,0,0},"Stolen books. Only Patrons with"},60,140)
@@ -51,8 +51,8 @@ NoteUse[3] = NoteUses.WelcomeToTheLibary
 
 -- conditions: enter the capital building
 function NoteUses.WelcomeToCapitalHall()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
 	love.graphics.print({{0,0,0},"Welcome Traveler,"},60,80)
 	love.graphics.print({{0,0,0},"Our Capital Hall has plenty to"},60,100)
 	love.graphics.print({{0,0,0},"Offer vistors of Frosted Spikes"},60,120)
@@ -69,8 +69,8 @@ NoteUse[4] = NoteUses.WelcomeToCapitalHall
 
 -- conditions: get the libary papers 1
 function NoteUses.CapitalHall_Hist1()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
 	love.graphics.print({{0,0,0},"Our History #1"},60,80)
 	love.graphics.print({{0,0,0},"Our Small little country has"},60,100)
 	love.graphics.print({{0,0,0},"been through a lot over the past"},60,120)
@@ -94,8 +94,8 @@ NoteUse[5] = NoteUses.CapitalHall_Hist1
 
 -- conditions: get the libary papers 2
 function NoteUses.CapitalHall_Hist2()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
 	love.graphics.print({{0,0,0},"History of Frosted Spikes #2"},60,80)
 	love.graphics.print({{0,0,0},"Ever Since the explosion killed"},60,100)
 	love.graphics.print({{0,0,0},"Douglas, William had returned"},60,120)
@@ -119,8 +119,8 @@ NoteUse[6] = NoteUses.CapitalHall_Hist2
 
 -- conditions: get the libary papers 3
 function NoteUses.CapitalHall_Hist3()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
 	love.graphics.print({{0,0,0},"History of Frosted Spikes #3"},60,80)
 	love.graphics.print({{0,0,0},"...and willingly let the small"},60,100)
 	love.graphics.print({{0,0,0},"island go. after sometime"},60,120)
@@ -139,8 +139,8 @@ NoteUse[7] = NoteUses.CapitalHall_Hist3
 
 -- conditions: speak to janet
 function NoteUses.CapitalHall_FastFacts1()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
 	love.graphics.print({{0,0,0},"Frosted Spikes Fast Facts #1"},60,80)
 	love.graphics.print({{0,0,0},"Did you know that Frosted Spikes"},60,120)
 	love.graphics.print({{0,0,0},"has 3 seperate sectors each with"},60,140)
@@ -158,8 +158,8 @@ NoteUse[8] = NoteUses.CapitalHall_FastFacts1
 
 -- conditions: speak to janet
 function NoteUses.CapitalHall_FastFacts2()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
 	love.graphics.print({{0,0,0},"Frosted Spikes Fast Facts #2"},60,80)
 	love.graphics.print({{0,0,0},"William served two 5 year terms"},60,120)
 	love.graphics.print({{0,0,0},"as President. one of his first"},60,140)
@@ -177,8 +177,8 @@ NoteUse[9] = NoteUses.CapitalHall_FastFacts2
 
 -- conditions: speak to janet
 function NoteUses.CapitalHall_FastFacts3()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
 	love.graphics.print({{0,0,0},"Frosted Spikes Fast Facts #3"},60,80)
 	love.graphics.print({{0,0,0},"every time a law is proposed the"},60,120)
 	love.graphics.print({{0,0,0},"civil court will call on ten"},60,140)

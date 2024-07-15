@@ -21,7 +21,7 @@ function B_Janet.actOn(c)
 	end
 	if fight.npc.Hp <= 0 then
 		B_Janet:sstop()
-		Alert:new("Beat\n\n"..fight.npc.name,'stat')
+		Alert.new("Beat\n\n"..fight.npc.name,'stat')
 		gamestate = 'alert'
 	end
 end
@@ -44,7 +44,7 @@ function B_Janet.actTo(c)
 	if FHp <= 0 then
 		B_Janet:sstop()
 		Hp = math.ceil(Hp/2)
-		Alert:new("You fainted",'stat')
+		Alert.new("You fainted",'stat')
 		gamestate = 'alert'
 	end
 end
@@ -72,7 +72,7 @@ end
 
 function B_Janet:draw()
 	B_Janet:splay()
-	love.graphics.draw(image:getImage(B_Janet.img),60,40)
+	love.graphics.draw(image.getImage(B_Janet.img),60,40)
 	love.graphics.print({{0,0,0},"Hp:"..fight.npc.Hp},340,300+(0*20))
 	love.graphics.print({Atk_color,"Atk:"..fight.npc.Atk},340,300+(1*20))
 	love.graphics.print({Def_color,"Def:"..fight.npc.Def},340,300+(2*20))
@@ -97,5 +97,5 @@ function B_Janet:draw()
 	for i,v in pairs(B_Janet.vars.opt) do
 		love.graphics.print({{0,0,0},v},85,330+(i*20))
 	end
-	love.graphics.draw(image:getImage("Selected"),60,330+(B_Janet.vars.select*20))
+	love.graphics.draw(image.getImage("Selected"),60,330+(B_Janet.vars.select*20))
 end

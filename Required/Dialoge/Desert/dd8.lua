@@ -4,7 +4,7 @@ dd8.m = 'A Vulture Aproaches you'
 dd8.m2 = ''
 dd8.o = {'f:fight','r:run'}
 dd8.f = dd8.o
-dd8.i = image:getImage('')
+dd8.i = image.getImage('Vulture')
 dd8.inDialoge = false
 dd8.option = false
 dd8.Hp = 50
@@ -29,22 +29,22 @@ function dd8.keypressed(key)
 			raiseDef(2)
 			raiseRep(30)
 			raiseCash(35)
-			Alert:new('Fought The Vulture','stat')
+			Alert.new('Fought The Vulture','stat')
 			gamestate = 'alert'
-			Exp:add(60)
+			Exp.add(60)
 		else
 			Hurt(55)
-			Alert:new('Pecked by The Vulture','stat')
+			Alert.new('Pecked by The Vulture','stat')
 			gamestate = 'alert'
 		end
 	elseif key == 'r' then
 		if Def >= 25 or math.random(1,10) == 5 then
-			Alert:new('Ran Away','stat')
-			Exp:add(60)
+			Alert.new('Ran Away','stat')
+			Exp.add(60)
 			gamestate = 'alert'
 		else
 			Hurt(45)
-			Alert:new('Pecked by The Vulture\n\nWhile Running Away','stat')
+			Alert.new('Pecked by The Vulture\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

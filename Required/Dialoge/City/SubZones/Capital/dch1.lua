@@ -8,7 +8,7 @@ dch1.o = {
 }
 dch1.f = dch1.o
 dch1.ol = #dch1.o
-dch1.i = image:getImage('')
+dch1.i = image.getImage('Security_guard')
 dch1.FirstOption = false
 dch1.SecondOption = false
 dch1.ThirdOption = false
@@ -27,7 +27,7 @@ function dch1.draw()
 			dch1.ol = #dch1.o
 		elseif dch1_kill then
 			dch1.m = '"Freeze Murderer"'
-			if Exp:exportLevel() >= 15 then
+			if Exp.exportLevel() >= 15 then
 				dch1.o = {
 					"(leave)(+15) he went that way",
 					"(fight) Want to be next",
@@ -36,7 +36,7 @@ function dch1.draw()
 				}
 			else
 				dch1.o = {
-					"("..Exp:exportLevel().."/15) pssh... could'nt be me",
+					"("..Exp.exportLevel().."/15) pssh... could'nt be me",
 				----"(13/15) that could'nt be me",
 					"(fight) Want to be next",
 					"(surrender) ...",
@@ -53,7 +53,7 @@ function dch1.draw()
 			dch1.ol = #dch1.o
 		elseif Rep < 0 then
 			dch1.m = '"where do you think you\'re going"'
-			if Exp:exportLevel() >= 3 then
+			if Exp.exportLevel() >= 3 then
 				dch1.o = {
 					'(+3) the museum',
 					'(fight) no where',
@@ -63,7 +63,7 @@ function dch1.draw()
 				}
 			else
 				dch1.o = {
-					'('..Exp:exportLevel()..'/3) uhh i uhh...',
+					'('..Exp.exportLevel()..'/3) uhh i uhh...',
 				----'(1/3) uhh i uhh...',
 					'(fight) no where',
 					'(leave) the exit',
@@ -137,8 +137,8 @@ function dch1.AdvKeyPress()
 					dch1.Hp = dch1.Hp - 1
 					dch1.FirstOption = false
 					CrimeUpdate(3)
-					Exp:add(20)
-					Alert:new('Left','stat')
+					Exp.add(20)
+					Alert.new('Left','stat')
 					gamestate = 'alert'
 				else
 					Hurt(20)
@@ -155,7 +155,7 @@ function dch1.AdvKeyPress()
 	elseif dch1_kill then
 		if not dch1.FirstOption then
 			if dch1.select == 1 then
-				if Exp:exportLevel() >= 15 then
+				if Exp.exportLevel() >= 15 then
 					dch1.FirstOption = true
 					dch1.m = "Keep on going"
 					dch1.o = {
@@ -193,8 +193,8 @@ function dch1.AdvKeyPress()
 			if not dch1.SecondOption then
 				if dch1_flag == 'lie_s' then
 					dch1.FirstOption = false
-					Exp:add(15)
-					Alert:new('Left','stat')
+					Exp.add(15)
+					Alert.new('Left','stat')
 					gamestate = 'alert'
 				elseif dch1_flag == 'lie_f' then
 					dch1.FirstOption = false
@@ -206,8 +206,8 @@ function dch1.AdvKeyPress()
 						dch1.Hp = dch1.Hp - 1
 						dch1.FirstOption = false
 						CrimeUpdate(3)
-						Exp:add(20)
-						Alert:new('Left','stat')
+						Exp.add(20)
+						Alert.new('Left','stat')
 						gamestate = 'alert'
 					else
 						Hurt(20)
@@ -230,13 +230,13 @@ function dch1.AdvKeyPress()
 		end
 	elseif Rep >= 0 then
 		if dch1.select == 1 then
-			Alert:new('Left','stat')
+			Alert.new('Left','stat')
 			gamestate = 'alert'
 		end
 	elseif Rep < 0 then
 		if not dch1.FirstOption then
 			if dch1.select == 1 then
-				if Exp:exportLevel() >= 3 then
+				if Exp.exportLevel() >= 3 then
 					dch1.FirstOption = true
 					dch1.m = "Carry on"
 					dch1.o = {
@@ -263,7 +263,7 @@ function dch1.AdvKeyPress()
 				dch1_flag = 'fight'
 			elseif dch1.select == 3 then
 				D.location = 'city'
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			elseif dch1.select == 4 then
 				dch1.FirstOption = true
@@ -278,8 +278,8 @@ function dch1.AdvKeyPress()
 			if not dch1.SecondOption then
 				if dch1_flag == 'lie_s' then
 					dch1.FirstOption = false
-					Exp:add(10)
-					Alert:new('Left','stat')
+					Exp.add(10)
+					Alert.new('Left','stat')
 					gamestate = 'alert'
 				elseif dch1_flag == 'lie_f' then
 					dch1.FirstOption = false
@@ -291,8 +291,8 @@ function dch1.AdvKeyPress()
 						dch1.Hp = dch1.Hp - 1
 						dch1.FirstOption = false
 						CrimeUpdate(3)
-						Exp:add(15)
-						Alert:new('Left','stat')
+						Exp.add(15)
+						Alert.new('Left','stat')
 						gamestate = 'alert'
 					else
 						Hurt(15)

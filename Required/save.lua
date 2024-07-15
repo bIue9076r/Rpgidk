@@ -31,18 +31,20 @@ helpedResearcher = false
 ]]
 function save()
 	--pcall(function()
-	local itemTable = Item:get()
+	local itemTable = Item.get()
 	local items = ""
-	local noteTable = Note:get()
+	local noteTable = Note.get()
 	local notes = ""
 	local d = ""
 	for _,i in ipairs(itemTable) do
-		items= items.."Item:new('"..i.name..
-		"','"..i.icon.."',"..i.int..","..i.arg..") ; "
+		items= items.."Item.new('"..i.name..
+		"','"..i.icon.."',"..i.int..","..i.arg..","..tostring(i.reusable)..","..i.uses..") ; "
 	end
+
 	for _,i in ipairs(noteTable) do
-		notes= notes.."Note:new('"..i.name.."',"..i.int..") ; "
+		notes= notes.."Note.new('"..i.name.."',"..i.int..") ; "
 	end
+
 	for _,i in ipairs(D.city) do
 		d = d.."D.city[".._.."].Hp="..i.Hp.."; "
 	end
@@ -58,7 +60,8 @@ function save()
 	for _,i in ipairs(D.wasteland) do
 		d = d.."D.wasteland[".._.."].Hp="..i.Hp.."; "
 	end
-	--Sub
+
+	--Sub zones
 	for _,i in ipairs(D['Capital Hall']) do
 		d = d.."D['Capital Hall'][".._.."].Hp="..i.Hp.."; "
 	end
@@ -121,6 +124,8 @@ function save()
 	(sitem[2][2])..",[3]="..(sitem[2][3]).."};"..
 	"sitem[3]={[0]="..(sitem[3][0])..",[1]="..(sitem[3][1])..",[2]="..
 	(sitem[3][2])..",[3]="..(sitem[3][3]).."};"..
+	"sitem[4]={[0]="..(sitem[4][0])..",[1]="..(sitem[4][1])..",[2]="..
+	(sitem[4][2])..",[3]="..(sitem[4][3]).."};"..
 	"r_store_stock_med={[0]="..r_store_stock_med[0]..
 	",[1]="..r_store_stock_med[1]..
 	",[2]="..r_store_stock_med[2]..
@@ -167,7 +172,7 @@ function save()
 	"name='"..(name).."';"..
 	"debugmode="..tostring(debugmode)..";"..
 	"snitch="..tostring(snitch)..";"..
-	"Quest:set('ashley',"..Quest:Return('ashley')..");"..
+	"Quest.set('ashley',"..Quest.Return('ashley')..");"..
 	"Ashley_Hp="..(Ashley_Hp)..";"..
 	"Sally_Hp="..(Sally_Hp)..";"..
 	"George_Hp="..(George_Hp)..";"..
@@ -182,8 +187,8 @@ function save()
 	"Valary="..tostring(Valary == true or false)..";"..
 	"dch1_kill="..tostring(dch1_kill == true or false)..";"
 	
-	local save6 = "Exp:HardOverride("..
-	Exp:exportCount()..","..Exp:exportLevel()..");"..
+	local save6 = "Exp.HardOverride("..
+	Exp.exportCount()..","..Exp.exportLevel()..");"..
 	items..
 	notes..
 	d..

@@ -4,7 +4,7 @@ di12.m = 'you come across the Igloo Town'
 di12.m2 = ''
 di12.o = {'key:desc'}
 di12.f = di12.o
-di12.i = image:getImage('')
+di12.i = image.getImage('door')--'Igloo_town_gate')
 di12.inDialoge = false
 di12.option = false
 di12.Hp = 0--100
@@ -24,10 +24,10 @@ function di12.keypressed(key)
 	if key == 'y' then
 		D.location = D.GetSubWorld(10)
 		Subselected = true
-		Alert:new('entering the Igloo Town','stat')
+		Alert.new('entering the Igloo Town','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then
-		Alert:new('left the Igloo Town','stat')
+		Alert.new('left the Igloo Town','stat')
 		gamestate = 'alert'
 	end
 end

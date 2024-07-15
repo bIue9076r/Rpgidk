@@ -4,7 +4,7 @@ dd1.m = '"Give me Your money"'
 dd1.m2 = ''
 dd1.o = {'y:yes','r:run','f:fight','t:talk'}
 dd1.f = dd1.o
-dd1.i = image:getImage('Raider')
+dd1.i = image.getImage('Raider')
 dd1.inDialoge = false
 dd1.option = false
 dd1.Hp = 20
@@ -46,16 +46,16 @@ function dd1.keypressed(key)
 				if Cash >= 30 then
 					lowerCash(30)
 				end
-				Alert:new('Gave your money','stat')
+				Alert.new('Gave your money','stat')
 				gamestate = 'alert'
 			elseif key == 'r' then
 				if Def >= 20 or math.random(1,20) == 5 then
-					Alert:new('Ran Away','stat')
-					Exp:add(50)
+					Alert.new('Ran Away','stat')
+					Exp.add(50)
 					gamestate = 'alert'
 				else
 					Hurt(25)
-					Alert:new('Failed to Run Away','stat')
+					Alert.new('Failed to Run Away','stat')
 					gamestate = 'alert'
 				end
 			elseif key == 'f' then
@@ -65,16 +65,16 @@ function dd1.keypressed(key)
 					raiseDef(2)
 					raiseCash(35)
 					raiseRep(50)
-					Item:new("Tooth","Tooth",5,25)
-					Alert:new('Beat the Raider','stat')
-					Exp:add(150)
+					Item.new("Tooth","Tooth",5,25)
+					Alert.new('Beat the Raider','stat')
+					Exp.add(150)
 					gamestate = 'alert'
 				else
 					if Cash >= 30 then
 						lowerCash(30)
 					end
 					Hurt(45)
-					Alert:new('Failed to Beat the Raider','stat')
+					Alert.new('Failed to Beat the Raider','stat')
 					gamestate = 'alert'
 				end
 			end
@@ -86,7 +86,7 @@ function dd1.keypressed(key)
 				elseif key == 'h' then
 					Rep = -100
 					dd1.inDialoge = false
-					Alert:new('You lost all your rep','stat')
+					Alert.new('You lost all your rep','stat')
 					gamestate = 'alert'
 				end
 			else
@@ -100,8 +100,8 @@ function dd1.keypressed(key)
 				dd1.o = {'t:trade','l:leave'}
 				dd1.m = '"'..sNitem[1]..Nitem[dd1.n2]..' for \n\n'..sNitem[1]..Nitem[dd1.b]..'"'
 			elseif key == 'r' then
-				Alert:new('Ran Away','stat')
-				Exp:add(50)
+				Alert.new('Ran Away','stat')
+				Exp.add(50)
 				gamestate = 'alert'
 			elseif key == 'f' then
 				if Atk >= 75 or math.random(1,25) == 4 then
@@ -110,16 +110,16 @@ function dd1.keypressed(key)
 					raiseDef(2)
 					raiseCash(35)
 					raiseRep(50)
-					Item:new("Tooth","Tooth",5,25)
-					Alert:new('Beat the Raider','stat')
-					Exp:add(150)
+					Item.new("Tooth","Tooth",5,25)
+					Alert.new('Beat the Raider','stat')
+					Exp.add(150)
 					gamestate = 'alert'
 				else
 					if Cash >= 30 then
 						lowerCash(30)
 					end
 					Hurt(45)
-					Alert:new('Failed to Beat the Raider','stat')
+					Alert.new('Failed to Beat the Raider','stat')
 					gamestate = 'alert'
 				end
 			end
@@ -129,8 +129,8 @@ function dd1.keypressed(key)
 					if sitem[1][dd1.n2] > 0 then
 						sitem[1][dd1.n2] = sitem[1][dd1.n2] - 1
 						sitem[1][dd1.b] = sitem[1][dd1.b] + 1
-						Alert:new('Successful Trade','stat')
-						Exp:add(20)
+						Alert.new('Successful Trade','stat')
+						Exp.add(20)
 						gamestate = 'alert'
 						dd1.n2 = nil
 						dd1.b = nil

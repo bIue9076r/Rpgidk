@@ -4,7 +4,7 @@ dc2.m = '"Hi dude"'
 dc2.m2 = ''
 dc2.o = {'t:talk','r:run','f:fight','s:steal'}
 dc2.f = dc2.o
-dc2.i = image:getImage('Citizen')
+dc2.i = image.getImage('Citizen')
 dc2.inDialoge = false
 dc2.option = false
 dc2.Hp = 100
@@ -37,7 +37,7 @@ function dc2.keypressed(key)
 				dc2.o = {'l:leave','y:yes'}
 				dc2.inDialoge = true
 			elseif key == 'r' then
-				Alert:new('Ran Away','stat')
+				Alert.new('Ran Away','stat')
 				gamestate = 'alert'
 			elseif key == 'f' then
 				dc2.Hp = dc2.Hp - 1
@@ -45,9 +45,9 @@ function dc2.keypressed(key)
 				raiseAtk(1)
 				raiseCash(10)
 				CrimeUpdate(2)
-				Item:new("Tooth","Tooth",6,5)
-				Alert:new('Fought a Citizen','stat')
-				Exp:add(25)
+				Item.new("Tooth","Tooth",6,5)
+				Alert.new('Fought a Citizen','stat')
+				Exp.add(25)
 				gamestate = 'alert'
 			elseif key == 's' then
 				rob(-100,20,'a Citizen')
@@ -62,8 +62,8 @@ function dc2.keypressed(key)
 					sitem[0][0] = sitem[0][0] - 1
 					raiseCash(15)
 					dc2.inDialoge = false
-					Alert:new('Gave a Medkit','stat')
-					Exp:add(10)
+					Alert.new('Gave a Medkit','stat')
+					Exp.add(10)
 					gamestate = 'alert'
 				else
 					dc2.m = '"You dont have any Medkits..."'
@@ -79,7 +79,7 @@ function dc2.keypressed(key)
 				dc2.o = {'l:leave','y:yes'}
 				dc2.inDialoge = true
 			elseif key == 'r' then
-				Alert:new('Ran Away','stat')
+				Alert.new('Ran Away','stat')
 				gamestate = 'alert'
 				dc2.inDialoge = false
 			elseif key == 'f' then
@@ -89,9 +89,9 @@ function dc2.keypressed(key)
 				raiseAtk(1)
 				raiseCash(10)
 				CrimeUpdate(2)
-				Item:new("Tooth","Tooth",6,5)
-				Alert:new('Fought a Citizen','stat')
-				Exp:add(25)
+				Item.new("Tooth","Tooth",6,5)
+				Alert.new('Fought a Citizen','stat')
+				Exp.add(25)
 				gamestate = 'alert'
 			elseif key == 's' then
 				rob(-100,20,'a Citizen')
@@ -107,7 +107,7 @@ function dc2.keypressed(key)
 				sitem[1][0] = sitem[1][0] + 1
 				dc2.inDialoge = false
 				dc2.o = dc2.f
-				Alert:new('Got a '..sNitem[0]..'Potion of Poison','stat')
+				Alert.new('Got a '..sNitem[0]..'Potion of Poison','stat')
 				gamestate = 'alert'
 			end
 		end

@@ -4,7 +4,7 @@ dw7.m = 'A Toxic Vulture approaches you'
 dw7.m2 = ''
 dw7.o = {'f:fight','r:run'}
 dw7.f = dw7.o
-dw7.i = image:getImage('')
+dw7.i = image.getImage('Toxic_vulture')
 dw7.inDialoge = false
 dw7.option = false
 dw7.Hp = 30
@@ -29,22 +29,22 @@ function dw7.keypressed(key)
 			raiseDef(13)
 			raiseRep(140)
 			raiseCash(140)
-			Alert:new('Fought The Toxic Vulture','stat')
-			Exp:add(555)
+			Alert.new('Fought The Toxic Vulture','stat')
+			Exp.add(555)
 			gamestate = 'alert'
 		else
 			Hurt(390)
-			Alert:new('Attacked by a Toxic Vulture','stat')
+			Alert.new('Attacked by a Toxic Vulture','stat')
 			gamestate = 'alert'
 		end
 	elseif key == 'r' then
 		if Def >= 65 or math.random(1,20) == 5 then
-			Alert:new('Ran Away','stat')
-			Exp:add(555)
+			Alert.new('Ran Away','stat')
+			Exp.add(555)
 			gamestate = 'alert'
 		else
 			Hurt(390)
-			Alert:new('Attacked by a Toxic Vulture\n\nWhile Running Away','stat')
+			Alert.new('Attacked by a Toxic Vulture\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

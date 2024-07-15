@@ -4,7 +4,7 @@ di7.m = 'you come across an Ice Pool'
 di7.m2 = ''
 di7.o = {'d:drink','l:leave'}
 di7.f = di7.o
-di7.i = image:getImage('')
+di7.i = image.getImage('Ice_pool')
 di7.inDialoge = false
 di7.option = false
 di7.Hp = 100
@@ -27,10 +27,10 @@ function di7.keypressed(key)
 	if key == 'd' then
 		Heal(50)
 		di7.Hp = di7.Hp - 1
-		Alert:new('Drank from the pool','stat')
+		Alert.new('Drank from the pool','stat')
 		gamestate = 'alert'
 	elseif key == 'l' then
-		Alert:new('left the Area','stat')
+		Alert.new('left the Area','stat')
 		gamestate = 'alert'
 	end
 end

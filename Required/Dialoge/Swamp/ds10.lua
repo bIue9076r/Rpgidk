@@ -4,7 +4,7 @@ ds10.m = 'A Wild Turtle approches you'
 ds10.m2 = ''
 ds10.o = {'f:fight','r:run'}
 ds10.f = ds10.o
-ds10.i = image:getImage('')
+ds10.i = image.getImage('Wild_turtle')
 ds10.inDialoge = false
 ds10.option = false
 ds10.Hp = 50
@@ -29,22 +29,22 @@ function ds10.keypressed(key)
 			raiseDef(4)
 			raiseRep(35)
 			raiseCash(65)
-			Alert:new('Fought The Turtle','stat')
+			Alert.new('Fought The Turtle','stat')
 			gamestate = 'alert'
-			Exp:add(335)
+			Exp.add(335)
 		else
 			Hurt(155)
-			Alert:new('Biten by a Turtle','stat')
+			Alert.new('Biten by a Turtle','stat')
 			gamestate = 'alert'
 		end
 	elseif key == 'r' then
 		if Def >= 24 or math.random(1,20) == 5 then
-			Alert:new('Ran Away','stat')
-			Exp:add(185)
+			Alert.new('Ran Away','stat')
+			Exp.add(185)
 			gamestate = 'alert'
 		else
 			Hurt(120)
-			Alert:new('Biten by a Turtle\n\nWhile Running Away','stat')
+			Alert.new('Biten by a Turtle\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

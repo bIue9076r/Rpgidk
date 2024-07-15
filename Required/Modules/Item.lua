@@ -5,10 +5,10 @@ require("/Textures/LoadFonts")
 Item = {} -- sets up the Item table
 Item.items = {} -- sets up the item inventory
 
-function Item:new(name,icon,funint,arg,reuse,uses) -- creates a new Item
+function Item.new(name,icon,funint,arg,reuse,uses) -- creates a new Item
 	theTable = {}
 	theTable.name = name or 'null' -- the name of the item
-	theTable.icon = 'placeholderIcon'--icon -- the name of the icon image
+	theTable.icon = icon or 'placeholderIcon' -- the name of the icon image
 	theTable.reusable = reuse or false -- the item reuseable bool
 	theTable.used = false -- the item used bool 
 	theTable.uses = uses or 0 -- the amount of times the item can be used
@@ -18,7 +18,7 @@ function Item:new(name,icon,funint,arg,reuse,uses) -- creates a new Item
 	table.insert(Item.items,theTable)
 end
 
-function Item:RanNew() -- random item
+function Item.RanNew() -- random item
 	theTable = {}
 	theTable.name = 'Mystery Item'
 	theTable.icon = 'Mystery'
@@ -32,14 +32,14 @@ function Item:RanNew() -- random item
 	table.insert(Item.items,theTable)
 end
 
-function Item:use(page,count) -- uses an item
+function Item.use(page,count) -- uses an item
 	index = count+((page-1)*8)
 	if Item.items[index] == nil or Item.items[index].use == nil then return end
 	Item.items[index].use(Item.items[index].arg)
 	-- calls the selected items use function
 	if not Item.items[index].reusable 
 	and Item.items[index].uses <= 1 then
-		Item:Remove(index)
+		Item.Remove(index)
 		-- removes the item
 	else
 		Item.items[index].used = true
@@ -47,7 +47,7 @@ function Item:use(page,count) -- uses an item
 	end
 end
 
-function Item:display(page) -- returns a list of items from the selected page
+function Item.display(page) -- returns a list of items from the selected page
 	upperbound = page * 8
 	lowerbound = ((page-1)*8)+1
 	local returntable = {}
@@ -57,24 +57,28 @@ function Item:display(page) -- returns a list of items from the selected page
 	return returntable;
 end
 
-function Item:isReal(n)
+function Item.isReal(n)
 	return (Item.items[n] ~= nil)
 end
 
-function Item:Remove(n) -- removes the selected item
+function Item.Remove(n) -- removes the selected item
+	Ilen = #Item.items
 	Item.items[n] = nil
-	for i = n+1,#Item.items do
+	LOG:write("n    = "..tostring(n).."\n")
+	LOG:write("n+1  = "..tostring(n+1).."\n")
+	LOG:write("Ilen = "..tostring(Ilen).."\n")
+	for i = n+1,Ilen do
 		Item.items[i-1] = Item.items[i]
 		Item.items[i] = nil
 	end
 end
 
-function Item:reload(itemTable) -- /* depreciated */
+function Item.reload(itemTable) -- /* depreciated */
 	-- you cant save the item function, which makes the item useless
 	Item.items = itemTable;
 end
 
-function Item:get() -- /* depreciated */
+function Item.get()
 	-- only use for saving as it gives the entire table
-	return self.items;
+	return Item.items;
 end

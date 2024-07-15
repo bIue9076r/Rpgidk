@@ -4,7 +4,7 @@ dd3.m = 'A Wild Boar Aproaches you'
 dd3.m2 = ''
 dd3.o = {'f:fight','r:run'}
 dd3.f = dd3.o
-dd3.i = image:getImage('')
+dd3.i = image.getImage('Wild_boar')
 dd3.inDialoge = false
 dd3.option = false
 dd3.Hp = 80
@@ -29,22 +29,22 @@ function dd3.keypressed(key)
 			raiseDef(1)
 			raiseRep(20)
 			raiseCash(25)
-			Alert:new('Fought The Boar','stat')
+			Alert.new('Fought The Boar','stat')
 			gamestate = 'alert'
-			Exp:add(30)
+			Exp.add(30)
 		else
 			Hurt(45)
-			Alert:new('Bitten by a Boar','stat')
+			Alert.new('Bitten by a Boar','stat')
 			gamestate = 'alert'
 		end
 	elseif key == 'r' then
 		if Def >= 7 or math.random(1,10) == 5 then
-			Alert:new('Ran Away','stat')
-			Exp:add(50)
+			Alert.new('Ran Away','stat')
+			Exp.add(50)
 			gamestate = 'alert'
 		else
 			Hurt(30)
-			Alert:new('Bitten by a Boar\n\nWhile Running Away','stat')
+			Alert.new('Bitten by a Boar\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

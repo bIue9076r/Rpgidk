@@ -4,7 +4,7 @@ dc10.m = '"Seen any Criminals lately?"'
 dc10.m2 = ''
 dc10.o = {'t:talk','r:run','f:fight','s:steal'}
 dc10.f = dc10.o
-dc10.i = image:getImage('Police')
+dc10.i = image.getImage('Police')
 dc10.inDialoge = false
 dc10.option = false
 dc10.Hp = 5
@@ -38,7 +38,7 @@ function dc10.keypressed(key)
 				dc10.inDialoge = true
 				dc10.o = {'y:yes','l:leave'}
 			elseif key == 'r' then
-				Alert:new('Ran Away','stat')
+				Alert.new('Ran Away','stat')
 				gamestate = 'alert'
 			elseif key == 'f' then
 				if Atk >= 60 or math.random(1,60) == 5 then
@@ -48,10 +48,10 @@ function dc10.keypressed(key)
 					raiseDef(6)
 					raiseCash(100)
 					CrimeUpdate(2)
-					Item:new("Police Hat","PoliceHat",6,45)
+					Item.new("Police Hat","PoliceHat",6,45)
 					----------1234567890 fits the 13 char limit
-					Alert:new('Fought a Police Officer','stat')
-					Exp:add(350)
+					Alert.new('Fought a Police Officer','stat')
+					Exp.add(350)
 					gamestate = 'alert'
 				else
 					Hurt(80)
@@ -69,7 +69,7 @@ function dc10.keypressed(key)
 					raiseCash(15)
 					raiseRep(100)
 				end
-				Alert:new('Spilled Information','stat')
+				Alert.new('Spilled Information','stat')
 				gamestate = 'alert'
 				dc10.inDialoge = false
 				dc10.o = {'t:talk','r:run','f:fight','s:steal'}
@@ -84,7 +84,7 @@ function dc10.keypressed(key)
 				arrest()
 			elseif key == 'r' then
 				if Def >= 28 or math.random(1,20) == 5 then
-					Alert:new('Ran Away','stat')
+					Alert.new('Ran Away','stat')
 					gamestate = 'alert'
 				else
 					arrest()
@@ -97,10 +97,10 @@ function dc10.keypressed(key)
 					raiseDef(6)
 					raiseCash(100)
 					CrimeUpdate(2)
-					Item:new("Police Hat","PoliceHat",6,45)
+					Item.new("Police Hat","PoliceHat",6,45)
 					----------1234567890 fits the 13 char limit
-					Alert:new('Fought a Police Officer','stat')
-					Exp:add(350)
+					Alert.new('Fought a Police Officer','stat')
+					Exp.add(350)
 					gamestate = 'alert'
 				else
 					Hurt(95)
@@ -119,16 +119,16 @@ function dc10.keypressed(key)
 						raiseRep(100)
 						CrimeUpdate(1)
 						dc10.inDialoge = false
-						Alert:new('Bribed an Officer','stat')
+						Alert.new('Bribed an Officer','stat')
 						gamestate = 'alert'
 					else
 						dc10.inDialoge = false
-						Alert:new('Failed to bribe an Officer','arrest')
+						Alert.new('Failed to bribe an Officer','arrest')
 						gamestate = 'alert'
 					end
 				else
 					dc10.inDialoge = false
-					Alert:new('Failed to bribe an Officer','arrest')
+					Alert.new('Failed to bribe an Officer','arrest')
 					gamestate = 'alert'
 				end
 			elseif key == 'l' then

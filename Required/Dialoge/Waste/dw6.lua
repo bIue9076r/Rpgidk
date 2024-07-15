@@ -4,7 +4,7 @@ dw6.m = 'A Toxic Bore approaches you'
 dw6.m2 = ''
 dw6.o = {'f:fight','r:run'}
 dw6.f = dw6.o
-dw6.i = image:getImage('')
+dw6.i = image.getImage('Toxic_bore')
 dw6.inDialoge = false
 dw6.option = false
 dw6.Hp = 60
@@ -29,22 +29,22 @@ function dw6.keypressed(key)
 			raiseDef(12)
 			raiseRep(130)
 			raiseCash(130)
-			Alert:new('Fought The Toxic Bore','stat')
-			Exp:add(505)
+			Alert.new('Fought The Toxic Bore','stat')
+			Exp.add(505)
 			gamestate = 'alert'
 		else
 			Hurt(360)
-			Alert:new('Attacked by a Toxic Bore','stat')
+			Alert.new('Attacked by a Toxic Bore','stat')
 			gamestate = 'alert'
 		end
 	elseif key == 'r' then
 		if Def >= 55 or math.random(1,20) == 5 then
-			Alert:new('Ran Away','stat')
-			Exp:add(470)
+			Alert.new('Ran Away','stat')
+			Exp.add(470)
 			gamestate = 'alert'
 		else
 			Hurt(360)
-			Alert:new('Attacked by a Toxic Bore\n\nWhile Running Away','stat')
+			Alert.new('Attacked by a Toxic Bore\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

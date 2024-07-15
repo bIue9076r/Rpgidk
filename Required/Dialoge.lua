@@ -60,7 +60,7 @@ function AdvDrawOptions(options,selectNum)
 	for i,v in pairs(opt) do
 		love.graphics.print({{0,0,0},v},85,300+(i*20))
 	end
-	love.graphics.draw(image:getImage("Selected"),60,300+(displayNum*20))
+	love.graphics.draw(image.getImage("Selected"),60,300+(displayNum*20))
 end
 
 --Draw Stats
@@ -161,25 +161,54 @@ function advkeypressed()
 end
 ]]--
 
+--[[
+function d##_rep_p()
+
+end
+
+function d##_rep_m()
+
+end
+
+if not d##_premode then
+	d##.keypressed = d##_rep_p
+end
+]]
+
+image.getImage("\n\nCity Images: (Not an image)")
 require("/Required/Dialoge/City/CityDialoge")
+--[[	Sub locations dont need to be loaded at the moment
 require("/Required/Dialoge/City/SubZones/Ashleys House/Ashleys_HouseDialoge") --Ashleys House
 require("/Required/Dialoge/City/SubZones/Capital/Capital_HallDialoge") --Capital Hall
 require("/Required/Dialoge/City/SubZones/Libary/LibaryDialoge") --Libary
 require("/Required/Dialoge/City/SubZones/Market/Underground_MarketDialoge") --Underground Market
+]]
+image.getImage("\n\nDesert Images: (Not an image)")
 require("/Required/Dialoge/Desert/DesertDialoge")
+--[[
 require("/Required/Dialoge/Desert/SubZones/Town/Desert_TownDialoge") --Desert Town
 require("/Required/Dialoge/Desert/SubZones/Mine/Desert_MineDialoge") --Desert Mine
 require("/Required/Dialoge/Desert/SubZones/Temple/Desert_TempleDialoge") --Desert Temple
+]]
+image.getImage("\n\nSwamp Images: (Not an image)")
 require("/Required/Dialoge/Swamp/SwampDialoge")
+--[[
 require("/Required/Dialoge/Swamp/SubZones/Dock/Sea_DockDialoge") --Sea Dock
 require("/Required/Dialoge/Swamp/SubZones/Lakes/Big_Green_LakeDialoge") --Big Green Lake
+]]
+image.getImage("\n\nIce Sector Images: (Not an image)")
 require("/Required/Dialoge/Ice/IceDialoge")
+--[[
 require("/Required/Dialoge/Ice/SubZones/Cave/Ice_CaveDialoge") --Ice Cave
 require("/Required/Dialoge/Ice/SubZones/Igloo/Igloo_TownDialoge") --Igloo Town
+]]
+image.getImage("\n\nWasteland Images: (Not an image)")
 require("/Required/Dialoge/Waste/WasteDialoge")
+--[[
 require("/Required/Dialoge/Waste/SubZones/Reactor/ReactorDialoge") --Reactor
 require("/Required/Dialoge/Waste/SubZones/DTown/Destroyed_TownDialoge") --Destroyed Town
 require("/Required/Dialoge/Waste/SubZones/Base/Criminal_BaseDialoge") --Criminal Base
+]]
 
 --D dialoge choice options
 
@@ -229,98 +258,98 @@ function D.ChooseDialoge(int)
 	n = int
 	if n == -1 then
 		return {
-			draw=function()Alert:new("Area Clear","stat");gamestate='alert'end;
+			draw=function()Alert.new("Area Clear","stat");gamestate='alert'end;
 			keypressed=function(key)end
 		}
 	end
 	if D.location == 'city' then
 		if __CityEntryNote < 2 then
-			Note:new("City Brochure",2)
+			Note.new("City Brochure",2)
 			__CityEntryNote = __CityEntryNote + 10
 		end
 	elseif D.location == 'desert' then
 		if __DesertEntryNote < 2 then
-			Note:new("City Brochure",2)
+			Note.new("City Brochure",2)
 			__DesertEntryNote = __DesertEntryNote + 10
 		end
 	elseif D.location == 'swamp' then
 		if __SwampEntryNote < 2 then
-			Note:new("City Brochure",2)
+			Note.new("City Brochure",2)
 			__SwampEntryNote = __SwampEntryNote + 10
 		end
 	elseif D.location == 'icespikes' then
 		if __IceEntryNote < 2 then
-			Note:new("City Brochure",2)
+			Note.new("City Brochure",2)
 			__IceEntryNote = __IceEntryNote + 10
 		end
 	elseif D.location == 'wasteland' then
 		if __WasteEntryNote < 2 then
-			Note:new("City Brochure",2)
+			Note.new("City Brochure",2)
 			__WasteEntryNote = __WasteEntryNote + 10
 		end
 	elseif D.location == 'Libary' then
 		if __LibaryEntryNote < 2 then
-			--Note:new("City Brochure",2)
+			--Note.new("City Brochure",2)
 			__LibaryEntryNote = __LibaryEntryNote + 10
 		end
 	elseif D.location == 'Capital Hall' then
 		if __CapitalHallEntryNote < 2 then
-			--Note:new("City Brochure",2)
+			--Note.new("City Brochure",2)
 			__CapitalHallEntryNote = __CapitalHallEntryNote + 10
 		end
 	elseif D.location == 'Underground Market' then
 		if __UndergroundMarketEntryNote < 2 then
-			--Note:new("City Brochure",2)
+			--Note.new("City Brochure",2)
 			__UndergroundMarketEntryNote = __UndergroundMarketEntryNote + 10
 		end
 	elseif D.location == 'Desert Town' then
 		if __DesertTownEntryNote < 2 then
-			--Note:new("City Brochure",2)
+			--Note.new("City Brochure",2)
 			__DesertTownEntryNote = __DesertTownEntryNote + 10
 		end
 	elseif D.location == 'Desert Mine' then
 		if __DesertMineEntryNote < 2 then
-			--Note:new("City Brochure",2)
+			--Note.new("City Brochure",2)
 			__DesertMineEntryNote = __DesertMineEntryNote + 10
 		end
 	elseif D.location == 'Desert Temple' then
 		if __DesertTempleEntryNote < 2 then
-			--Note:new("City Brochure",2)
+			--Note.new("City Brochure",2)
 			__DesertTempleEntryNote = __DesertTempleEntryNote + 10
 		end
 	elseif D.location == 'Sea Dock' then
 		if __SeaDockEntryNote < 2 then
-			--Note:new("City Brochure",2)
+			--Note.new("City Brochure",2)
 			__SeaDockEntryNote = __SeaDockEntryNote + 10
 		end
 	elseif D.location == 'Big Green Lake' then
 		if __BigGreenLakeEntryNote < 2 then
-			--Note:new("City Brochure",2)
+			--Note.new("City Brochure",2)
 			__BigGreenLakeEntryNote = __BigGreenLakeEntryNote + 10
 		end
 	elseif D.location == 'Ice Cave' then
 		if __IceCaveEntryNote < 2 then
-			--Note:new("City Brochure",2)
+			--Note.new("City Brochure",2)
 			__IceCaveEntryNote = __IceCaveEntryNote + 10
 		end
 	elseif D.location == 'Igloo Town' then
 		if __IglooTownEntryNote < 2 then
-			--Note:new("City Brochure",2)
+			--Note.new("City Brochure",2)
 			__IglooTownEntryNote = __IglooTownEntryNote + 10
 		end
 	elseif D.location == 'Reactor' then
 		if __ReactorEntryNote < 2 then
-			--Note:new("City Brochure",2)
+			--Note.new("City Brochure",2)
 			__ReactorEntryNote = __ReactorEntryNote + 10
 		end
 	elseif D.location == 'Destroyed Town' then
 		if __DestroyedTownEntryNote < 2 then
-			--Note:new("City Brochure",2)
+			--Note.new("City Brochure",2)
 			__DestroyedTownEntryNote = __DestroyedTownEntryNote + 10
 		end
 	elseif D.location == 'Criminal Base' then
 		if __CriminalBaseEntryNote < 2 then
-			--Note:new("City Brochure",2)
+			--Note.new("City Brochure",2)
 			__CriminalBaseEntryNote = __CriminalBaseEntryNote + 10
 		end
 	end

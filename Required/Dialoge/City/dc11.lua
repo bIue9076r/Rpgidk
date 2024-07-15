@@ -4,7 +4,7 @@ dc11.m = 'you come across the libary'
 dc11.m2 = ''
 dc11.o = {'y:yes','n:no'}
 dc11.f = dc11.o
-dc11.i = image:getImage('door')
+dc11.i = image.getImage('door')
 dc11.inDialoge = false
 dc11.option = false
 dc11.Hp = 0--100
@@ -25,10 +25,10 @@ function dc11.keypressed(key)
 	if key == 'y' then
 		D.location = D.GetSubWorld(1)
 		Subselected = true
-		Alert:new('entering the libary','stat')
+		Alert.new('entering the libary','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then
-		Alert:new('left the libary','stat')
+		Alert.new('left the libary','stat')
 		gamestate = 'alert'
 	end
 end

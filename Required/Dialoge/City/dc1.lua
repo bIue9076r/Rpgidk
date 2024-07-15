@@ -4,7 +4,7 @@ dc1.m = '"Give me your wallet"'
 dc1.m2 = ''
 dc1.o = {'y:yes','r:run','f:fight','t:talk'}
 dc1.f = dc1.o
-dc1.i = image:getImage('robber')
+dc1.i = image.getImage('robber')
 dc1.inDialoge = false
 dc1.option = false
 dc1.Hp = 20
@@ -16,8 +16,8 @@ function dc1.draw()
 		dc1.friendly = "Enemy"
 		dc1.m = '"Give me your wallet"'
 		dc1.o = {'y:yes','r:run','f:fight','t:talk'}
-		if Quest:Return('ashley') == false then
-			Quest:SetFL('ashley') -- failed quest
+		if Quest.Return('ashley') == false then
+			Quest.SetFL('ashley') -- failed quest
 		end
 	elseif Rep < 0 and dc1.inDialoge == false then
 		dc1.friendly = "Friend"
@@ -37,27 +37,27 @@ function dc1.keypressed(key)
 			if key == 'y' then
 				if Cash >= 10 then
 					lowerCash(10)
-					Alert:new('Gave the robber your wallet','stat')
+					Alert.new('Gave the robber your wallet','stat')
 					gamestate = 'alert'
 				else
 					Hurt(10)
-					Alert:new('You got beat up','stat')
+					Alert.new('You got beat up','stat')
 					gamestate = 'alert'
 				end
 			elseif key == 'r' then
 				if Def >= 2 or math.random(1,5) == 2 then
-					Alert:new('You got away','stat')
-					Exp:add(10)
+					Alert.new('You got away','stat')
+					Exp.add(10)
 					gamestate = 'alert'
 				else
 					if Cash >= 10 then
 						Hurt(10)
 						lowerCash(10)
-						Alert:new('You got beat up','stat')
+						Alert.new('You got beat up','stat')
 						gamestate = 'alert'
 					else
 						Hurt(10)
-						Alert:new('You got beat up','stat')
+						Alert.new('You got beat up','stat')
 						gamestate = 'alert'
 					end
 				end
@@ -67,19 +67,19 @@ function dc1.keypressed(key)
 					raiseCash(15)
 					raiseRep(25)
 					raiseAtk(2)
-					Item:new("Tooth","Tooth",5,5)
-					Alert:new('You beat up the robber','stat')
-					Exp:add(50)
+					Item.new("Tooth","Tooth",5,5)
+					Alert.new('You beat up the robber','stat')
+					Exp.add(50)
 					gamestate = 'alert'
 				else
 					if Cash >= 10 then
 						Hurt(10)
 						lowerCash(10)
-						Alert:new('You got beat up','stat')
+						Alert.new('You got beat up','stat')
 						gamestate = 'alert'
 					else
 						Hurt(10)
-						Alert:new('You got beat up','stat')
+						Alert.new('You got beat up','stat')
 						gamestate = 'alert'
 					end
 				end
@@ -99,7 +99,7 @@ function dc1.keypressed(key)
 				dc1.inDialoge = false
 				Rep = -10
 				CrimeUpdate(1)
-				Alert:new('You lost all your rep','stat')
+				Alert.new('You lost all your rep','stat')
 				gamestate = 'alert'
 			end
 		end
@@ -108,10 +108,10 @@ function dc1.keypressed(key)
 			if key == 'y' then
 				n = math.random(0,3)
 				sitem[n][0] = sitem[n][0] + 1
-				Alert:new('Got a '..sNitem[0]..Nitem[n],'stat')
+				Alert.new('Got a '..sNitem[0]..Nitem[n],'stat')
 				gamestate = 'alert'
 			elseif key == 'n' then
-				Alert:new('Left location','stat')
+				Alert.new('Left location','stat')
 				gamestate = 'alert'
 			elseif key == 'f' then
 				if Atk >= 5 or math.random(1,10) == 5 then
@@ -119,46 +119,46 @@ function dc1.keypressed(key)
 					raiseCash(15)
 					raiseRep(25)
 					raiseAtk(2)
-					Item:new("Tooth","Tooth",5,5)
-					Alert:new('You beat up the robber','stat')
-					Exp:add(50)
+					Item.new("Tooth","Tooth",5,5)
+					Alert.new('You beat up the robber','stat')
+					Exp.add(50)
 					gamestate = 'alert'
 				else
 					if Cash >= 10 then
 						Hurt(10)
 						lowerCash(10)
-						Alert:new('You got beat up','stat')
+						Alert.new('You got beat up','stat')
 						gamestate = 'alert'
 					else
 						Hurt(10)
-						Alert:new('You got beat up','stat')
+						Alert.new('You got beat up','stat')
 						gamestate = 'alert'
 					end
 				end
 			elseif key == 't' then
 				dc1.m = '"Want to help out more"'
 				dc1.o = {"l:leave","y:yes"}
-				if Quest:Return('ashley') == true then
+				if Quest.Return('ashley') == true then
 					dc1.m = '"Take this for your effort"'
 					dc1.o = {"press return"}
 				end
-				if Quest:Return('ashley') == 0 then
+				if Quest.Return('ashley') == 0 then
 					dc1.m = '"You\'re very helpful want to\n\nspread the word"'
 					dc1.o = {"l:leave","y:yes"}
 				end
 				dc1.inDialoge = true
 			end
 		else
-			if Quest:Return('ashley') == true then -- if quest was completed but no reward
+			if Quest.Return('ashley') == true then -- if quest was completed but no reward
 				if key == 'return' then
 					dc1.m = '"need anything kiddo"'
 					dc1.o = dc1.f
 					dc1.inDialoge = false
-					Quest:SetNil('ashley')
+					Quest.SetNil('ashley')
 					CrimeUpdate(2)
 					raiseCash(200)
-					Alert:new('You have been awarded $200','stat')
-					Exp:add(200)
+					Alert.new('You have been awarded $200','stat')
+					Exp.add(200)
 					gamestate = 'alert'
 				end
 			else
@@ -170,18 +170,18 @@ function dc1.keypressed(key)
 					dc1.m = '"i dont need your help right now"'
 					--dc1.o = dc1.f
 					--dc1.inDialoge = false
-					if Quest:Return('ashley') == 1 then -- if quest is not started or it failed
+					if Quest.Return('ashley') == 1 then -- if quest is not started or it failed
 						CrimeUpdate(1)
-						Quest:SetF('ashley')
-						Alert:new('New Quest: Check notes','stat')
-						Note:new('Hit Details',23)
-						--Alert:new('New Quest: Beat up Ashley','stat')
+						Quest.SetF('ashley')
+						Alert.new('New Quest: Check notes','stat')
+						Note.new('Hit Details',23)
+						--Alert.new('New Quest: Beat up Ashley','stat')
 						gamestate = 'alert'
 						dc1.inDialoge = false
-					elseif Quest:Return('ashley') == 0 then -- if quest reward was claimed
+					elseif Quest.Return('ashley') == 0 then -- if quest reward was claimed
 						Rep = Rep - 100
 						CrimeUpdate(3)
-						Alert:new('Word Spread','stat')
+						Alert.new('Word Spread','stat')
 						gamestate = 'alert'
 						dc1.inDialoge = false
 					end

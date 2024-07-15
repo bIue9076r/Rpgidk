@@ -4,7 +4,7 @@ di9.m = 'A Reindeer Aproaches You'
 di9.m2 = ''
 di9.o = {'f:fight','r:run'}
 di9.f = di9.o
-di9.i = image:getImage('')
+di9.i = image.getImage('Reindeer')
 di9.inDialoge = false
 di9.option = false
 di9.Hp = 25
@@ -31,16 +31,16 @@ function di9.keypressed(key)
 			raiseDef(4)
 			raiseRep(45)
 			raiseCash(45)
-			Alert:new('Fought The Reindeer','stat')
-			Exp:add(165)
+			Alert.new('Fought The Reindeer','stat')
+			Exp.add(165)
 			gamestate = 'alert'
 		else
 			Hurt(95)
-			Alert:new('Failed to Beat\n\nThe Reindeer','stat')
+			Alert.new('Failed to Beat\n\nThe Reindeer','stat')
 			gamestate = 'alert'
 		end
 	elseif key == 'r' then
-		Alert:new('Ran Away','stat')
+		Alert.new('Ran Away','stat')
 		gamestate = 'alert'
 	end
 end

@@ -4,7 +4,7 @@ dw12.m = 'you come across the Destroyed Gate'
 dw12.m2 = ''
 dw12.o = {'y:yes','n:no'}
 dw12.f = dw12.o
-dw12.i = image:getImage('')
+dw12.i = image.getImage('door')--'Destroyed_town_gate')
 dw12.inDialoge = false
 dw12.option = false
 dw12.Hp = 0--100
@@ -24,10 +24,10 @@ function dw12.keypressed(key)
 	if key == "y" then
 		D.location = D.GetSubWorld(13)
 		Subselected = true
-		Alert:new('entering the Destroyed Town','stat')
+		Alert.new('entering the Destroyed Town','stat')
 		gamestate = 'alert'
 	elseif key == "n" then
-		Alert:new('left the Destroyed Town Gate','stat')
+		Alert.new('left the Destroyed Town Gate','stat')
 		gamestate = 'alert'
 	end
 end

@@ -34,7 +34,7 @@ end
 
 function ItemUseRadFood() -- select a random Use
 	rangef = "21~43/2,44~48/2,52,54,55~63/2,64~70/2,71~73,87"
-	itbluf = Range.parse(range)
+	itbluf = Range.parse(rangef)
 	t = math.random(1,#itbluf)
 	return ItemUse[itbluf[t]]
 end

@@ -8,7 +8,7 @@ dl1.o = {
 }
 dl1.f = dl1.o
 dl1.ol = #dl1.o
-dl1.i = image:getImage('')
+dl1.i = image.getImage('Tracey')
 dl1.FirstOption = false
 dl1.SecondOption = false
 dl1.ThirdOption = false
@@ -108,7 +108,7 @@ function dl1.AdvKeyPress()
 	if Tracey_Unhelper then
 		if not dl1.FirstOption then
 			if dl1.select == 1 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
@@ -125,7 +125,7 @@ function dl1.AdvKeyPress()
 	elseif Tracey_Helper then
 		if not dl1.FirstOption then
 			if dl1.select == 1 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
@@ -142,7 +142,7 @@ function dl1.AdvKeyPress()
 	elseif Traitor or AttemptedTraitor then
 		if not dl1.FirstOption then
 			if dl1.select == 1 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
@@ -159,7 +159,7 @@ function dl1.AdvKeyPress()
 	elseif dl1_stole or dl1_astole then
 		if not dl1.FirstOption then
 			if dl1.select == 1 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
@@ -195,7 +195,7 @@ function dl1.AdvKeyPress()
 				dl1.FirstOption = true
 				dl1_flag = "help"
 			elseif dl1.select == 3 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
@@ -212,7 +212,7 @@ function dl1.AdvKeyPress()
 						dl1.SecondOption = true
 					elseif dl1.select == 2 then
 						dl1.FirstOption = false
-						Alert:new('Denied Helping Tracey','stat')
+						Alert.new('Denied Helping Tracey','stat')
 						gamestate = 'alert'
 					end
 				elseif dl1_flag == "paper" then
@@ -220,21 +220,21 @@ function dl1.AdvKeyPress()
 					dl1_range = "8~11"
 					dl1_itblu = Range.parse(dl1_range)
 					dl1_n = math.random(1,#dl1_itblu)
-					Note:new("A Guide",dl1_itblu[dl1_n])
-					Alert:new('Got a Pamplet','stat')
+					Note.new("A Guide",dl1_itblu[dl1_n])
+					Alert.new('Got a Pamplet','stat')
 					gamestate = 'alert'
 				end
 			else
 				if dl1.select == 1 then
 					Tracey_Helper = true
 					dl1.SecondOption = false
-					Note:new("What to do",-1)
-					Alert:new('Helping Tracey','stat')
+					Note.new("What to do",-1)
+					Alert.new('Helping Tracey','stat')
 					gamestate = 'alert'
 				elseif dl1.select == 2 then
 					Tracey_Unhelper = true
 					dl1.SecondOption = false
-					Alert:new('Denied Helping Tracey','stat')
+					Alert.new('Denied Helping Tracey','stat')
 					gamestate = 'alert'
 				end
 			end
@@ -242,12 +242,107 @@ function dl1.AdvKeyPress()
 	elseif Rep < 0 then
 		if not dl1.FirstOption then
 			if dl1.select == 1 then
-				Alert:new('Left','stat')
+				dl1.m = "yeah you could help me"
+				dl1.o = {
+					"what",
+					"okay",
+					"no thanks",
+					"(leave) ..."
+				-----123456789012345678901234567890
+				}
+				dl1.ol = #dl1.o
+				dl1.FirstOption = true
+				dl1_flag = "question"
+			elseif dl1.select == 2 then
+				dl1.m = "okay, be good then"
+				dl1.o = {
+					"continue"
+				}
+				dl1.ol = #dl1.o
+				dl1.FirstOption = true
+				dl1_flag = "steal"
+			elseif dl1.select == 3 then
+				dl1.m = "oh yeah?"
+				dl1.o = {
+					"continue"
+				}
+				dl1.ol = #dl1.o
+				dl1.FirstOption = true
+				dl1_flag = "fight"
+			elseif dl1.select == 4 then
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
 			if not dl1.SecondOption then
-			
+				if dl1_flag == "question" then
+					if dl1.select == 1 then
+						dl1.m = ""
+						dl1.o = {
+							"continue"
+						}
+						dl1.ol = #dl1.o
+						dl1.SecondOption = true
+						dl1_flag = "more"
+					elseif dl1.select == 2 then
+						dl1.m = ""
+						dl1.o = {
+							"continue"
+						}
+						dl1.ol = #dl1.o
+						dl1.SecondOption = true
+						dl1_flag = "accept"
+					elseif dl1.select == 3 then
+						dl1.m = ""
+						dl1.o = {
+							"continue"
+						}
+						dl1.ol = #dl1.o
+						dl1.SecondOption = true
+						dl1_flag = "refuse"
+					elseif dl1.select == 4 then
+						Alert.new('Left','stat')
+						gamestate = 'alert'
+					end
+				elseif dl1_flag == "steal" then
+					if Atk >= 20 then
+						dl1.FirstOption = false
+						-- Tracey doesnt care about stealing as much
+						if math.random(1,51) % 51 == 0 then
+							dl1_stole = true
+						end
+						raiseCash(10)
+						CrimeUpdate(2)
+						Exp.add(25)
+						Alert.new('Stole from Tracey','stat')
+						gamestate = 'alert'
+					else
+						dl1.FirstOption = false
+						CrimeUpdate(1)
+						lowerRep(50)
+						Exp.add(20)
+						dl1_astole = true
+						Alert.new('Failed to Steal from\n\nTracey','stat')
+						gamestate = 'alert'
+					end
+				elseif dl1_flag == "fight" then
+					if Atk >= 25 then
+						dl1.FirstOption = false
+						dl1.Hp = dl1.Hp - 1
+						CrimeUpdate(3)
+						lowerRep(50)
+						Exp.add(25)
+						Alert.new('Beat Tracey','stat')
+						gamestate = 'alert'
+					else
+						dl1.FirstOption = false
+						Hurt(55)
+						lowerRep(50)
+						CrimeUpdate(2)
+						Alert.new('Failed to Beat Tracey','stat')
+						gamestate = 'alert'
+					end
+				end
 			else
 				if not dl1.ThirdOption then
 					

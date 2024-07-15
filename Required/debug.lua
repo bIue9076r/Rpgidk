@@ -323,7 +323,7 @@ function console.cmds.give(lntbl)
 		if(lntbl[3] and lntbl[4] and type(tonumber(lntbl[3]:lower()) + tonumber(lntbl[4]:lower())) == 'number')then
 			if(lntbl[5])then
 				for i = 1,tonumber(lntbl[4]:lower()) do
-					Item:new(lntbl[5]:lower(),nil,tonumber(lntbl[3]:lower()),10)
+					Item.new(lntbl[5]:lower(),nil,tonumber(lntbl[3]:lower()),10)
 				end
 				--[[if lntbl[6] and lntbl[6]:lower() == 'newline' then
 					local ntbl = {}
@@ -343,7 +343,7 @@ function console.cmds.give(lntbl)
 		if(lntbl[3] and lntbl[4] and type(tonumber(lntbl[3]:lower()) + tonumber(lntbl[4]:lower())) == 'number')then
 			if(lntbl[5])then
 				for i = 1,tonumber(lntbl[4]:lower()) do
-					Note:new(lntbl[5]:lower(),tonumber(lntbl[3]:lower()))
+					Note.new(lntbl[5]:lower(),tonumber(lntbl[3]:lower()))
 				end
 				--[[if lntbl[6] and lntbl[6]:lower() == 'newline' then
 					local ntbl = {}
@@ -589,7 +589,7 @@ function console.cmds.bitem(lntbl)
 	if(lntbl[2] and lntbl[3] and type(tonumber(lntbl[2]:lower()) + tonumber(lntbl[3]:lower())) == 'number')then
 		if(lntbl[4])then
 			for i = 1,tonumber(lntbl[3]:lower()) do
-				Item:new(lntbl[4]:lower(),nil,tonumber(lntbl[2]:lower()),10)
+				Item.new(lntbl[4]:lower(),nil,tonumber(lntbl[2]:lower()),10)
 			end
 			--[[if lntbl[5] and lntbl[5]:lower() == 'newline' then
 				local ntbl = {}
@@ -610,7 +610,7 @@ function console.cmds.note(lntbl)
 	if(lntbl[2] and lntbl[3] and type(tonumber(lntbl[2]:lower()) + tonumber(lntbl[3]:lower())) == 'number')then
 		if(lntbl[4])then
 			for i = 1,tonumber(lntbl[3]:lower()) do
-				Note:new(lntbl[4]:lower(),tonumber(lntbl[2]:lower()))
+				Note.new(lntbl[4]:lower(),tonumber(lntbl[2]:lower()))
 			end
 			--[[if lntbl[5] and lntbl[5]:lower() == 'newline' then
 				local ntbl = {}

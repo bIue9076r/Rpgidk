@@ -4,7 +4,7 @@ dw9.m = 'A Sand Monster approaches you'
 dw9.m2 = ''
 dw9.o = {'f:fight','r:run'}
 dw9.f = dw9.o
-dw9.i = image:getImage('')
+dw9.i = image.getImage('Sand_monster')
 dw9.inDialoge = false
 dw9.option = false
 dw9.Hp = 10
@@ -29,22 +29,22 @@ function dw9.keypressed(key)
 			raiseDef(15)
 			raiseRep(150)
 			raiseCash(150)
-			Alert:new('Fought The Sand Monster','stat')
-			Exp:add(600)
+			Alert.new('Fought The Sand Monster','stat')
+			Exp.add(600)
 			gamestate = 'alert'
 		else
 			Hurt(450)
-			Alert:new('Attacked by a Sand Monster','stat')
+			Alert.new('Attacked by a Sand Monster','stat')
 			gamestate = 'alert'
 		end
 	elseif key == 'r' then
 		if Def >= 80 or math.random(1,20) == 5 then
-			Alert:new('Ran Away','stat')
-			Exp:add(600)
+			Alert.new('Ran Away','stat')
+			Exp.add(600)
 			gamestate = 'alert'
 		else
 			Hurt(450)
-			Alert:new('Attacked by a Sand Monster\n\nWhile Running Away','stat')
+			Alert.new('Attacked by a Sand Monster\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

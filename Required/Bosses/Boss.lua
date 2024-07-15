@@ -1,7 +1,7 @@
 -- Boss Module
 Boss = {}
 CBoss = {}
-Boss.song = sound:getSound("bgroov")
+Boss.song = sound.getSound("bgroov")
 
 function Boss.new(name,image,lvl,typ,song)
 	local tbl = {
@@ -9,7 +9,7 @@ function Boss.new(name,image,lvl,typ,song)
 		img = image or "",
 		lvl = lvl or 1,
 		typ = typ or 0,
-		song = song or sound:getSound("bgroov"),
+		song = song or sound.getSound("bgroov"),
 		vars = {},
 	}
 	

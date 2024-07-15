@@ -1,7 +1,7 @@
 --1 to 10
 function NoteUses.Ran1()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
 	love.graphics.print({{0,0,0},"Why Are you reading this"},60,80)
 	love.graphics.print({{0,0,0},"Where did you get this"},60,100)
 	love.graphics.print({{0,0,0},"Do you know Stealing is illegal"},60,120)
@@ -12,8 +12,8 @@ end
 RanNoteUse[1] = NoteUses.Ran1
 
 function NoteUses.Ran2()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
 	love.graphics.print({{0,0,0},"Dear person Reading this"},60,80)
 	love.graphics.print({{0,0,0},"Which do you find to be the"},60,120)
 	love.graphics.print({{0,0,0},"better type?"},60,140)
@@ -29,8 +29,8 @@ end
 RanNoteUse[2] = NoteUses.Ran2
 
 function NoteUses.Ran3()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
 	love.graphics.print({{0,0,0},"--------------------------------"},60,80)
 	love.graphics.print({{0,0,0},"--------------------------------"},60,100)
 	love.graphics.print({{0,0,0},"--------------------------------"},60,120)
@@ -53,8 +53,8 @@ end
 RanNoteUse[3] = NoteUses.Ran3
 
 function NoteUses.Ran4()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
 	love.graphics.print({{0,0,0},"Peanut Butter (weapon)"},60,80)
 	------------------------------12345678901234567890123456789012
 end

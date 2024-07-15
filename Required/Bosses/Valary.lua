@@ -1,4 +1,4 @@
-B_Valary = Boss.new("Valary","",100,1,sound:getSound("in")) -- Attacker / Final Boss-ish
+B_Valary = Boss.new("Valary","",100,1,sound.getSound("in")) -- Attacker / Final Boss-ish
 B_Valary.vars.select = 1
 B_Valary.vars.opt = {"Rest","Block","Attack"}
 B_Valary.vars.did = "Valary jumps at you"
@@ -29,7 +29,7 @@ function B_Valary.actOn(c)
 	end
 	if fight.npc.Hp <= 0 then
 		B_Valary:sstop()
-		Alert:new("Beat\n\n"..fight.npc.name,'stat')
+		Alert.new("Beat\n\n"..fight.npc.name,'stat')
 		gamestate = 'alert'
 	end
 end
@@ -53,7 +53,7 @@ function B_Valary.actTo(c)
 		-- she kills you
 		B_Valary:sstop()
 		Hp = 0
-		Alert:new("You fainted",'stat')
+		Alert.new("You fainted",'stat')
 		gamestate = 'alert'
 	end
 	
@@ -84,7 +84,7 @@ end
 
 function B_Valary:draw()
 	B_Valary:splay()
-	love.graphics.draw(image:getImage(B_Valary.img),60,40)
+	love.graphics.draw(image.getImage(B_Valary.img),60,40)
 	love.graphics.print({{0,0,0},"Hp:"..fight.npc.Hp},340,300+(0*20))
 	love.graphics.print({Atk_color,"Atk:"..fight.npc.Atk},340,300+(1*20))
 	love.graphics.print({Def_color,"Def:"..fight.npc.Def},340,300+(2*20))
@@ -109,5 +109,5 @@ function B_Valary:draw()
 	for i,v in pairs(B_Valary.vars.opt) do
 		love.graphics.print({{0,0,0},v},85,330+(i*20))
 	end
-	love.graphics.draw(image:getImage("Selected"),60,330+(B_Valary.vars.select*20))
+	love.graphics.draw(image.getImage("Selected"),60,330+(B_Valary.vars.select*20))
 end

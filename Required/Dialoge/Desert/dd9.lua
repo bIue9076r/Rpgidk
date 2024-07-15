@@ -4,7 +4,7 @@ dd9.m = '"Would you like to \n\nbuy some goods"'
 dd9.m2 = ''
 dd9.o = {'t:talk','r:run','f:fight','s:steal'}
 dd9.f = dd9.o
-dd9.i = image:getImage('')
+dd9.i = image.getImage('Baker')
 dd9.inDialoge = false
 dd9.option = false
 dd9.Hp = 10
@@ -37,7 +37,7 @@ function dd9.keypressed(key)
 				dd9.o = {'b:buy','s:steal','l:leave'}
 				dd9.inDialoge = true
 			elseif key == 'r' then
-				Alert:new('Ran Away','stat')
+				Alert.new('Ran Away','stat')
 				gamestate = 'alert'
 			elseif key == 'f' then
 				if Atk >= 75 or math.random(1,20) == 4 then
@@ -46,15 +46,15 @@ function dd9.keypressed(key)
 					raiseAtk(5)
 					raiseCash(40)
 					CrimeUpdate(2)
-					Item:new("Tooth","Tooth",6,10)
-					Alert:new('Fought the baker','stat')
-					Exp:add(120)
+					Item.new("Tooth","Tooth",6,10)
+					Alert.new('Fought the baker','stat')
+					Exp.add(120)
 					gamestate = 'alert'
 				else
 					lowerRep(50)
 					Hurt(20)
 					CrimeUpdate(1)
-					Alert:new('Failed to beat \n\nthe baker','stat')
+					Alert.new('Failed to beat \n\nthe baker','stat')
 					gamestate = 'alert'
 				end
 			elseif key == 's' then
@@ -68,16 +68,16 @@ function dd9.keypressed(key)
 					if Atk >= 75 or math.random(1,20) == 4 then
 						lowerRep(95)
 						CrimeUpdate(2)
-						Item:new("Mystery Food","Mystery",0,0)
-						Alert:new('Stole the baker\'s item','stat')
-						Exp:add(100)
+						Item.new("Mystery Food","Mystery",0,0)
+						Alert.new('Stole the baker\'s item','stat')
+						Exp.add(100)
 						gamestate = 'alert'
 						dd9.inDialoge = false
 					else
 						Hurt(20)
 						lowerRep(55)
 						CrimeUpdate(1)
-						Alert:new('Failed to rob the baker','stat')
+						Alert.new('Failed to rob the baker','stat')
 						gamestate = 'alert'
 						dd9.inDialoge = false
 					end
@@ -102,31 +102,31 @@ function dd9.keypressed(key)
 					if Food_select == 1 then
 						if Cash >= 25 then
 							Cash = Cash - 25
-							Item:new('Cactus','placeholderIcon',46)
-							Alert:new('Bought Cactus','world')
+							Item.new('Cactus','Cactus',46)
+							Alert.new('Bought Cactus','world')
 							gamestate = 'alert'
 						else
-							Alert:new('Not enough cash','world')
+							Alert.new('Not enough cash','world')
 							gamestate = 'alert'
 						end
 					elseif Food_select == 2 then
 						if Cash >= 30 then
 							Cash = Cash - 30
-							Item:new('SandCake','placeholderIcon',48)
-							Alert:new('Bought a Sandcake','world')
+							Item.new('SandCake','Sand_cake',48)
+							Alert.new('Bought a Sandcake','world')
 							gamestate = 'alert'
 						else
-							Alert:new('Not enough cash','world')
+							Alert.new('Not enough cash','world')
 							gamestate = 'alert'
 						end
 					elseif Food_select == 3 then
 						if Cash >= 8 then
 							Cash = Cash - 8
-							Item:new('Tea','placeholderIcon',27)
-							Alert:new('Bought some Tea','world')
+							Item.new('Tea','Tea',27)
+							Alert.new('Bought some Tea','world')
 							gamestate = 'alert'
 						else
-							Alert:new('Not enough cash','world')
+							Alert.new('Not enough cash','world')
 							gamestate = 'alert'
 						end
 					end
@@ -142,7 +142,7 @@ function dd9.keypressed(key)
 				dd9.o = {'b:buy','s:steal','l:leave'}
 				dd9.inDialoge = true
 			elseif key == 'r' then
-				Alert:new('Ran Away','stat')
+				Alert.new('Ran Away','stat')
 				gamestate = 'alert'
 			elseif key == 'f' then
 				if Atk >= 75 or math.random(1,15) == 4 then
@@ -151,15 +151,15 @@ function dd9.keypressed(key)
 					raiseAtk(5)
 					raiseCash(40)
 					CrimeUpdate(2)
-					Item:new("Tooth","Tooth",6,15)
-					Alert:new('Fought the baker','stat')
-					Exp:add(120)
+					Item.new("Tooth","Tooth",6,15)
+					Alert.new('Fought the baker','stat')
+					Exp.add(120)
 					gamestate = 'alert'
 				else
 					lowerRep(20)
 					Hurt(10)
 					CrimeUpdate(1)
-					Alert:new('Failed to beat \n\nthe baker','stat')
+					Alert.new('Failed to beat \n\nthe baker','stat')
 					gamestate = 'alert'
 				end
 			elseif key == 's' then
@@ -173,16 +173,16 @@ function dd9.keypressed(key)
 					if Atk >= 75 or math.random(1,15) == 4 then
 						lowerRep(115)
 						CrimeUpdate(2)
-						Item:new("Mystery Food","Mystery",0,0)
-						Alert:new('Stole the baker\'s item','stat')
-						Exp:add(120)
+						Item.new("Mystery Food","Mystery",0,0)
+						Alert.new('Stole the baker\'s item','stat')
+						Exp.add(120)
 						gamestate = 'alert'
 						dd9.inDialoge = false
 					else
 						Hurt(40)
 						lowerRep(100)
 						CrimeUpdate(1)
-						Alert:new('Failed to rob the baker','stat')
+						Alert.new('Failed to rob the baker','stat')
 						gamestate = 'alert'
 						dd9.inDialoge = false
 					end
@@ -207,31 +207,31 @@ function dd9.keypressed(key)
 					if Food_select == 1 then
 						if Cash >= 25 then
 							Cash = Cash - 25
-							Item:new('Cactus','placeholderIcon',46)
-							Alert:new('Bought Cactus','world')
+							Item.new('Cactus','Cactus',46)
+							Alert.new('Bought Cactus','world')
 							gamestate = 'alert'
 						else
-							Alert:new('Not enough cash','world')
+							Alert.new('Not enough cash','world')
 							gamestate = 'alert'
 						end
 					elseif Food_select == 2 then
 						if Cash >= 30 then
 							Cash = Cash - 30
-							Item:new('SandCake','placeholderIcon',48)
-							Alert:new('Bought a Sandcake','world')
+							Item.new('SandCake','Sand_cake',48)
+							Alert.new('Bought a Sandcake','world')
 							gamestate = 'alert'
 						else
-							Alert:new('Not enough cash','world')
+							Alert.new('Not enough cash','world')
 							gamestate = 'alert'
 						end
 					elseif Food_select == 3 then
 						if Cash >= 8 then
 							Cash = Cash - 8
-							Item:new('Tea','placeholderIcon',27)
-							Alert:new('Bought some Tea','world')
+							Item.new('Tea','Tea',27)
+							Alert.new('Bought some Tea','world')
 							gamestate = 'alert'
 						else
-							Alert:new('Not enough cash','world')
+							Alert.new('Not enough cash','world')
 							gamestate = 'alert'
 						end
 					end

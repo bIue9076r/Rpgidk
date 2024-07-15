@@ -4,7 +4,7 @@ ds4.m = '"Any traveling tips?"'
 ds4.m2 = ''
 ds4.o = {'y:yes','r:run','f:fight','t:talk'}
 ds4.f = ds4.o
-ds4.i = image:getImage('')
+ds4.i = image.getImage('Tourist')
 ds4.inDialoge = false
 ds4.option = false
 ds4.Hp = 15
@@ -32,7 +32,7 @@ function ds4.keypressed(key)
 			ds4.inDialoge = true
 			ds4.o = {'p:point','t:talk','l:leave'}
 		elseif key == 'r' then
-			Alert:new('Ran Away','stat')
+			Alert.new('Ran Away','stat')
 			gamestate = 'alert'
 		elseif key == 'f' then
 			if Atk > 20 then
@@ -44,14 +44,14 @@ function ds4.keypressed(key)
 				raiseAtk(2)
 				raiseCash(20)
 				CrimeUpdate(3)
-				Exp:add(90)
-				Item:new("Tooth","Tooth",6,25)
-				Alert:new('Beat The Tourist','stat')
+				Exp.add(90)
+				Item.new("Tooth","Tooth",6,25)
+				Alert.new('Beat The Tourist','stat')
 				gamestate = 'alert'
 			else
 				Hurt(30)
 				CrimeUpdate(1)
-				Alert:new('Failed to beat\n\nThe Tourist','stat')
+				Alert.new('Failed to beat\n\nThe Tourist','stat')
 				gamestate = 'alert'
 			end
 		elseif key == 's' then
@@ -64,23 +64,23 @@ function ds4.keypressed(key)
 	else
 		if key == 'p' then
 			raiseRep(25)
-			Exp:add(100)
+			Exp.add(100)
 			if Rep < 0 then
 				raiseRep(20)
 			end
 			ds4.Hp = ds4.Hp - 1
 			ds4.inDialoge = false
-			Alert:new('Pointed at a\n\nlandmark','stat')
+			Alert.new('Pointed at a\n\nlandmark','stat')
 			gamestate = 'alert'
 		elseif key == 't' then
 			raiseRep(25)
-			Exp:add(100)
+			Exp.add(100)
 			if Rep < 0 then
 				raiseRep(20)
 			end
 			ds4.Hp = ds4.Hp - 1
 			ds4.inDialoge = false
-			Alert:new('Gave directions to\n\na landmark','stat')
+			Alert.new('Gave directions to\n\na landmark','stat')
 			gamestate = 'alert'
 		elseif key == 'l' then
 			ds4.inDialoge = false

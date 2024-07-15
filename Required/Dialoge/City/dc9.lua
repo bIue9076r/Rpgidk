@@ -4,7 +4,7 @@ dc9.m = '"Need a Lift"'
 dc9.m2 = ''
 dc9.o = {'t:talk','r:run','f:fight','s:steal'}
 dc9.f = dc9.o
-dc9.i = image:getImage('')
+dc9.i = image.getImage('Bus_driver')
 dc9.inDialoge = false
 dc9.option = false
 dc9.Hp = 3
@@ -36,7 +36,7 @@ function dc9.keypressed(key)
 				dc9.inDialoge = true
 				dc9.o = {'y:yes','l:leave'}
 			elseif key == 'r' then
-				Alert:new('Ran Away','stat')
+				Alert.new('Ran Away','stat')
 				gamestate = 'alert'
 			elseif key == 'f' then
 				if Atk >= 30 or math.random(1,30) == 5 then
@@ -45,15 +45,15 @@ function dc9.keypressed(key)
 					raiseAtk(7)
 					raiseCash(80)
 					CrimeUpdate(2)
-					Item:new("Tooth","Tooth",6,25)
-					Alert:new('Fought The Bus Driver','stat')
-					Exp:add(120)
+					Item.new("Tooth","Tooth",6,25)
+					Alert.new('Fought The Bus Driver','stat')
+					Exp.add(120)
 					gamestate = 'alert'
 				else
 					Hurt(35)
 					lowerRep(150)
 					CrimeUpdate(1)
-					Alert:new('Failed to beat The Bus Driver','stat')
+					Alert.new('Failed to beat The Bus Driver','stat')
 					gamestate = 'alert'
 				end
 			elseif key == 's' then
@@ -74,7 +74,7 @@ function dc9.keypressed(key)
 				dc9.inDialoge = true
 				dc9.o = {'y:yes','l:leave'}
 			elseif key == 'r' then
-				Alert:new('Ran Away','stat')
+				Alert.new('Ran Away','stat')
 				gamestate = 'alert'
 			elseif key == 'f' then
 				if Atk >= 30 or math.random(1,30) == 5 then
@@ -83,15 +83,15 @@ function dc9.keypressed(key)
 					raiseAtk(7)
 					raiseCash(80)
 					CrimeUpdate(2)
-					Item:new("Tooth","Tooth",6,25)
-					Alert:new('Fought The Bus Driver','stat')
-					Exp:add(120)
+					Item.new("Tooth","Tooth",6,25)
+					Alert.new('Fought The Bus Driver','stat')
+					Exp.add(120)
 					gamestate = 'alert'
 				else
 					Hurt(35)
 					lowerRep(150)
 					CrimeUpdate(1)
-					Alert:new('Failed to beat The Bus Driver','stat')
+					Alert.new('Failed to beat The Bus Driver','stat')
 					gamestate = 'alert'
 				end
 			elseif key == 's' then

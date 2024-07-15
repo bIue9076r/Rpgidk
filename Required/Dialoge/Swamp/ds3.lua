@@ -4,7 +4,7 @@ ds3.m = 'A Giant Fly approches you'
 ds3.m2 = ''
 ds3.o = {'f:fight','r:run'}
 ds3.f = ds3.o
-ds3.i = image:getImage('')
+ds3.i = image.getImage('Giant_fly')
 ds3.inDialoge = false
 ds3.option = false
 ds3.Hp = 110
@@ -29,22 +29,22 @@ function ds3.keypressed(key)
 			raiseDef(3)
 			raiseRep(45)
 			raiseCash(65)
-			Alert:new('Fought The Fly','stat')
+			Alert.new('Fought The Fly','stat')
 			gamestate = 'alert'
-			Exp:add(365)
+			Exp.add(365)
 		else
 			Hurt(175)
-			Alert:new('Stung by a Fly','stat')
+			Alert.new('Stung by a Fly','stat')
 			gamestate = 'alert'
 		end
 	elseif key == 'r' then
 		if Def >= 38 or math.random(1,30) == 5 then
-			Alert:new('Ran Away','stat')
-			Exp:add(185)
+			Alert.new('Ran Away','stat')
+			Exp.add(185)
 			gamestate = 'alert'
 		else
 			Hurt(165)
-			Alert:new('Stung by a Fly\n\nWhile Running Away','stat')
+			Alert.new('Stung by a Fly\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

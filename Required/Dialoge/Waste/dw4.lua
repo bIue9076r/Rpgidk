@@ -4,7 +4,7 @@ dw4.m = '"Want some food?"'
 dw4.m2 = ''
 dw4.o = {'y:yes','r:run','f:fight'}
 dw4.f = dw4.o
-dw4.i = image:getImage('')
+dw4.i = image.getImage('Hunter')
 dw4.inDialoge = false
 dw4.option = false
 dw4.Hp = 25
@@ -33,7 +33,7 @@ function dw4.keypressed(key)
 			dw4.o = {'b:buy','s:steal','l:leave'}
 			dw4.inDialoge = true
 		elseif key == 'r' then
-			Alert:new('Ran Away','stat')
+			Alert.new('Ran Away','stat')
 			gamestate = 'alert'
 		elseif key == 'f' then
 			if Atk >= 200 or math.random(1,20) == 4 then
@@ -43,15 +43,15 @@ function dw4.keypressed(key)
 				raiseDef(10)
 				raiseCash(400)
 				CrimeUpdate(3)
-				Item:new("Tooth","Tooth",6,50)
-				Alert:new('Fought the Hunter','stat')
-				Exp:add(300)
+				Item.new("Tooth","Tooth",6,50)
+				Alert.new('Fought the Hunter','stat')
+				Exp.add(300)
 				gamestate = 'alert'
 			else
 				lowerRep(210)
 				Hurt(250)
 				CrimeUpdate(1)
-				Alert:new('Failed to beat\n\nthe Hunter','stat')
+				Alert.new('Failed to beat\n\nthe Hunter','stat')
 				gamestate = 'alert'
 			end
 		end
@@ -63,16 +63,16 @@ function dw4.keypressed(key)
 				if Atk >= 175 or math.random(1,20) == 4 then
 					lowerRep(105)
 					CrimeUpdate(2)
-					Item:new("Mystery Food","Mystery",0,0)
-					Alert:new('Stole the Hunter\'s item','stat')
-					Exp:add(100)
+					Item.new("Mystery Food","Mystery",0,0)
+					Alert.new('Stole the Hunter\'s item','stat')
+					Exp.add(100)
 					gamestate = 'alert'
 					dw4.inDialoge = false
 				else
 					Hurt(150)
 					lowerRep(255)
 					CrimeUpdate(1)
-					Alert:new('Failed to rob the Hunter','stat')
+					Alert.new('Failed to rob the Hunter','stat')
 					gamestate = 'alert'
 					dw4.inDialoge = false
 				end
@@ -93,31 +93,31 @@ function dw4.keypressed(key)
 				if Food_select == 1 then
 					if Cash >= 20 then
 						Cash = Cash - 20
-						Item:new('Rosted Scorpion','placeholderIcon',46)
-						Alert:new('Bought Rosted Scorpion','world')
+						Item.new('Rosted Scorpion','Rosted_scorpion',46)
+						Alert.new('Bought Rosted Scorpion','world')
 						gamestate = 'alert'
 					else
-						Alert:new('Not enough cash','world')
+						Alert.new('Not enough cash','world')
 						gamestate = 'alert'
 					end
 				elseif Food_select == 2 then
 					if Cash >= 5 then
 						Cash = Cash - 5
-						Item:new('Wild Game','placeholderIcon',48)
-						Alert:new('Bought Wild Game','world')
+						Item.new('Wild Game','Wild_game',48)
+						Alert.new('Bought Wild Game','world')
 						gamestate = 'alert'
 					else
-						Alert:new('Not enough cash','world')
+						Alert.new('Not enough cash','world')
 						gamestate = 'alert'
 					end
 				elseif Food_select == 3 then
 					if Cash >= 30 then
 						Cash = Cash - 30
-						Item:new('Toxic Waste','placeholderIcon',27)
-						Alert:new('Bought some Toxic Waste','world')
+						Item.new('Toxic Waste','Nuclear_waste',27)
+						Alert.new('Bought some Toxic Waste','world')
 						gamestate = 'alert'
 					else
-						Alert:new('Not enough cash','world')
+						Alert.new('Not enough cash','world')
 						gamestate = 'alert'
 					end
 				end

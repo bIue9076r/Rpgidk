@@ -4,7 +4,7 @@ dd10.m = '"Keep our Deserts Clean"'
 dd10.m2 = ''
 dd10.o = {'t:talk','r:run','f:fight','s:steal'}
 dd10.f = dd10.o
-dd10.i = image:getImage('')
+dd10.i = image.getImage('Recycling_man')
 dd10.inDialoge = false
 dd10.option = false
 dd10.Hp = 5
@@ -36,7 +36,7 @@ function dd10.keypressed(key)
 				dd10.inDialoge = true
 				dd10.o = {'y:yes','l:leave'}
 			elseif key == 'r' then
-				Alert:new('Ran Away','stat')
+				Alert.new('Ran Away','stat')
 				gamestate = 'alert'
 			elseif key == 'f' then
 				if Atk >= 60 or math.random(1,20) == 5 then
@@ -45,15 +45,15 @@ function dd10.keypressed(key)
 					raiseAtk(2)
 					raiseCash(90)
 					CrimeUpdate(2)
-					Item:new("Tooth","Tooth",6,30)
-					Alert:new('Fought the Recycling man','stat')
-					Exp:add(40)
+					Item.new("Tooth","Tooth",6,30)
+					Alert.new('Fought the Recycling man','stat')
+					Exp.add(40)
 					gamestate = 'alert'
 				else
 					lowerRep(120)
 					Hurt(45)
 					CrimeUpdate(1)
-					Alert:new('Failed to beat \n\nthe Recycling man','stat')
+					Alert.new('Failed to beat \n\nthe Recycling man','stat')
 					gamestate = 'alert'
 				end
 			elseif key == 's' then
@@ -77,13 +77,13 @@ function dd10.keypressed(key)
 					Inv_select = Inv_select + 1
 					end
 				elseif key == "return" then
-					if(Item:isReal(Inv_select+((Inv_page-1)*8))) then
-						Item:Remove(Inv_select+((Inv_page-1)*8))
+					if(Item.isReal(Inv_select+((Inv_page-1)*8))) then
+						Item.Remove(Inv_select+((Inv_page-1)*8))
 						raiseCash(20)
-						Alert:new('Removed Item','world')
+						Alert.new('Removed Item','world')
 						gamestate = 'alert'
 					else
-						Alert:new('No Item removed','world')
+						Alert.new('No Item removed','world')
 						gamestate = 'alert'
 					end
 				elseif key == "l" then
@@ -97,7 +97,7 @@ function dd10.keypressed(key)
 				dd10.inDialoge = true
 				dd10.o = {'y:yes','l:leave'}
 			elseif key == 'r' then
-				Alert:new('Ran Away','stat')
+				Alert.new('Ran Away','stat')
 				gamestate = 'alert'
 			elseif key == 'f' then
 				if Atk >= 60 or math.random(1,20) == 5 then
@@ -106,15 +106,15 @@ function dd10.keypressed(key)
 					raiseAtk(2)
 					raiseCash(90)
 					CrimeUpdate(2)
-					Item:new("Tooth","Tooth",6,30)
-					Alert:new('Fought the Recycling man','stat')
-					Exp:add(140)
+					Item.new("Tooth","Tooth",6,30)
+					Alert.new('Fought the Recycling man','stat')
+					Exp.add(140)
 					gamestate = 'alert'
 				else
 					lowerRep(120)
 					Hurt(45)
 					CrimeUpdate(1)
-					Alert:new('Failed to beat \n\nthe Recycling man','stat')
+					Alert.new('Failed to beat \n\nthe Recycling man','stat')
 					gamestate = 'alert'
 				end
 			elseif key == 's' then
@@ -138,13 +138,13 @@ function dd10.keypressed(key)
 					Inv_select = Inv_select + 1
 					end
 				elseif key == "return" then
-					if(Item:isReal(Inv_select+((Inv_page-1)*8))) then
-						Item:Remove(Inv_select+((Inv_page-1)*8))
+					if(Item.isReal(Inv_select+((Inv_page-1)*8))) then
+						Item.Remove(Inv_select+((Inv_page-1)*8))
 						raiseCash(20)
-						Alert:new('Removed Item','world')
+						Alert.new('Removed Item','world')
 						gamestate = 'alert'
 					else
-						Alert:new('No Item removed','world')
+						Alert.new('No Item removed','world')
 						gamestate = 'alert'
 					end
 				elseif key == "l" then

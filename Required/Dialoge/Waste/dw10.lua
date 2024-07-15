@@ -4,7 +4,7 @@ dw10.m = 'A Toxic Lizard approaches you'
 dw10.m2 = ''
 dw10.o = {'f:fight','r:run'}
 dw10.f = dw10.o
-dw10.i = image:getImage('')
+dw10.i = image.getImage('Toxic_lizard')
 dw10.inDialoge = false
 dw10.option = false
 dw10.Hp = 100
@@ -29,22 +29,22 @@ function dw10.keypressed(key)
 			raiseDef(13)
 			raiseRep(140)
 			raiseCash(140)
-			Alert:new('Fought The Toxic Lizard','stat')
-			Exp:add(565)
+			Alert.new('Fought The Toxic Lizard','stat')
+			Exp.add(565)
 			gamestate = 'alert'
 		else
 			Hurt(370)
-			Alert:new('Attacked by a Toxic Lizard','stat')
+			Alert.new('Attacked by a Toxic Lizard','stat')
 			gamestate = 'alert'
 		end
 	elseif key == 'r' then
 		if Def >= 58 or math.random(1,20) == 5 then
-			Alert:new('Ran Away','stat')
-			Exp:add(565)
+			Alert.new('Ran Away','stat')
+			Exp.add(565)
 			gamestate = 'alert'
 		else
 			Hurt(370)
-			Alert:new('Attacked by a Toxic Lizard\n\nWhile Running Away','stat')
+			Alert.new('Attacked by a Toxic Lizard\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

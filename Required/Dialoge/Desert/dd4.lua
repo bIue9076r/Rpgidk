@@ -4,7 +4,7 @@ dd4.m = '"Need something?"'
 dd4.m2 = ''
 dd4.o = {'y:yes','r:run','f:fight'}
 dd4.f = dd4.o
-dd4.i = image:getImage('')
+dd4.i = image.getImage('Wanderer')
 dd4.inDialoge = false
 dd4.option = false
 dd4.Hp = 40
@@ -35,7 +35,7 @@ function dd4.keypressed(key)
 			}
 			dd4.inDialoge = true
 		elseif key == 'r' then
-			Alert:new('Ran away','stat')
+			Alert.new('Ran away','stat')
 			gamestate = 'alert'
 		elseif key == 'f' then
 			if Atk >= 90 or math.random(1,15) == 4 then
@@ -44,13 +44,13 @@ function dd4.keypressed(key)
 				raiseDef(1)
 				lowerRep(100)
 				raiseCash(25)
-				Item:new("Tooth","Tooth",6,25)
-				Alert:new('Fought The Wanderer','stat')
+				Item.new("Tooth","Tooth",6,25)
+				Alert.new('Fought The Wanderer','stat')
 				gamestate = 'alert'
-				Exp:add(140)
+				Exp.add(140)
 			else
 				Hurt(70)
-				Alert:new('Falied to beat The Wanderer','stat')
+				Alert.new('Falied to beat The Wanderer','stat')
 				gamestate = 'alert'
 			end
 		end

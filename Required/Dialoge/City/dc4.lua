@@ -4,7 +4,7 @@ dc4.m = '"Need a Lift?"'
 dc4.m2 = ''
 dc4.o = {'t:talk','r:run','f:fight','s:steal'}
 dc4.f = dc4.o
-dc4.i = image:getImage('TaxiDriver')
+dc4.i = image.getImage('TaxiDriver')
 dc4.inDialoge = false
 dc4.option = false
 dc4.Hp = 10
@@ -36,7 +36,7 @@ function dc4.keypressed(key)
 				dc4.inDialoge = true
 				dc4.o = {'y:yes','l:leave'}
 			elseif key == 'r' then
-				Alert:new('Ran Away','stat')
+				Alert.new('Ran Away','stat')
 				gamestate = 'alert'
 			elseif key == 'f' then
 				if Atk >= 20 or math.random(1,20) == 5 then
@@ -46,15 +46,15 @@ function dc4.keypressed(key)
 					raiseDef(1)
 					raiseCash(70)
 					CrimeUpdate(2)
-					Item:new("Tooth","Tooth",6,15)
-					Alert:new('Fought The Taxi Driver','stat')
-					Exp:add(100)
+					Item.new("Tooth","Tooth",6,15)
+					Alert.new('Fought The Taxi Driver','stat')
+					Exp.add(100)
 					gamestate = 'alert'
 				else
 					Hurt(25)
 					lowerRep(100)
 					CrimeUpdate(1)
-					Alert:new('Failed to beat The Taxi Driver','stat')
+					Alert.new('Failed to beat The Taxi Driver','stat')
 					gamestate = 'alert'
 				end
 			elseif key == 's' then
@@ -75,7 +75,7 @@ function dc4.keypressed(key)
 				dc4.inDialoge = true
 				dc4.o = {'y:yes','l:leave'}
 			elseif key == 'r' then
-				Alert:new('Ran Away','stat')
+				Alert.new('Ran Away','stat')
 				gamestate = 'alert'
 			elseif key == 'f' then
 				if Atk >= 20 or math.random(1,20) == 5 then
@@ -85,15 +85,15 @@ function dc4.keypressed(key)
 					raiseDef(1)
 					raiseCash(70)
 					CrimeUpdate(2)
-					Item:new("Tooth","Tooth",6,15)
-					Alert:new('Fought The Taxi Driver','stat')
-					Exp:add(100)
+					Item.new("Tooth","Tooth",6,15)
+					Alert.new('Fought The Taxi Driver','stat')
+					Exp.add(100)
 					gamestate = 'alert'
 				else
 					Hurt(25)
 					lowerRep(100)
 					CrimeUpdate(1)
-					Alert:new('Failed to beat The Taxi Driver','stat')
+					Alert.new('Failed to beat The Taxi Driver','stat')
 					gamestate = 'alert'
 				end
 			elseif key == 's' then

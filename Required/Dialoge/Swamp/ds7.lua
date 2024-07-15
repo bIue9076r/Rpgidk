@@ -4,7 +4,7 @@ ds7.m = '"What are you doing this far south?"'
 ds7.m2 = ''
 ds7.o = {'t:talk','r:run','f:fight','s:steal'}
 ds7.f = ds7.o
-ds7.i = image:getImage()
+ds7.i = image.getImage("Swamp_ranger")
 ds7.inDialoge = false
 ds7.option = false
 ds7.Hp = 10
@@ -35,7 +35,7 @@ function ds7.keypressed(key)
 				ds7.o = {'y:yes','n:no','l:leave'}
 				ds7.inDialoge = true
 			elseif key == 'r' then
-				Alert:new('Ran away from the\n\nSwamp Ranger','stat')
+				Alert.new('Ran away from the\n\nSwamp Ranger','stat')
 				gamestate = 'alert'
 			elseif key == 'f' then
 				if Atk >= 160 then
@@ -45,14 +45,14 @@ function ds7.keypressed(key)
 					raiseDef(5)
 					raiseCash(65)
 					CrimeUpdate(3)
-					Exp:add(180)
-					Item:new("Tooth","Tooth",6,55)
-					Alert:new('Beat The\n\nSwamp Ranger','stat')
+					Exp.add(180)
+					Item.new("Tooth","Tooth",6,55)
+					Alert.new('Beat The\n\nSwamp Ranger','stat')
 					gamestate = 'alert'
 				else
 					Hurt(195)
 					CrimeUpdate(1)
-					Alert:new('Failed to beat\n\nThe Swamp Ranger','stat')
+					Alert.new('Failed to beat\n\nThe Swamp Ranger','stat')
 					gamestate = 'alert'
 				end
 			elseif key == 's' then
@@ -75,14 +75,14 @@ function ds7.keypressed(key)
 	else
 		if not ds7.inDialoge then
 			if key == 'return' then
-				Alert:new('Arrested by the\n\nSwamp Ranger','arrest')
+				Alert.new('Arrested by the\n\nSwamp Ranger','arrest')
 				gamestate = 'alert'
 			elseif key == 'r' then
 				if Def >= 30 then
-					Alert:new('Ran away from the\n\nSwamp Ranger','stat')
+					Alert.new('Ran away from the\n\nSwamp Ranger','stat')
 					gamestate = 'alert'
 				else
-					Alert:new('Failed to escape','arrest')
+					Alert.new('Failed to escape','arrest')
 					gamestate = 'alert'
 				end
 			elseif key == 't' then
@@ -97,12 +97,12 @@ function ds7.keypressed(key)
 					raiseDef(5)
 					raiseCash(65)
 					CrimeUpdate(3)
-					Exp:add(180)
-					Alert:new('Beat The\n\nSwamp Ranger','stat')
+					Exp.add(180)
+					Alert.new('Beat The\n\nSwamp Ranger','stat')
 					gamestate = 'alert'
 				else
 					Hurt(200)
-					Alert:new('Failed to beat\n\nThe Swamp Ranger','arrest')
+					Alert.new('Failed to beat\n\nThe Swamp Ranger','arrest')
 					gamestate = 'alert'
 				end
 			end
@@ -113,12 +113,12 @@ function ds7.keypressed(key)
 					raiseRep(100)
 					CrimeUpdate(1)
 					ds7.inDialoge = false
-					Alert:new('Bribed the\n\nSwamp Ranger','stat')
+					Alert.new('Bribed the\n\nSwamp Ranger','stat')
 					gamestate = 'alert'
 				else
 					D.location = 'city'
 					ds7.inDialoge = false
-					Alert:new('Arrested by the\n\nSwamp Ranger','arrest')
+					Alert.new('Arrested by the\n\nSwamp Ranger','arrest')
 					gamestate = 'alert'
 				end
 			elseif key == 'l' then

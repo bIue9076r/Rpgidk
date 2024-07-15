@@ -4,7 +4,7 @@ require('/Required/Dialoge/Waste/dw1') -- zombie
 require('/Required/Dialoge/Waste/dw2') -- barrel (talk to)
 require('/Required/Dialoge/Waste/dw3') -- wanderer
 require('/Required/Dialoge/Waste/dw4') -- hunter
-require('/Required/Dialoge/Waste/dw5') -- scorpian (toxic)
+require('/Required/Dialoge/Waste/dw5') -- scorpion (toxic)
 require('/Required/Dialoge/Waste/dw6') -- bore (toxic)
 require('/Required/Dialoge/Waste/dw7') -- vulture (toxic)
 require('/Required/Dialoge/Waste/dw8') -- police / millitary

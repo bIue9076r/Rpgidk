@@ -4,7 +4,7 @@ dd11.m = 'you come across the Desert Town'
 dd11.m2 = ''
 dd11.o = {'y:yes','n:no'}
 dd11.f = dd11.o
-dd11.i = image:getImage('gate')
+dd11.i = image.getImage('door')--'Desert_Town_Gate')
 dd11.inDialoge = false
 dd11.option = false
 dd11.Hp = 0--100
@@ -24,10 +24,10 @@ function dd11.keypressed(key)
 	if key == 'y' then
 		D.location = D.GetSubWorld(4)
 		Subselected = true
-		Alert:new('entering the Desert Town','stat')
+		Alert.new('entering the Desert Town','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then
-		Alert:new('left the Desert Town','stat')
+		Alert.new('left the Desert Town','stat')
 		gamestate = 'alert'
 	end
 end

@@ -4,7 +4,7 @@ ds9.m = 'You come across a Goo Puddle'
 ds9.m2 = ''
 ds9.o = {'d:drink','l:leave'}
 ds9.f = ds9.o
-ds9.i = image:getImage()
+ds9.i = image.getImage("Goo_puddle")
 ds9.inDialoge = false
 ds9.option = false
 ds9.Hp = 100
@@ -26,14 +26,14 @@ function ds9.keypressed(key)
 		ds9.Hp = ds9.Hp - 1
 		Hurt(50)
 		raiseAtk(15)
-		Alert:new('Drank from the pool','stat')
+		Alert.new('Drank from the pool','stat')
 		gamestate = 'alert'
 	elseif key == 's' then
 		ds9.Hp = ds9.Hp - 1
-		Alert:new('Splashed the pool','stat')
+		Alert.new('Splashed the pool','stat')
 		gamestate = 'alert'
 	elseif key == 'l' then
-		Alert:new('left the Area','stat')
+		Alert.new('left the Area','stat')
 		gamestate = 'alert'
 	end
 end

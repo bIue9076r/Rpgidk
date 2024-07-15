@@ -4,7 +4,7 @@ dw8.m = 'What are you doing out here / Surrender Now'
 dw8.m2 = ''
 dw8.o = {'t:talk','r:run','f:fight'}
 dw8.f = dw8.o
-dw8.i = image:getImage('') -- / image:getImage('')
+dw8.i = image.getImage('Police') -- / image.getImage('Military')
 dw8.inDialoge = false
 dw8.option = false
 dw8.Hp = 50
@@ -62,7 +62,7 @@ function dw8.keypressed(key)
 					dw8.m = 'Lets stay in a safer area'
 					dw8.o = {'y:ok','l:leave'}
 				elseif key == 'r' then
-					Alert:new('Ran Away','stat')
+					Alert.new('Ran Away','stat')
 					gamestate = 'alert'
 				elseif key == 'f' then
 					if Atk >= (150 * 5) then
@@ -72,16 +72,16 @@ function dw8.keypressed(key)
 						raiseDef(20)
 						raiseCash(650)
 						CrimeUpdate(5)
-						Exp:add(150 * 5)
+						Exp.add(150 * 5)
 						for i = 1,5 do
-							Item:new("Tooth","Tooth",6,50)
+							Item.new("Tooth","Tooth",6,50)
 						end
-						Alert:new('Fought A Police Squad','stat')
+						Alert.new('Fought A Police Squad','stat')
 						gamestate = 'alert'
 					else
 						Hurt(500)
 						D.location = 'city'
-						Alert:new('Failed to beat the Police Squad','arrest')
+						Alert.new('Failed to beat the Police Squad','arrest')
 						gamestate = 'alert'
 					end
 				end
@@ -102,17 +102,17 @@ function dw8.keypressed(key)
 		else
 			if key == 't' then
 				D.location = 'city'
-				Alert:new('Arrested by the Police Squad','arrest')
+				Alert.new('Arrested by the Police Squad','arrest')
 				gamestate = 'alert'
 			elseif key == 'r' then
 				if Def >= 100 then
 					CrimeUpdate(2)
-					Alert:new('Ran Away','stat')
+					Alert.new('Ran Away','stat')
 					gamestate = 'alert'
 				else
 					Hurt(450)
 					D.location = 'city'
-					Alert:new('Failed to evade the Police Squad','arrest')
+					Alert.new('Failed to evade the Police Squad','arrest')
 					gamestate = 'alert'
 				end
 			elseif key == 'f' then
@@ -123,16 +123,16 @@ function dw8.keypressed(key)
 					raiseDef(20)
 					raiseCash(650)
 					CrimeUpdate(5)
-					Exp:add(150 * 5)
+					Exp.add(150 * 5)
 					for i = 1,5 do
-						Item:new("Tooth","Tooth",6,50)
+						Item.new("Tooth","Tooth",6,50)
 					end
-					Alert:new('Fought A Police Squad','stat')
+					Alert.new('Fought A Police Squad','stat')
 					gamestate = 'alert'
 				else
 					Hurt(500)
 					D.location = 'city'
-					Alert:new('Failed to beat the Police Squad','arrest')
+					Alert.new('Failed to beat the Police Squad','arrest')
 					gamestate = 'alert'
 				end
 			end
@@ -145,7 +145,7 @@ function dw8.keypressed(key)
 					dw8.m = 'Get Out of Here'
 					dw8.o = {'y:ok','l:leave'}
 				elseif key == 'r' then
-					Alert:new('Ran Away','stat')
+					Alert.new('Ran Away','stat')
 					gamestate = 'alert'
 				elseif key == 'f' then
 					if Atk >= (175 * 5) then
@@ -155,16 +155,16 @@ function dw8.keypressed(key)
 						raiseDef(20)
 						raiseCash(650)
 						CrimeUpdate(10)
-						Exp:add(175 * 5)
+						Exp.add(175 * 5)
 						for i = 1,5 do
-							Item:new("Tooth","Tooth",6,55)
+							Item.new("Tooth","Tooth",6,55)
 						end
-						Alert:new('Fought A Squad','stat')
+						Alert.new('Fought A Squad','stat')
 						gamestate = 'alert'
 					else
 						Hurt(600)
 						D.location = 'city'
-						Alert:new('Failed to beat the Squad','arrest')
+						Alert.new('Failed to beat the Squad','arrest')
 						gamestate = 'alert'
 					end
 				end
@@ -185,17 +185,17 @@ function dw8.keypressed(key)
 		else
 			if key == 't' then
 				D.location = 'city'
-				Alert:new('Arrested by the Squad','arrest')
+				Alert.new('Arrested by the Squad','arrest')
 				gamestate = 'alert'
 			elseif key == 'r' then
 				if Def >= 100 then
 					CrimeUpdate(3)
-					Alert:new('Ran Away','stat')
+					Alert.new('Ran Away','stat')
 					gamestate = 'alert'
 				else
 					Hurt(550)
 					D.location = 'city'
-					Alert:new('Failed to evade the Squad','arrest')
+					Alert.new('Failed to evade the Squad','arrest')
 					gamestate = 'alert'
 				end
 			elseif key == 'f' then
@@ -206,16 +206,16 @@ function dw8.keypressed(key)
 					raiseDef(20)
 					raiseCash(650)
 					CrimeUpdate(10)
-					Exp:add(175 * 5)
+					Exp.add(175 * 5)
 					for i = 1,5 do
-						Item:new("Tooth","Tooth",6,55)
+						Item.new("Tooth","Tooth",6,55)
 					end
-					Alert:new('Fought A Squad','stat')
+					Alert.new('Fought A Squad','stat')
 					gamestate = 'alert'
 				else
 					Hurt(600)
 					D.location = 'city'
-					Alert:new('Failed to beat the Squad','arrest')
+					Alert.new('Failed to beat the Squad','arrest')
 					gamestate = 'alert'
 				end
 			end

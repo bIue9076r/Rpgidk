@@ -4,7 +4,7 @@ dch4.m = 'You come across the\n\nexit'
 dch4.m2 = ''
 dch4.o = {'y:yes','n:no'}
 dch4.f = dch4.o
-dch4.i = image:getImage('')
+dch4.i = image.getImage('Door')
 dch4.FirstOption = false
 dch4.SecondOption = false
 dch4.option = false
@@ -24,10 +24,10 @@ function dch4.keypressed(key)
 	if key == 'y' then
 		D.SetLoc('city')
 		Subselected = false
-		Alert:new('Left the Capital Hall','stat')
+		Alert.new('Left the Capital Hall','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then
-		Alert:new('Stayed in the Capital Hall','stat')
+		Alert.new('Stayed in the Capital Hall','stat')
 		gamestate = 'alert'
 	end
 end

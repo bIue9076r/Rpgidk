@@ -4,7 +4,7 @@ di2.m = 'An Artic Bear approches you'
 di2.m2 = ''
 di2.o = {'f:fight','r:run'}
 di2.f = di2.o
-di2.i = image:getImage('')
+di2.i = image.getImage('Artic_bear')
 di2.inDialoge = false
 di2.option = false
 di2.Hp = 5
@@ -29,22 +29,22 @@ function di2.keypressed(key)
 			raiseDef(10)
 			raiseRep(95)
 			raiseCash(95)
-			Alert:new('Fought The Artic Bear','stat')
-			Exp:add(435)
+			Alert.new('Fought The Artic Bear','stat')
+			Exp.add(435)
 			gamestate = 'alert'
 		else
 			Hurt(275)
-			Alert:new('Attacked by an Artic Bear','stat')
+			Alert.new('Attacked by an Artic Bear','stat')
 			gamestate = 'alert'
 		end
 	elseif key == 'r' then
 		if Def >= 45 or math.random(1,20) == 5 then
-			Alert:new('Ran Away','stat')
-			Exp:add(355)
+			Alert.new('Ran Away','stat')
+			Exp.add(355)
 			gamestate = 'alert'
 		else
 			Hurt(205)
-			Alert:new('Attacked by an Artic Bear\n\nWhile Running Away','stat')
+			Alert.new('Attacked by an Artic Bear\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

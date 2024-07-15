@@ -5,7 +5,7 @@ dc3.m2 = ' for '
 dc3.m3 = '?"'
 dc3.o = {'t:talk','r:run','f:fight','s:steal'}
 dc3.f = dc3.o
-dc3.i = image:getImage('Merchant')
+dc3.i = image.getImage('Merchant')
 dc3.inDialoge = false
 dc3.option = false
 dc3.Hp = 25
@@ -43,7 +43,7 @@ function dc3.keypressed(key)
 				dc3.inDialoge = true
 				dc3.o = {'y:yes','l:leave'}
 			elseif key == 'r' then
-				Alert:new('Ran Away','stat')
+				Alert.new('Ran Away','stat')
 				gamestate = 'alert'
 			elseif key == 'f' then
 				if Atk >= 30 or math.random(1,30) == 5 then
@@ -53,16 +53,16 @@ function dc3.keypressed(key)
 					raiseDef(2)
 					raiseCash(100)
 					CrimeUpdate(2)
-					Item:new("Trader Tooth","TraderTooth",6,15)
+					Item.new("Trader Tooth","TraderTooth",6,15)
 					----------123456789012 fits the 13 char limit
-					Alert:new('Fought The Trader','stat')
-					Exp:add(175)
+					Alert.new('Fought The Trader','stat')
+					Exp.add(175)
 					gamestate = 'alert'
 				else
 					Hurt(30)
 					lowerRep(150)
 					CrimeUpdate(1)
-					Alert:new('Failed to beat The Trader','stat')
+					Alert.new('Failed to beat The Trader','stat')
 					gamestate = 'alert'
 				end
 			elseif key == 's' then
@@ -74,8 +74,8 @@ function dc3.keypressed(key)
 					sitem[dc3.n2][0] = sitem[dc3.n2][0] - 1
 					sitem[dc3.b][0] = sitem[dc3.b][0] + 1
 					dc3.inDialoge = false
-					Alert:new('Gave a '..sNitem[0]..Nitem[dc3.n2],'stat')
-					Exp:add(20)
+					Alert.new('Gave a '..sNitem[0]..Nitem[dc3.n2],'stat')
+					Exp.add(20)
 					gamestate = 'alert'
 					dc3.n2 = nil
 					dc3.b = nil
@@ -93,7 +93,7 @@ function dc3.keypressed(key)
 				dc3.inDialoge = true
 				dc3.o = {'y:yes','l:leave'}
 			elseif key == 'r' then
-				Alert:new('Ran Away','stat')
+				Alert.new('Ran Away','stat')
 				gamestate = 'alert'
 			elseif key == 'f' then
 				if Atk >= 30 or math.random(1,30) == 5 then
@@ -103,15 +103,15 @@ function dc3.keypressed(key)
 					raiseDef(2)
 					raiseCash(100)
 					CrimeUpdate(2)
-					Item:new("Trader Tooth","TraderTooth",6,15)
-					Alert:new('Fought The Trader','stat')
-					Exp:add(175)
+					Item.new("Trader Tooth","TraderTooth",6,15)
+					Alert.new('Fought The Trader','stat')
+					Exp.add(175)
 					gamestate = 'alert'
 				else
 					Hurt(30)
 					lowerRep(150)
 					CrimeUpdate(1)
-					Alert:new('Failed to beat The Trader','stat')
+					Alert.new('Failed to beat The Trader','stat')
 					gamestate = 'alert'
 				end
 			elseif key == 's' then
@@ -123,8 +123,8 @@ function dc3.keypressed(key)
 					sitem[dc3.n2][0] = sitem[dc3.n2][0] - 1
 					sitem[dc3.b][0] = sitem[dc3.b][0] + 1
 					dc3.inDialoge = false
-					Alert:new('Gave a '..sNitem[0]..Nitem[dc3.n2],'stat')
-					Exp:add(20)
+					Alert.new('Gave a '..sNitem[0]..Nitem[dc3.n2],'stat')
+					Exp.add(20)
 					gamestate = 'alert'
 					dc3.n2 = nil
 					dc3.b = nil

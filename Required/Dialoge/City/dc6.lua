@@ -4,7 +4,7 @@ dc6.m = '"Got any trash?"'
 dc6.m2 = ''
 dc6.o = {'t:talk','r:run','f:fight','s:steal'}
 dc6.f = dc6.o
-dc6.i = image:getImage('GarbageCollector')
+dc6.i = image.getImage('GarbageCollector')
 dc6.inDialoge = false
 dc6.option = false
 dc6.Hp = 7
@@ -39,7 +39,7 @@ function dc6.keypressed(key)
 				dc6.inDialoge = true
 				dc6.o = {'y:yes','l:leave'}
 			elseif key == 'r' then
-				Alert:new('Ran Away','stat')
+				Alert.new('Ran Away','stat')
 				gamestate = 'alert'
 			elseif key == 'f' then
 				if Atk >= 10 or math.random(1,10) == 5 then
@@ -48,15 +48,15 @@ function dc6.keypressed(key)
 					raiseAtk(2)
 					raiseCash(20)
 					CrimeUpdate(2)
-					Item:new("Tooth","Tooth",6,10)
-					Alert:new('Fought the Garbage Collector','stat')
-					Exp:add(40)
+					Item.new("Tooth","Tooth",6,10)
+					Alert.new('Fought the Garbage Collector','stat')
+					Exp.add(40)
 					gamestate = 'alert'
 				else
 					lowerRep(100)
 					Hurt(40)
 					CrimeUpdate(1)
-					Alert:new('Failed to beat \nthe Garbage Collector','stat')
+					Alert.new('Failed to beat \nthe Garbage Collector','stat')
 					gamestate = 'alert'
 				end
 			elseif key == 's' then
@@ -80,13 +80,13 @@ function dc6.keypressed(key)
 						Inv_select = Inv_select + 1
 					end
 				elseif key == "return" then
-					if(Item:isReal(Inv_select+((Inv_page-1)*8))) then
-						Item:Remove(Inv_select+((Inv_page-1)*8))
+					if(Item.isReal(Inv_select+((Inv_page-1)*8))) then
+						Item.Remove(Inv_select+((Inv_page-1)*8))
 						raiseCash(20)
-						Alert:new('Removed Item','world')
+						Alert.new('Removed Item','world')
 						gamestate = 'alert'
 					else
-						Alert:new('No Item removed','world')
+						Alert.new('No Item removed','world')
 						gamestate = 'alert'
 					end
 				elseif key == "l" then
@@ -100,7 +100,7 @@ function dc6.keypressed(key)
 				dc6.inDialoge = true
 				dc6.o = {'y:yes','l:leave'}
 			elseif key == 'r' then
-				Alert:new('Ran Away','stat')
+				Alert.new('Ran Away','stat')
 				gamestate = 'alert'
 			elseif key == 'f' then
 				if Atk >= 10 then
@@ -109,15 +109,15 @@ function dc6.keypressed(key)
 					raiseAtk(2)
 					raiseCash(20)
 					CrimeUpdate(2)
-					Item:new("Tooth","Tooth",6,10)
-					Alert:new('Fought the Garbage Collector','stat')
-					Exp:add(40)
+					Item.new("Tooth","Tooth",6,10)
+					Alert.new('Fought the Garbage Collector','stat')
+					Exp.add(40)
 					gamestate = 'alert'
 				else
 					lowerRep(100)
 					Hurt(40)
 					CrimeUpdate(1)
-					Alert:new('Failed to beat \nthe Garbage Collector','stat')
+					Alert.new('Failed to beat \nthe Garbage Collector','stat')
 					gamestate = 'alert'
 				end
 			elseif key == 's' then
@@ -141,13 +141,13 @@ function dc6.keypressed(key)
 					Inv_select = Inv_select + 1
 					end
 				elseif key == "return" then
-					if(Item:isReal(Inv_select+((Inv_page-1)*8))) then
-						Item:Remove(Inv_select+((Inv_page-1)*8))
+					if(Item.isReal(Inv_select+((Inv_page-1)*8))) then
+						Item.Remove(Inv_select+((Inv_page-1)*8))
 						raiseCash(20)
-						Alert:new('Removed Item','world')
+						Alert.new('Removed Item','world')
 						gamestate = 'alert'
 					else
-						Alert:new('No Item removed','world')
+						Alert.new('No Item removed','world')
 						gamestate = 'alert'
 					end
 				elseif key == "l" then

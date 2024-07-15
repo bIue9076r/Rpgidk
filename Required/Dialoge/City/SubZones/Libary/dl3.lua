@@ -4,7 +4,7 @@ dl3.m = 'You come across the\n\nexit'
 dl3.m2 = ''
 dl3.o = {'y:yes','n:no'}
 dl3.f = dl3.o
-dl3.i = image:getImage('')
+dl3.i = image.getImage('Door')
 dl3.FirstOption = false
 dl3.SecondOption = false
 dl3.option = false
@@ -24,10 +24,10 @@ function dl3.keypressed(key)
 	if key == 'y' then
 		D.SetLoc('city')
 		Subselected = false
-		Alert:new('Left the Libary','stat')
+		Alert.new('Left the Libary','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then
-		Alert:new('Stayed in the Libary','stat')
+		Alert.new('Stayed in the Libary','stat')
 		gamestate = 'alert'
 	end
 end

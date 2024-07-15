@@ -8,7 +8,7 @@ dah1.o = {
 }
 dah1.f = dah1.o
 dah1.ol = #dah1.o
-dah1.i = image:getImage('')
+dah1.i = image.getImage('Ashley')
 dah1.FirstOption = false
 dah1.SecondOption = false
 dah1.ThirdOption = false
@@ -69,7 +69,7 @@ function dah1.AdvKeyPress()
 	if Traitor or AttemptedTraitor then
 		if not dch3.FirstOption then
 			if dch3.select == 1 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
@@ -86,7 +86,7 @@ function dah1.AdvKeyPress()
 	elseif Rep >= 0 then
 		if not dch3.FirstOption then
 			if dch3.select == 1 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
@@ -103,7 +103,7 @@ function dah1.AdvKeyPress()
 	elseif Rep < 0 then
 		if not dch3.FirstOption then
 			if dch3.select == 1 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else

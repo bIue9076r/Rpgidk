@@ -4,7 +4,7 @@ ds11.m = 'you come across the Sea Dock Gate'
 ds11.m2 = ''
 ds11.o = {'y:yes','n:no'}
 ds11.f = ds11.o
-ds11.i = image:getImage()
+ds11.i = image.getImage('door')--"Sea_dock_gate")
 ds11.inDialoge = false
 ds11.option = false
 ds11.Hp = 0--100
@@ -24,10 +24,10 @@ function ds11.keypressed(key)
 	if key == 'y' then
 		D.location = D.GetSubWorld(7)
 		Subselected = true
-		Alert:new('entering the Sea Dock','stat')
+		Alert.new('entering the Sea Dock','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then
-		Alert:new('left the Sea Dock','stat')
+		Alert.new('left the Sea Dock','stat')
 		gamestate = 'alert'
 	end
 end

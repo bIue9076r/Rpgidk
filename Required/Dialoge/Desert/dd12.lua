@@ -4,7 +4,7 @@ dd12.m = 'you come across the Desert Mine'
 dd12.m2 = ''
 dd12.o = {'y:yes','n:no'}
 dd12.f = dd12.o
-dd12.i = image:getImage('door')
+dd12.i = image.getImage('door')
 dd12.inDialoge = false
 dd12.option = false
 dd12.Hp = 0--100
@@ -24,10 +24,10 @@ function dd12.keypressed(key)
 	if key == 'y' then
 		D.location = D.GetSubWorld(5)
 		Subselected = true
-		Alert:new('entering the Desert Mine','stat')
+		Alert.new('entering the Desert Mine','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then
-		Alert:new('left the Desert Mine','stat')
+		Alert.new('left the Desert Mine','stat')
 		gamestate = 'alert'
 	end
 end

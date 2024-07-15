@@ -4,7 +4,7 @@ dw2.m = 'You come across a Radioactive\n\nBarrel'
 dw2.m2 = ''
 dw2.o = {'t:touch','r:run'}
 dw2.f = dw2.o
-dw2.i = image:getImage('')
+dw2.i = image.getImage('Radioactive_barrel')
 dw2.inDialoge = false
 dw2.option = false
 dw2.Hp = 100
@@ -25,19 +25,19 @@ function dw2.keypressed(key)
 	if key == 't' then
 		if(math.random(0,1) == 1) then
 			Heal(100)
-			Alert:new('That worked some how','stat')
+			Alert.new('That worked some how','stat')
 		else
 			Hurt(100)
-			Alert:new('Hurt by the Radiation','stat')
+			Alert.new('Hurt by the Radiation','stat')
 		end
 		gamestate = 'alert'
 	elseif key == 'f' then
 		dw2.Hp = dw2.Hp - 1
 		Hurt(100)
-		Alert:new('Hurt by the Radiation?','stat')
+		Alert.new('Hurt by the Radiation?','stat')
 		gamestate = 'alert'
 	elseif key == 'l' then
-		Alert:new('left the Area','stat')
+		Alert.new('left the Area','stat')
 		gamestate = 'alert'
 	end
 end

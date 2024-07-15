@@ -4,7 +4,7 @@ di11.m = 'you come across the Ice Cave'
 di11.m2 = ''
 di11.o = {'key:desc'}
 di11.f = di11.o
-di11.i = image:getImage('')
+di11.i = image.getImage('door')--'Ice_cave_entrance')
 di11.inDialoge = false
 di11.option = false
 di11.Hp = 0--100
@@ -24,10 +24,10 @@ function di11.keypressed(key)
 	if key == 'y' then
 		D.location = D.GetSubWorld(9)
 		Subselected = true
-		Alert:new('entering the Ice Cave','stat')
+		Alert.new('entering the Ice Cave','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then
-		Alert:new('left the Ice Cave','stat')
+		Alert.new('left the Ice Cave','stat')
 		gamestate = 'alert'
 	end
 end

@@ -4,7 +4,7 @@ dc12.m = 'you come across the Capital Hall'
 dc12.m2 = ''
 dc12.o = {'y:yes','n:no'}
 dc12.f = dc12.o
-dc12.i = image:getImage('door')
+dc12.i = image.getImage('door')
 dc12.inDialoge = false
 dc12.option = false
 dc12.Hp = 0--100
@@ -25,10 +25,10 @@ function dc12.keypressed(key)
 	if key == 'y' then
 		D.location = D.GetSubWorld(2)
 		Subselected = true
-		Alert:new('entering the Capital Hall','stat')
+		Alert.new('entering the Capital Hall','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then
-		Alert:new('left the Capital Hall','stat')
+		Alert.new('left the Capital Hall','stat')
 		gamestate = 'alert'
 	end
 end

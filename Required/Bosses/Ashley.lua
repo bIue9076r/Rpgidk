@@ -22,9 +22,9 @@ function B_Ashley.actOn(c)
 	if fight.npc.Hp <= 0 then
 		B_Ashley:sstop()
 		Ashley_Hp = Ashley_Hp - 60
-		Quest:SetT('ashley')
-		Exp:add(60)
-		Alert:new("Beat\n\n"..fight.npc.name,'stat')
+		Quest.SetT('ashley')
+		Exp.add(60)
+		Alert.new("Beat\n\n"..fight.npc.name,'stat')
 		gamestate = 'alert'
 	end
 end
@@ -47,7 +47,7 @@ function B_Ashley.actTo(c)
 	if FHp <= 0 then
 		B_Ashley:sstop()
 		Hurt(40)
-		Alert:new("You fainted",'stat')
+		Alert.new("You fainted",'stat')
 		gamestate = 'alert'
 	end
 end
@@ -75,7 +75,7 @@ end
 
 function B_Ashley:draw()
 	B_Ashley:splay()
-	love.graphics.draw(image:getImage(B_Ashley.img),60,40)
+	love.graphics.draw(image.getImage(B_Ashley.img),60,40)
 	love.graphics.print({{0,0,0},"Hp:"..fight.npc.Hp},340,300+(0*20))
 	love.graphics.print({Atk_color,"Atk:"..fight.npc.Atk},340,300+(1*20))
 	love.graphics.print({Def_color,"Def:"..fight.npc.Def},340,300+(2*20))
@@ -100,5 +100,5 @@ function B_Ashley:draw()
 	for i,v in pairs(B_Ashley.vars.opt) do
 		love.graphics.print({{0,0,0},v},85,330+(i*20))
 	end
-	love.graphics.draw(image:getImage("Selected"),60,330+(B_Ashley.vars.select*20))
+	love.graphics.draw(image.getImage("Selected"),60,330+(B_Ashley.vars.select*20))
 end

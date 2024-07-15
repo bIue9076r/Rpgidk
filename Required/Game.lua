@@ -13,7 +13,7 @@ require("/Required/LoadModules")
 volume = 1/10
 gamestate = 'start'
 pev_gamestate = 'start'
-effect = sound:getSound('effect')
+effect = sound.getSound('effect')
 trash = {}
 
 --Base stats
@@ -108,7 +108,7 @@ helpedResearcher = false
 Valary = false
 
 --Quests
-Quest:new('ashley')
+Quest.new('ashley')
 
 --Keys
 legalChars = {
@@ -148,7 +148,7 @@ require("/Required/save")
 --love system functions
 function menu_draw()
 	--pcall(function()
-	love.graphics.draw(image:getImage('MainMap'),0,0)
+	love.graphics.draw(image.getImage('MainMap'),0,0)
 	love.graphics.print({{0,0,0},"Hi"},20,100)
 	love.graphics.print({{0,0,0},"Press Enter to Begin"},25,120)
 	--end)
@@ -156,7 +156,7 @@ end
 
 function name_draw()
 	--pcall(function()
-	love.graphics.draw(image:getImage('MainMap'),0,0)
+	love.graphics.draw(image.getImage('MainMap'),0,0)
 	love.graphics.print({{0,0,0},"Current Name: "..name},20,100)
 	love.graphics.print({{0,0,0},"Press Enter to confirm"},25,120)
 	--end)
@@ -164,22 +164,24 @@ end
 
 function world_draw()
 	--pcall(function()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('message'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('message'),0,0)
 	worldCmd.draw()
 	--end)
 end
 
 function boss_draw()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('message'),0,0)
+	--pcall(function()
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('message'),0,0)
 	CBoss:draw()
+	--end)
 end
 
 function stat_draw()
 	--pcall(function()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('Stats'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('Stats'),0,0)
 	displayPlayerStats()
 	love.graphics.print({{0,0,0},"O = Options"},240,410)
 	love.graphics.print({{0,0,0},"L = Leave"},240,430)
@@ -187,17 +189,19 @@ function stat_draw()
 end
 
 function void_draw()
+	--pcall(function()
 	local message = "welcome to the void\n\n".. 
 					"enjoy your stay"
 	love.graphics.print({{1,1,1},message},200,380)
 	if debugmode == true then
 		love.graphics.print({{1,1,1},"press '/' to go the debug menu"},90,460)
 	end
+	--end)
 end
 
 function options_draw()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('Stats'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('Stats'),0,0)
 	--200,310
 	love.graphics.print({{0,0,0},"Options:"},60,310)
 	--gameplay
@@ -214,18 +218,19 @@ end
 
 function config_draw()
 	--pcall(function()
-	love.graphics.draw(image:getImage('config'),0,0)
+	love.graphics.draw(image.getImage('config'),0,0)
 	love.graphics.print({{0,0,0},"Debugmode:"..tostring(debugmode)},60,290)
 	love.graphics.print({{0,0,0},"v: Voulme:"..tostring(volume)},60,310)
 	love.graphics.print({{0,0,0},"esc = leave"},280,430)
 	--end)
 end
 
-_ddx = 200
+-- This should work i think?
+--_ddx = 200
 function debug_draw()
 	--pcall(function()
 	out = console.getoutput()
-	love.graphics.draw(image:getImage('console'),0,0)
+	love.graphics.draw(image.getImage('console'),0,0)
 	local index = 0
 	for i = console.up,console.down do
 		if out[i] then
@@ -233,7 +238,8 @@ function debug_draw()
 			index = index + 1
 		end
 	end
-	--_ddx = _ddx or 50
+	
+	_ddx = _ddx or 200
 	love.graphics.setFont(love.graphics.newFont(14))
 	cintextlen = #console.intext
 	maxlen = 42
@@ -265,8 +271,8 @@ end
 
 function inv_draw()
 	--pcall(function()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('Inv'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('Inv'),0,0)
 	displayPlayerInv()
 	love.graphics.print({{0,0,0},"Options:"},240,330)
 	love.graphics.print({{0,0,0},"M = Medkits"},240,350)
@@ -279,8 +285,8 @@ end
 
 function inv_item_draw()
 	--pcall(function()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('Inv'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('Inv'),0,0)
 	displayPlayerInv()
 	love.graphics.print({{0,0,0},"Options:"},240,330)
 	love.graphics.print({{0,0,0},"C = Common"},240,350)
@@ -292,8 +298,8 @@ end
 
 function inv_draw_stuff()
 	--pcall(function()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('Inv'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('Inv'),0,0)
 	displayPlayerInv_stuff()
 	love.graphics.print({{0,0,0},"Options:"},(60+70)*2,330)
 	love.graphics.print({{0,0,0},"L = Leave"},(60+70)*2,350)
@@ -305,21 +311,21 @@ end
 function inv_draw_stuff_select()
 	--pcall(function()
 	Inv_select = Inv_select or 1
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('Inv'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('Inv'),0,0)
 	displayPlayerInv_stuff()
 	love.graphics.print({{0,0,0},"Options:"},(60+70)*2,330)
 	love.graphics.print({{0,0,0},"W = Up"},(60+70)*2,350)
 	love.graphics.print({{0,0,0},"S = Down"},(60+70)*2,370)
 	love.graphics.print({{0,0,0},"Return = Select"},(60+70)*2,390)
-	love.graphics.draw(image:getImage('Selected'),60,290+(20*(Inv_select-1)))
+	love.graphics.draw(image.getImage('Selected'),60,290+(20*(Inv_select-1)))
 	--end)
 end
 
 function note_draw_stuff()
 	--pcall(function()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('Inv'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('Inv'),0,0)
 	displayPlayerNote_stuff()
 	love.graphics.print({{0,0,0},"Options:"},(60+70)*2,330)
 	love.graphics.print({{0,0,0},"L = Leave"},(60+70)*2,350)
@@ -332,14 +338,14 @@ function note_draw_stuff_select()
 	--pcall(function()
 	Note_Inv_page = Note_Inv_page or 1
 	Note_Inv_select = Note_Inv_select or 1
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('Inv'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('Inv'),0,0)
 	displayPlayerNote_stuff()
 	love.graphics.print({{0,0,0},"Options:"},(60+70)*2,330)
 	love.graphics.print({{0,0,0},"W = Up"},(60+70)*2,350)
 	love.graphics.print({{0,0,0},"S = Down"},(60+70)*2,370)
 	love.graphics.print({{0,0,0},"Return = Select"},(60+70)*2,390)
-	love.graphics.draw(image:getImage('Selected'),60,290+(20*(Note_Inv_select-1)))
+	love.graphics.draw(image.getImage('Selected'),60,290+(20*(Note_Inv_select-1)))
 	--end)
 end
 
@@ -351,24 +357,24 @@ end
 function food_menu_draw()
 	--pcall(function()
 	Food_select = Food_select or 1
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('message'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('message'),0,0)
 	displayFoodMenu(D.location)
 	love.graphics.print({{0,0,0},"Options:"},(60+70)*2,330)
 	love.graphics.print({{0,0,0},"W = Up"},(60+70)*2,350)
 	love.graphics.print({{0,0,0},"S = Down"},(60+70)*2,370)
 	love.graphics.print({{0,0,0},"Return = Select"},(60+70)*2,390)
-	love.graphics.draw(image:getImage('Selected'),60,290+(20*(Food_select-1)))
+	love.graphics.draw(image.getImage('Selected'),60,290+(20*(Food_select-1)))
 	--end)
 end
 
 function alert_draw()
 	--pcall(function()
-	msg,img,aud = Alert:Return()
+	msg,img,aud = Alert.Return()
 	love.audio.pause(effect)
 	love.audio.play(aud)
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('Alert'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('Alert'),0,0)
 	love.graphics.draw(img,400,20)
 	love.graphics.print({{0,0,0},msg},60,75)
 	--end)
@@ -376,8 +382,8 @@ end
 
 function quit_draw()
 	--pcall(function()
-	love.graphics.draw(image:getImage('MainMap'))
-	love.graphics.draw(image:getImage('Alert'),0,0)
+	love.graphics.draw(image.getImage('MainMap'))
+	love.graphics.draw(image.getImage('Alert'),0,0)
 	love.graphics.print({{0,0,0},"Save? Y or N"},60,75)
 	if Q_option == true then
 		love.graphics.print({{0,0,0},"Saved!!!"},60,95)
@@ -391,17 +397,17 @@ function gameover_draw()
 	--pcall(function()
 	local aud = 'GameEnd'
 	if Rep >= 500 then aud = 'GameEnd+rep' end
-	love.audio.play(sound:getSound(aud))
-	love.graphics.draw(image:getImage('gameover'),0,0)
+	love.audio.play(sound.getSound(aud))
+	love.graphics.draw(image.getImage('gameover'),0,0)
 	--end)
 end
 
 function map_draw()
 	--pcall(function()
-	love.graphics.draw(image:getImage(mapimg),0,0)
-	love.graphics.draw(image:getImage('MapSelect_Locations'),0,0)
+	love.graphics.draw(image.getImage(mapimg),0,0)
+	love.graphics.draw(image.getImage('MapSelect_Locations'),0,0)
 	if selected == true then
-		love.graphics.draw(image:getImage('Alert'),0,0)
+		love.graphics.draw(image.getImage('Alert'),0,0)
 		love.graphics.print({{0,0,0},"Are You sure?"},60,75)
 		love.graphics.print({{0,0,0},"Enter or L"},60,95)
 	end
@@ -411,8 +417,8 @@ end
 function arrest_draw()
 	--pcall(function()
 	TimeSinceLastCrime = 0
-	love.graphics.draw(image:getImage('Jail'),0,0)
-	love.graphics.draw(image:getImage('Alert'),0,0)
+	love.graphics.draw(image.getImage('Jail'),0,0)
+	love.graphics.draw(image.getImage('Alert'),0,0)
 	love.graphics.print({{0,0,0},"you have been arrested"},60,75)
 	--end)
 end
@@ -502,15 +508,15 @@ function option_keypressed(key)
 		gamestate = 'stat'
 	elseif key == "b" then
 		if not Subselected then
-			Alert:new("entering the Buyin' store","shop")
+			Alert.new("entering the Buyin' store","shop")
 		else
-			Alert:new("Leave the Current location\nFirst","stat")
+			Alert.new("Leave the Current location\nFirst","stat")
 		end
 		gamestate = 'alert'
 	elseif key == "m" then
 		gamestate = 'map'
 	elseif key == "s" then
-		Alert:new("Saved",'stat')
+		Alert.new("Saved",'stat')
 		gamestate = 'alert'
 		save()
 	elseif key == "i" then
@@ -663,7 +669,7 @@ function inv_stuff_select_keypressed(key)
 			Inv_select = 1
 		end
 	elseif key == "return" then
-		Item:use(Inv_page,Inv_select)
+		Item.use(Inv_page,Inv_select)
 		Inv_select = 1
 	elseif key == "l" then
 		gamestate = 'inv_stuff'
@@ -699,7 +705,7 @@ function note_stuff_select_keypressed(key)
 			Note_Inv_select = Note_Inv_select + 1
 		end
 	elseif key == "return" then
-		Note:use(Note_Inv_page,Note_Inv_select)
+		Note.use(Note_Inv_page,Note_Inv_select)
 		Note_Inv_select = 1
 	elseif key == "l" then
 		gamestate = 'note_stuff'
@@ -720,7 +726,7 @@ function alert_keypressed(key)
 	if key == 'return' then
 		aud:seek(0)
 		love.audio.pause(aud)
-		gamestate = Alert:ReturnNex()
+		gamestate = Alert.ReturnNex()
 	end
 	--end)
 end
@@ -805,38 +811,7 @@ Game = {}
 function Game.load()
 	--pcall(function()
 	Save = love.filesystem.getInfo("/Save/.SaveFile")
-	--[[
-	--Goodbye Legacy code you will be missed o7
-	if Save ~= nil then
-		print("load SaveFile?")
-		print("yes/no?")
-		res = io.read()
-		if res == "yes" then
-			file = love.filesystem.load("/Save/.SaveFile")
-			file()
-			loaded = true
-			gamestate = 'cmd'
-			print("\nStarting up...")
-		elseif res == "no" then
-			print("\nDelete SaveFile?")
-			print("yes/no?")
-			res = io.read()
-			if res == "yes" then
-				love.filesystem.remove("/Save/.SaveFile")
-				print("\nStarting up...")
-			elseif res == 'no' then
-				print("\nStarting up...")
-			else
-				print("\nStarting up...")
-			end
-		else
-			print("\nStarting up...")
-		end
-	elseif Save == nil then
-		loaded = false
-	end
-	]]
-	Exp:new()
+	Exp.new()
 	option1 = false
 	Q_option = false
 	start_draw = function()
@@ -850,7 +825,7 @@ function Game.load()
 		else
 			raiseCash(100)
 			gamestate = 'menu'
-			Note:new("Welcome",1)
+			Note.new("Welcome",1)
 		end
 	end
 	
@@ -869,19 +844,19 @@ function Game.load()
 				if key == 'n' then
 					raiseCash(100)
 					gamestate = 'menu'
-					Note:new("Welcome",1)
+					Note.new("Welcome",1)
 				elseif key == 'y' then
 					raiseCash(100)
 					love.filesystem.remove("/Save/.SaveFile")
 					gamestate = 'menu'
-					Note:new("Welcome",1)
+					Note.new("Welcome",1)
 				end
 			end
 		end
 	end
 	
-	--font:newFont('main','/Textures/Fonts/Quinq.ttf',10)
-	love.graphics.setFont(font:getFont('main'))
+	--font.newFont('main','/Textures/Fonts/Quinq.ttf',10)
+	love.graphics.setFont(font.getFont('main'))
 	love.audio.setVolume(volume)
 	--end)
 end
@@ -896,6 +871,11 @@ function Game.update(dt)
 	if gamestate == 'cmd' then
 		worldN = D.SetN()
 		Updatecommand(worldN)
+		-- this is for testing the new dialoge module
+		if worldCmd.modeCheck then
+			-- check for dialoge mode
+			worldCmd.modeCheck()
+		end
 		gamestate = 'world'
 	end
 	function love.keypressed(key, scan_code, is_repeat)
@@ -952,26 +932,23 @@ function Game.update(dt)
 		effect:seek(0)
 		effect:play()
 	end
-	love.graphics.setFont(font:getFont('main'))
-	sound:update(dt)
+	love.graphics.setFont(font.getFont('main'))
+	sound.update(dt)
 	--end)
 end
 
 --[[ testing only ]]--
 function test() end
 
+Item.new("Name","Steak",0)
+Item.new("Name","Salad",0)
+Item.new("Name","Soda",0)
+
 --for i = 1,21 do
---	Note:new("lib note"..i,i);
+--	Note.new("lib note"..i,i);
 --end
 
-Item:new("item",-1)
-Note:new("Rodo History",24)
-Note:new("Please Read",25)
-
--- boss fight
-B_Janet:Load()
-B_Janet:Global()
-gamestate = 'fight'
+Item.new("item",nil,-1)
 
 function Game.draw()
 	--pcall(function()
@@ -1020,6 +997,7 @@ function Game.draw()
 	elseif gamestate == 'gameover' then
 		gameover_draw()
 	elseif gamestate == 'test' then
+		-- TODO: remove this gamestate
 		test()
 	else
 		void_draw()

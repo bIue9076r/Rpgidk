@@ -4,7 +4,7 @@ ds12.m = 'you come across the Big Green Lake Fence'
 ds12.m2 = ''
 ds12.o = {'y:yes','n:no'}
 ds12.f = ds12.o
-ds12.i = image:getImage()
+ds12.i = image.getImage('door')--"Big_green_lake_fence")
 ds12.inDialoge = false
 ds12.option = false
 ds12.Hp = 0--100
@@ -24,10 +24,10 @@ function ds12.keypressed(key)
 	if key == 'y' then
 		D.location = D.GetSubWorld(8)
 		Subselected = true
-		Alert:new('entering the Big Green Lake','stat')
+		Alert.new('entering the Big Green Lake','stat')
 		gamestate = 'alert'
 	elseif key == 'n' then
-		Alert:new('left the Big Green Lake','stat')
+		Alert.new('left the Big Green Lake','stat')
 		gamestate = 'alert'
 	end
 end

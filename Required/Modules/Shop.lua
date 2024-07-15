@@ -7,7 +7,7 @@ shopimg = 'shop'
 
 function shop_draw()
 	--pcall(function()
-		Store = sound:getSound('BuyinStore')
+		Store = sound.getSound('BuyinStore')
 		Store:play()
 		if D.location == 'city' then
 			if Ashley_Hp <= 0 or dah1.Hp > 0 then
@@ -15,9 +15,9 @@ function shop_draw()
 			elseif Ashley_Hp < 80 then
 				shopimg = 'shophurtemp'
 			end
-			if Quest:Return('ashley') --[[== 1 or Quest:Return('ashley') == true or Quest:Return('ashley') == 0 ]]then
-				love.graphics.draw(image:getImage(shopimg.."_"..D.location),0,0)
-				love.graphics.draw(image:getImage('Alert'),0,0)
+			if Quest.Return('ashley') --[[== 1 or Quest.Return('ashley') == true or Quest.Return('ashley') == 0 ]]then
+				love.graphics.draw(image.getImage(shopimg.."_"..D.location),0,0)
+				love.graphics.draw(image.getImage('Alert'),0,0)
 				if Ashley_Hp <= 10 or dah1.Hp > 0 then
 					love.graphics.print({{0,0,0},"..."},60,75)
 				elseif Ashley_Hp < 80 then
@@ -32,9 +32,9 @@ function shop_draw()
 				love.graphics.print({{1,1,1},"A = Attack boost, Stock:"..r_store_stock_Atk[0]},50,440)
 				love.graphics.print({{1,1,1},"D = Defence boost, Stock:"..r_store_stock_Def[0]},50,460)
 				--testing stat [[love.graphics.print({{0,0,0},"Ashley's health: "..Ashley_Hp},50,480)]]
-			elseif Quest:Return('ashley') == false then
-				love.graphics.draw(image:getImage(shopimg.."_"..D.location),0,0)
-				love.graphics.draw(image:getImage('Alert'),0,0)
+			elseif Quest.Return('ashley') == false then
+				love.graphics.draw(image.getImage(shopimg.."_"..D.location),0,0)
+				love.graphics.draw(image.getImage('Alert'),0,0)
 				love.graphics.print({{0,0,0},"I know why you're here"},60,75)
 				love.graphics.print({{0,0,0},"just get it over with."},60,95)
 				love.graphics.print({{1,1,1},"F = Fight"},50,400)
@@ -48,8 +48,8 @@ function shop_draw()
 			elseif Sally_Hp < 80 then
 				shopimg = 'shophurtemp'
 			end
-			love.graphics.draw(image:getImage(shopimg.."_"..D.location),0,0)
-			love.graphics.draw(image:getImage('Alert'),0,0)
+			love.graphics.draw(image.getImage(shopimg.."_"..D.location),0,0)
+			love.graphics.draw(image.getImage('Alert'),0,0)
 			if Sally_Hp <= 10 then
 				love.graphics.print({{0,0,0},"..."},60,75)
 			elseif Sally_Hp < 80 then
@@ -70,8 +70,8 @@ function shop_draw()
 			elseif George_Hp < 80 then
 				shopimg = 'shophurtemp'
 			end
-			love.graphics.draw(image:getImage(shopimg.."_"..D.location),0,0)
-			love.graphics.draw(image:getImage('Alert'),0,0)
+			love.graphics.draw(image.getImage(shopimg.."_"..D.location),0,0)
+			love.graphics.draw(image.getImage('Alert'),0,0)
 			if George_Hp <= 10 then
 				love.graphics.print({{0,0,0},"..."},60,75)
 			elseif George_Hp < 80 then
@@ -92,8 +92,8 @@ function shop_draw()
 			elseif Willson_Hp < 80 then
 				shopimg = 'shophurtemp'
 			end
-			love.graphics.draw(image:getImage(shopimg.."_"..D.location),0,0)
-			love.graphics.draw(image:getImage('Alert'),0,0)
+			love.graphics.draw(image.getImage(shopimg.."_"..D.location),0,0)
+			love.graphics.draw(image.getImage('Alert'),0,0)
 			if Willson_Hp <= 10 then
 				love.graphics.print({{0,0,0},"..."},60,75)
 			elseif Willson_Hp < 80 then
@@ -114,8 +114,8 @@ function shop_draw()
 			elseif Penelope_Hp < 80 then
 				shopimg = 'shophurtemp'
 			end
-			love.graphics.draw(image:getImage(shopimg.."_"..D.location),0,0)
-			love.graphics.draw(image:getImage('Alert'),0,0)
+			love.graphics.draw(image.getImage(shopimg.."_"..D.location),0,0)
+			love.graphics.draw(image.getImage('Alert'),0,0)
 			if Penelope_Hp <= 10 then
 				love.graphics.print({{0,0,0},"..."},60,75)
 			elseif Penelope_Hp < 80 then
@@ -136,9 +136,9 @@ end
 function shop_keypressed(key)
 	--pcall(function()
 	if D.location == 'city' then
-		if Quest:Return('ashley') --[[Quest:Return('ashley') == 1 
-		or Quest:Return('ashley') == true 
-		or Quest:Return('ashley') == 0 ]]then
+		if Quest.Return('ashley') --[[Quest.Return('ashley') == 1 
+		or Quest.Return('ashley') == true 
+		or Quest.Return('ashley') == 0 ]]then
 			if key == 'l' then
 				Store:seek(0)
 				love.audio.pause(Store)
@@ -170,11 +170,11 @@ function shop_keypressed(key)
 					dah1.Hp = 1
 					SubSelected = true
 					D.location = 'Ashleys House'
-					Alert:new("Went to Ashleys House","stat")
+					Alert.new("Went to Ashleys House","stat")
 					gamestate = 'alert'
 				end
 			end
-		elseif Quest:Return('ashley') == false then
+		elseif Quest.Return('ashley') == false then
 			if key == 'f' then
 				Store:seek(0)
 				love.audio.pause(Store)
@@ -186,16 +186,16 @@ function shop_keypressed(key)
 					Store:seek(0)
 					love.audio.pause(Store)
 					Cash = Cash - 150
-					Quest:SetT('ashley')
-					Alert:new('Bribed Ashley','stat')
-					Exp:add(90)
+					Quest.SetT('ashley')
+					Alert.new('Bribed Ashley','stat')
+					Exp.add(90)
 					gamestate = 'alert'
 				else
-					Alert:new('Ashley Declined','shop')
+					Alert.new('Ashley Declined','shop')
 					gamestate = 'alert'
 				end
 			elseif key == 'q' then
-				Quest:SetFL('ashley')
+				Quest.SetFL('ashley')
 				Store:seek(0)
 				love.audio.pause(Store)
 				gamestate = 'stat'

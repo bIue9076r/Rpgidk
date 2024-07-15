@@ -4,7 +4,7 @@ di5.m = 'A Yeti Approaches You'
 di5.m2 = ''
 di5.o = {'f:fight','r:run'}
 di5.f = di5.o
-di5.i = image:getImage('')
+di5.i = image.getImage('Yeti')
 di5.inDialoge = false
 di5.option = false
 di5.Hp = 3
@@ -29,22 +29,22 @@ function di5.keypressed(key)
 			raiseDef(23)
 			raiseRep(200)
 			raiseCash(150)
-			Alert:new('Fought The Yeti','stat')
-			Exp:add(460)
+			Alert.new('Fought The Yeti','stat')
+			Exp.add(460)
 			gamestate = 'alert'
 		else
 			Hurt(300)
-			Alert:new('Attacked by a Yeti','stat')
+			Alert.new('Attacked by a Yeti','stat')
 			gamestate = 'alert'
 		end
 	elseif key == "r" then
 		if Def >= 55 or math.random(1,20) == 5 then
-			Alert:new('Ran Away','stat')
-			Exp:add(375)
+			Alert.new('Ran Away','stat')
+			Exp.add(375)
 			gamestate = 'alert'
 		else
 			Hurt(250)
-			Alert:new('Attacked by a Yeti\n\nWhile Running Away','stat')
+			Alert.new('Attacked by a Yeti\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

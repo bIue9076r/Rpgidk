@@ -4,7 +4,7 @@ ds1.m = 'A wild Goose approches you'
 ds1.m2 = ''
 ds1.o = {'f:fight','r:run'}
 ds1.f = ds1.o
-ds1.i = image:getImage('')
+ds1.i = image.getImage('Wild_goose')
 ds1.inDialoge = false
 ds1.option = false
 ds1.Hp = 50
@@ -29,22 +29,22 @@ function ds1.keypressed(key)
 			raiseDef(3)
 			raiseRep(30)
 			raiseCash(55)
-			Alert:new('Fought The Goose','stat')
+			Alert.new('Fought The Goose','stat')
 			gamestate = 'alert'
-			Exp:add(325)
+			Exp.add(325)
 		else
 			Hurt(145)
-			Alert:new('Pecked by a Goose','stat')
+			Alert.new('Pecked by a Goose','stat')
 			gamestate = 'alert'
 		end
 	elseif key == 'r' then
 		if Def >= 21 or math.random(1,20) == 5 then
-			Alert:new('Ran Away','stat')
-			Exp:add(175)
+			Alert.new('Ran Away','stat')
+			Exp.add(175)
 			gamestate = 'alert'
 		else
 			Hurt(110)
-			Alert:new('Pecked by a Goose\n\nWhile Running Away','stat')
+			Alert.new('Pecked by a Goose\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

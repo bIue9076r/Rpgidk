@@ -1,10 +1,10 @@
 dd2 = {}
-dd2.n = 'Scorpian'
-dd2.m = 'A Wild Scorpian Aproaches you'
+dd2.n = 'scorpion'
+dd2.m = 'A Wild scorpion Aproaches you'
 dd2.m2 = ''
 dd2.o = {'f:fight','r:run'}
 dd2.f = dd2.o
-dd2.i = image:getImage('')
+dd2.i = image.getImage('scorpion')
 dd2.inDialoge = false
 dd2.option = false
 dd2.Hp = 70
@@ -12,7 +12,7 @@ dd2.Atk = 85
 dd2.Def = 10
 dd2.friendly = "Enemy"
 function dd2.draw()
-	dd2.m = 'A Wild Scorpian Aproaches you'
+	dd2.m = 'A Wild scorpion Aproaches you'
 	dd2.o = {'f:fight','r:run'}
 	love.graphics.draw(dd2.i,60,40)
 	love.graphics.print({{0,0,0},dd2.n},60,260)
@@ -29,22 +29,22 @@ function dd2.keypressed(key)
 			raiseDef(1)
 			raiseRep(25)
 			raiseCash(30)
-			Alert:new('Fought The Scorpian','stat')
+			Alert.new('Fought The scorpion','stat')
 			gamestate = 'alert'
-			Exp:add(40)
+			Exp.add(40)
 		else
 			Hurt(50)
-			Alert:new('Stung by Scorpian','stat')
+			Alert.new('Stung by scorpion','stat')
 			gamestate = 'alert'
 		end
 	elseif key == 'r' then
 		if Def >= 10 then
-			Alert:new('Ran Away','stat')
-			Exp:add(50)
+			Alert.new('Ran Away','stat')
+			Exp.add(50)
 			gamestate = 'alert'
 		else
 			Hurt(40)
-			Alert:new('Stung by Scorpian\n\nWhile Running Away','stat')
+			Alert.new('Stung by scorpion\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

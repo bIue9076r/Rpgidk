@@ -4,7 +4,7 @@ dw13.m = 'you come across the '
 dw13.m2 = ''
 dw13.o = {'y:yes','n:no'}
 dw13.f = dw13.o
-dw13.i = image:getImage('')
+dw13.i = image.getImage('door')--'Mysterious_entrance_base')
 dw13.inDialoge = false
 dw13.option = false
 dw13.Hp = 0--100
@@ -29,10 +29,10 @@ function dw13.keypressed(key)
 	if key == "y" then
 		D.location = D.GetSubWorld(14)
 		Subselected = true
-		Alert:new('entering the '..dw13.n,'stat')
+		Alert.new('entering the '..dw13.n,'stat')
 		gamestate = 'alert'
 	elseif key == "n" then
-		Alert:new('left the '..dw13.n,'stat')
+		Alert.new('left the '..dw13.n,'stat')
 		gamestate = 'alert'
 	end
 end

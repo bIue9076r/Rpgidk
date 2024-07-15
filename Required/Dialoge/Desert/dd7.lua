@@ -4,7 +4,7 @@ dd7.m = '"Have you seen any Outlaws\n\nlately"'
 dd7.m2 = ''
 dd7.o = {'r:run','f:fight','t:talk'}
 dd7.f = dd7.o
-dd7.i = image:getImage('')
+dd7.i = image.getImage('Bounty_hunter')
 dd7.inDialoge = false
 dd7.option = false
 dd7.Hp = 10
@@ -39,7 +39,7 @@ function dd7.keypressed(key)
 				dd7.inDialoge = true
 				dd7.o = {'y:yes','l:leave'}
 			elseif key == 'r' then
-				Alert:new('Ran Away','stat')
+				Alert.new('Ran Away','stat')
 				gamestate = 'alert'
 			elseif key == 'f' then
 				if Atk >= 100 or math.random(1,20) == 5 then
@@ -49,11 +49,11 @@ function dd7.keypressed(key)
 					raiseDef(6)
 					raiseCash(200)
 					CrimeUpdate(2)
-					Item:new("Bounty Hat","BountyHat",6,45)
-					Item:new("Tooth","Tooth",6,45)
+					Item.new("Bounty Hat","BountyHat",6,45)
+					Item.new("Tooth","Tooth",6,45)
 					----------1234567890 fits the 13 char limit
-					Alert:new('Fought a Bounty Hunter','stat')
-					Exp:add(550)
+					Alert.new('Fought a Bounty Hunter','stat')
+					Exp.add(550)
 					gamestate = 'alert'
 				else
 					Hurt(95)
@@ -65,7 +65,7 @@ function dd7.keypressed(key)
 				if key == 'y' then
 					dd7.inDialoge = false
 					raiseRep(300)
-					Alert:new('Spilled Information','stat')
+					Alert.new('Spilled Information','stat')
 					gamestate = 'alert'
 				elseif key == 'l' then
 					dd7.inDialoge = false
@@ -78,7 +78,7 @@ function dd7.keypressed(key)
 		if Rep >= -50 and TimeSinceLastCrime < 10 then
 			if not dd7.inDialoge then
 				if key == 'return' then
-					Alert:new('Let go','stat')
+					Alert.new('Let go','stat')
 					gamestate = 'alert'
 				end
 			else
@@ -100,11 +100,11 @@ function dd7.keypressed(key)
 						raiseDef(6)
 						raiseCash(200)
 						CrimeUpdate(2)
-						Item:new("Bounty Hat","BountyHat",6,45)
-						Item:new("Tooth","Tooth",6,45)
+						Item.new("Bounty Hat","BountyHat",6,45)
+						Item.new("Tooth","Tooth",6,45)
 						----------1234567890 fits the 13 char limit
-						Alert:new('Fought a Bounty Hunter','stat')
-						Exp:add(550)
+						Alert.new('Fought a Bounty Hunter','stat')
+						Exp.add(550)
 						gamestate = 'alert'
 					else
 						Hurt(95)
@@ -112,7 +112,7 @@ function dd7.keypressed(key)
 					end
 				elseif key == 'r' then
 					if Def >= 40 or math.random(1,20) == 5 then
-						Alert:new('Ran Away','stat')
+						Alert.new('Ran Away','stat')
 						gamestate = 'alert'
 					else
 						arrest()
@@ -130,16 +130,16 @@ function dd7.keypressed(key)
 							raiseRep(100)
 							CrimeUpdate(1)
 							dd7.inDialoge = false
-							Alert:new('Bribed The Bounty Hunter','stat')
+							Alert.new('Bribed The Bounty Hunter','stat')
 							gamestate = 'alert'
 						else
 							dd7.inDialoge = false
-							Alert:new('Failed to bribe \n\nThe Bounty Hunter','arrest')
+							Alert.new('Failed to bribe \n\nThe Bounty Hunter','arrest')
 							gamestate = 'alert'
 						end
 					else
 						dd7.inDialoge = false
-						Alert:new('Failed to bribe \n\nThe Bounty Hunter','arrest')
+						Alert.new('Failed to bribe \n\nThe Bounty Hunter','arrest')
 						gamestate = 'alert'
 					end
 				elseif key == 'l' then

@@ -4,7 +4,7 @@ di4.m = 'A demon crawls out of the Snow'
 di4.m2 = ''
 di4.o = {'f:fight','r:run'}
 di4.f = di4.o
-di4.i = image:getImage('')
+di4.i = image.getImage('Snow_demon')
 di4.inDialoge = false
 di4.option = false
 di4.Hp = 5
@@ -29,22 +29,22 @@ function di4.keypressed(key)
 			raiseDef(30)
 			raiseRep(350)
 			raiseCash(200)
-			Alert:new('Fought The Snow demon','stat')
-			Exp:add(500)
+			Alert.new('Fought The Snow demon','stat')
+			Exp.add(500)
 			gamestate = 'alert'
 		else
 			Hurt(350)
-			Alert:new('Attacked by a Snow demon','stat')
+			Alert.new('Attacked by a Snow demon','stat')
 			gamestate = 'alert'
 		end
 	elseif key == "r" then
 		if Def >= 10  then
-			Alert:new('Ran Away','stat')
-			Exp:add(75)
+			Alert.new('Ran Away','stat')
+			Exp.add(75)
 			gamestate = 'alert'
 		else
 			Hurt(400)
-			Alert:new('Attacked by a Snow demon\n\nWhile Running Away','stat')
+			Alert.new('Attacked by a Snow demon\n\nWhile Running Away','stat')
 			gamestate = 'alert'
 		end
 	end

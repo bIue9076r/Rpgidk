@@ -38,16 +38,17 @@ end
 
 function Level_Stat()
 	--Displays the Player's Level
-	love.graphics.print({{0,0,0},"Level:"..Exp:exportLevel()},60,330)
+	love.graphics.print({{0,0,0},"Level:"..Exp.exportLevel()},60,330)
 end
 
 function Exp_Stat()
 	--Displays the Player's Exp
-	love.graphics.print({{0,0,0},"Exp:"..Exp:exportCount().."/"..(Exp:exportLevel()*120)},60,350)
+	love.graphics.print({{0,0,0},"Exp:"..Exp.exportCount().."/"..(Exp.exportLevel()*120)},60,350)
 end
 
 --Player Inv
 
+-- Todo: Remove Depreciated functions
 function Med_Stat()
 	--Displays the Player's total Medkits
 	love.graphics.print({{love.math.colorFromBytes(114,159,207)},"Medkits:"..item[0]},60,290)
@@ -197,41 +198,41 @@ end
 function displayPlayerInv_stuff()
 	--pcall(function()
 	Inv_page = Inv_page or 1
-	love.graphics.draw(image:getImage('Inv'),0,0)
+	love.graphics.draw(image.getImage('Inv'),0,0)
 	--collumn 1
 	--13 max Chars
-	Stuff = Item:display(Inv_page)
+	Stuff = Item.display(Inv_page)
 	if(Stuff[1])then
 		love.graphics.print({{0,0,0},Stuff[1].name},95,290)
-		love.graphics.draw(image:getImage(Stuff[1].icon),60,290)
+		love.graphics.draw(image.getImage(Stuff[1].icon),60,290)
 	end
 	if(Stuff[2])then
 		love.graphics.print({{0,0,0},Stuff[2].name},95,290+20)
-		love.graphics.draw(image:getImage(Stuff[2].icon),60,290+20)
+		love.graphics.draw(image.getImage(Stuff[2].icon),60,290+20)
 	end
 	if(Stuff[3])then
 		love.graphics.print({{0,0,0},Stuff[3].name},95,290+(20*2))
-		love.graphics.draw(image:getImage(Stuff[3].icon),60,290+(20*2))
+		love.graphics.draw(image.getImage(Stuff[3].icon),60,290+(20*2))
 	end
 	if(Stuff[4])then
 		love.graphics.print({{0,0,0},Stuff[4].name},95,290+(20*3))
-		love.graphics.draw(image:getImage(Stuff[4].icon),60,290+(20*3))
+		love.graphics.draw(image.getImage(Stuff[4].icon),60,290+(20*3))
 	end
 	if(Stuff[5])then
 		love.graphics.print({{0,0,0},Stuff[5].name},95,290+(20*4))
-		love.graphics.draw(image:getImage(Stuff[5].icon),60,290+(20*4))
+		love.graphics.draw(image.getImage(Stuff[5].icon),60,290+(20*4))
 	end
 	if(Stuff[6])then
 		love.graphics.print({{0,0,0},Stuff[6].name},95,290+(20*5))
-		love.graphics.draw(image:getImage(Stuff[6].icon),60,290+(20*5))
+		love.graphics.draw(image.getImage(Stuff[6].icon),60,290+(20*5))
 	end
 	if(Stuff[7])then
 		love.graphics.print({{0,0,0},Stuff[7].name},95,290+(20*6))
-		love.graphics.draw(image:getImage(Stuff[7].icon),60,290+(20*6))
+		love.graphics.draw(image.getImage(Stuff[7].icon),60,290+(20*6))
 	end
 	if(Stuff[8])then
 		love.graphics.print({{0,0,0},Stuff[8].name},95,290+(20*7))
-		love.graphics.draw(image:getImage(Stuff[8].icon),60,290+(20*7))
+		love.graphics.draw(image.getImage(Stuff[8].icon),60,290+(20*7))
 	end
 	--page
 	love.graphics.print({{0,0,0},"Current Page:"..Inv_page},(60+70)*2,290+(20*6))
@@ -241,41 +242,41 @@ end
 function displayPlayerNote_stuff()
 	--pcall(function()
 	Note_Inv_page = Note_Inv_page or 1
-	love.graphics.draw(image:getImage('Inv'),0,0)
+	love.graphics.draw(image.getImage('Inv'),0,0)
 	--collumn 1
 	--13 max Chars
-	Stuff = Note:display(Note_Inv_page)
+	Stuff = Note.display(Note_Inv_page)
 	if(Stuff[1])then
 		love.graphics.print({{0,0,0},Stuff[1].name},95,290)
-		love.graphics.draw(image:getImage(Stuff[1].icon),60,290)
+		love.graphics.draw(image.getImage(Stuff[1].icon),60,290)
 	end
 	if(Stuff[2])then
 		love.graphics.print({{0,0,0},Stuff[2].name},95,290+20)
-		love.graphics.draw(image:getImage(Stuff[2].icon),60,290+20)
+		love.graphics.draw(image.getImage(Stuff[2].icon),60,290+20)
 	end
 	if(Stuff[3])then
 		love.graphics.print({{0,0,0},Stuff[3].name},95,290+(20*2))
-		love.graphics.draw(image:getImage(Stuff[3].icon),60,290+(20*2))
+		love.graphics.draw(image.getImage(Stuff[3].icon),60,290+(20*2))
 	end
 	if(Stuff[4])then
 		love.graphics.print({{0,0,0},Stuff[4].name},95,290+(20*3))
-		love.graphics.draw(image:getImage(Stuff[4].icon),60,290+(20*3))
+		love.graphics.draw(image.getImage(Stuff[4].icon),60,290+(20*3))
 	end
 	if(Stuff[5])then
 		love.graphics.print({{0,0,0},Stuff[5].name},95,290+(20*4))
-		love.graphics.draw(image:getImage(Stuff[5].icon),60,290+(20*4))
+		love.graphics.draw(image.getImage(Stuff[5].icon),60,290+(20*4))
 	end
 	if(Stuff[6])then
 		love.graphics.print({{0,0,0},Stuff[6].name},95,290+(20*5))
-		love.graphics.draw(image:getImage(Stuff[6].icon),60,290+(20*5))
+		love.graphics.draw(image.getImage(Stuff[6].icon),60,290+(20*5))
 	end
 	if(Stuff[7])then
 		love.graphics.print({{0,0,0},Stuff[7].name},95,290+(20*6))
-		love.graphics.draw(image:getImage(Stuff[7].icon),60,290+(20*6))
+		love.graphics.draw(image.getImage(Stuff[7].icon),60,290+(20*6))
 	end
 	if(Stuff[8])then
 		love.graphics.print({{0,0,0},Stuff[8].name},95,290+(20*7))
-		love.graphics.draw(image:getImage(Stuff[8].icon),60,290+(20*7))
+		love.graphics.draw(image.getImage(Stuff[8].icon),60,290+(20*7))
 	end
 	--page
 	love.graphics.print({{0,0,0},"Current Page:"..Note_Inv_page},(60+70)*2,290+(20*6))
@@ -285,39 +286,39 @@ end
 function displayFoodMenu(loc)
 	if loc == 'city' then
 		love.graphics.print({{0,0,0},"Steak $20"},95,290)
-		love.graphics.draw(image:getImage("placeholderIcon"),60,290)
+		love.graphics.draw(image.getImage("Steak"),60,290)
 		love.graphics.print({{0,0,0},"Salad $10"},95,290+20)
-		love.graphics.draw(image:getImage("placeholderIcon"),60,290+20)
+		love.graphics.draw(image.getImage("Salad"),60,290+20)
 		love.graphics.print({{0,0,0},"Soda $5"},95,290+(20*2))
-		love.graphics.draw(image:getImage("placeholderIcon"),60,290+(20*2))
+		love.graphics.draw(image.getImage("Soda"),60,290+(20*2))
 	elseif loc == 'desert' then
 		love.graphics.print({{0,0,0},"Cactus $25"},95,290)
-		love.graphics.draw(image:getImage("placeholderIcon"),60,290)
+		love.graphics.draw(image.getImage("Cactus"),60,290)
 		love.graphics.print({{0,0,0},"Sand Cakes $20"},95,290+20)
-		love.graphics.draw(image:getImage("placeholderIcon"),60,290+20)
+		love.graphics.draw(image.getImage("Sand_cake"),60,290+20)
 		love.graphics.print({{0,0,0},"Tea $5"},95,290+(20*2))
-		love.graphics.draw(image:getImage("placeholderIcon"),60,290+(20*2))
+		love.graphics.draw(image.getImage("Tea"),60,290+(20*2))
 	elseif loc == 'swamp' then
 		love.graphics.print({{0,0,0},"Coconut Slices $10"},95,290)
-		love.graphics.draw(image:getImage("placeholderIcon"),60,290)
+		love.graphics.draw(image.getImage("Coconut_slices"),60,290)
 		love.graphics.print({{0,0,0},"Coconut Juice $10"},95,290+20)
-		love.graphics.draw(image:getImage("placeholderIcon"),60,290+20)
+		love.graphics.draw(image.getImage("Coconut_juice"),60,290+20)
 		love.graphics.print({{0,0,0},"Water $0"},95,290+(20*2))
-		love.graphics.draw(image:getImage("placeholderIcon"),60,290+(20*2))
+		love.graphics.draw(image.getImage("Swamp_water"),60,290+(20*2))
 	elseif loc == 'ice' then
 		love.graphics.print({{0,0,0},"Cod $10"},95,290)
-		love.graphics.draw(image:getImage("placeholderIcon"),60,290)
+		love.graphics.draw(image.getImage("Cod"),60,290)
 		love.graphics.print({{0,0,0},"Salmon $10"},95,290+20)
-		love.graphics.draw(image:getImage("placeholderIcon"),60,290+20)
+		love.graphics.draw(image.getImage("Salmon"),60,290+20)
 		love.graphics.print({{0,0,0},"Hot Coco $5"},95,290+(20*2))
-		love.graphics.draw(image:getImage("placeholderIcon"),60,290+(20*2))
+		love.graphics.draw(image.getImage("Hot_coco"),60,290+(20*2))
 	elseif loc == 'wasteland' then
 		love.graphics.print({{0,0,0},"Rosted Scorpion $20"},95,290)
-		love.graphics.draw(image:getImage("placeholderIcon"),60,290)
+		love.graphics.draw(image.getImage("Rosted_scorpion"),60,290)
 		love.graphics.print({{0,0,0},"Wild Game $5"},95,290+20)
-		love.graphics.draw(image:getImage("placeholderIcon"),60,290+20)
+		love.graphics.draw(image.getImage("Wild_game"),60,290+20)
 		love.graphics.print({{0,0,0},"Waste $30"},95,290+(20*2))
-		love.graphics.draw(image:getImage("placeholderIcon"),60,290+(20*2))
+		love.graphics.draw(image.getImage("Nuclear_waste"),60,290+(20*2))
 	end
 end
 
@@ -333,7 +334,7 @@ function check_hp()
 				sitem[4][3] = sitem[4][3] - 1
 			else
 				dead = true
-				Alert:new(death_cause,'gameover')
+				Alert.new(death_cause,'gameover')
 				gamestate = 'alert'
 			end
 		end
@@ -380,14 +381,14 @@ end
 
 function _check_Atk(n)
 	if Atk < n then
-		Alert:new("I cant attack them",'stat')
+		Alert.new("I cant attack them",'stat')
 		gamestate = 'alert'
 	end
 end
 
 function _check_Def(n)
 	if Def < n then
-		Alert:new("This is gonna hurt",'stat')
+		Alert.new("This is gonna hurt",'stat')
 		gamestate = 'alert'
 	end
 end
@@ -405,7 +406,7 @@ function check_maxlck()
 end
 
 function arrest()
-	Alert:new("You have been arrested",'arrest')
+	Alert.new("You have been arrested",'arrest')
 	gamestate = 'alert'
 end
 
@@ -467,7 +468,7 @@ end
 
 function Pdead(name)
 	death_cause = "you were killed by "..name
-	Alert:new(death_cause,'gameover')
+	Alert.new(death_cause,'gameover')
 	gamestate = 'alert'
 	Hp = 0
 end
@@ -479,66 +480,66 @@ function Hurt(n)
 	Dam = n - math.ceil((log2(Def + (1 * (n^2))) * (Def)) / (20)) --max Def: inf
 	if (Dam > Hp) then Dam = Hp end
 	Hp = Hp - Dam
-	Alert:new("Lost "..Dam.." Hp",'stat')
+	Alert.new("Lost "..Dam.." Hp",'stat')
 	gamestate = 'alert'
 end
 
 function Heal(n)
 	Hp = Hp + n 
-	Alert:new("Gained "..n.." Hp",'stat')
+	Alert.new("Gained "..n.." Hp",'stat')
 	gamestate = 'alert'
 end
 
 function fullHeal()
-	Alert:new("Fully healed",'stat')
+	Alert.new("Fully healed",'stat')
 	gamestate = 'alert'
 	Hp = Max_Hp
 end
 
 function raiseRep(n)
-	Alert:new("Gained "..n.." Hp",'stat')
+	Alert.new("Gained "..n.." Hp",'stat')
 	gamestate = 'alert'
 	Rep = Rep + n
 end
 
 function lowerRep(n)
-	Alert:new("Lost "..n.." Rep",'stat')
+	Alert.new("Lost "..n.." Rep",'stat')
 	gamestate = 'alert'
 	Rep = Rep - n
 end
 
 function raiseAtk(n)
-	Alert:new("Gained "..n.." Atk",'stat')
+	Alert.new("Gained "..n.." Atk",'stat')
 	gamestate = 'alert'
 	Atk = Atk + n
 end
 
 function lowerAtk(n)
-	Alert:new("Lost "..n.." Atk",'stat')
+	Alert.new("Lost "..n.." Atk",'stat')
 	gamestate = 'alert'
 	Atk = Atk - n
 end
 
 function raiseDef(n)
-	Alert:new("Gained "..n.." Def",'stat')
+	Alert.new("Gained "..n.." Def",'stat')
 	gamestate = 'alert'
 	Def = Def + n
 end
 
 function lowerDef(n)
-	Alert:new("Lost "..n.." Def",'stat')
+	Alert.new("Lost "..n.." Def",'stat')
 	gamestate = 'alert'
 	Def = Def - n
 end
 
 function raiseCash(n)
-	Alert:new("Gained "..n.." Cash",'stat')
+	Alert.new("Gained "..n.." Cash",'stat')
 	gamestate = 'alert'
 	Cash = Cash + n
 end
 
 function lowerCash(n)
-	Alert:new("Lost "..n.." Cash",'stat')
+	Alert.new("Lost "..n.." Cash",'stat')
 	gamestate = 'alert'
 	Cash = Cash - n
 end
@@ -551,10 +552,10 @@ function useMed()
 	if item[0] > 0 then
 		Hp = Hp + 20 
 		item[0] = item[0] - 1
-		Alert:new("Used a medkit",'inv')
+		Alert.new("Used a medkit",'inv')
 		gamestate = 'alert'
 	else
-		Alert:new("Not enough medkits",'inv')
+		Alert.new("Not enough medkits",'inv')
 		gamestate = 'alert'
 	end
 end
@@ -564,10 +565,10 @@ function usePotion()
 		Hp = Hp - 30 
 		Atk = Atk + 10
 		item[1] = item[1] - 1
-		Alert:new("Used a potion",'inv')
+		Alert.new("Used a potion",'inv')
 		gamestate = 'alert'
 	else
-		Alert:new("Not enough potions",'inv')
+		Alert.new("Not enough potions",'inv')
 		gamestate = 'alert'
 	end
 end
@@ -576,10 +577,10 @@ function useAtkBoost()
 	if item[2] > 0 then
 		Atk = Atk + 3
 		item[2] = item[2] - 1
-		Alert:new("Used an ATK boost",'inv')
+		Alert.new("Used an ATK boost",'inv')
 		gamestate = 'alert'
 	else
-		Alert:new("Not enough ATK boost",'inv')
+		Alert.new("Not enough ATK boost",'inv')
 		gamestate = 'alert'
 	end
 end
@@ -588,10 +589,10 @@ function useDefBoost()
 	if item[3] > 0 then
 		Def = Def + 1
 		item[3] = item[3] - 1
-		Alert:new("Used a DEF boost",'inv')
+		Alert.new("Used a DEF boost",'inv')
 		gamestate = 'alert'
 	else
-		Alert:new("Not enough Def boost",'inv')
+		Alert.new("Not enough Def boost",'inv')
 		gamestate = 'alert'
 	end
 end
@@ -602,10 +603,10 @@ function useItem(name,rarity)
 			if sitem[0][rarity] > 0 then
 				Hp = Hp + (20 + (rarity * 20)) -- Max = Hp + 50
 				sitem[0][rarity] = sitem[0][rarity] - 1
-				Alert:new("Used a "..sNitem[rarity].."medkit",'inv_item')
+				Alert.new("Used a "..sNitem[rarity].."medkit",'inv_item')
 				gamestate = 'alert'
 			else
-				Alert:new("Not enough "..sNitem[rarity].."medkits",'inv_item')
+				Alert.new("Not enough "..sNitem[rarity].."medkits",'inv_item')
 				gamestate = 'alert'
 			end
 		elseif name == Nitem[1] then
@@ -614,30 +615,30 @@ function useItem(name,rarity)
 				Hp = Hp - (30 + (rarity * 30)) -- Max = Hp - 120 
 				Atk = Atk + 10 + (rarity * 10) -- Max = Atk + 40
 				sitem[1][rarity] = sitem[1][rarity] - 1
-				Alert:new("Used a "..sNitem[rarity].."potion",'inv_item')
+				Alert.new("Used a "..sNitem[rarity].."potion",'inv_item')
 				gamestate = 'alert'
 			else
-				Alert:new("Not enough "..sNitem[rarity].."potion",'inv_item')
+				Alert.new("Not enough "..sNitem[rarity].."potion",'inv_item')
 				gamestate = 'alert'
 			end
 		elseif name == Nitem[2] then
 			if sitem[2][rarity] > 0 then
 				Atk = Atk + 3 + (rarity * 9) -- Max = Atk + 30
 				sitem[2][rarity] = sitem[2][rarity] - 1
-				Alert:new("Used a "..sNitem[rarity].."ATK boost",'inv_item')
+				Alert.new("Used a "..sNitem[rarity].."ATK boost",'inv_item')
 				gamestate = 'alert'
 			else
-				Alert:new("Not enough "..sNitem[rarity].."Atk boost",'inv_item')
+				Alert.new("Not enough "..sNitem[rarity].."Atk boost",'inv_item')
 				gamestate = 'alert'
 			end	
 		elseif name == Nitem[3] then
 			if sitem[3][rarity] > 0 then
 				Def = Def + 1 + (rarity * 1) -- Max = Def + 4
 				sitem[3][rarity] = sitem[3][rarity] - 1
-				Alert:new("Used a "..sNitem[rarity].."DEF boost",'inv_item')
+				Alert.new("Used a "..sNitem[rarity].."DEF boost",'inv_item')
 				gamestate = 'alert'
 			else
-				Alert:new("Not enough "..sNitem[rarity].."Def boost",'inv_item')
+				Alert.new("Not enough "..sNitem[rarity].."Def boost",'inv_item')
 				gamestate = 'alert'
 			end
 		end
@@ -654,32 +655,32 @@ function rob(n,r,name,chance,expr,arst)
 			if Ashley_Hp - 10 <= 0 then
 				CrimeUpdate(3)
 				raiseKills()
-				Alert:new("The Ashley the Employee died",'stat')
+				Alert.new("The Ashley the Employee died",'stat')
 				Ashley_Hp = Ashley_Hp - 10
 				gamestate = 'alert'
 			elseif Ashley_Hp - 10  < 70 then
 				raiseCash(r)
 				lowerRep(2*r)
-				Exp:add(expr)
+				Exp.add(expr)
 				CrimeUpdate(2)
 				Ashley_Hp = Ashley_Hp - 10
-				Alert:new("Robbed "..name.."...you monster",'stat')
+				Alert.new("Robbed "..name.."...you monster",'stat')
 				gamestate = 'alert'
 			else
 				raiseCash(r)
 				lowerRep(r)
-				Exp:add(expr)
+				Exp.add(expr)
 				CrimeUpdate(2)
 				Ashley_Hp = Ashley_Hp - 10
-				Alert:new("Robbed "..name,'stat')
+				Alert.new("Robbed "..name,'stat')
 				gamestate = 'alert'
 			end
 		else
 			raiseCash(r)
 			lowerRep(r)
 			CrimeUpdate(2)
-			Exp:add(expr)
-			Alert:new("Robbed "..name,'stat')
+			Exp.add(expr)
+			Alert.new("Robbed "..name,'stat')
 			gamestate = 'alert'
 		end
 	else
@@ -691,7 +692,7 @@ function rob(n,r,name,chance,expr,arst)
 			lowerRep(r+10)
 			Hurt(n)
 			CrimeUpdate(1)
-			Alert:new("Falied to Rob\n\n"..name.." lmao",'stat')
+			Alert.new("Falied to Rob\n\n"..name.." lmao",'stat')
 			gamestate = 'alert'
 		end
 	end
@@ -705,14 +706,14 @@ function buyMed(loc,price)
 			lowerCash(price)
 			item[0] = item[0] + 1
 			store_stock_med = store_stock_med - 1
-			Alert:new("Bought a medkit",loc)
+			Alert.new("Bought a medkit",loc)
 			gamestate = 'alert'
 		else
-			Alert:new("Not enough cash",loc)
+			Alert.new("Not enough cash",loc)
 			gamestate = 'alert'
 		end
 	else
-		Alert:new("Medkits are out of stock",loc)
+		Alert.new("Medkits are out of stock",loc)
 		gamestate = 'alert'
 	end
 end
@@ -725,14 +726,14 @@ function buyPotion(loc,price)
 			lowerCash(price)
 			item[1] = item[1] + 1
 			store_stock_Posion = store_stock_Posion - 1
-			Alert:new("Bought a potion",loc)
+			Alert.new("Bought a potion",loc)
 			gamestate = 'alert'
 		else
-			Alert:new("Not enough cash",loc)
+			Alert.new("Not enough cash",loc)
 			gamestate = 'alert'
 		end
 	else
-		Alert:new("Potions are out of stock",loc)
+		Alert.new("Potions are out of stock",loc)
 		gamestate = 'alert'
 	end
 end
@@ -745,14 +746,14 @@ function buyAb(loc,price)
 			lowerCash(price)
 			item[2] = item[2] + 1
 			store_stock_Atk = store_stock_Atk - 1
-			Alert:new("Bought an atk boost",loc)
+			Alert.new("Bought an atk boost",loc)
 			gamestate = 'alert'
 		else
-			Alert:new("Not enough cash",loc)
+			Alert.new("Not enough cash",loc)
 			gamestate = 'alert'
 		end
 	else
-		Alert:new("atk boost are out of stock",loc)
+		Alert.new("atk boost are out of stock",loc)
 		gamestate = 'alert'
 	end
 end
@@ -765,14 +766,14 @@ function buyDb(loc,price)
 			lowerCash(price)
 			item[3] = item[3] + 1
 			store_stock_Def = store_stock_Def - 1
-			Alert:new("Bought a def boost",loc)
+			Alert.new("Bought a def boost",loc)
 			gamestate = 'alert'
 		else
-			Alert:new("Not enough cash",loc)
+			Alert.new("Not enough cash",loc)
 			gamestate = 'alert'
 		end
 	else
-		Alert:new("def boost are out of stock",loc)
+		Alert.new("def boost are out of stock",loc)
 		gamestate = 'alert'
 	end
 end
@@ -787,14 +788,14 @@ function buyItem(name,rarity,loc,price)
 					lowerCash(price)
 					sitem[0][rarity] = sitem[0][rarity] + 1
 					r_store_stock_med[rarity] = r_store_stock_med[rarity] - 1
-					Alert:new("Bought a "..sNitem[rarity].."medkit",loc)
+					Alert.new("Bought a "..sNitem[rarity].."medkit",loc)
 					gamestate = 'alert'
 				else
-					Alert:new("Not enough cash",loc)
+					Alert.new("Not enough cash",loc)
 					gamestate = 'alert'
 				end
 			else
-				Alert:new(sNitem[rarity].."Medkits are out of stock",loc)
+				Alert.new(sNitem[rarity].."Medkits are out of stock",loc)
 				gamestate = 'alert'
 			end
 		elseif name == Nitem[1] then
@@ -805,14 +806,14 @@ function buyItem(name,rarity,loc,price)
 					lowerCash(price)
 					sitem[1][rarity] = sitem[1][rarity] + 1
 					r_store_stock_Posion[rarity] = r_store_stock_Posion[rarity] - 1
-					Alert:new("Bought a "..sNitem[rarity].."potion",loc)
+					Alert.new("Bought a "..sNitem[rarity].."potion",loc)
 					gamestate = 'alert'
 				else
-					Alert:new("Not enough cash",loc)
+					Alert.new("Not enough cash",loc)
 					gamestate = 'alert'
 				end
 			else
-				Alert:new(sNitem[rarity].."Potions are out of stock",loc)
+				Alert.new(sNitem[rarity].."Potions are out of stock",loc)
 				gamestate = 'alert'
 			end
 		elseif name == Nitem[2] then
@@ -823,14 +824,14 @@ function buyItem(name,rarity,loc,price)
 					lowerCash(price)
 					sitem[2][rarity] = sitem[2][rarity] + 1
 					r_store_stock_Atk[rarity] = r_store_stock_Atk[rarity] - 1
-					Alert:new("Bought a "..sNitem[rarity].."atk boost",loc)
+					Alert.new("Bought a "..sNitem[rarity].."atk boost",loc)
 					gamestate = 'alert'
 				else
-					Alert:new("Not enough cash",loc)
+					Alert.new("Not enough cash",loc)
 					gamestate = 'alert'
 				end
 			else
-				Alert:new(sNitem[rarity].."atk boost are out of stock",loc)
+				Alert.new(sNitem[rarity].."atk boost are out of stock",loc)
 				gamestate = 'alert'
 			end
 		elseif name == Nitem[3] then
@@ -841,14 +842,14 @@ function buyItem(name,rarity,loc,price)
 					lowerCash(price)
 					sitem[3][rarity] = sitem[3][rarity] + 1
 					r_store_stock_Def[rarity] = r_store_stock_Def[rarity] - 1
-					Alert:new("Bought a "..sNitem[rarity].."def boost",loc)
+					Alert.new("Bought a "..sNitem[rarity].."def boost",loc)
 					gamestate = 'alert'
 				else
-					Alert:new("Not enough cash",loc)
+					Alert.new("Not enough cash",loc)
 					gamestate = 'alert'
 				end
 			else
-				Alert:new(sNitem[rarity].."def boost are out of stock",loc)
+				Alert.new(sNitem[rarity].."def boost are out of stock",loc)
 				gamestate = 'alert'
 			end
 		elseif name == Nitem[4] then
@@ -857,10 +858,10 @@ function buyItem(name,rarity,loc,price)
 			if Cash > (price - 1) then
 				lowerCash(price)
 				sitem[4][rarity] = sitem[4][rarity] + 1
-				Alert:new("Bought a "..sNitem[rarity].."revive elixir",loc)
+				Alert.new("Bought a "..sNitem[rarity].."revive elixir",loc)
 				gamestate = 'alert'
 			else
-				Alert:new("Not enough cash",loc)
+				Alert.new("Not enough cash",loc)
 				gamestate = 'alert'
 			end
 		end

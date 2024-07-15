@@ -7,7 +7,7 @@ Note.Notes = {} -- sets up the Note inventory
 Note.page = 0
 Note.count = 0
 
-function Note:new(name,funint) -- creates a new Note
+function Note.new(name,funint) -- creates a new Note
 	theTable = {}
 	theTable.name = name or 'null' -- the name of the Note
 	theTable.icon = 'placeholderIcon'--'Mystery' -- the icon image
@@ -16,7 +16,7 @@ function Note:new(name,funint) -- creates a new Note
 	table.insert(Note.Notes,theTable)
 end
 
-function Note:RanNew() -- random Note
+function Note.RanNew() -- random Note
 	theTable = {}
 	theTable.name = 'Mystery Note'
 	theTable.icon = 'Mystery_Note'
@@ -26,7 +26,7 @@ function Note:RanNew() -- random Note
 	table.insert(Note.Notes,theTable)
 end
 
-function Note:use(page,count)-- uses an Note
+function Note.use(page,count)-- uses an Note
 	Note.page = page
 	Note.count = count
 	if Note.Notes[Note.count+((Note.page-1)*8)] ~= nil then
@@ -36,12 +36,12 @@ function Note:use(page,count)-- uses an Note
 	end
 end
 
-function Note:throwAway(page,count)
-	Note:Remove(count+((page-1)*8))
+function Note.throwAway(page,count)
+	Note.Remove(count+((page-1)*8))
 	-- removes the Note
 end
 
-function Note:display(page) -- returns a list of Notes from the selected page
+function Note.display(page) -- returns a list of Notes from the selected page
 	upperbound = page * 8
 	lowerbound = ((page-1)*8)+1
 	local returntable = {}
@@ -51,7 +51,7 @@ function Note:display(page) -- returns a list of Notes from the selected page
 	return returntable;
 end
 
-function Note:Remove(n) -- removes the selected Note
+function Note.Remove(n) -- removes the selected Note
 	Note.Notes[n] = nil
 	for i = n+1,#Note.Notes+2 do
 		Note.Notes[i-1]=Note.Notes[i]
@@ -59,12 +59,12 @@ function Note:Remove(n) -- removes the selected Note
 	end
 end
 
-function Note:reload(NoteTable) -- /* depreciated */
+function Note.reload(NoteTable) -- /* depreciated */
 	-- you cant save the function, which makes the Note useless
 	Note.Notes = NoteTable;
 end
 
-function Note:get() -- /* depreciated */
+function Note.get()
 	-- only use for saving as it gives the entire table
-	return self.Notes;
+	return Note.Notes;
 end

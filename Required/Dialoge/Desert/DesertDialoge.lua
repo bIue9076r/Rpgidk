@@ -1,7 +1,7 @@
 --Desert dialoge
 D['desert'] = {}
 require('/Required/Dialoge/Desert/dd1') -- Raider
-require('/Required/Dialoge/Desert/dd2') -- Scorpian
+require('/Required/Dialoge/Desert/dd2') -- scorpion
 require('/Required/Dialoge/Desert/dd3') -- Boar
 require('/Required/Dialoge/Desert/dd4') -- Wanderer
 require('/Required/Dialoge/Desert/dd5') -- Sand Statue

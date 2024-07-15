@@ -4,7 +4,7 @@ dd6.m = '...'
 dd6.m2 = ''
 dd6.o = {'h:hug','r:run','t:talk'}
 dd6.f = dd6.o
-dd6.i = image:getImage('')
+dd6.i = image.getImage('Cactus_big')
 dd6.inDialoge = false
 dd6.option = false
 dd6.Hp = 30
@@ -31,18 +31,18 @@ function dd6.keypressed(key)
 			dd6.o = {'l:leave'}
 			dd6.inDialoge = true
 		elseif key == 'r' then
-			Alert:new('Ran Away','stat')
+			Alert.new('Ran Away','stat')
 			gamestate = 'alert'
 		elseif key == 'f' then
 			dd6.Hp = dd6.Hp - 1
 			Hurt(80)
-			Alert:new('What?','stat')
+			Alert.new('What?','stat')
 			gamestate = 'alert'
 		elseif key == 'h' then
 			Hurt(40)
 			raiseAtk(2)
 			raiseDef(2)
-			Alert:new('Hugged a Cactus','stat')
+			Alert.new('Hugged a Cactus','stat')
 			gamestate = 'alert'
 		end
 	else

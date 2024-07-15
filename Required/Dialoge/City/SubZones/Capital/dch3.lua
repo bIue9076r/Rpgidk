@@ -8,7 +8,7 @@ dch3.o = {
 }
 dch3.ol = #dch3.o
 dch3.f = dch3.o
-dch3.i = image:getImage('')
+dch3.i = image.getImage('President_harley')
 dch3.FirstOption = false
 dch3.SecondOption = false
 dch3.option = false
@@ -132,22 +132,22 @@ function dch3.AdvKeyPress()
 					Traitor = true
 					dch3.Hp = dch3.Hp - 1 -- she's dead lol
 					CrimeUpdate(10)
-					Exp:add(20)
-					Alert:new('Beat Harley','stat')
+					Exp.add(20)
+					Alert.new('Beat Harley','stat')
 					gamestate = 'alert'
 				else
 					AttemptedTraitor = true
 					-- you're gonna have a bad time
 					Hurt(50)
-					Alert:new('Failed to Beat Harley','stat')
+					Alert.new('Failed to Beat Harley','stat')
 					gamestate = 'alert'
 				end
 			elseif dch3.select == 3 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
-			Alert:new('Left?','stat')
+			Alert.new('Left?','stat')
 			gamestate = 'alert'
 		end
 	elseif dch3_scum then
@@ -156,18 +156,18 @@ function dch3.AdvKeyPress()
 				Traitor = true
 				dch3.Hp = dch3.Hp - 1 -- she's dead lol
 				CrimeUpdate(10)
-				Exp:add(20)
-				Alert:new('Beat Harley','stat')
+				Exp.add(20)
+				Alert.new('Beat Harley','stat')
 				gamestate = 'alert'
 			else
 				AttemptedTraitor = true
 				-- you're gonna have a bad time
 				Hurt(50)
-				Alert:new('Failed to Beat Harley','stat')
+				Alert.new('Failed to Beat Harley','stat')
 				gamestate = 'alert'
 			end
 		elseif dch3.select == 2 then
-			Alert:new('Left','stat')
+			Alert.new('Left','stat')
 			gamestate = 'alert'
 		end
 	elseif Harley_dislike then
@@ -185,18 +185,18 @@ function dch3.AdvKeyPress()
 					Traitor = true
 					dch3.Hp = dch3.Hp - 1 -- she's dead lol
 					CrimeUpdate(10)
-					Exp:add(20)
-					Alert:new('Beat Harley','stat')
+					Exp.add(20)
+					Alert.new('Beat Harley','stat')
 					gamestate = 'alert'
 				else
 					AttemptedTraitor = true
 					-- you're gonna have a bad time
 					Hurt(50)
-					Alert:new('Failed to Beat Harley','stat')
+					Alert.new('Failed to Beat Harley','stat')
 					gamestate = 'alert'
 				end
 			elseif dch3.select == 3 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
@@ -206,19 +206,19 @@ function dch3.AdvKeyPress()
 					dch3.Hp = dch3.Hp - 1 -- she's dead lol
 					dch3.FirstOption = false
 					CrimeUpdate(10)
-					Exp:add(20)
-					Alert:new('Beat Harley','stat')
+					Exp.add(20)
+					Alert.new('Beat Harley','stat')
 					gamestate = 'alert'
 				else
 					AttemptedTraitor = true
 					-- you're gonna have a bad time
 					Hurt(50)
 					dch3.FirstOption = false
-					Alert:new('Failed to Beat Harley','stat')
+					Alert.new('Failed to Beat Harley','stat')
 					gamestate = 'alert'
 				end
 			elseif dch3.select == 2 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		end
@@ -232,15 +232,15 @@ function dch3.AdvKeyPress()
 				}
 				dch3.ol = #dch3.o
 			elseif dch3.select == 2 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			elseif dch3.select == 3 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
 			dch3.FirstOption = false
-			Alert:new('Harley leaves','stat')
+			Alert.new('Harley leaves','stat')
 			gamestate = 'alert'
 		end
 	elseif dch3_astole then
@@ -262,14 +262,14 @@ function dch3.AdvKeyPress()
 				dch3.ol = #dch3.o
 				dch3_flag = 'talk'
 			elseif dch3.select == 3 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
 			if not dch3.SecondOption then
 				if dch3_flag == 'ignore' then
 					dch3.FirstOption = false
-					Alert:new('Harley leaves','stat')
+					Alert.new('Harley leaves','stat')
 					gamestate = 'alert'
 				elseif dch3_flag == 'talk' then
 					dch3.m = '"i\'d like to know more"'
@@ -297,15 +297,15 @@ function dch3.AdvKeyPress()
 						dch3.ThirdOption = true
 						
 						-- you dont get out that easy
-						--Alert:new('Spoke with Harley','world')
+						--Alert.new('Spoke with Harley','world')
 						--gamestate = 'alert'
 						--dch3_astole = false
-						--Alert:new('Left','stat')
+						--Alert.new('Left','stat')
 						--gamestate = 'alert'
 					elseif dch3.select == 2 then
 						dch3.FirstOption = false
 						dch3.SecondOption = false
-						Alert:new('Left','stat')
+						Alert.new('Left','stat')
 						gamestate = 'alert'
 					end
 				else
@@ -359,15 +359,15 @@ function dch3.AdvKeyPress()
 								dch3.Hp = dch3.Hp - 1 -- she's dead lol
 								dch3.FirstOption = false
 								CrimeUpdate(10)
-								Exp:add(20)
-								Alert:new('Beat Harley','stat')
+								Exp.add(20)
+								Alert.new('Beat Harley','stat')
 								gamestate = 'alert'
 							else
 								AttemptedTraitor = true
 								-- you're gonna have a bad time
 								Hurt(50)
 								dch3.FirstOption = false
-								Alert:new('Failed to Beat Harley','stat')
+								Alert.new('Failed to Beat Harley','stat')
 								gamestate = 'alert'
 							end
 						elseif dch3.select == 6 then
@@ -382,7 +382,7 @@ function dch3.AdvKeyPress()
 							dch3.FirstOption = false
 							dch3.SecondOption = false
 							dch3.ThirdOption = false
-							Alert:new('Left','stat')
+							Alert.new('Left','stat')
 							gamestate = 'alert'
 						end
 					else
@@ -401,7 +401,7 @@ function dch3.AdvKeyPress()
 								dch3.SecondOption = false
 								dch3.ThirdOption = false
 								dch3.FourthOption = false
-								Alert:new('Harley walks away','stat')
+								Alert.new('Harley walks away','stat')
 								gamestate = 'alert'
 							elseif dch3_flag == 'nopd' then
 								Harley_dislike = true
@@ -409,7 +409,7 @@ function dch3.AdvKeyPress()
 								dch3.SecondOption = false
 								dch3.ThirdOption = false
 								dch3.FourthOption = false
-								Alert:new('Harley walks away','stat')
+								Alert.new('Harley walks away','stat')
 								gamestate = 'alert'
 							elseif dch3_flag == 'donate' then
 								dch3.FirstOption = false
@@ -417,7 +417,7 @@ function dch3.AdvKeyPress()
 								dch3.ThirdOption = false
 								dch3.FourthOption = false
 								raiseCash(250) -- quite generous of her.
-								Alert:new('Harley Donated to you','stat')
+								Alert.new('Harley Donated to you','stat')
 								gamestate = 'alert'
 							elseif dch3_flag == 'talk' then
 								dch3.m = '"People lose their possesions"'
@@ -434,7 +434,7 @@ function dch3.AdvKeyPress()
 								dch3.FourthOption = false
 								dch3.FifthOption = false
 								dch3.SixthOption = false
-								Alert:new('Harley walks away','stat')
+								Alert.new('Harley walks away','stat')
 								gamestate = 'alert'
 							end
 						end
@@ -507,13 +507,13 @@ function dch3.AdvKeyPress()
 					dch3.FirstOption = false
 					Janet_Inform = false
 					raiseCash(450)
-					Alert:new('Given Money','stat')
+					Alert.new('Given Money','stat')
 					gamestate = 'alert'
 				elseif dch3_flag == "Ext_Cash" then
 					dch3.FirstOption = false
 					Janet_Inform = false
 					raiseCash(650)
-					Alert:new('Given More Money','stat')
+					Alert.new('Given More Money','stat')
 					gamestate = 'alert'
 				elseif dch3_flag == "Why_Rant" then
 					dch3.SecondOption = true
@@ -534,7 +534,7 @@ function dch3.AdvKeyPress()
 				else
 					if not dch3.FourthOption then
 						dch3.FourthOption = true
-						dch3.m = '"She only really liked Tracy"'
+						dch3.m = '"She only really liked Tracey"'
 						----------12345678901234567890123456789012
 						dch3.o = {
 							"continue"
@@ -565,7 +565,7 @@ function dch3.AdvKeyPress()
 								dch3.SixthOption = false
 								Janet_Inform = false
 								raiseCash(450)
-								Alert:new('Given Money','stat')
+								Alert.new('Given Money','stat')
 								gamestate = 'alert'
 							end
 						end
@@ -592,7 +592,7 @@ function dch3.AdvKeyPress()
 				dch3.ol = #dch3.o
 				dch3_flag = 'steal'
 			elseif dch3.select == 3 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
@@ -603,15 +603,15 @@ function dch3.AdvKeyPress()
 						dch3.Hp = dch3.Hp - 1
 						dch3.FirstOption = false
 						CrimeUpdate(10)
-						Exp:add(20)
-						Alert:new('Beat Harley','stat')
+						Exp.add(20)
+						Alert.new('Beat Harley','stat')
 						gamestate = 'alert'
 					else
 						AttemptedTraitor = true
 						-- you're gonna have a bad time
 						Hurt(50)
 						dch3.FirstOption = false
-						Alert:new('Failed to Beat Harley','stat')
+						Alert.new('Failed to Beat Harley','stat')
 						gamestate = 'alert'
 					end
 				elseif dch3_flag == 'steal' then
@@ -621,8 +621,8 @@ function dch3.AdvKeyPress()
 						end
 						dch3.FirstOption = false
 						raiseCash(25)
-						Exp:add(20)
-						Alert:new('Stole from Harley','stat')
+						Exp.add(20)
+						Alert.new('Stole from Harley','stat')
 						gamestate = 'alert'
 					else
 						dch3_astole = true
@@ -662,17 +662,17 @@ function dch3.AdvKeyPress()
 				dch3.ol = #dch3.o
 				dch3_flag = 'fight'
 			elseif dch3.select == 4 then
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			end
 		else
 			if dch3_flag == 'thanks' then
 				raiseRep(15)
-				Alert:new('Left','stat')
+				Alert.new('Left','stat')
 				gamestate = 'alert'
 			elseif dch3_flag == 'pardon' then
 				Rep = 1
-				Alert:new('Pardoned','stat')
+				Alert.new('Pardoned','stat')
 				gamestate = 'alert'
 			elseif dch3_flag == 'fight' then
 				if Atk >= 25 then
@@ -680,15 +680,15 @@ function dch3.AdvKeyPress()
 					dch3.Hp = dch3.Hp - 1 -- she's dead lol
 					dch3.FirstOption = false
 					CrimeUpdate(10)
-					Exp:add(20)
-					Alert:new('Beat Harley','stat')
+					Exp.add(20)
+					Alert.new('Beat Harley','stat')
 					gamestate = 'alert'
 				else
 					AttemptedTraitor = true
 					-- you're gonna have a bad time
 					Hurt(50)
 					dch3.FirstOption = false
-					Alert:new('Failed to Beat Harley','stat')
+					Alert.new('Failed to Beat Harley','stat')
 					gamestate = 'alert'
 				end
 			end

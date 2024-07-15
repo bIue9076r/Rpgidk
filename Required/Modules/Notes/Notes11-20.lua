@@ -1,8 +1,8 @@
 --11 to 20
 -- conditions: speak to jannet
 function NoteUses.CapitalHall_FastFacts4()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
 	love.graphics.print({{0,0,0},"Frosted Spikes Fast Facts #4"},60,80)
 	love.graphics.print({{0,0,0},"we have had a total of 35"},60,120)
 	love.graphics.print({{0,0,0},"Presidents in our entire History"},60,140)
@@ -21,8 +21,8 @@ NoteUse[11] = NoteUses.CapitalHall_FastFacts4
 
 -- conditions: get libary papers
 function NoteUses.CapitalHall_PresidentGuide1()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
 	love.graphics.print({{0,0,0},"Frosted Spikes Presidents #1"},60,80)
 	love.graphics.print({{0,0,0},"1.William Jackson 1805-1815"},60,120)--1
 	love.graphics.print({{0,0,0},"2.Henry Smith 1815-1820"},60,140)
@@ -45,8 +45,8 @@ NoteUse[12] = NoteUses.CapitalHall_PresidentGuide1
 
 -- conditions: get libary papers
 function NoteUses.CapitalHall_PresidentGuide2()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
 	love.graphics.print({{0,0,0},"Frosted Spikes Presidents #2"},60,80)
 	love.graphics.print({{0,0,0},"16.Roger Sloan 1890-1900"},60,120)--3
 	love.graphics.print({{0,0,0},"17.Hadyn Fisher 1900-1905"},60,140)
@@ -69,8 +69,8 @@ NoteUse[13] = NoteUses.CapitalHall_PresidentGuide2
 
 -- conditions: get libary papers
 function NoteUses.CapitalHall_PresidentGuide3()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
 	love.graphics.print({{0,0,0},"Frosted Spikes Presidents #3"},60,80)
 	love.graphics.print({{0,0,0},"31.Blaire Arlington 1980-1985"},60,120)
 	love.graphics.print({{0,0,0},"32.Jaxton Hewitt 1985-1990"},60,140)
@@ -83,8 +83,8 @@ NoteUse[14] = NoteUses.CapitalHall_PresidentGuide3
 
 -- conditions: reprint libary papers
 function NoteUses.CapitalHall_PresidentGuide3_Reprinted()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
 	love.graphics.print({{0,0,0},"Frosted Spikes Presidents #3"},60,80)
 	love.graphics.print({{0,0,0},"31.Blaire Arlington 1980-1985"},60,120)
 	love.graphics.print({{0,0,0},"32.Jaxton Hewitt 1985-1990"},60,140)
@@ -101,8 +101,8 @@ end
 
 -- conditions: reprint libary papers after killing Valary
 function NoteUses.CapitalHall_PresidentGuide3_Reprinted_val()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
 	love.graphics.print({{0,0,0},"Frosted Spikes Presidents #3"},60,80)
 	love.graphics.print({{0,0,0},"31.Blaire Arlington 1980-1985"},60,120)
 	love.graphics.print({{0,0,0},"32.Jaxton Hewitt 1985-1990"},60,140)
@@ -118,8 +118,8 @@ end
 
 -- conditions: get libary papers
 function NoteUses.CapitalHall_PresidentFacts1()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
 	love.graphics.print({{0,0,0},"Presidents Fast Facts #3"},60,80)
 	love.graphics.print({{0,0,0},"Only 5 Presidents have served 2"},60,120)
 	love.graphics.print({{0,0,0},"terms."},60,140)
@@ -134,8 +134,8 @@ NoteUse[15] = NoteUses.CapitalHall_PresidentFacts1
 
 -- conditions: get libary papers
 function NoteUses.CapitalHall_FastFacts5()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
 	love.graphics.print({{0,0,0},"Frosted Spikes Fast Facts #5"},60,80)
 	love.graphics.print({{0,0,0},"in late 1855 Gerald Jackson"},60,120)
 	love.graphics.print({{0,0,0},"Suggested to have"},60,140)
@@ -154,9 +154,9 @@ NoteUse[16] = NoteUses.CapitalHall_FastFacts5
 
 -- conditions: get libary papers
 function NoteUses.CapitalHall_ValaryHist1()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
-	love.graphics.print({{0,0,0},"The History Valary Hopson #1"},60,80)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
+	love.graphics.print({{0,0,0},"The History of Valary Hopson #1"},60,80)
 	love.graphics.print({{0,0,0},"Valary Hopson might just be our"},60,120)
 	love.graphics.print({{0,0,0},"most intresting president. born"},60,140)
 	love.graphics.print({{0,0,0},"in the ice sector in 1886 she"},60,160)
@@ -176,9 +176,9 @@ NoteUse[17] = NoteUses.CapitalHall_ValaryHist1
 
 -- conditions: get libary papers
 function NoteUses.CapitalHall_ValaryHist2()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
-	love.graphics.print({{0,0,0},"The History Valary Hopson #2"},60,80)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
+	love.graphics.print({{0,0,0},"The History of Valary Hopson #2"},60,80)
 	love.graphics.print({{0,0,0},"Valary started voting against"},60,120)
 	love.graphics.print({{0,0,0},"laws granting personal freedoms."},60,140)
 	love.graphics.print({{0,0,0},"Suprisingly She still won the"},60,160)
@@ -197,9 +197,9 @@ NoteUse[18] = NoteUses.CapitalHall_ValaryHist2
 
 -- conditions: get libary papers
 function NoteUses.CapitalHall_ValaryHist3()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
-	love.graphics.print({{0,0,0},"The History Valary Hopson #3"},60,80)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
+	love.graphics.print({{0,0,0},"The History of Valary Hopson #3"},60,80)
 	love.graphics.print({{0,0,0},"She had Set in place several"},60,120)
 	love.graphics.print({{0,0,0},"Strict bans to majority of items"},60,140)
 	love.graphics.print({{0,0,0},"by the end of the year every"},60,160)
@@ -219,9 +219,9 @@ NoteUse[19] = NoteUses.CapitalHall_ValaryHist3
 
 -- conditions: get libary papers
 function NoteUses.CapitalHall_ValaryHist4()
-	love.graphics.draw(image:getImage(D.location),0,0)
-	love.graphics.draw(image:getImage('note'),0,0)
-	love.graphics.print({{0,0,0},"The History Valary Hopson #4"},60,80)
+	love.graphics.draw(image.getImage(D.location),0,0)
+	love.graphics.draw(image.getImage('note'),0,0)
+	love.graphics.print({{0,0,0},"The History of Valary Hopson #4"},60,80)
 	love.graphics.print({{0,0,0},"Kimberly Ayton the daughter of"},60,120)
 	love.graphics.print({{0,0,0},"Melvin Ayton. Stabed Valary"},60,140)
 	love.graphics.print({{0,0,0},"in the back during a speech"},60,160)

@@ -4,7 +4,7 @@ dc8.m = '...'
 dc8.m2 = '...'
 dc8.o = {'t:talk','r:run','f:fight','s:steal'}
 dc8.f = dc8.o
-dc8.i = image:getImage('StreetLamp')
+dc8.i = image.getImage('StreetLamp')
 dc8.inDialoge = false
 dc8.option = false
 dc8.Hp = 30
@@ -38,15 +38,15 @@ function dc8.keypressed(key)
 				dc8.o = {'l:leave'}
 				dc8.inDialoge = true
 			elseif key == 'r' then
-				Alert:new('Ran Away','stat')
+				Alert.new('Ran Away','stat')
 				gamestate = 'alert'
 			elseif key == 'f' then
 				dc8.Hp = dc8.Hp - 1
-				Alert:new('Dude what are you doing','stat')
+				Alert.new('Dude what are you doing','stat')
 				gamestate = 'alert'
 			elseif key == 's' then
 				dc8.Hp = dc8.Hp - 1
-				Alert:new('Dude what are you doing','stat')
+				Alert.new('Dude what are you doing','stat')
 				gamestate = 'alert'
 			end
 		else
@@ -92,15 +92,15 @@ function dc8.keypressed(key)
 				dc8.o = {'l:leave'}
 				dc8.inDialoge = true
 			elseif key == 'r' then
-				Alert:new('Ran Away','stat')
+				Alert.new('Ran Away','stat')
 				gamestate = 'alert'
 			elseif key == 'f' then
 				dc8.Hp = dc8.Hp - 1
-				Alert:new('Dude what are you doing','stat')
+				Alert.new('Dude what are you doing','stat')
 				gamestate = 'alert'
 			elseif key == 's' then
 				dc8.Hp = dc8.Hp - 1
-				Alert:new('Dude what are you doing','stat')
+				Alert.new('Dude what are you doing','stat')
 				gamestate = 'alert'
 			end
 		else

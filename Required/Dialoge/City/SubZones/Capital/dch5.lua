@@ -5,7 +5,7 @@ dch5.m2 = ''
 dch5.o = {'y:yes','r:run','f:fight','t:talk'}
 dch5.f = dch5.o
 dch5.ol = #dch5.o
-dch5.i = image:getImage('')
+dch5.i = image.getImage('Robot_sectetary')
 dch5.FirstOption = false
 dch5.SecondOption = false
 dch5.option = false
@@ -83,7 +83,7 @@ function dch5.AdvKeyPress()
 			dch5.FirstOption = true
 			dch5_flag = "steal"
 		elseif dch5.select == 5 then
-			Alert:new('Left','stat')
+			Alert.new('Left','stat')
 			gamestate = 'alert'
 		end
 	else
@@ -94,8 +94,8 @@ function dch5.AdvKeyPress()
 			dch5_range = "8~11"
 			dch5_itblu = Range.parse(dch5_range)
 			dch5_n = math.random(1,#dch5_itblu)
-			Note:new("A Guide",dch5_itblu[dch5_n])
-			Alert:new('Guide given','stat')
+			Note.new("A Guide",dch5_itblu[dch5_n])
+			Alert.new('Guide given','stat')
 			gamestate = 'alert'
 		elseif dch5_flag == "fight" then
 			if Atk >= 100 then
@@ -103,15 +103,15 @@ function dch5.AdvKeyPress()
 				dch5.Hp = dch5.Hp - 1
 				CrimeUpdate(3)
 				lowerRep(50)
-				Exp:add(2500)
-				Alert:new('Beat The Robot','stat')
+				Exp.add(2500)
+				Alert.new('Beat The Robot','stat')
 				gamestate = 'alert'
 			else
 				dch5.FirstOption = false
 				Hurt(200)
 				lowerRep(50)
 				CrimeUpdate(2)
-				Alert:new('Failed To Beat The Robot','stat')
+				Alert.new('Failed To Beat The Robot','stat')
 				gamestate = 'alert'
 			end
 		elseif dch5_flag == "steal" then
@@ -119,15 +119,15 @@ function dch5.AdvKeyPress()
 				dch5.FirstOption = false
 				raiseCash(250)
 				CrimeUpdate(2)
-				Exp:add(2000)
-				Alert:new('Stole from The Robot','stat')
+				Exp.add(2000)
+				Alert.new('Stole from The Robot','stat')
 				gamestate = 'alert'
 			else
 				dch5.FirstOption = false
 				CrimeUpdate(1)
 				lowerRep(50)
 				dch5_astole = true
-				Alert:new('Failed to Steal from\n\nThe Robot','stat')
+				Alert.new('Failed to Steal from\n\nThe Robot','stat')
 				gamestate = 'alert'
 			end
 		end

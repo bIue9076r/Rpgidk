@@ -4,7 +4,7 @@ dw3.m = '"Need something?"'
 dw3.m2 = ''
 dw3.o = {'y:yes','r:run','f:fight'}
 dw3.f = dw3.o
-dw3.i = image:getImage('')
+dw3.i = image.getImage('Sketcy_figure')
 dw3.inDialoge = false
 dw3.option = false
 dw3.Hp = 10
@@ -35,7 +35,7 @@ function dw3.keypressed(key)
 			}
 			dw3.inDialoge = true
 		elseif key == 'r' then
-			Alert:new('Ran away','stat')
+			Alert.new('Ran away','stat')
 			gamestate = 'alert'
 		elseif key == 'f' then
 			if Atk >= 195 or math.random(1,15) == 4 then
@@ -43,13 +43,13 @@ function dw3.keypressed(key)
 				raiseAtk(30)
 				raiseDef(5)
 				raiseCash(115)
-				Item:new("Tooth","Tooth",0)
-				Alert:new('Fought The Wanderer','stat')
+				Item.new("Tooth","Tooth",0)
+				Alert.new('Fought The Wanderer','stat')
 				gamestate = 'alert'
-				Exp:add(250)
+				Exp.add(250)
 			else
 				Hurt(200)
-				Alert:new('Falied to beat The Wanderer','stat')
+				Alert.new('Falied to beat The Wanderer','stat')
 				gamestate = 'alert'
 			end
 		end
